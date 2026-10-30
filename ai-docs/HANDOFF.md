@@ -3,6 +3,7 @@
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
 ## Current state (2026-10-30, session 13)
+- T-20261030-7: big breadth fixture harbor-yard (outcome-9, ten flaws over seven files plus a defended Kraken). with 0.94, without 0.97: breadth does not separate the arms. One skill run failed Kraken precision, unverified (no review kept).
 - game-juice 1.3.0 released (PR m4bwav/game-juice#5, tag, zips, installed): juice-scan Step 2 classifies the feel (P-23) and lists inferred movement and rule properties (P-24, P-25); report header carries both. The Swink list in kb/feel-handoff.md is now fully delivered. The PR showed no CI checks; local check_scan and check_skills passed.
 - game-juice 1.2.0 released (m4bwav/game-juice PRs #3, #4, tag v1.2.0, installed as game-juice@game-juice): Swink ch. 12-16 read; juice-principles gained P-23 to P-27, lenses J13-J14 and references/feel-cases.md (method only). HANDOFF Next 4 done; the "what Swink adds" list in kb/feel-handoff.md is now delivered except the juice-scan report field and feel-metrics checklist (not done: juice-scan untouched).
 - v0.1.6 (C-20261030-4): curve --costs for multi-currency tables, clock and units check in review step 2, stable improve ids. PR #11 merged, tagged and released with the zip, updated from mark-local. Installed folder 297 KB, 3 KB under the green line: trim before adding kb.
@@ -18,7 +19,7 @@ Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (st
 - Nothing blocking. Open question: is the skill's value worth 3x tokens when detection is close to bare Claude? Options in "Next".
 
 ## Next
-1. Counted-evidence case done (outcome-8). Still owed: a SpaceDeckBuilder2-sized fixture where breadth matters, 5 runs a case. Consider an evergreen PR so worth can score per-grader means, not only all-pass.
+1. Breadth fixture done (outcome-9, tie). Next: re-run its skill arm with --keep-temp to read the Kraken precision failure; make the harbor-yard flaws quieter (playtest notes currently state the Driftwood trick, Rope Ladder and Tidecaller wins outright). Consider an evergreen PR so worth can score per-grader means, not only all-pass.
 2. (Closed 2026-10-30, T-20261030-5: batching instructions did not cut turns.) Never commit evals/results; run `git status` before staging.
 3. Reviewer gaps left: adaptive players, Unity GUIDs (clock and units, multi-currency costs and improve ids done in 0.1.6).
 4. (Done: game-juice 1.2.0 and 1.3.0.) Swink list closed.

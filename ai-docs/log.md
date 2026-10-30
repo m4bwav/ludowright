@@ -65,3 +65,6 @@ HANDOFF Next 4. Read Swink ch. 12-16 (openings and summaries of all five; Mario 
 
 ## [2026-10-30] handoff | game-juice 1.3.0: juice-scan feel type and inferred properties
 HANDOFF Next 4 remainder. juice-scan Step 2 now classifies the feel (P-23: control, space, polish) before judging and writes down speed, jump height, gravity, HP and caps with file:line (P-24, P-25); report-template header gained both lines. PR #5 merged (no CI checks reported; local tests passed), v1.3.0 tagged and released, plugin updated. Evals not re-run: triggers unchanged.
+
+## [2026-10-30] evals | harbor-yard breadth fixture: tie
+HANDOFF Next 1. New fixture harbor-yard and outcome-9 (11 regex graders on review.md). 3 runs an arm: with 0.94, without 0.97; bare Claude covers all ten flaws. One skill run failed the Kraken precision grader, text not kept. Clock grader tightened after it matched the fixture itself. T-20261030-7. About $5.6.

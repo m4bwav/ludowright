@@ -8,6 +8,12 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-7 · 2026-10-30 · claude plugin eval (outcome-9 new: harbor-yard breadth fixture; 3 runs each arm, --scaffold, --allow-tools Write, -j 4) · owner-pc Windows · with 0.94, without 0.97
+- New fixture harbor-yard: 28 cards, 7 buildings, 3 factions, events, tuning, rules.py and playtest notes; ten planted flaws over seven files (faction edge, cost-curve outlier, dominated card, buy-and-scrap coin loop, negative-EV event bet, Beacon win with no Lens source, round 10 in code vs 14 in the rules, uncoded card text, Tide bonus rewarding stalling, first player 4 of 10 read as even) plus a defended Kraken. Eleven regex graders on the saved review.md.
+- With: 1.00, 0.82, 1.00 at 18-24 turns, $1.23-1.43. Run 2 missed the first-player 40% and failed the Kraken precision check (review text not kept, so unverified whether it filed Kraken major or only mentioned the words on one line). Without: 1.00, 0.91, 1.00 at 11-12 turns, $0.52-0.62; run 2 missed the uncoded-text list. Total about $5.6.
+- Breadth does not separate the arms either: bare Claude covers all ten when the flaws are this legible. The clock grader was loosened in this run (any 10 near 14) and tightened after; all six runs passed it.
+- led to: none. Next: re-run the skill arm with --keep-temp to read the Kraken failure; to separate the arms the flaws must be quieter (numbers that need counting, not stated in the notes).
+
 ### T-20261030-6 · 2026-10-30 · claude plugin eval (outcome-8 new: counted evidence on ember-market; 5 runs each arm, --scaffold, --allow-tools Write, -j 4) · owner-pc Windows · with 0.85, without 0.65
 - Four regex graders on the saved review.md: cost curve as a table with Bellows beside other cards, Kiln odds shown (not only the EV), Spark loop counted from the starting deck, Foundry win share computed as 25%.
 - With: 1, .75, .75, .75, 1 (cost table 5/5, Kiln odds 4/5, loop 5/5, win share 3/5), 13-23 turns, $0.92-1.22. Without: .75, .5, .5, .5, 1 (cost table 2/5, win share 1/5), 6 turns, about $0.40. Total $7.29.
