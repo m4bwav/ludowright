@@ -1,8 +1,8 @@
 ---
-max_turns: 8
-timeout_seconds: 240
-allowed_tools: [Read, Glob, Grep, Skill]
+max_turns: 25
+timeout_seconds: 480
+allowed_tools: [Read, Glob, Grep, Skill, Write]
 runs: 3
 ---
 
-Copy the ludowright plugin's evals/fixtures/tiny-colony folder to a temp folder and review that game's economy; save the findings there.
+My colony deckbuilder's design is in the tiny-colony folder here. Review the game's economy and save the findings in that folder.

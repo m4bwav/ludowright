@@ -4,6 +4,10 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261029-2 · 2026-10-29 · Description trimmed under 1024 chars
+- skill-tidy ST005: the description was 1072 chars and some hosts drop longer ones. Cut 'sources and sinks', 'and questionnaires' and the 'how do I make my game better' trigger phrase (still covered by 'what's wrong with my game' and the improve route). Also added the salt-road fixture and outcome-3, outcome-4.
+- because: skill-tidy lint
+
 ### C-20261029-1 · 2026-10-29 · Created as an evergreen unit
 - because: user request
 - files: SKILL.md, RESEARCH.md, LEARNINGS.md, evergreen.json (skills: also TESTS.md and evals/evals.json)

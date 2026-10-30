@@ -26,3 +26,9 @@ Sellers ch. 4-10 and 12 in part (analytical balance and telemetry unread). Costi
 
 ## [2026-10-29] reading | level design and procgen books done; all nine groups in
 Totten, Bauer, Short and Adams, Shaker-Togelius-Nelson written, each compared with the Level Up! distillation. 27 notes files in books/plugin-learnings/round3-game-design/. Next: step 4 synthesis into kb/.
+
+## [2026-10-29] review | first real-game run: SpaceDeckBuilder2 (read-only)
+Review (13 findings, validate OK) and improve list (10) in ai-docs/reviews/ (gitignored), with ldw-xp-sim, ldw-deck-growth, ldw-energy and ldw-buildings-curve tables. Top: Shuttle win unreachable (no Fuel Cell / Spacecraft Component producer), Launchpad-then-wait wins at turn 30, 70 of 82 reward cards uncoded. Skill gaps seen: no step for "doc and code disagree on the clock", rubric lacks an "implemented vs authored" check, curve needs multi-resource costs declared by hand, economy has no fractional/policy guidance, improve.md ids get renumbered by the md sort.
+
+## [2026-10-29] evals | salt-road fixture, outcome A/B, tidy
+Harder fixture salt-road plus outcome-3/-4; outcome cases seeded by case.yaml scaffolds. plugin eval on Windows: no shell grant possible, so the skill arm hand-counts and loses on last-message grading (T-20261029-2, L-20261029-1, about $17 of eval runs). skill-tidy: description cut under 1024 chars; ST021 nested kb links kept by design. Repo m4bwav/ludowright still absent; evergreen-protocol#34 open, no comments.

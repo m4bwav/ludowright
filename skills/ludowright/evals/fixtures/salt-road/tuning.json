@@ -1,0 +1,8 @@
+{
+  "days": 20,
+  "carts": 5,
+  "start_gold": 30,
+  "storm_chance_mountain": 0.0,
+  "storm_chance_lowland": 0.0,
+  "ambush_loss_carts": 2
+}

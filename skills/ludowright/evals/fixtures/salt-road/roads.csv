@@ -1,0 +1,7 @@
+from,to,days,terrain,ambush_chance
+Brine,Kessel,2,lowland,0.10
+Brine,Vell,1,mountain,0.00
+Kessel,Harrow,2,lowland,0.15
+Harrow,Ostmark,3,lowland,0.20
+Vell,Ostmark,1,mountain,0.00
+Kessel,Vell,3,lowland,0.10

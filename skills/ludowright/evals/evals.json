@@ -1,26 +1,32 @@
 {
   "skill": "ludowright",
-  "_format": "skill-creator evals.json plus evergreen fields (kind, decoy, evidence, baseline, reference, holdout); extra fields are ignored by skill-creator's runner. reference: what a correct reply says, for the judge to compare against. holdout: true keeps a value case out of evergreen-tune's sight. Rules: protocol/TESTING.md. Fixture: evals/fixtures/tiny-colony (an invented game with two planted flaws: Overclock is under-costed, and gold piles up with one weak sink).",
+  "_format": "skill-creator evals.json plus evergreen fields (kind, decoy, evidence, baseline, reference, holdout); extra fields are ignored by skill-creator's runner. reference: what a correct reply says, for the judge to compare against. holdout: true keeps a value case out of evergreen-tune's sight. Rules: protocol/TESTING.md. Fixtures: evals/fixtures/tiny-colony (an invented game with two planted flaws: Overclock is under-costed, and gold piles up with one weak sink); evals/fixtures/salt-road (harder: a buy-half, sell-full reputation loop between rule 2 and the rep-5 perk, and a 'no route is safe to repeat' promise that tuning.json drops with storm chances of 0, leaving the 1-day, 0-ambush mountain roads dominant).",
   "evals": [
     {
       "id": "trigger-1",
       "kind": "trigger",
       "prompt": "Can you go through my game's design docs and tell me what's actually broken about it? It's a deckbuilder, docs are in the docs/ folder.",
-      "expectations": ["the ludowright skill is invoked"],
+      "expectations": [
+        "the ludowright skill is invoked"
+      ],
       "runs": 3
     },
     {
       "id": "trigger-2",
       "kind": "trigger",
       "prompt": "I've got a 48-hour game jam this weekend, theme is 'only one'. Give me a couple of game ideas I could actually finish solo.",
-      "expectations": ["the ludowright skill is invoked"],
+      "expectations": [
+        "the ludowright skill is invoked"
+      ],
       "runs": 3
     },
     {
       "id": "trigger-3",
       "kind": "trigger",
       "prompt": "Is this card overpowered? It costs 1 energy, deals 6 and draws a card, and everything else at cost 1 does about 2.",
-      "expectations": ["the ludowright skill is invoked"],
+      "expectations": [
+        "the ludowright skill is invoked"
+      ],
       "runs": 3
     },
     {
@@ -28,7 +34,9 @@
       "kind": "trigger",
       "decoy": true,
       "prompt": "My platformer's jump feels floaty and the landing has no weight. How do I make it feel better?",
-      "expectations": ["ludowright is not invoked: feel belongs to game-juice (juice-scan or juice-principles)"],
+      "expectations": [
+        "ludowright is not invoked: feel belongs to game-juice (juice-scan or juice-principles)"
+      ],
       "runs": 3
     },
     {
@@ -36,7 +44,9 @@
       "kind": "trigger",
       "decoy": true,
       "prompt": "My Unity coroutine that spawns enemies never finishes; the WaitForSeconds never returns after I pause the game. Fix it.",
-      "expectations": ["ludowright is not invoked: engine code belongs to unity-agent"],
+      "expectations": [
+        "ludowright is not invoked: engine code belongs to unity-agent"
+      ],
       "runs": 3
     },
     {
@@ -44,31 +54,59 @@
       "kind": "trigger",
       "decoy": true,
       "prompt": "Write the story and the opening dialogue for my space colony game: who the captain is and what happened to Earth.",
-      "expectations": ["ludowright is not invoked: story writing is not game design review or balance"],
+      "expectations": [
+        "ludowright is not invoked: story writing is not game design review or balance"
+      ],
       "runs": 3
     },
     {
       "id": "action-1",
       "kind": "action",
       "prompt": "Copy the ludowright plugin's evals/fixtures/tiny-colony folder to a temp folder, then review that game's design for flaws and save the review there.",
-      "expectations": ["a findings JSON file is written in the temp folder and `ldw.py findings validate` prints OK for it", "a markdown view sits beside it"],
-      "evidence": {"type": "command", "run": "python <plugin>/skills/ludowright/scripts/ldw.py findings validate <temp folder>/review-*.json", "expect": "OK:"},
+      "expectations": [
+        "a findings JSON file is written in the temp folder and `ldw.py findings validate` prints OK for it",
+        "a markdown view sits beside it"
+      ],
+      "evidence": {
+        "type": "command",
+        "run": "python <plugin>/skills/ludowright/scripts/ldw.py findings validate <temp folder>/review-*.json",
+        "expect": "OK:"
+      },
       "runs": 3
     },
     {
       "id": "action-2",
       "kind": "action",
       "prompt": "Pitch me a game: a cozy fishing game where the fish remember you. Save the design to a file in a temp folder.",
-      "expectations": ["a design-*.md file exists with a core loop, an experience goal, mechanics, progression, scope and risks sections, and at least two alternatives"],
-      "evidence": {"type": "file", "path": "<temp folder>/design-*.md", "contains_all": ["Core loop", "Risks", "Alternative"]},
+      "expectations": [
+        "a design-*.md file exists with a core loop, an experience goal, mechanics, progression, scope and risks sections, and at least two alternatives"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "<temp folder>/design-*.md",
+        "contains_all": [
+          "Core loop",
+          "Risks",
+          "Alternative"
+        ]
+      },
       "runs": 3
     },
     {
       "id": "outcome-1",
       "kind": "outcome",
       "prompt": "Copy the ludowright plugin's evals/fixtures/tiny-colony folder to a temp folder and review its card balance; save the findings there.",
-      "expectations": ["the findings name Overclock as under-costed or dominant, citing cards.csv"],
-      "evidence": {"type": "file", "path": "<temp folder>/review-*.json", "contains_all": ["Overclock", "cards.csv"]},
+      "expectations": [
+        "the findings name Overclock as under-costed or dominant, citing cards.csv"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "<temp folder>/review-*.json",
+        "contains_all": [
+          "Overclock",
+          "cards.csv"
+        ]
+      },
       "reference": "Overclock costs 1 but outputs 6 and draws 1; every other cost-1 card gives about 2 of one thing. It is the only correct pick at cost 1 (dominant strategy), found by a cost curve over cards.csv.",
       "runs": 3
     },
@@ -77,9 +115,55 @@
       "kind": "outcome",
       "holdout": true,
       "prompt": "Copy the ludowright plugin's evals/fixtures/tiny-colony folder to a temp folder and review that game's economy; save the findings there.",
-      "expectations": ["the findings flag gold as accumulating with a single capped sink (economy-leak), citing economy.md or DESIGN.md rule 4"],
-      "evidence": {"type": "file", "path": "<temp folder>/review-*.json", "contains_all": ["economy-leak", "gold"]},
+      "expectations": [
+        "the findings flag gold as accumulating with a single capped sink (economy-leak), citing economy.md or DESIGN.md rule 4"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "<temp folder>/review-*.json",
+        "contains_all": [
+          "economy-leak",
+          "gold"
+        ]
+      },
       "reference": "Gold comes in at about 8 a turn by turn 6 while the only sink is one card a turn costing 4 to 8, so gold piles up and stops being a decision.",
+      "runs": 3
+    },
+    {
+      "id": "outcome-3",
+      "kind": "outcome",
+      "prompt": "Copy the ludowright plugin's evals/fixtures/salt-road folder to a temp folder and review that game's design for flaws; save the findings there.",
+      "expectations": [
+        "the findings flag the loop: at reputation 5 a player buys at half price and sells at full base price in the same town, gaining gold and more reputation without limit (citing reputation.md and the price rule in DESIGN.md or goods.csv)"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "<temp folder>/review-*.json",
+        "contains_all": [
+          "reputation",
+          "half"
+        ]
+      },
+      "reference": "Rule 2 fixes sell prices at base whatever reputation; the rep-5 Guild price halves buy prices; rule 3 adds reputation per cart sold. So past rep 5 buying and reselling the same good in one town is pure profit that also feeds reputation: a degenerate, unbounded loop.",
+      "runs": 3
+    },
+    {
+      "id": "outcome-4",
+      "kind": "outcome",
+      "holdout": true,
+      "prompt": "Copy the ludowright plugin's evals/fixtures/salt-road folder to a temp folder and check whether the game delivers what its design doc promises; save the findings there.",
+      "expectations": [
+        "the findings say the 'no route is safe to repeat' / weather pillar is not delivered because tuning.json sets storm chances to 0, so the 1-day, 0-ambush mountain roads (Brine-Vell, Vell-Ostmark) are always best"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "<temp folder>/review-*.json",
+        "contains_all": [
+          "storm",
+          "tuning.json"
+        ]
+      },
+      "reference": "Pillar 1 promises weather changes the best road, but storm_chance_mountain and storm_chance_lowland are 0.0, and the mountain roads are shortest with no ambush, so one route dominates every trip.",
       "runs": 3
     }
   ]

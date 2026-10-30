@@ -8,6 +8,15 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261029-2 · 2026-10-29 · claude plugin eval (outcome-1..4, 3 runs each arm, haiku judge on the last message, --scaffold, Write granted, no shell) · owner-pc Windows · 1/4 cases pass both arms
+- Harness: cases now seed the fixture with case.yaml + fixture.sh (the first run, without scaffolds, scored 0 on all 24 runs because the sandbox could not read the plugin folder). Windows cannot confine Bash, so `plugin eval` refuses a shell grant: ldw.py never ran and the skill arm did the counting by hand (18-25 turns against 6-8 without).
+- outcome-1 · outcome · flaky · with 1/3, without 2/3; replies that pass and fail look alike in substance.
+- outcome-2 · outcome · grader · 0/3 both arms although every reply names gold piling up past turn 6 with the one-card-a-turn sink; the expectation's wording ("single capped sink", "economy-leak") is stricter than the judge can match.
+- outcome-3 (new salt-road fixture, reputation loop) · pass 3/3 with, 3/3 without: the loop is found either way.
+- outcome-4 (holdout, dropped storm promise) · with 0/3, without 3/3. The skill's replies name storms at 0.0 in tuning.json but lead with the shell caveat and a short top list; the judge wanted the dominant mountain roads in the last message.
+- Not run: action-2 (design one-pager).
+- led to: L-20261029-1; next: grade the saved findings file, not the last message, and run the A/B where a shell exists (evergreen-tester, or plugin eval on macOS/Linux).
+
 ### T-20261029-1 · 2026-10-29 · not yet run · skill · 0/0
 - Suite scaffolded; no run recorded. Write the cases in `evals/evals.json` (at least two trigger prompts, two decoys, one action case with evidence, one outcome case), run the baseline without the skill, then run with it (`evergreen-test`).
 - led to: none

@@ -38,18 +38,25 @@
     "learnings": 0,
     "changes": 0,
     "research": 0,
-    "tests": 1
+    "tests": 2
   },
   "consolidate_every": 25,
   "tests": {
-    "last_run": "2026-10-29T19:42",
-    "harness": null,
-    "env": "windows",
-    "cases": 7,
-    "passed": 7,
-    "failed": 0,
-    "failing": [],
-    "last_failure": null,
+    "last_run": "2026-10-29T20:13",
+    "harness": "claude plugin eval",
+    "env": "owner-pc windows, no shell",
+    "cases": 4,
+    "passed": 1,
+    "failed": 3,
+    "failing": [
+      "outcome-1",
+      "outcome-2",
+      "outcome-4"
+    ],
+    "last_failure": {
+      "date": "2026-10-29",
+      "note": "T-20261029-2: harness limits; see TESTS.md"
+    },
     "research_after_days": null
   },
   "scout": {
