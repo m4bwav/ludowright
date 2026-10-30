@@ -38,3 +38,6 @@ Mark OK'd the public repo and objected to no review finding (unbuilt items are j
 
 ## [2026-10-29] tune | 0.1.1: no-shell fallback, lantern-keep, eval grants
 SKILL.md: one-line no-shell fallback, findings before caveats, contract 1.1 named. New fixture lantern-keep (uncoded beacon win and flavour relic) with outcome-5; action cases got graders. plugin eval needs `--allow-tools Write`; granting Bash fails on Windows (no sandbox). action-2 passes; outcome-5 ties because of the flaws-first order (question for Mark). About $6 of runs.
+
+## [2026-10-30] tune | 0.1.2: R-53 ruling applied
+Mark chose "core-win gap first": a designed-but-uncoded piece that blocks the advertised win or core loop now leads the review; other unbuilt gaps follow the flaws. First re-run scored 0/3 in both arms because the judge reads only the reply and the reply never said "prototype"; step 7 now names stage and built status. Re-run: with 0.67, without 0.33. PowerShell --scaffold fails (WSL bash); Git Bash works. About $5 of runs.

@@ -10,6 +10,6 @@ The rubric is [../kb/review-rubric.md](../kb/review-rubric.md). Topic files back
 4. **Count where counting decides.** Cost curves for any table of priced things, `economy` for every resource with sources and sinks, `ev` and `sim` for random rewards and draws (kb/balance-tables.md). Save each declared table as `ldw-<topic>.json` next to the findings and cite it in the evidence.
 5. **Grade.** Severity by what the rubric item says; confidence high only when the evidence is in the files, low when it needs play to confirm. Feel problems: `category: feel`, `handoff: juice-scan`, one line, no tuning advice.
 6. **Write** `review-<game>-<date>.json` (`LDW findings new --game <name> --kind review`, then fill it), validate with `LDW findings validate`, render `LDW findings md ... -o review-<game>-<date>.md`. Both files must exist before you report.
-7. **Report** the path and the top five findings, one line each (ID, severity, title, location), flaws in what exists first, then the gaps in what is not built yet. Offer the improvement list as the next step.
+7. **Report** the path and the stage and the top five findings, one line each (ID, severity, built status when not built, title, location), flaws in what exists first, then the gaps in what is not built yet, except that a gap blocking the win or core loop the game advertises goes first of all. Offer the improvement list as the next step.
 
 Never edit the game's files. A reviewer who changes the thing reviewed has stopped reviewing.

@@ -429,6 +429,6 @@ Related: [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](b
 ### R-53 Authored, not built
 - Look for: Cards, rewards, win paths or systems that the design doc or data tables define but no code applies (grep the code for each data id or effect key). Settle the stage first: in a prototype this is the to-do list, in a shipped game it is a broken promise.
 - Breaks: Promises kept; the loop the design depends on
-- Severity hint: in a game still being built, grade by what the gap blocks (a win condition or a core loop: major; flavour: note) and mark the finding `built: no` or `partial`; in a shipped or live game, `broken-promise`, major or critical
+- Severity hint: in a game still being built, grade by what the gap blocks (a win condition or a core loop: major; flavour: note) and mark the finding `built: no` or `partial`; a gap that blocks the advertised win or core loop ranks above every flaw in what exists, other gaps rank after them; in a shipped or live game, `broken-promise`, major or critical
 - Tool: none (a grep and a count)
 - Sources: production.md; Lemarchand (vertical slice and scope); user correction 2026-10-29 (L-20261029-2)
