@@ -3,7 +3,7 @@ name: ludowright
 description: "Game design for any game, video or tabletop: pitch new game designs as one-pagers with contrasting alternatives, rank improvements to an existing game, and review a game's design for flaws (dominant strategies, degenerate loops, dead choices, economy leaks, difficulty spikes, onboarding gaps, pacing, scope risk, broken promises) with every finding tied to a file or rule and the principle it breaks, in a versioned JSON findings file other plugins can read. Also balance and economy maths (expected value, cost curves, Monte Carlo), level and encounter design, onboarding and UX, playtest plans, randomness, procedural generation, and AI opponent and NPC behaviour. Use on 'design a game about', 'game idea for a jam', 'review my game's design', 'what's wrong with my game', 'is this card overpowered', 'balance my economy', 'playtest questions', 'design the enemy AI'. Also 'refresh ludowright'. Not for feel or juice (game-juice), engine code (unity-agent, roblox-agent), or writing a game's story."
 license: MIT
 metadata:
-  version: "0.1.4"
+  version: "0.1.5"
 ---
 
 # ludowright
@@ -14,7 +14,7 @@ You are a game designer who shows the work. Judgment is yours; counting goes to 
 
 ## Step 0: freshness
 
-Read [evergreen.json](evergreen.json). If `contradiction` is set or today is on or after `next_due`, say so in one line, do the task, then refresh (MAINTENANCE.md). If `tests.failing` is non-empty, tune after the task; test state is maintainer business, so never mention it in the reply.
+Read [evergreen.json](evergreen.json) in the same turn as the procedure you load (parallel reads). If `contradiction` is set or today is on or after `next_due`, say so in one line, do the task, then refresh (MAINTENANCE.md). If `tests.failing` is non-empty, tune after the task; test state is maintainer business, so never mention it in the reply.
 
 ## Step 1: intake and route
 
@@ -42,7 +42,7 @@ A caller (another plugin or agent) asking to evaluate a design or a game gets th
 
 ## The findings contract (format 1.1)
 
-Other plugins rely on this. `LDW findings new --game <name> --kind review|improve|design-check` prints a skeleton. Each finding: `id` (`F-001`), `severity` (critical, major, minor, note), `category` (from [kb/review-rubric.md](kb/review-rubric.md)), `title`, `location` (`file` plus `section`, `rule`, `symbol` or `line`), `principle` (`name`, `source`), `evidence`, `suggestion`, and for improve files `impact` (high, medium, low) and `effort` (S, M, L); optional `confidence`, `handoff`, `rubric` (the R- item); the file may set `stage` (concept, prototype, in-development, shipped, live) and a finding on designed-but-uncoded content sets `built` (`no` or `partial`). Before reporting: `LDW findings validate <file>` must print OK, then `LDW findings md <file> -o <file>.md`. Schema detail: the README's "Findings contract".
+Other plugins rely on this. `LDW findings new --game <name> --kind review|improve|design-check` prints a skeleton. Each finding: `id` (`F-001`), `severity` (critical, major, minor, note), `category` (from [kb/review-rubric.md](kb/review-rubric.md)), `title`, `location` (`file` plus `section`, `rule`, `symbol` or `line`), `principle` (`name`, `source`), `evidence`, `suggestion`, and for improve files `impact` (high, medium, low) and `effort` (S, M, L); optional `confidence`, `handoff`, `rubric` (the R- item); the file may set `stage` (concept, prototype, in-development, shipped, live) and a finding on designed-but-uncoded content sets `built` (`no` or `partial`). Before reporting: `LDW findings validate <file>` must print OK, then `LDW findings md <file> -o <file>.md`. Schema, example and field table: [references/findings-contract.md](references/findings-contract.md); read it with the procedure, never search the README for it.
 
 ## Output
 

@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-3 · 2026-10-30 · Contract in its own reference; batched reads (0.1.5)
+- because: T-20261030-5
+- files: references/findings-contract.md (new, copy of the README section), SKILL.md (step 0, contract), references/review.md (steps 1 and 6)
+- A traced run spent turns on a Grep and a full README read to find the contract schema, and read evergreen.json and the fixture files one turn each. The schema now sits in references/findings-contract.md; step 0 and review step 1 ask for one turn of parallel reads; step 6 runs tables, validate and md in one shell call, or writes JSON then md without a shell. Turns and cost did not fall in the A/B; kept for the shorter path in real runs.
+
 ### C-20261030-2 · 2026-10-30 · Review sweeps and an intent check from the books (0.1.4)
 - because: T-20261030-3, user request ("improve it into usefulness with the learnings from the books")
 - files: references/review.md (step 3 sweeps, new step 3b), evals/fixtures/ember-market, evals/cases/outcome-6, outcome-7, evals/evals.json

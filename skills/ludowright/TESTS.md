@@ -8,6 +8,11 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-5 · 2026-10-30 · claude plugin eval (outcome-6, 3 runs each arm, --scaffold, --allow-tools Write) · owner-pc Windows · with 1.00, without 0.83
+- Trace before the change (--ablation none --keep-temp, 3 runs): with 0.83, 0.83, 1.00 at 14-16 turns, $0.93-0.98. Turn sinks: evergreen.json, review.md, three fixture files and two kb files each read in its own turn; a Grep plus the whole README to find the contract.
+- After C-20261030-3: with 1.00 x3 at 13, 14 and 21 turns, $1.07-1.19; without 1.00, 0.83, 0.67 at 6 turns, $0.33-0.39. Instructions to batch reads did not cut turns or cost; quality held. Bare missed Bellows or the Kiln EV in 2 of 3. About $7.3.
+- led to: C-20261030-3. Next cost lever, if any: the model's own pacing, not instructions; stop chasing cost on this fixture.
+
 ### T-20261030-4 · 2026-10-30 · claude plugin eval (outcome-6, 3 runs each arm, --scaffold, --allow-tools Write) · owner-pc Windows · with 1.00, without 0.83
 - Cost experiment: the review walked a generated one-line rubric index (9 KB) instead of the full rubric (20 KB). Skill arm $1.05 and 16.0 turns a run, against $1.06 and 14.7 before; bare arm $0.42, 6.3 turns. No saving: the 3x cost is turns (kb reads, ldw runs, JSON then md), not file size. Index reverted (it only added install size). About $4.6.
 - led to: none; next cost lever is fewer turns (batch reads, one ldw call, md from validate), not smaller files.
