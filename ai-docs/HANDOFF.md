@@ -2,7 +2,8 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-30, session 9)
+## Current state (2026-10-30, session 10)
+- T-20261030-6: new outcome-8 grades counted evidence on ember-market (cost table, Kiln odds, loop count, 25% win share), 5 runs an arm: with 0.85, without 0.65. The first case where the arms separate on mean score; bare Claude finds the flaws but rarely shows the counting (cost table 2/5, win share 1/5). worth still says CUT because it scores all-graders pass rate (40% vs 20%, noise 57); not recorded.
 - v0.1.5 (C-20261030-3, T-20261030-5): contract schema in references/findings-contract.md, batched reads. No turn or cost saving (about $1.10 a skill run against $0.35 bare); quality held at 6/6. Cost-cutting closed on this fixture. Main CI fixed (committed eval reports removed).
 - v0.1.4 (C-20261030-2): review step 3 runs four book sweeps (promises, trigger pairs, whole-table curves, EV on every gamble); step 3b checks the designer's intent, stopping mechanism and the defence's arithmetic before filing.
 - T-20261030-3: new ember-market fixture, first cases graded on the saved file. outcome-6 with 1.00, without 0.94 (bare misses the Bellows cost-curve outlier 2 of 6 runs); outcome-7 (misread playtest win share) ties 1.00/1.00.
@@ -14,7 +15,7 @@ Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (st
 - Nothing blocking. Open question: is the skill's value worth 3x tokens when detection is close to bare Claude? Options in "Next".
 
 ## Next
-1. Measure what is not graded yet: a case that greps the findings JSON for counted evidence (an `ldw` table cited, policy and spread named), and a SpaceDeckBuilder2-sized fixture where breadth matters; 5 runs a case so worth can leave the noise.
+1. Counted-evidence case done (outcome-8). Still owed: a SpaceDeckBuilder2-sized fixture where breadth matters, 5 runs a case. Consider an evergreen PR so worth can score per-grader means, not only all-pass.
 2. (Closed 2026-10-30, T-20261030-5: batching instructions did not cut turns.) Never commit evals/results; run `git status` before staging.
 3. The other reviewer gaps in the log (clock and units, multi-currency costs, adaptive players, improve md sort, Unity GUIDs).
 4. game-juice PR from kb/feel-handoff.md after reading Swink ch. 12-16.
