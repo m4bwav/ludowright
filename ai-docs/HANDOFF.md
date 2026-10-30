@@ -1,8 +1,14 @@
 # Handoff
 
+Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
+
 ## Current state (2026-10-29)
-- Name: ludowright (gamewright clashes with the board-game publisher Gamewright and Gamewright Studio). Local repo only: creating the public GitHub repo was refused by the permission check and waits for Mark's OK.
-- Done: book inventory (`ai-docs/reading/inventory.md`), two web research notes (`ai-docs/research/`, thin first passes), `scripts/ldw.py` (findings contract v1.0 validator and markdown view, ev, curve, economy, sim) with 13 tests.
-- Running: nine reading subagents writing per-book notes to `books/plugin-learnings/round3-game-design/` (brief: READER-BRIEF.md there). Chain steps 1-3 happen inside each notes file.
-- Next: step 4 cross-book synthesis into `kb/` by topic; step 5 review rubric `kb/review-rubric.md`; skills (router `ludowright`, plus `ludowright-design`, `-review`, `-balance` if justified); evergreen-new (the beat offer is the live test of evergreen 0.18.0); evals; repo launch set; v0.1.0; then the read-only SpaceDeckBuilder2 review, stop and ask Mark.
-- Evergreen PR m4bwav/evergreen-protocol#34 (beat offer) waits on Mark. everscout 0.6.0 released.
+- Name ludowright (gamewright clashes with the publisher Gamewright and Gamewright Studio). Local repo only: creating the public repo was refused by the permission check; waits on Mark's OK. Nothing pushed.
+- Built: one skill `skills/ludowright/` (SKILL.md router, references design/review/improve/balance, 12 kb topic files plus balance-tables and the 52-item review rubric, `scripts/ldw.py` with 13 tests), evergreen layer (tier moderate, next due 2026-11-28), repo set (README with findings contract 1.0, AGENTS, CLAUDE, Copilot pointer, LICENSE, SECURITY, CI, budget green), decision `ai-docs/decisions/2026-10-29-one-skill-and-budgets.md`.
+- Beat: everscout beat `game-design` created and linked (`scout` in evergreen.json). A subagent was finishing its sources, beat-check and probe at session end; check its state first.
+- Evals T-20261029-1: triggers 3/3 (baseline 0/3), decoys quiet, outcome-1 passes with and without (fixture too easy). Owed: harder fixture, action-2, outcome-2, runs 2-3.
+- Evergreen PR m4bwav/evergreen-protocol#34 (beat offer, plus the BEAT-line fix the live run found, L-044) waits on Mark. everscout 0.6.0 released.
+- Reading notes: 27 files in `books/plugin-learnings/round3-game-design/`; partial reads listed in `ai-docs/log.md`.
+
+## Next
+Section 3 of the continue prompt, in order: beat finished, evals, tidy and worth, release once the repo exists, game-juice PR; then the read-only SpaceDeckBuilder2 review and stop for Mark.
