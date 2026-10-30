@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.plugin
+dist/
+.DS_Store
+evals/results/
+# reviews of real games and declared tables stay with those games, never here
+reviews/

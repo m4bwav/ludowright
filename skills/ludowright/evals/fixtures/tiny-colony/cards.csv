@@ -1,0 +1,11 @@
+name,cost,output,shield,draw
+Mine,1,2,0,0
+Farm,1,2,0,0
+Wall,1,0,2,0
+Bunker,2,0,4,0
+Workshop,2,4,0,0
+Scout,1,0,0,1
+Library,2,0,0,2
+Overclock,1,6,0,1
+Fortress,3,0,6,0
+Factory,3,6,0,0
