@@ -27,9 +27,11 @@ claude plugin marketplace add m4bwav/ludowright
 claude plugin install ludowright@ludowright
 ```
 
-**Claude Desktop:** download the repository as a ZIP and add `skills/ludowright` as a skill.
+**GitHub Copilot CLI:** `copilot plugin marketplace add m4bwav/ludowright`, then `copilot plugin install ludowright@ludowright`. With `gh` 2.90 or newer: `gh skill install m4bwav/ludowright ludowright`.
 
-**GitHub Copilot and other agents:** copy `skills/ludowright` into your agent's skills folder (for Copilot, `.github/skills/` or `~/.copilot/skills/`).
+**Claude Desktop and claude.ai:** download `ludowright.zip` from the [latest release](https://github.com/m4bwav/ludowright/releases/latest), then Customize > Skills > Upload skill.
+
+**Other agents:** copy `skills/ludowright` into your agent's skills folder (for Copilot in VS Code, `.github/skills/` or `~/.copilot/skills/`).
 
 Python 3.9 or newer runs the tool; nothing else is needed.
 
