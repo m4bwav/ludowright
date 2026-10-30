@@ -39,7 +39,7 @@ U = `D:\RawStorage\BigDownloads\Unorganized`, G = `...\Books and Texts\Games`, C
 | Rabin (ed.), Game AI Pro 3 | EPUB and PDF | U\Game AI Pro 3\ | 196,288 | volumes 1, 2, 360 and 4 not on disk |
 | Bourg and Seemann, AI for Game Developers | PDF | U\AI for Game Developers\ | 109,299 | |
 | Aversa et al., Unity Artificial Intelligence Programming | 5th ed, EPUB | U\Unity Artificial Intelligence Programming\unity-ai-programming-5th.epub | 53,626 | engine detail: unity-agent's |
-| Sutton and Barto, Reinforcement Learning | 2nd ed, EPUB and PDF | U\Reinforcement Learning - Richard S. Sutton & Andrew G. Barto.epub | 109,216 | |
+| Sutton and Barto, Reinforcement Learning | EPUB is the 1998 1st ed; "Reinforcement Learning An Introduction, 2 edition.pdf" is the 2nd | U\Reinforcement Learning - Richard S. Sutton & Andrew G. Barto.epub | 109,216 | |
 | Gupta, Generative AI for Game Development | - | not found | - | missing |
 | Baldwin, Game AI Engineering for Unity and Unreal | - | not found | - | missing |
 | Steele, Advanced AI and Gameplay Systems in UE5 | - | not found | - | missing |
