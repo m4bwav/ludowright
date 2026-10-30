@@ -1,0 +1,10 @@
+{
+  "hand_size": 5,
+  "starting_deck": {"Deckhand": 6, "Plank": 4},
+  "market_row": 6,
+  "supply": {"Driftwood": "unlimited"},
+  "tide_bonus_coin": 3,
+  "event_deck_size": 10,
+  "end": {"rounds": 14},
+  "beacon": {"lens_tokens_needed": 3}
+}

@@ -1,0 +1,29 @@
+name,type,cost,coin,timber,draw,vp,text
+Deckhand,starter,0,1,0,0,0,
+Plank,starter,0,0,1,0,0,
+Driftwood,supply,0,0,0,0,0,Junk. Worth nothing in play.
+Gangplank,action,2,2,1,0,0,
+Rope Ladder,action,2,1,1,0,0,
+Net Mender,action,2,3,0,0,0,
+Tar Pot,action,2,0,3,0,0,
+Press Gang,action,2,1,0,0,0,Gain a Deckhand into your discard pile.
+Signal Flag,action,2,1,0,1,0,Next turn draw 1 extra card.
+Bosun,action,3,2,0,1,0,
+Chandler,action,3,4,0,0,0,
+Sawpit,action,3,0,4,0,0,
+Salvage Crane,action,3,3,3,0,0,
+Lookout,action,3,1,0,1,0,Look at the next event and put it back on top or bottom.
+Customs Man,action,3,2,0,0,0,Each rival pays you 1 coin if they can.
+Fog Lantern,action,3,2,0,0,0,Ignore the next Storm that would hit you.
+Quartermaster,action,4,3,0,1,0,
+Shipwright,action,4,1,4,0,0,
+Harbor Pilot,action,4,1,0,2,0,
+Smuggler,action,4,2,0,0,0,Gain 3 more coin if a rival owns a Customs House.
+Pearl Diver,action,4,0,0,1,0,Reveal the top card of your deck; gain its coin and timber.
+Harpooner,action,4,3,0,0,0,After the Kraken sinks a building you may rebuild it for half timber.
+Merchant Prince,action,5,4,0,1,0,
+Master Carpenter,action,5,0,6,0,0,
+Navigator,action,5,2,0,2,0,
+Cartographer,action,5,2,2,0,1,Score 1 VP at game end for each building type you own beyond three.
+Figurehead,treasure,6,0,0,0,3,
+Golden Hull,treasure,8,0,0,0,5,
