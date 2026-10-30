@@ -59,3 +59,6 @@ New case on the ember-market prompt with four regex graders for shown arithmetic
 
 ## [2026-10-30] tune | 0.1.6: three reviewer gaps closed
 HANDOFF Next 3. `ldw.py curve --costs gold:1,wood:0.5` (or a "costs" object in the table) folds multi-resource costs into one at stated rates, with a test; review step 2 now checks the clock and the units (turns vs seconds, per turn vs per round); improve ids are given once in rank order and never renumbered. No eval re-run: the rubric and SKILL.md rules did not change, only references and the CLI. Installed skill folder is 297 KB against a 300 KB green line. Still open from that list: adaptive players, Unity GUIDs.
+
+## [2026-10-30] handoff | game-juice 1.2.0 from Swink's case studies
+HANDOFF Next 4. Read Swink ch. 12-16 (openings and summaries of all five; Mario 64's What's Important) with readwright (`rw.py read -s`, not `outline`). game-juice PR #3: P-23 classify feel, P-24 space and motion as a pair, P-25 rules are feel, P-26 direct or simulated per axis, P-27 bottom-up; lenses J13, J14; references/feel-cases.md (method only, no per-game numbers). PR #4 bumped the second manifest (.claude-plugin/plugin.json, which pack.py reads). Both merged, v1.2.0 released with the zips, plugin updated from its own marketplace (game-juice@game-juice, not mark-local). juice-scan untouched.

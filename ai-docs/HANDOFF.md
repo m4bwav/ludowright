@@ -2,7 +2,8 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-30, session 11)
+## Current state (2026-10-30, session 12)
+- game-juice 1.2.0 released (m4bwav/game-juice PRs #3, #4, tag v1.2.0, installed as game-juice@game-juice): Swink ch. 12-16 read; juice-principles gained P-23 to P-27, lenses J13-J14 and references/feel-cases.md (method only). HANDOFF Next 4 done; the "what Swink adds" list in kb/feel-handoff.md is now delivered except the juice-scan report field and feel-metrics checklist (not done: juice-scan untouched).
 - v0.1.6 (C-20261030-4): curve --costs for multi-currency tables, clock and units check in review step 2, stable improve ids. PR #11 merged, tagged and released with the zip, updated from mark-local. Installed folder 297 KB, 3 KB under the green line: trim before adding kb.
 - T-20261030-6: new outcome-8 grades counted evidence on ember-market (cost table, Kiln odds, loop count, 25% win share), 5 runs an arm: with 0.85, without 0.65. The first case where the arms separate on mean score; bare Claude finds the flaws but rarely shows the counting (cost table 2/5, win share 1/5). worth still says CUT because it scores all-graders pass rate (40% vs 20%, noise 57); not recorded.
 - v0.1.5 (C-20261030-3, T-20261030-5): contract schema in references/findings-contract.md, batched reads. No turn or cost saving (about $1.10 a skill run against $0.35 bare); quality held at 6/6. Cost-cutting closed on this fixture. Main CI fixed (committed eval reports removed).
@@ -19,5 +20,5 @@ Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (st
 1. Counted-evidence case done (outcome-8). Still owed: a SpaceDeckBuilder2-sized fixture where breadth matters, 5 runs a case. Consider an evergreen PR so worth can score per-grader means, not only all-pass.
 2. (Closed 2026-10-30, T-20261030-5: batching instructions did not cut turns.) Never commit evals/results; run `git status` before staging.
 3. Reviewer gaps left: adaptive players, Unity GUIDs (clock and units, multi-currency costs and improve ids done in 0.1.6).
-4. game-juice PR from kb/feel-handoff.md after reading Swink ch. 12-16.
+4. (Done 2026-10-30, game-juice 1.2.0.) Left from the Swink list: juice-scan step 1 feel-type classifier and an inferred-property field in its report.
 5. First everscout scan on game-design when a refresh needs leads.
