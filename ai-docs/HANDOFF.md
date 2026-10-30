@@ -3,7 +3,7 @@
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
 ## Current state (2026-10-30, session 11)
-- v0.1.6 (C-20261030-4): curve --costs for multi-currency tables, clock and units check in review step 2, stable improve ids. Installed folder 297 KB, 3 KB under the green line: trim before adding kb.
+- v0.1.6 (C-20261030-4): curve --costs for multi-currency tables, clock and units check in review step 2, stable improve ids. PR #11 merged, tagged and released with the zip, updated from mark-local. Installed folder 297 KB, 3 KB under the green line: trim before adding kb.
 - T-20261030-6: new outcome-8 grades counted evidence on ember-market (cost table, Kiln odds, loop count, 25% win share), 5 runs an arm: with 0.85, without 0.65. The first case where the arms separate on mean score; bare Claude finds the flaws but rarely shows the counting (cost table 2/5, win share 1/5). worth still says CUT because it scores all-graders pass rate (40% vs 20%, noise 57); not recorded.
 - v0.1.5 (C-20261030-3, T-20261030-5): contract schema in references/findings-contract.md, batched reads. No turn or cost saving (about $1.10 a skill run against $0.35 bare); quality held at 6/6. Cost-cutting closed on this fixture. Main CI fixed (committed eval reports removed).
 - v0.1.4 (C-20261030-2): review step 3 runs four book sweeps (promises, trigger pairs, whole-table curves, EV on every gamble); step 3b checks the designer's intent, stopping mechanism and the defence's arithmetic before filing.
