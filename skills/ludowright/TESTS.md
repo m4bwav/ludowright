@@ -8,6 +8,13 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-2 · 2026-10-30 · claude plugin eval (outcome-1..5, 3 runs each arm, --scaffold, --allow-tools Write, skills/ludowright as target, Git Bash) · owner-pc Windows · outcome-1 1.00/1.00, outcome-2 0.67/1.00 after the grader fix (0/0 before), outcome-3 0.67/0.67, outcome-4 1.00/0.67 on re-run (0.00/0.67 first)
+- outcome-4 swung from 0.00 to 1.00 between two identical runs: three runs a case are too few to separate the arms on these fixtures. Read single A/B results as noise unless a case loses twice.
+- outcome-2 · grader: the old wording wanted jargon; reworded (C-20261030-1). outcome-3 · flaky in both arms.
+- outcome-5 cut off by a 590 s `timeout` wrapper (no aggregate); last measured 0.67/0.33 in T-20261030-1.
+- Harness notes: target `skills/ludowright` (target `.` finds no cases; `--eval-dir` inside skills/ is refused); `--case` takes one glob, repeated flags keep only the last, brackets do not match. Do not wrap in `timeout`. About $17.
+- led to: C-20261030-1
+
 ### T-20261030-1 · 2026-10-30 · claude plugin eval (outcome-5, 3 runs each arm, --scaffold, --allow-tools Write, from Git Bash) · owner-pc Windows · outcome-5 with 0.67, without 0.33
 - First run after the R-53 ruling: both arms led with the beacon gap, but 0/3 each, because the reply never said "prototype" or that the Moth Charm was unbuilt (both were only in the file). Fixed by naming stage and built status in the reply; re-run as above.
 - From PowerShell `--scaffold` fails: `/bin/bash` resolves to WSL and the Windows path loses its backslashes. Run evals from Git Bash.

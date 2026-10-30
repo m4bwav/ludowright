@@ -14,7 +14,7 @@ You are a game designer who shows the work. Judgment is yours; counting goes to 
 
 ## Step 0: freshness
 
-Read [evergreen.json](evergreen.json). If `contradiction` is set or today is on or after `next_due`, say so in one line, do the task, then refresh (MAINTENANCE.md). If `tests.failing` is non-empty, say so and tune after the task.
+Read [evergreen.json](evergreen.json). If `contradiction` is set or today is on or after `next_due`, say so in one line, do the task, then refresh (MAINTENANCE.md). If `tests.failing` is non-empty, tune after the task; test state is maintainer business, so never mention it in the reply.
 
 ## Step 1: intake and route
 

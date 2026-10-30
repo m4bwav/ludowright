@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-1 · 2026-10-30 · Keep test state out of replies; outcome-2 grader judges substance (0.1.3)
+- because: T-20261030-1 (the skill told the user its own eval was failing), T-20261030-2
+- files: SKILL.md (evergreen state line), evals/cases/outcome-2/graders/judge.md
+- A non-empty `tests.failing` now means tune after the task and say nothing to the user. The outcome-2 grader no longer asks for the words "single capped sink" or "economy-leak"; any reply that says gold piles up because spending is capped, and names the file, passes.
+
 ### C-20261029-5 · 2026-10-29 · R-53: a gap blocking the advertised win ranks first (0.1.2)
 - because: T-20261029-3 (outcome-5 judge), T-20261029-4, owner ruling 2026-10-29
 - files: references/review.md (step 7), kb/review-rubric.md (R-53), LEARNINGS.md (L-20261029-2)

@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eval report — ludowright</title>
+</head>
+<body>
+<style>
+:root{--plane:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink-2:#52514e;--ink-3:#6b6a64;--hairline:rgba(11,11,11,.10);--grid:#e1e0d9;--inset:rgba(11,11,11,.04);--accent:#2a78d6;--base-fill:#6b6a64;--delta-good:#006300;--good:#067d06;--warning:#8a6100;--critical:#d03b3b;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){:root{--plane:#0d0d0d;--surface:#1a1a19;--ink:#ffffff;--ink-2:#c3c2b7;--ink-3:#898781;--hairline:rgba(255,255,255,.10);--grid:#2c2c2a;--inset:rgba(255,255,255,.05);--accent:#3987e5;--base-fill:#898781;--delta-good:#0ca30c;--good:#0ca30c;--warning:#fab219;--critical:#e06c6c;color-scheme:dark}}
+:root[data-theme="dark"]{--plane:#0d0d0d;--surface:#1a1a19;--ink:#ffffff;--ink-2:#c3c2b7;--ink-3:#898781;--hairline:rgba(255,255,255,.10);--grid:#2c2c2a;--inset:rgba(255,255,255,.05);--accent:#3987e5;--base-fill:#898781;--delta-good:#0ca30c;--good:#0ca30c;--warning:#fab219;--critical:#e06c6c;color-scheme:dark}
+:root[data-theme="light"]{--plane:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink-2:#52514e;--ink-3:#6b6a64;--hairline:rgba(11,11,11,.10);--grid:#e1e0d9;--inset:rgba(11,11,11,.04);--accent:#2a78d6;--base-fill:#6b6a64;--delta-good:#006300;--good:#067d06;--warning:#8a6100;--critical:#d03b3b;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);
+  font:14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;
+  -webkit-text-size-adjust:100%}
+.wrap{max-width:880px;margin:0 auto;padding:40px 24px 64px;display:flex;flex-direction:column;gap:20px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+header h1{margin:2px 0 0;font-size:24px;font-weight:600;line-height:1.25;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;color:var(--ink-2);font-size:13px}
+.meta .num{font-variant-numeric:tabular-nums lining-nums}
+.banner{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;
+  border:1px solid var(--hairline);background:var(--surface);font-size:13px}
+.banner .chip-warn{color:var(--warning);font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:14px 16px;
+  display:flex;flex-direction:column;gap:4px}
+.tile .label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.tile .value{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums lining-nums;line-height:1.1}
+.tile.hero .value{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:48px}
+.tile .sub{font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tile .value.delta-pos{color:var(--delta-good)}
+.tile .value.delta-neg{color:var(--critical)}
+.toolbar{display:flex;gap:8px;justify-content:flex-end}
+.toolbar button{font:12px system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--hairline);border-radius:6px;padding:4px 10px;cursor:pointer}
+.toolbar button:hover{color:var(--ink)}
+.toolbar button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.case{background:var(--surface);border:1px solid var(--hairline);border-radius:10px;padding:18px 20px;
+  display:flex;flex-direction:column;gap:10px}
+.case-regressed{border-left:3px solid var(--critical)}
+.verdict{margin:6px 0 0;font-size:15px}
+.verdict .delta{font-size:15px}
+.flag{font-size:11px;font-weight:600;color:var(--warning);white-space:nowrap}
+.star{color:var(--warning);font-size:.45em;vertical-align:super;line-height:0;cursor:help}
+.legend summary{cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2)}
+.legend-list{margin:8px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2)}
+.case-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.case-head h2{margin:0;font-size:16px;font-weight:600}
+.case-head .spacer{flex:1}
+.case-score{font-size:15px;font-weight:600}
+.mono{font:12px "SF Mono",ui-monospace,Menlo,Consolas,monospace}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.muted{color:var(--ink-3);font-size:12px}
+.meter{display:inline-block;position:relative;width:120px;height:6px;border-radius:4px;background:var(--grid);
+  vertical-align:middle}
+.meter>span{display:block;height:100%;border-radius:4px;max-width:100%}
+.meter .tick{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink-3);border-radius:1px}
+.m-accent>span{background:var(--accent)}
+.m-base>span{background:var(--base-fill)}
+.delta{font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+.delta-pos{color:var(--delta-good)}
+.delta-neg{color:var(--critical)}
+.delta-zero{color:var(--ink-3)}
+details.section{border-top:1px solid var(--grid);padding-top:10px}
+details.section>summary{cursor:pointer;font-size:12px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--ink-2);list-style-position:outside;margin-left:2px}
+details.section>summary:hover{color:var(--ink)}
+details.section[open]>summary{margin-bottom:8px}
+.md{display:flex;flex-direction:column;gap:8px;background:var(--inset);border-radius:8px;
+  padding:12px 14px;overflow-wrap:break-word}
+.md>:first-child{margin-top:0}
+.md h1,.md h2,.md h3,.md h4,.md h5,.md h6{margin:4px 0 0;font-size:1em;font-weight:600;line-height:1.3}
+.md p,.md ul,.md ol,.md blockquote,.md table,.md pre,.md hr{margin:0}
+.md ul,.md ol{display:flex;flex-direction:column;gap:4px;padding-left:20px}
+.md blockquote{border-left:2px solid var(--hairline);padding-left:10px;color:var(--ink-2)}
+.md :not(pre)>code{background:var(--inset);padding:1px 4px;border-radius:4px;
+  font:.92em "SF Mono",ui-monospace,Menlo,Consolas,monospace}
+.md pre{background:var(--inset);border:1px solid var(--hairline);padding:10px 12px;border-radius:6px;
+  overflow-x:auto;font:12px/1.5 "SF Mono",ui-monospace,Menlo,Consolas,monospace}
+.md pre code{background:none;padding:0;font:inherit}
+.md table{width:100%;border-collapse:collapse}
+.md th,.md td{padding:5px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--grid)}
+.md th{font-weight:600;color:var(--ink-2)}
+.md a{color:var(--accent);text-decoration:none}
+.md a:hover{text-decoration:underline}
+.grader-def{display:flex;flex-direction:column;gap:6px;padding:8px 0}
+.grader-def+.grader-def{border-top:1px solid var(--grid)}
+.grader-def-head{display:flex;align-items:baseline;gap:8px}
+.grader-name{font:13px "SF Mono",ui-monospace,Menlo,Consolas,monospace;font-weight:600}
+.badge{font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-2);
+  border:1px solid var(--hairline);border-radius:999px;padding:1px 8px}
+.config{display:flex;flex-direction:column;gap:2px;background:var(--inset);border-radius:8px;padding:10px 14px}
+.config code{font:12px "SF Mono",ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.arm{display:flex;flex-direction:column;gap:8px;padding:6px 0}
+.arm+.arm{border-top:1px dashed var(--grid);margin-top:4px;padding-top:12px}
+.arm-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.arm-label{font-size:13px;font-weight:600}
+.run{border:1px solid var(--grid);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.run-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.run-title{font-size:12px;font-weight:600;color:var(--ink-2)}
+.run-error .explanation{color:var(--ink-2)}
+.note{font-size:12px;color:var(--ink-2)}
+.graders{display:flex;flex-direction:column;gap:4px}
+details.grader{border-radius:6px}
+details.grader>summary{cursor:pointer;display:flex;align-items:baseline;gap:8px;padding:3px 4px;
+  border-radius:6px;list-style:none}
+details.grader>summary::-webkit-details-marker{display:none}
+details.grader>summary::before{content:'▸';font-size:10px;color:var(--ink-3);flex:none;
+  transition:transform .12s ease}
+details.grader[open]>summary::before{transform:rotate(90deg)}
+details.grader>summary:hover{background:var(--inset)}
+details.grader>summary:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.grader-body{padding:6px 8px 8px 24px;display:flex;flex-direction:column;gap:6px}
+.chip{font-size:11px;font-weight:600;border-radius:999px;padding:1px 8px;white-space:nowrap}
+.chip-pass{color:var(--good);border:1px solid currentColor}
+.chip-fail{color:var(--critical);border:1px solid currentColor}
+.chip.chip-warn{color:var(--warning);border:1px solid currentColor}
+.explanation{margin:0;font-size:13px;color:var(--ink-2);white-space:pre-wrap;overflow-wrap:break-word}
+.kv{display:flex;gap:8px;font-size:12px;color:var(--ink-3)}
+.votes{font-variant-numeric:tabular-nums;letter-spacing:.1em}
+pre.evidence{margin:0;background:var(--inset);border:1px solid var(--hairline);border-radius:6px;
+  padding:8px 10px;overflow-x:auto;max-height:320px;
+  font:12px/1.5 "SF Mono",ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:break-word}
+footer{color:var(--ink-3);font-size:12px;text-align:center;padding-top:8px}
+@media (prefers-reduced-motion:no-preference){
+  details.grader>summary,.toolbar button{transition:background .12s ease,color .12s ease}
+}
+@media (prefers-reduced-motion:reduce){
+  details.grader>summary::before{transition:none}
+}
+@media print{
+  :root,:root[data-theme="dark"],:root[data-theme="light"]{--plane:#f9f9f7;--surface:#fcfcfb;--ink:#0b0b0b;--ink-2:#52514e;--ink-3:#6b6a64;--hairline:rgba(11,11,11,.10);--grid:#e1e0d9;--inset:rgba(11,11,11,.04);--accent:#2a78d6;--base-fill:#6b6a64;--delta-good:#006300;--good:#067d06;--warning:#8a6100;--critical:#d03b3b;color-scheme:light}
+  body{background:#fff}
+  .toolbar{display:none}
+  .case,.run,.grader-def{break-inside:avoid}
+  pre.evidence{max-height:none}
+}
+</style>
+<div class="wrap">
+<header>
+<div class="eyebrow">Plugin eval report</div>
+<h1>ludowright</h1>
+<p class="verdict">Plugin effect: <span class="delta delta-neg">↓ -33.3 pts</span> vs baseline — improved 0 · flat 0 · regressed 1 of 1 case.</p>
+<div class="meta">
+<span class="mono">.</span>
+<span>Claude Code v2.1.281</span>
+<span class="num">2026-10-30 04:24 UTC</span>
+<span class="num">3m 26s</span>
+<span class="num">$2.90</span>
+<span class="num">6 runs</span>
+<span class="num">6 in flight</span>
+
+
+<span>judge default</span>
+<span class="num">threshold 100%</span>
+<span>filtered: --case outcome-2</span>
+</div>
+</header>
+
+<section class="tiles">
+<div class="tile hero"><span class="label">Suite score · with plugin</span><span class="value">66.7%</span><span class="sub">mean of per-case scores</span></div>
+<div class="tile"><span class="label">Ablation Δ</span><span class="value num delta-neg">↓ -33.3</span><span class="sub">score points vs baseline, 1 of 1 case</span></div>
+<div class="tile"><span class="label">Baseline score</span><span class="value num">100%</span><span class="sub">without the plugin</span></div>
+<div class="tile"><span class="label">Cases</span><span class="value num">1</span><span class="sub">0 of 1 ≥ 100% threshold</span></div>
+<div class="tile"><span class="label">Perfect runs</span><span class="value num">66.7%</span><span class="sub">runs where every grader passed</span></div>
+</section>
+<details class="section legend">
+<summary>How to read this report</summary>
+<ul class="legend-list">
+<li>A run's score is the weighted fraction of its graders that passed; a "perfect" run passed every grader.</li>
+<li>A case's score is the mean of its runs; a case passes when its score is at or above the 100% threshold (the tick on each case bar).</li>
+<li>The suite score is the mean of the per-case scores.</li>
+<li>Judge votes are independent samples of the LLM judge; the majority decides pass or fail.</li>
+<li>"With plugin" and "Baseline" runs are identical except for the plugin being loaded; Δ is the with-plugin score minus the baseline score.</li>
+
+</ul>
+</details>
+<div class="toolbar"><button type="button" data-act="expand">Expand all</button><button type="button" data-act="collapse">Collapse all</button></div>
+<article class="case case-regressed" id="case-1">
+<div class="case-head">
+<h2>outcome-2</h2>
+<span class="muted mono">evals\cases\outcome-2</span>
+<span class="spacer"></span>
+
+<span class="delta delta-neg">↓ -33.3 pts</span>
+<span class="muted">with plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:66.7%"></span><i class="tick" style="left:100.0%"></i></span>
+<span class="num case-score">66.7%</span>
+</div>
+
+<details class="section" open>
+<summary>Results</summary>
+<section class="arm">
+<div class="arm-head">
+<span class="arm-label">With plugin</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:66.7%"></span></span>
+<span class="num">66.7%</span>
+<span class="muted num">66.7% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">17 turns · $0.70 · 04:24:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">expectations</span>  </summary>
+<div class="grader-body">
+<p class="explanation">judge votes: PASS PASS PASS</p>
+<div class="kv"><span>Judge votes</span><span class="votes">✓ ✓ ✓</span></div><div class="kv"><span>Evidence (what the judge was shown; for an image, a description of what was sent)</span></div><pre class="evidence">I reviewed Tiny Colony&apos;s economy and found ten problems; the four that matter most are below. I treated it as a concept-stage design: a solo, turn-based deckbuilder with a 12-turn run that promises a hard choice every turn between growing the colony and preparing for the next event.
+
+**Top findings**
+1. **F-001 (major): gold stops mattering at turn 6.** You can buy at most one card a turn at up to 8 gold (`DESIGN.md` Rule 4). Four Mines make exactly 8 a turn, and `economy.md` expects players to have four by turn 6. After that, every extra Mine, Workshop or Factory produces gold that can&apos;t be spent. Under that typical play, 8 gold is left over at the end of a run; with one Factory it&apos;s about 50.
+2. **F-003 (major): the event side of the trade-off has no numbers.** Rule 3 says events do damage, but there&apos;s no damage value and nothing for damage to reduce. So there&apos;s no way to judge how much Shield is enough, and the game&apos;s main promise can&apos;t be tested yet.
+3. **F-002 (major): Overclock is about four times too cheap.** Every other card gives 2 output per energy; Overclock gives 6 output plus a card draw for 1 energy (`cards.csv:9`). If it&apos;s meant as a one-time action rather than a building, the table has no column to say so.
+4. **F-004 and F-005 (major): food is a tax with no stated penalty.** Colonists eat but produce nothing, and they arrive every 3 turns whatever you do (`economy.md:5`). Food runs out going into turn 3 if you build no Farms, and nothing says what happens then.
+
+**Other findings**
+- **Draw cards are close to useless (F-006):** you draw 5 cards but have only 3 energy, so at least 2 cards already go unplayed.
+- **Shield may stack forever (F-007):** buildings stay in play, so Walls might add Shield permanently. This one is a guess that needs a playtest.
+- **The output column doesn&apos;t say which resource (F-008):** it doesn&apos;t say whether Workshop and Factory make gold or food. The pitch also says energy &quot;runs&quot; buildings, but the rules only charge energy to place them.
+- **Late purchases are worthless (F-009):** there&apos;s no end-of-run score and the starting deck size isn&apos;t defined.
+- **Big cards give no bonus for their cost (F-010):** a 3-cost card is exactly three 1-cost cards in one, but uses your whole turn&apos;s energy.
+
+All of these files are in `tiny-colony/`:
+- `review-tiny-colony-2026-10-29.json`: the findings
+- `review-tiny-colony-2026-10-29.md`: a readable version of the findings
+- `ldw-economy-gold.json` and `ldw-economy-food.json`: the gold and food models, including which player behaviour each assumes
+
+I didn&apos;t change any of your design files.
+
+No shell was available here, so I did the maths by hand and couldn&apos;t run the review tool&apos;s script or its check on the findings file. Re-running the script on the two model files would confirm the numbers.
+
+If you want, the next step is a ranked list of fixes, starting with a second use for gold and defined event damage.</pre>
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:0.0%"></span></span>
+<span class="num">0%</span>
+<span class="muted num">21 turns · $0.80 · 04:24:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader" open>
+<summary><span class="chip chip-fail">✗ fail</span> <span class="grader-name">expectations</span>  </summary>
+<div class="grader-body">
+<p class="explanation">judge votes: FAIL PASS FAIL</p>
+<div class="kv"><span>Judge votes</span><span class="votes">✗ ✓ ✗</span></div><div class="kv"><span>Evidence (what the judge was shown; for an image, a description of what was sent)</span></div><pre class="evidence">I reviewed the economy and found eight problems: six major, one minor and one note. Tiny Colony is a concept-stage, solo, turn-based game, and its pitch is that every turn trades growing the colony against preparing for the next event. I couldn&apos;t run the balance script because this session has no shell, so I counted every number by hand from the tables I saved.
+
+1. **Events aren&apos;t defined, which blocks the core loop.** No file gives event damage, what the damage hits, or how you lose (`DESIGN.md` Rule 3). The three shield cards have nothing to protect against, so the &quot;grow vs prepare&quot; choice the pitch promises is missing one side.
+2. **Overclock is far too cheap** (`cards.csv:9`). The other nine cards all follow cost = output/2 + shield/2 + draw exactly. By that rule Overclock should cost 4 energy, but it costs 1, which makes it better than Mine, Workshop and Factory.
+3. **Gold stops mattering from turn 6** (`DESIGN.md` Rule 4). You can buy at most one card a turn at up to 8 gold, so 8 is the most you can spend. The typical player&apos;s 4 Mines already make 8 a turn. From turn 6 to 12 that player ends with 14 gold they can&apos;t spend, and a player with 6 Mines ends with 28. Every Mine past the fourth adds nothing.
+4. **Colonists only eat** (`economy.md:5`). They have no effect, and nothing says what happens when food runs out. Without a Farm, food runs out at the end of turn 2. Over the run colonists eat 54 food, which takes two Farms placed on turn 1, or a third Farm if they come later. That&apos;s a cost with no payoff, not a trade-off.
+5. **Two gaps in `cards.csv`:**
+   - The `output` column doesn&apos;t say whether Workshop, Factory and Overclock make gold or food.
+   - No card has a gold price, though gold is said to buy cards for 4 to 8.
+
+Two smaller findings are in the file. Draw cards may be overpriced, since 3 energy against a 5-card hand already limits what you can play; that one needs a test with an actual deck. And no starting deck is listed.
+
+Files are in `tiny-colony/`:
+- `review-tiny-colony-2026-10-29.json` (the findings)
+- `review-tiny-colony-2026-10-29.md` (a readable version)
+- four `ldw-*.json` economy tables
+
+Your design files weren&apos;t changed. The JSON hasn&apos;t been checked against the script&apos;s format validator, and I couldn&apos;t open the plugin README that describes it, so a few top-level field names are my best guess. Running `ldw.py findings validate` and `ldw.py curve cards.csv` in a terminal would confirm both. I can turn this into a ranked list of fixes next if you&apos;d like.</pre>
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-accent" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">19 turns · $0.73 · 04:24:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">expectations</span>  </summary>
+<div class="grader-body">
+<p class="explanation">judge votes: PASS PASS PASS</p>
+<div class="kv"><span>Judge votes</span><span class="votes">✓ ✓ ✓</span></div><div class="kv"><span>Evidence (what the judge was shown; for an image, a description of what was sent)</span></div><pre class="evidence">I reviewed the economy and found 8 problems, two of them critical. I treated Tiny Colony as a design-stage solo game: a 12-turn run where every turn is meant to be a hard choice between growing the colony and preparing for the next event.
+
+The top findings:
+
+1. **F-001, major, not yet designed: events have no numbers** (`DESIGN.md` Rules 3). There&apos;s no damage per turn and nothing says what damage does, so Shield can&apos;t be priced and the grow-or-prepare choice the game promises can&apos;t be balanced. Fix this first, since everything else depends on it.
+2. **F-002, critical: Overclock is about 4x too cheap** (`cards.csv:9`). The other nine cards follow one exact price line (cost = ½·output + ½·shield + 1·draw). By that line Overclock should cost 4 energy, more than a whole turn&apos;s 3, but it costs 1. It beats Mine, Workshop and Factory on every stat.
+3. **F-003, critical: gold piles up from turn 6** (`economy.md:3`, Rule 4). By turn 6 you earn 8 gold a turn, and you can buy only one card a turn at up to 8. Buying a 6-gold card whenever you can, banked gold climbs every turn from turn 6 and ends at about 16 with nothing to spend it on.
+4. **F-004, major: Scout and Library are dead cards** (`cards.csv:7-8`). A 5-card hand costs about 8.5 energy and you have 3, so drawing more cards almost never changes your turn. Yet draw is the most expensive stat on the price line.
+5. **F-005, major: the `output` column doesn&apos;t say which resource** (`cards.csv:1`). If Workshop, Factory and Overclock make food, one Factory feeds the colony for the whole run. If they make gold, finding 3 gets worse.
+
+The other three:
+- **F-006 (major, low confidence):** buildings never leave play, so the per-turn choice fades. Two Farms on turn 1 feed the colony for all 12 turns. Confirming it needs an event table or a playtest.
+- **F-007 (major):** key numbers are missing: gold price per card, the starting deck, what starvation does, and what happens as placed buildings thin the deck.
+- **F-008 (minor):** colonists only eat food and give nothing back.
+
+Each finding has a suggested fix with numbers.
+
+I had no shell, so ludowright&apos;s calculator and validator didn&apos;t run. I did all the counts by hand and the findings file hasn&apos;t been machine-checked. I also couldn&apos;t open the schema reference, so the JSON follows the field list in the skill&apos;s instructions.
+
+Files are in `tiny-colony/`:
+- `review-tiny-colony-2026-10-29.json`
+- `review-tiny-colony-2026-10-29.md`
+- `ldw-gold.json` and `ldw-food.json`: the gold and food tables, saved so the calculator can re-check them later
+
+If you want, I can follow up with a ranked list of improvements.</pre>
+</div>
+</details></div>
+</div>
+</section><section class="arm">
+<div class="arm-head">
+<span class="arm-label">Baseline (no plugin)</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">100% of runs perfect</span>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 1</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">6 turns · $0.23 · 04:24:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">expectations</span>  </summary>
+<div class="grader-body">
+<p class="explanation">judge votes: PASS PASS PASS</p>
+<div class="kv"><span>Judge votes</span><span class="votes">✓ ✓ ✓</span></div><div class="kv"><span>Evidence (what the judge was shown; for an image, a description of what was sent)</span></div><pre class="evidence">I saved the review to `tiny-colony/economy-review.md`. The main finding: the economy creates real trade-offs for about the first 5 turns and then stops.
+
+1. **Gold stops mattering by turn 6.** With 4 Mines you earn 8 gold a turn, and the most you can spend is 8 (one card a turn, at most 8 gold). After that you can afford any card every turn, and a 5th Mine is wasted. Gold earned near the end of the run is also worthless.
+2. **Buildings run for free forever.** The pitch says energy is spent to &quot;build and run&quot; buildings, but the rules only charge energy to place them. Once placed, buildings pay out every turn at no cost. If Shield from Walls also lasts, preparing for events is a one-time purchase rather than a choice you make each turn.
+3. **Card balance is flat, with one card far ahead.** Almost every card gives 2 per energy, so the bigger cards (Workshop, Factory, Bunker, Fortress) have no advantage. Overclock is the exception: 6 output plus a card draw for 1 energy, which beats Mine, Workshop, Factory and Scout outright. Draw cards are nearly useless, because you already draw 5 cards and only have 3 energy to play them.
+4. **Food is a cost with no reward.** Over the run, colonists eat about 58 food, so you need roughly 3 Farms. But colonists do nothing for you and arrive whether you want them or not, so &quot;growing the colony&quot; isn&apos;t something the player wants.
+5. **Missing data blocks the rest of the review:**
+   - which resource Workshop, Overclock and Factory produce
+   - gold prices for each card (`cards.csv` only lists energy cost)
+   - the starting deck
+   - how much damage events deal
+   - what happens when food runs out
+
+My mine-count and food tables rest on a few assumptions: when colonists arrive, how Mines build up over the turns, and that the player always buys the most expensive card they can afford. The review states these. It also ends with suggested fixes in priority order. The first is to define running costs for buildings and whether Shield lasts, since most of the other balance depends on that.</pre>
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 2</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">6 turns · $0.21 · 04:24:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">expectations</span>  </summary>
+<div class="grader-body">
+<p class="explanation">judge votes: PASS PASS PASS</p>
+<div class="kv"><span>Judge votes</span><span class="votes">✓ ✓ ✓</span></div><div class="kv"><span>Evidence (what the judge was shown; for an image, a description of what was sent)</span></div><pre class="evidence">I reviewed the economy and saved the findings to `tiny-colony/economy-review.md`. In short, it doesn&apos;t support the pitch that every turn is a hard trade-off. The biggest problems:
+
+1. **Gold stops mattering by turn 6.** By then you have 4 Mines making 8 gold a turn. Cards cost at most 8 and you can buy only one per turn, so you can always afford the best card. Extra gold piles up with nothing to spend it on, and Mines become dead cards.
+2. **Gold is worth least when you have the most.** A card bought in the last few turns will probably never be drawn and played, so late gold buys almost nothing.
+3. **Overclock is far too strong.** For 1 energy it gives 6 output and a card draw. Every other producer (Mine, Farm, Workshop, Factory) gives 2 output per energy.
+4. **Buildings that stay in play forever decide the game early.** A Mine placed on turn 1 makes 24 gold over the run; one placed on turn 9 makes 8. Defense buildings may also stack Shield permanently, which would make events stop mattering.
+5. **Food is the only real pressure, and it doesn&apos;t last.** Without a Farm you run out at the end of turn 2. Colonists eat 58 food over the run, but once you have 3 or 4 Farms food is solved. The rules also never say what happens when food runs out.
+6. **Shield and draw cards are flat.** All three defense cards give 2 Shield per energy. The draw cards are weak when you only have 3 energy a turn. I can&apos;t price Shield until event damage is written down.
+
+The review also lists missing information that blocks a full balance pass: each card&apos;s gold price, what Workshop, Factory and Overclock actually produce, the starting deck, event damage, and how you win. Where the docs were silent I wrote down my assumption, for example that a new colonist arrives on turns 3, 6, 9 and 12. Each finding comes with suggested fixes, and the file ends with a priority order; giving gold another use comes first.</pre>
+</div>
+</details></div>
+</div>
+<div class="run">
+<div class="run-head">
+<span class="run-title">Run 3</span>
+<span class="meter m-base" aria-hidden="true"><span style="width:100.0%"></span></span>
+<span class="num">100%</span>
+<span class="muted num">6 turns · $0.23 · 04:24:09 UTC</span>
+</div>
+
+<div class="graders"><details class="grader">
+<summary><span class="chip chip-pass">✓ pass</span> <span class="grader-name">expectations</span>  </summary>
+<div class="grader-body">
+<p class="explanation">judge votes: PASS PASS FAIL</p>
+<div class="kv"><span>Judge votes</span><span class="votes">✓ ✓ ✗</span></div><div class="kv"><span>Evidence (what the judge was shown; for an image, a description of what was sent)</span></div><pre class="evidence">I&apos;ve saved the review to `tiny-colony/economy-review.md`. The main finding is that the economy stops creating hard choices from about turn 6, which breaks the game&apos;s promise of a hard trade-off every turn.
+
+1. **Gold piles up with no use (critical).** With 4 Mines by turn 6, income is 8 gold a turn. You can buy at most one card a turn, costing up to 8, so you can never spend more than you earn. Any extra gold production is worthless for the second half of a 12-turn run. Gold is scarce early and useless late, with nothing in between.
+2. **Buildings that stay in play remove the per-turn trade-off (critical).** The pitch says energy is spent to &quot;build and run&quot; buildings, but no rule charges energy to run them. Once you have enough farms and shields, later turns hold no real decisions. Requiring energy to run buildings each turn would bring the trade-off back.
+3. **Overclock is far too strong.** It gives 6 output plus a card draw for 1 energy, three times the rate of every other output card. Separately, every bigger card (Workshop, Factory, Bunker, Fortress) gives exactly the same value per energy as the 1-cost cards, so there&apos;s no reason to pick them.
+4. **Draw cards are close to useless.** You draw 5 cards but have only 3 energy, so energy runs out before cards do. Scout effectively just replaces itself.
+5. **Food is solved early.** About 3 Farms cover all food needs for the run. Extra food has no use, colonists only eat, and the design doesn&apos;t say what happens if food runs out.
+6. **Missing details block a full balance check.** These include the gold price of each card, what &quot;output&quot; produces for Workshop, Factory and Overclock, which cards are buildings, event damage, whether Shield resets each turn, and the starting deck and gold.
+
+The gold numbers assume 1 Mine on turns 1–2 and production starting the turn a building is placed, because the design doesn&apos;t specify either. The review file has the full tables, food numbers, suggested fixes and a priority summary. I didn&apos;t change any of your existing files.</pre>
+</div>
+</details></div>
+</div>
+</section>
+</details>
+<details class="section" open>
+<summary>Prompt</summary>
+<div class="md"><p>My colony deckbuilder's design is in the tiny-colony folder here. Review the game's economy and save the findings in that folder.</p>
+</div>
+</details>
+<details class="section" open>
+<summary>Graders — what "good" means for this case</summary>
+<div class="grader-def">
+<div class="grader-def-head"><span class="grader-name">expectations</span><span class="badge">llm</span></div>
+<div class="md"><p>PASS if the reply meets every one of these:</p>
+<ul>
+<li>the reply says gold piles up (income outgrows spending) because the only way to spend it is limited (one card a turn or similar), and names the file or rule it comes from; any wording counts
+FAIL if any is missing or contradicted.
+Length, detail, tone and confidence are not criteria: judge only whether each requirement is met.
+Reference answer (a correct reply says this; its wording may differ):
+Gold comes in at about 8 a turn by turn 6 while the only sink is one card a turn costing 4 to 8, so gold piles up and stops being a decision.</li>
+</ul>
+</div>
+</div>
+</details>
+</article>
+<footer>Generated by <code>claude plugin eval</code> · schema v1 · scores are not comparable across different suites</footer>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var bar=document.querySelector('.toolbar');
+  if(!bar)return;
+  bar.addEventListener('click',function(e){
+    var b=e.target&&e.target.closest('button');
+    if(!b)return;
+    var open=b.dataset.act==='expand';
+    document.querySelectorAll('details.section, details.grader').forEach(function(d){d.open=open});
+  });
+});
+// Collapsed details vanish from print/PDF; these pages are share artifacts.
+window.addEventListener('beforeprint',function(){
+  document.querySelectorAll('details').forEach(function(d){
+    if(!d.open){d.dataset.printOpened='1';d.open=true}
+  });
+});
+window.addEventListener('afterprint',function(){
+  document.querySelectorAll('details[data-print-opened]').forEach(function(d){
+    d.open=false;delete d.dataset.printOpened;
+  });
+});
+</script>
+</body>
+</html>

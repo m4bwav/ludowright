@@ -4,7 +4,7 @@ name: 'expectations'
 ---
 
 PASS if the reply meets every one of these:
-- the findings flag gold as accumulating with a single capped sink (economy-leak), citing economy.md or DESIGN.md rule 4
+- the reply says gold piles up (income outgrows spending) because the only way to spend it is limited (one card a turn or similar), and names the file or rule it comes from; any wording counts
 FAIL if any is missing or contradicted.
 Length, detail, tone and confidence are not criteria: judge only whether each requirement is met.
 Reference answer (a correct reply says this; its wording may differ):
