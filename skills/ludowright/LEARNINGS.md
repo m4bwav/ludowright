@@ -16,6 +16,14 @@ Write an entry the moment a real signal happens: a user correction, the same err
 - Status: active · helpful 1 · harmful 0 · last_confirmed 2026-10-29
 -->
 
+### L-20261029-2 `unbuilt-is-not-broken` · 2026-10-29 · active
+- Trigger: the first real review (SpaceDeckBuilder2, 13 findings) led with "Shuttle win unreachable" and "70 of 82 reward cards uncoded". Mark agreed with every finding and said these are things he has not built yet.
+- Hypothesis: a review of a game in development reads its to-do list as defects unless it settles the stage first and labels gaps in the build apart from flaws in the design.
+- Rule: settle `stage` in review step 2; mark findings on designed-but-uncoded content `built: no|partial`; report flaws in what exists before gaps in what is not built (rubric R-53, contract 1.1).
+- Evidence: C-20261029-3; review-spacedeckbuilder2-2026-10-29 (gitignored)
+- Scope: skill
+- Status: active · helpful 1 · harmful 0 · last_confirmed 2026-10-29
+
 ### L-20261029-1 `no-shell-eval-hurts-skill` · 2026-10-29 · active
 - Trigger: T-20261029-2. On Windows `claude plugin eval` refuses a Bash grant, so ldw.py cannot run; the skill arm then hand-counts for 18-25 turns, spends its last message on the shell caveat, and loses to the no-skill arm on a last-message judge.
 - Hypothesis: when LDW cannot run, the skill should say so in one line and lead the reply with the findings themselves (each with its file), not the caveat. Grade outcome cases on the saved findings file, not the last message.

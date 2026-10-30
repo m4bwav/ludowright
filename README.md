@@ -27,9 +27,11 @@ claude plugin marketplace add m4bwav/ludowright
 claude plugin install ludowright@ludowright
 ```
 
-**Claude Desktop:** download the repository as a ZIP and add `skills/ludowright` as a skill.
+**GitHub Copilot CLI:** `copilot plugin marketplace add m4bwav/ludowright`, then `copilot plugin install ludowright@ludowright`. With `gh` 2.90 or newer: `gh skill install m4bwav/ludowright ludowright`.
 
-**GitHub Copilot and other agents:** copy `skills/ludowright` into your agent's skills folder (for Copilot, `.github/skills/` or `~/.copilot/skills/`).
+**Claude Desktop and claude.ai:** download `ludowright.zip` from the [latest release](https://github.com/m4bwav/ludowright/releases/latest), then Customize > Skills > Upload skill.
+
+**Other agents:** copy `skills/ludowright` into your agent's skills folder (for Copilot in VS Code, `.github/skills/` or `~/.copilot/skills/`).
 
 Python 3.9 or newer runs the tool; nothing else is needed.
 
@@ -46,15 +48,16 @@ python skills/ludowright/scripts/ldw.py findings validate review-mygame-2026-10-
 
 ## Findings contract
 
-Other plugins and agents can ask ludowright to evaluate a design or a game and read the result without parsing prose. This is the contract they rely on. Format `ludowright-findings`, version **1.0**. Minor versions only add optional fields or categories; a breaking change is version 2.0.
+Other plugins and agents can ask ludowright to evaluate a design or a game and read the result without parsing prose. This is the contract they rely on. Format `ludowright-findings`, version **1.1** (1.1 added the optional `stage` and `built`). Minor versions only add optional fields or categories; a breaking change is version 2.0.
 
 ```json
 {
   "format": "ludowright-findings",
-  "version": "1.0",
+  "version": "1.1",
   "game": "Tiny Colony",
   "kind": "review",
   "date": "2026-10-29",
+  "stage": "prototype",
   "sources_read": ["DESIGN.md", "cards.csv"],
   "summary": "optional one paragraph",
   "findings": [
@@ -86,6 +89,8 @@ Other plugins and agents can ask ludowright to evaluate a design or a game and r
 | `principle` | yes | `name`, and `source` (a kb file or book citation) |
 | `evidence`, `suggestion`, `title` | yes | text; evidence quotes or names the rule, number or line |
 | `impact`, `effort` | in `improve` files | `high`/`medium`/`low`; `S`/`M`/`L` |
+| `stage` | no | the game's stage: `concept`, `prototype`, `in-development`, `shipped`, `live` |
+| `built` | no | on a finding about content the design or data promises but the code does not have yet: `no` or `partial`. It separates "not built yet" from "built wrong" |
 | `confidence`, `handoff`, `rubric` | no | `high`/`medium`/`low`; a skill name (feel findings hand off to `juice-scan`); an `R-` item |
 
 `ldw.py findings validate FILE` exits 0 when the file meets the contract and 1 when it does not; `ldw.py findings md FILE -o FILE.md` writes the readable view, sorted by severity, impact and effort.

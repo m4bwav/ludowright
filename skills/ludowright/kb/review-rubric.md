@@ -425,3 +425,10 @@ Hand off to juice-scan; list only what the docs and code show.
 ## Related
 
 Related: [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](balance-tables.md), [systems-and-loops.md](systems-and-loops.md), [uncertainty.md](uncertainty.md), [core-loops-and-goals.md](core-loops-and-goals.md), [levels-and-space.md](levels-and-space.md), [procgen.md](procgen.md), [game-ai-for-designers.md](game-ai-for-designers.md), [ux-and-the-brain.md](ux-and-the-brain.md), [playtesting.md](playtesting.md), [production-and-scope.md](production-and-scope.md), [feel-handoff.md](feel-handoff.md), [ai-as-design-tool.md](ai-as-design-tool.md)
+
+### R-53 Authored, not built
+- Look for: Cards, rewards, win paths or systems that the design doc or data tables define but no code applies (grep the code for each data id or effect key). Settle the stage first: in a prototype this is the to-do list, in a shipped game it is a broken promise.
+- Breaks: Promises kept; the loop the design depends on
+- Severity hint: in a game still being built, grade by what the gap blocks (a win condition or a core loop: major; flavour: note) and mark the finding `built: no` or `partial`; in a shipped or live game, `broken-promise`, major or critical
+- Tool: none (a grep and a count)
+- Sources: production.md; Lemarchand (vertical slice and scope); user correction 2026-10-29 (L-20261029-2)

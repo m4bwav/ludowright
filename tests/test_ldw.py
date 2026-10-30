@@ -64,6 +64,19 @@ class Findings(unittest.TestCase):
         self.assertLess(md.index("F-001 · One card"), md.index("F-002 · Minor thing"))
         self.assertIn("Principle: no dominant strategy (kb/review-rubric.md R-03)", md)
 
+    def test_stage_and_built_are_checked_and_shown(self):
+        d = doc([good_finding(built="no"), good_finding(id="F-002", built="maybe")])
+        d["stage"] = "prototype"
+        errs, _ = ldw.validate_findings(d)
+        self.assertEqual([e for e in errs if "built" in e], ["F-002: built must be one of no, partial"])
+        d["findings"].pop()
+        md = ldw.findings_md(d)
+        self.assertIn("Stage: prototype", md)
+        self.assertIn("1 of them on parts not built yet", md)
+        self.assertIn("(not built yet)", md)
+        d["stage"] = "beta"
+        self.assertTrue(any("stage" in e for e in ldw.validate_findings(d)[0]))
+
     def test_cli_exit_codes(self):
         with tempfile.TemporaryDirectory() as td:
             p = os.path.join(td, "f.json")

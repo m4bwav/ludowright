@@ -25,7 +25,7 @@ import sys
 
 VERSION = "0.1.0"
 FORMAT = "ludowright-findings"
-FORMAT_VERSION = "1.0"
+FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
 CATEGORIES = ("dominant-strategy", "degenerate-loop", "dead-choice", "economy-leak", "difficulty-spike",
               "onboarding-gap", "pacing", "scope-risk", "broken-promise", "balance", "progression", "clarity",
@@ -33,6 +33,8 @@ CATEGORIES = ("dominant-strategy", "degenerate-loop", "dead-choice", "economy-le
 KINDS = ("review", "improve", "design-check")
 LEVELS = ("high", "medium", "low")
 EFFORTS = ("S", "M", "L")
+STAGES = ("concept", "prototype", "in-development", "shipped", "live")
+BUILT = ("no", "partial")
 ID_RE = re.compile(r"^F-\d{3,}$")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
@@ -69,6 +71,8 @@ def validate_findings(doc):
         errs.append(f"kind must be one of {', '.join(KINDS)}")
     if "date" in doc and not DATE_RE.match(str(doc["date"])):
         errs.append("date must be YYYY-MM-DD")
+    if "stage" in doc and doc["stage"] not in STAGES:
+        errs.append(f"stage must be one of {', '.join(STAGES)}")
     if not isinstance(doc.get("sources_read", []), list):
         errs.append("sources_read must be a list")
     elif not doc.get("sources_read"):
@@ -114,6 +118,8 @@ def validate_findings(doc):
         for k, allowed in (("impact", LEVELS), ("confidence", LEVELS), ("effort", EFFORTS)):
             if k in f and f[k] not in allowed:
                 errs.append(f"{where}: {k} must be one of {', '.join(allowed)}")
+        if "built" in f and f["built"] not in BUILT:
+            errs.append(f"{where}: built must be one of {', '.join(BUILT)}")
         if doc.get("kind") == "improve" and ("impact" not in f or "effort" not in f):
             errs.append(f"{where}: an improve file ranks by impact and effort; both are required")
         if f.get("category") == "feel" and f.get("handoff") != "juice-scan":
@@ -136,10 +142,17 @@ def findings_md(doc):
     if doc.get("summary"):
         out += ["", doc["summary"]]
     counts = {s: sum(1 for f in fs if f.get("severity") == s) for s in SEVERITIES}
-    out += ["", " · ".join(f"{s} {n}" for s, n in counts.items() if n)]
+    line = " · ".join(f"{s} {n}" for s, n in counts.items() if n)
+    unbuilt = sum(1 for f in fs if f.get("built"))
+    if unbuilt:
+        line += f" · {unbuilt} of them on parts not built yet"
+    if doc.get("stage"):
+        line = f"Stage: {doc['stage']} · " + line
+    out += ["", line]
     out += ["", "| ID | Severity | Category | Finding | Impact | Effort |", "|---|---|---|---|---|---|"]
     for f in fs:
-        out.append(f"| {f.get('id')} | {f.get('severity')} | {f.get('category')} | {f.get('title')} | {f.get('impact', '')} | {f.get('effort', '')} |")
+        tag = " (not built yet)" if f.get("built") == "no" else " (partly built)" if f.get("built") == "partial" else ""
+        out.append(f"| {f.get('id')} | {f.get('severity')} | {f.get('category')} | {f.get('title')}{tag} | {f.get('impact', '')} | {f.get('effort', '')} |")
     for f in fs:
         loc = f.get("location") or {}
         where = loc.get("file", "")
@@ -150,6 +163,7 @@ def findings_md(doc):
         out += ["", f"## {f.get('id')} · {f.get('title')}", "",
                 f"- Severity: {f.get('severity')} · category: {f.get('category')}" + (f" · confidence: {f['confidence']}" if f.get("confidence") else ""),
                 f"- Where: {where}",
+                *([f"- Built: {f['built']} (a gap in the build, not a flaw in the design as written)"] if f.get("built") else []),
                 f"- Principle: {pr.get('name', '')}" + (f" ({pr['source']})" if pr.get("source") else ""),
                 f"- Evidence: {f.get('evidence', '')}",
                 f"- Suggestion: {f.get('suggestion', '')}"]
