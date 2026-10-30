@@ -34,7 +34,7 @@ item reaches a point that needs Mark, record everything, and end with the contin
 
 ## 3. Work in this order, skipping what HANDOFF.md marks done
 
-1. **The beat.** `everscout.py beat-check game-design` must exit 0 and the probe must have run (a subagent
+1. **The beat** (done 2026-10-29). Run the first `everscout-scan` on `game-design` when a refresh needs leads; read the six new subreddits' rules before any engagement.
    was finishing it on 2026-10-29). If not finished, run the `everscout-beat` skill, procedure A from step 3.
 2. **Evals.** Write a harder fixture beside `tiny-colony` (a degenerate loop between two rules; a promise the
    design doc makes that the data or code drops) with outcome cases on it; run action-2, outcome-2 and runs 2-3
