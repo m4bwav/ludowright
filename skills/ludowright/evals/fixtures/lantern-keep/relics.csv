@@ -1,0 +1,5 @@
+id,name,found_after_night,effect_key,text
+R1,Oil Flask,2,oil_plus_1,Gain 1 extra oil each turn.
+R2,Mirror Shard,4,double_burn,Lanterns on your floor burn 2 moths.
+R3,Sunstone,4,beacon_win,Carry to the roof and light it to win.
+R4,Moth Charm,6,moth_name,Moths on your floor get a name.

@@ -8,6 +8,11 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261029-3 · 2026-10-29 · claude plugin eval (action-2, outcome-4, outcome-5; 1 run each arm, --scaffold, --allow-tools Write; Bash refused: no Windows sandbox) · owner-pc Windows · action-2 pass (with 1, without 0); outcome-5 tie (1/3 votes each arm); outcome-4 0 vs 1 without the Write grant
+- action-2 gained graders (Skill fired, Write of design-*.md); action-1 got the matching review-*.json grader, not run.
+- First outcome-4/-5 runs forgot `--allow-tools Write`: neither arm could save a file (L-20261029-3). Re-run outcome-5 with Write: both arms find the uncoded beacon_win; the skill files it as F-002 `built: no` after a design flaw (flaws first, C-20261029-3), and the judge wanted it ranked first. Open question for the owner: does R-53's flaws-first order hold when the gap blocks the advertised core win?
+- Cost about $6.
+
 ### T-20261029-2 · 2026-10-29 · claude plugin eval (outcome-1..4, 3 runs each arm, haiku judge on the last message, --scaffold, Write granted, no shell) · owner-pc Windows · 1/4 cases pass both arms
 - Harness: cases now seed the fixture with case.yaml + fixture.sh (the first run, without scaffolds, scored 0 on all 24 runs because the sandbox could not read the plugin folder). Windows cannot confine Bash, so `plugin eval` refuses a shell grant: ldw.py never ran and the skill arm did the counting by hand (18-25 turns against 6-8 without).
 - outcome-1 · outcome · flaky · with 1/3, without 2/3; replies that pass and fail look alike in substance.

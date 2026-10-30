@@ -165,6 +165,25 @@
       },
       "reference": "Pillar 1 promises weather changes the best road, but storm_chance_mountain and storm_chance_lowland are 0.0, and the mountain roads are shortest with no ambush, so one route dominates every trip.",
       "runs": 3
+    },
+    {
+      "id": "outcome-5",
+      "kind": "outcome",
+      "prompt": "Copy the ludowright plugin's evals/fixtures/lantern-keep folder to a temp folder and review that game's design for flaws; save the findings there.",
+      "expectations": [
+        "the findings say the Sunstone beacon win (relics.csv R3, effect_key beacon_win) has no code in relics.py or night.py, so the fast win path DESIGN.md is built around cannot happen yet",
+        "the findings treat it as not built yet in a prototype (stage prototype, built: no, or the same in words), not as a shipped bug, and grade it above the uncoded Moth Charm flavour relic (R4, moth_name)"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "<temp folder>/review-*.json",
+        "contains_all": [
+          "beacon_win",
+          "built"
+        ]
+      },
+      "reference": "DESIGN.md says prototype, week 3. R3 Sunstone maps to beacon_win and R4 Moth Charm to moth_name; EFFECTS in relics.py has neither, apply_relic silently does nothing, and night.check_end only knows lose and dawn_win. The beacon win blocks the advertised core path: major, built: no. The Moth Charm is flavour: note, built: no.",
+      "runs": 3
     }
   ]
 }

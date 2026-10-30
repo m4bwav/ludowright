@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261029-4 · 2026-10-29 · No-shell fallback, findings first, contract 1.1 in SKILL.md; lantern-keep fixture (0.1.1)
+- because: L-20261029-1 (T-20261029-2), L-20261029-2
+- files: SKILL.md (LDW line, findings contract, Output), evals/fixtures/lantern-keep, evals/cases/outcome-5
+- When no shell is allowed the skill says so in one line, counts by hand only what a finding needs and still writes the file. The reply leads with the findings and puts caveats last. SKILL.md now names contract 1.1 with `stage` and `built`. New prototype fixture with an uncoded win-path relic and an uncoded flavour relic tests R-53 (outcome-5).
+
 ### C-20261029-3 · 2026-10-29 · Stage and built: separate "not built yet" from "built wrong"; findings contract 1.1
 - because: L-20261029-2 (user reaction to the SpaceDeckBuilder2 review)
 - files: references/review.md (steps 2 and 7), kb/review-rubric.md (R-53), scripts/ldw.py (validator, md), README contract
