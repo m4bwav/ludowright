@@ -184,6 +184,39 @@
       },
       "reference": "DESIGN.md says prototype, week 3. R3 Sunstone maps to beacon_win and R4 Moth Charm to moth_name; EFFECTS in relics.py has neither, apply_relic silently does nothing, and night.check_end only knows lose and dawn_win. The beacon win blocks the advertised core path: major, built: no. The Moth Charm is flavour: note, built: no.",
       "runs": 3
+    },
+    {
+      "id": "outcome-6",
+      "kind": "outcome",
+      "prompt": "My deckbuilder's design is in the ember-market folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as ember-market/review.md.",
+      "expectations": [
+        "review.md flags Bellows (cards.csv) as above the cost curve (benefit 6 for cost 3; every other card is cost plus 1)",
+        "review.md flags Ore Cart as dominated by Coal Cart",
+        "review.md finds the loop between Rule 5 (a drawn Spark gives ember) and Kindling (ember from a Spark draws a card)",
+        "review.md shows the Kiln gamble loses on average (EV 11/6 for a stake of 2) although DESIGN.md sells it as a real gamble",
+        "review.md says the promised Raid cards do not exist in cards.csv",
+        "precision: the Foundry snowball, defended in DESIGN.md as bounded by the end trigger and backed by an even win share, is not filed major or critical"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "ember-market/review.md"
+      },
+      "reference": "Five planted flaws, two of them quiet (Bellows only shows on a cost curve; the Kiln only on an EV), plus one deliberate, defended dynamic. Graded on the saved file with regex graders; the precision grader is a not_contains.",
+      "runs": 3
+    },
+    {
+      "id": "outcome-7",
+      "kind": "outcome",
+      "prompt": "My deckbuilder's design is in the ember-market folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as ember-market/review.md.",
+      "expectations": [
+        "review.md says the Foundry defence's own numbers contradict it: five wins in twelve four-player games is about 42%, well above the even share of 25%, on a small sample"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "ember-market/review.md"
+      },
+      "reference": "Holdout on the same fixture; the scaffold restores 'won five of twelve four-player games, close to the even share'. Tests review step 3b's arithmetic check.",
+      "runs": 3
     }
   ]
 }

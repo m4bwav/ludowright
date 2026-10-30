@@ -1,0 +1,265 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.281",
+  "startedAt": "2026-10-30T12:30:28.790Z",
+  "durationSeconds": 441,
+  "costUsd": 4.259627399999999,
+  "partial": false,
+  "suite": {
+    "root": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright",
+    "ablation": "with-without",
+    "judgeModel": "sonnet",
+    "caseFilter": "outcome-7",
+    "threshold": 1,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "ludowright",
+        "path": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "outcome-7",
+      "dir": "evals\\cases\\outcome-7",
+      "source": "mixed",
+      "promptMarkdown": "My deckbuilder's design is in the ember-market folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as ember-market/review.md.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "the playtest claim is challenged, not repeated",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "five wins in twelve four-player games is well above the even share",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 13,
+            "costUsd": 0.9224906,
+            "judgeCostUsd": 0,
+            "durationSeconds": 244,
+            "startedAt": "2026-10-30T12:30:28.867Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-EHIgxv\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "the playtest claim is challenged, not repeated",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "five wins in twelve four-player games is well above the even share",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 16,
+            "costUsd": 1.1550458,
+            "judgeCostUsd": 0,
+            "durationSeconds": 314,
+            "startedAt": "2026-10-30T12:30:28.867Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-kSmTrN\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "the playtest claim is challenged, not repeated",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "five wins in twelve four-player games is well above the even share",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 15,
+            "costUsd": 1.1988771999999999,
+            "judgeCostUsd": 0,
+            "durationSeconds": 318,
+            "startedAt": "2026-10-30T12:30:28.867Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-p7EVVu\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "the playtest claim is challenged, not repeated",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "five wins in twelve four-player games is well above the even share",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 6,
+            "costUsd": 0.3107874,
+            "judgeCostUsd": 0,
+            "durationSeconds": 104,
+            "startedAt": "2026-10-30T12:34:32.384Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-biFyAS\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "the playtest claim is challenged, not repeated",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "five wins in twelve four-player games is well above the even share",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 6,
+            "costUsd": 0.3107658,
+            "judgeCostUsd": 0,
+            "durationSeconds": 98,
+            "startedAt": "2026-10-30T12:35:42.779Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-MUZvBd\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "the playtest claim is challenged, not repeated",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "five wins in twelve four-player games is well above the even share",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 7,
+            "costUsd": 0.3616606,
+            "judgeCostUsd": 0,
+            "durationSeconds": 123,
+            "startedAt": "2026-10-30T12:35:46.942Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-pjWc0S\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "the playtest claim is challenged, not repeated",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (overstat|misread|not (close to|the) even|above (the )?even|well above|1\\.6\\d?x|1\\.7x|more than (the )?even|higher than (the )?even|too (small|few)|small sample|sample size|not significant|cannot (show|tell|support))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "five wins in twelve four-player games is well above the even share",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (5 ?/ ?12|five (of|out of|in) twelve|4[12](\\.\\d)? ?%)[\\s\\S]{0,300}(25 ?%|3 ?/ ?12|three|even share|one in four|above|higher|more than|not close|overstat|misread|small sample|sample)|(even share|25 ?%)[\\s\\S]{0,300}(5 ?/ ?12|five|4[12](\\.\\d)? ?%)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": 0
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 1,
+    "casesPassed": 1,
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0
+  }
+}
