@@ -23,7 +23,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.5"
+VERSION = "0.1.6"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -301,10 +301,26 @@ def fit_curve(rows, attrs, cost_key="cost"):
             "r2": 1 - ss_res / ss_tot if ss_tot else 1.0}
 
 
+def parse_rates(spec):
+    """'gold:1,wood:0.5' -> {'gold': 1.0, 'wood': 0.5}: each cost column's worth in the base currency."""
+    rates = {}
+    for part in spec.split(","):
+        k, _, v = part.partition(":")
+        try:
+            rates[k.strip()] = float(v) if v else 1.0
+        except ValueError:
+            fail(f"--costs wants column:rate pairs, got {part!r}")
+    return rates
+
+
 def cmd_curve(a):
     t = load_table(a.table)
     rows = t["rows"]
-    attrs = a.attrs.split(",") if a.attrs else t.get("attrs") or [k for k in rows[0] if k not in ("name", "cost") and isinstance(rows[0][k], (int, float))]
+    rates = parse_rates(a.costs) if a.costs else t.get("costs")
+    if rates:
+        rows = [dict(r, cost=sum(float(r.get(k) or 0) * v for k, v in rates.items())) for r in rows]
+    skip = {"name", "cost"} | set(rates or {})
+    attrs = a.attrs.split(",") if a.attrs else t.get("attrs") or [k for k in rows[0] if k not in skip and isinstance(rows[0][k], (int, float))]
     if len(rows) < len(attrs) + 2:
         fail(f"{len(rows)} items cannot fit {len(attrs)} attributes and an intercept; add items or drop attributes")
     fit = fit_curve(rows, attrs)
@@ -470,6 +486,7 @@ def main(argv=None):
     f.set_defaults(fn=cmd_findings)
     e = sp.add_parser("ev", help="expected value of a weighted outcome table"); e.add_argument("table"); e.add_argument("--json", action="store_true"); e.set_defaults(fn=cmd_ev)
     c = sp.add_parser("curve", help="cost curve fit and outliers"); c.add_argument("table"); c.add_argument("--attrs", help="comma list of attribute columns")
+    c.add_argument("--costs", help="several cost columns as column:rate pairs, folded into one cost (gold:1,wood:0.5)")
     c.add_argument("--tolerance", type=float, default=0.15, help="flag items whose cost is off the fit by more than this share (default 0.15)")
     c.add_argument("--json", action="store_true"); c.set_defaults(fn=cmd_curve)
     o = sp.add_parser("economy", help="sources, sinks, net flow and leaks"); o.add_argument("table"); o.add_argument("--periods", type=int); o.add_argument("--json", action="store_true"); o.set_defaults(fn=cmd_economy)

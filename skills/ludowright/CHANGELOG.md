@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-4 · 2026-10-30 · Reviewer gaps from the first real-game run (0.1.6)
+- because: user request (HANDOFF Next 3, gaps logged after the 2026-10-29 SpaceDeckBuilder2 review)
+- files: scripts/ldw.py (curve --costs), kb/balance-tables.md (curve), references/review.md (step 2), references/improve.md (step 4)
+- The real-game review had to declare multi-resource costs by hand, missed that its doc and code ran on different clocks, and saw improve ids renumbered. `curve --costs gold:1,wood:0.5` (or a "costs" object in the table) folds several currencies into one cost at stated rates; review step 2 converts every counted rate to one clock and unit; improve ids are given once in rank order and never renumbered.
+
 ### C-20261030-3 · 2026-10-30 · Contract in its own reference; batched reads (0.1.5)
 - because: T-20261030-5
 - files: references/findings-contract.md (new, copy of the README section), SKILL.md (step 0, contract), references/review.md (steps 1 and 6)
