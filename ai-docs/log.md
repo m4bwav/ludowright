@@ -41,3 +41,6 @@ SKILL.md: one-line no-shell fallback, findings before caveats, contract 1.1 name
 
 ## [2026-10-30] tune | 0.1.2: R-53 ruling applied
 Mark chose "core-win gap first": a designed-but-uncoded piece that blocks the advertised win or core loop now leads the review; other unbuilt gaps follow the flaws. First re-run scored 0/3 in both arms because the judge reads only the reply and the reply never said "prototype"; step 7 now names stage and built status. Re-run: with 0.67, without 0.33. PowerShell --scaffold fails (WSL bash); Git Bash works. About $5 of runs.
+
+## [2026-10-30] evals | 0.1.3, outcome A/B, worth CUT
+SKILL.md stops quoting test state to users; outcome-2 grader reworded. A/B outcome-1..4 (T-20261030-2): ties or noise; outcome-4 flipped 0.00 to 1.00 between identical runs. worth --record: CUT, no gain beyond noise at 3.2x cost; put to Mark. PR #5 merged, v0.1.3 tagged and released, installed. Harness traps: target . finds no cases, repeated --case keeps the last, timeout 590 killed a run. About $17.
