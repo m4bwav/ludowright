@@ -24,6 +24,10 @@ Write an entry the moment a real signal happens: a user correction, the same err
 - Scope: skill
 - Status: active · helpful 1 · harmful 0 · last_confirmed 2026-10-29
 
+### L-20261029-3 `eval-needs-allow-tools` · 2026-10-29 · active
+- Trigger: T-20261029-3. With `allowed_tools: [... Write]` in prompt.md alone, `claude plugin eval` still withheld Write from both arms, so no findings file could be saved and outcome-4/-5 failed in both arms. The harness says so only when a tool_used grader needs the tool.
+- Hypothesis: run file-writing cases with `--allow-tools Write Bash` (T-20261029-2 passed the grant; this session forgot it).
+
 ### L-20261029-1 `no-shell-eval-hurts-skill` · 2026-10-29 · active
 - Trigger: T-20261029-2. On Windows `claude plugin eval` refuses a Bash grant, so ldw.py cannot run; the skill arm then hand-counts for 18-25 turns, spends its last message on the shell caveat, and loses to the no-skill arm on a last-message judge.
 - Hypothesis: when LDW cannot run, the skill should say so in one line and lead the reply with the findings themselves (each with its file), not the caveat. Grade outcome cases on the saved findings file, not the last message.

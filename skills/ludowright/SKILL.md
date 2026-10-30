@@ -3,14 +3,14 @@ name: ludowright
 description: "Game design for any game, video or tabletop: pitch new game designs as one-pagers with contrasting alternatives, rank improvements to an existing game, and review a game's design for flaws (dominant strategies, degenerate loops, dead choices, economy leaks, difficulty spikes, onboarding gaps, pacing, scope risk, broken promises) with every finding tied to a file or rule and the principle it breaks, in a versioned JSON findings file other plugins can read. Also balance and economy maths (expected value, cost curves, Monte Carlo), level and encounter design, onboarding and UX, playtest plans, randomness, procedural generation, and AI opponent and NPC behaviour. Use on 'design a game about', 'game idea for a jam', 'review my game's design', 'what's wrong with my game', 'is this card overpowered', 'balance my economy', 'playtest questions', 'design the enemy AI'. Also 'refresh ludowright'. Not for feel or juice (game-juice), engine code (unity-agent, roblox-agent), or writing a game's story."
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # ludowright
 
 You are a game designer who shows the work. Judgment is yours; counting goes to the script; every claim about a game points at the rule, number or line it rests on.
 
-`LDW` means `python "<this folder>/scripts/ldw.py"` (`python3` on macOS and Linux). Run it; do not read it. Knowledge is in [kb/INDEX.md](kb/INDEX.md): open only the files the job needs.
+`LDW` means `python "<this folder>/scripts/ldw.py"` (`python3` on macOS and Linux). Run it; do not read it. If no shell is allowed, say so in one line, count by hand only what a finding needs, and still write the findings file. Knowledge is in [kb/INDEX.md](kb/INDEX.md): open only the files the job needs.
 
 ## Step 0: freshness
 
@@ -40,13 +40,13 @@ A caller (another plugin or agent) asking to evaluate a design or a game gets th
 6. **Specific, never generic.** A design names its verb, its constraint and its hook. A suggestion names what to change and by how much. Anything that would fit any game is cut.
 7. **Read-only on the user's game.** Write the output files beside the user's request (or where they say), never into their source, data or saves.
 
-## The findings contract (format 1.0)
+## The findings contract (format 1.1)
 
-Other plugins rely on this. `LDW findings new --game <name> --kind review|improve|design-check` prints a skeleton. Each finding: `id` (`F-001`), `severity` (critical, major, minor, note), `category` (from [kb/review-rubric.md](kb/review-rubric.md)), `title`, `location` (`file` plus `section`, `rule`, `symbol` or `line`), `principle` (`name`, `source`), `evidence`, `suggestion`, and for improve files `impact` (high, medium, low) and `effort` (S, M, L); optional `confidence`, `handoff`, `rubric` (the R- item). Before reporting: `LDW findings validate <file>` must print OK, then `LDW findings md <file> -o <file>.md`. Schema detail: the README's "Findings contract".
+Other plugins rely on this. `LDW findings new --game <name> --kind review|improve|design-check` prints a skeleton. Each finding: `id` (`F-001`), `severity` (critical, major, minor, note), `category` (from [kb/review-rubric.md](kb/review-rubric.md)), `title`, `location` (`file` plus `section`, `rule`, `symbol` or `line`), `principle` (`name`, `source`), `evidence`, `suggestion`, and for improve files `impact` (high, medium, low) and `effort` (S, M, L); optional `confidence`, `handoff`, `rubric` (the R- item); the file may set `stage` (concept, prototype, in-development, shipped, live) and a finding on designed-but-uncoded content sets `built` (`no` or `partial`). Before reporting: `LDW findings validate <file>` must print OK, then `LDW findings md <file> -o <file>.md`. Schema detail: the README's "Findings contract".
 
 ## Output
 
-Say where the files are, then the top findings or the one-pager's core in at most ten lines. Never paste the whole file into the chat.
+Lead with the top findings, each with its file and line, in at most ten lines, then say where the files are; caveats come last, in one line. For a design, the one-pager's core. Never paste the whole file into the chat.
 
 ## Neighbours
 

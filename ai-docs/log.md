@@ -35,3 +35,6 @@ Harder fixture salt-road plus outcome-3/-4; outcome cases seeded by case.yaml sc
 
 ## [2026-10-29] release | public repo, v0.1.0, wiki; review reaction routed
 Mark OK'd the public repo and objected to no review finding (unbuilt items are just not built yet). Created m4bwav/ludowright, PR #1 (banner, CI: no Python 3.9 on Ubuntu 26.04) and PR #2 (contract 1.1 `stage`/`built`, rubric R-53, L-20261029-2, package.py) merged, v0.1.0 released with the zip, wiki pushed after a browser click created it, social preview uploaded, installed from mark-local. Bash heredocs with apostrophes broke again; wiki pages written with Write.
+
+## [2026-10-29] tune | 0.1.1: no-shell fallback, lantern-keep, eval grants
+SKILL.md: one-line no-shell fallback, findings before caveats, contract 1.1 named. New fixture lantern-keep (uncoded beacon win and flavour relic) with outcome-5; action cases got graders. plugin eval needs `--allow-tools Write`; granting Bash fails on Windows (no sandbox). action-2 passes; outcome-5 ties because of the flaws-first order (question for Mark). About $6 of runs.
