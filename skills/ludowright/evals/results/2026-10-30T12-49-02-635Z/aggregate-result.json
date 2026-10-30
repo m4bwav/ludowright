@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.281",
+  "startedAt": "2026-10-30T12:49:02.635Z",
+  "durationSeconds": 433,
+  "costUsd": 4.4156702,
+  "partial": false,
+  "suite": {
+    "root": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright",
+    "ablation": "with-without",
+    "caseFilter": "outcome-6",
+    "threshold": 1,
+    "concurrency": 3,
+    "plugins": [
+      {
+        "name": "ludowright",
+        "path": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "outcome-6",
+      "dir": "evals\\cases\\outcome-6",
+      "source": "mixed",
+      "promptMarkdown": "My deckbuilder's design is in the ember-market folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as ember-market/review.md.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 600,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "Bellows flagged above the cost curve",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "Bellows[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+3|surplus)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Bellows",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "precision: deliberate Foundry snowball not filed major or critical",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "((major|critical)[^\\n]{0,160}Foundry)|(Foundry[^\\n]{0,160}(major|critical))",
+            "flags": "i",
+            "match": "not_contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Kiln gamble has negative expected value",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Spark and Kindling loop draws the deck",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Ore Cart dominated by Coal Cart",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "promised Raid cards are missing",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 17,
+            "costUsd": 1.029994,
+            "judgeCostUsd": 0,
+            "durationSeconds": 275,
+            "startedAt": "2026-10-30T12:49:02.729Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-MeBc39\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Bellows flagged above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Bellows[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+3|surplus)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Bellows",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Foundry snowball not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln gamble has negative expected value",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark and Kindling loop draws the deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Ore Cart dominated by Coal Cart",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "promised Raid cards are missing",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 16,
+            "costUsd": 1.0654536000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 283,
+            "startedAt": "2026-10-30T12:49:02.729Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-B8amf6\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Bellows flagged above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Bellows[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+3|surplus)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Bellows",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Foundry snowball not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln gamble has negative expected value",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark and Kindling loop draws the deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Ore Cart dominated by Coal Cart",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "promised Raid cards are missing",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 15,
+            "costUsd": 1.0462882,
+            "judgeCostUsd": 0,
+            "durationSeconds": 283,
+            "startedAt": "2026-10-30T12:49:02.729Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-r97Ouz\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Bellows flagged above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Bellows[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+3|surplus)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Bellows",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Foundry snowball not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln gamble has negative expected value",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark and Kindling loop draws the deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Ore Cart dominated by Coal Cart",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "promised Raid cards are missing",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 0.8333333333333334,
+            "passed": false,
+            "turns": 7,
+            "costUsd": 0.44342400000000004,
+            "judgeCostUsd": 0,
+            "durationSeconds": 149,
+            "startedAt": "2026-10-30T12:53:38.019Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-h9gbzQ\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Bellows flagged above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Bellows[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+3|surplus)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Bellows",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Foundry snowball not filed major or critical",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern found (expected absent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln gamble has negative expected value",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark and Kindling loop draws the deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Ore Cart dominated by Coal Cart",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "promised Raid cards are missing",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.8333333333333334,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.387702,
+            "judgeCostUsd": 0,
+            "durationSeconds": 127,
+            "startedAt": "2026-10-30T12:53:45.385Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-HL2d7e\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Bellows flagged above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Bellows[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+3|surplus)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Bellows",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Foundry snowball not filed major or critical",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern found (expected absent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln gamble has negative expected value",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark and Kindling loop draws the deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Ore Cart dominated by Coal Cart",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "promised Raid cards are missing",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.8333333333333334,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.4428084000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 150,
+            "startedAt": "2026-10-30T12:53:45.831Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-fiF7Qh\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Bellows flagged above the cost curve",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Foundry snowball not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln gamble has negative expected value",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kiln|gamble)[\\s\\S]{0,300}(1\\.83|11/6|negative|losing bet|loses? (coin|money|value)|below (the )?stake|less than (the )?stake|-0\\.17|0\\.17)|(1\\.83|11/6|negative (EV|expected))[\\s\\S]{0,300}(Kiln|gamble)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark and Kindling loop draws the deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Kindling[\\s\\S]{0,300}(loop|chain|whole deck|entire deck|infinite|degenerate|draws? (your|the) (whole|entire)))|((loop|chain|infinite|degenerate)[\\s\\S]{0,300}Kindling)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Ore Cart dominated by Coal Cart",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Ore Cart[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Ore Cart",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "promised Raid cards are missing",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Raid[\\s\\S]{0,250}(no |missing|absent|none|not (in|present|exist)|does ?n.?t exist|zero)|(no |missing|absent)[\\s\\S]{0,100}Raid",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1,
+        "scoreWithout": 0.8333333333333334,
+        "passRateWithout": 0,
+        "delta": 0.16666666666666663
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 1,
+    "casesPassed": 1,
+    "overallScore": 1,
+    "overallPassRate": 1,
+    "meanDelta": 0.16666666666666663
+  }
+}
