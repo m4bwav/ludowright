@@ -8,6 +8,13 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-1 · 2026-10-30 · claude plugin eval (outcome-5, 3 runs each arm, --scaffold, --allow-tools Write, from Git Bash) · owner-pc Windows · outcome-5 with 0.67, without 0.33
+- First run after the R-53 ruling: both arms led with the beacon gap, but 0/3 each, because the reply never said "prototype" or that the Moth Charm was unbuilt (both were only in the file). Fixed by naming stage and built status in the reply; re-run as above.
+- From PowerShell `--scaffold` fails: `/bin/bash` resolves to WSL and the Windows path loses its backslashes. Run evals from Git Bash.
+- Seen: the skill arm told the user that its own self-test outcome-5 was failing (it read evergreen.json). Should not be in a user reply; open.
+- led to: C-20261029-5
+
+
 ### T-20261029-3 · 2026-10-29 · claude plugin eval (action-2, outcome-4, outcome-5; 1 run each arm, --scaffold, --allow-tools Write; Bash refused: no Windows sandbox) · owner-pc Windows · action-2 pass (with 1, without 0); outcome-5 tie (1/3 votes each arm); outcome-4 0 vs 1 without the Write grant
 - action-2 gained graders (Skill fired, Write of design-*.md); action-1 got the matching review-*.json grader, not run.
 - First outcome-4/-5 runs forgot `--allow-tools Write`: neither arm could save a file (L-20261029-3). Re-run outcome-5 with Write: both arms find the uncoded beacon_win; the skill files it as F-002 `built: no` after a design flaw (flaws first, C-20261029-3), and the judge wanted it ranked first. Open question for the owner: does R-53's flaws-first order hold when the gap blocks the advertised core win?

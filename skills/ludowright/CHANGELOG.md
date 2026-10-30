@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261029-5 · 2026-10-29 · R-53: a gap blocking the advertised win ranks first (0.1.2)
+- because: T-20261029-3 (outcome-5 judge), T-20261029-4, owner ruling 2026-10-29
+- files: references/review.md (step 7), kb/review-rubric.md (R-53), LEARNINGS.md (L-20261029-2)
+- A designed-but-uncoded piece that blocks the win or core loop the game advertises now leads the report; other unbuilt gaps still follow the flaws in what exists. The reply now names the stage and marks unbuilt findings, because the judge reads only the reply, not the findings file.
+
 ### C-20261029-4 · 2026-10-29 · No-shell fallback, findings first, contract 1.1 in SKILL.md; lantern-keep fixture (0.1.1)
 - because: L-20261029-1 (T-20261029-2), L-20261029-2
 - files: SKILL.md (LDW line, findings contract, Output), evals/fixtures/lantern-keep, evals/cases/outcome-5

@@ -19,7 +19,7 @@ Write an entry the moment a real signal happens: a user correction, the same err
 ### L-20261029-2 `unbuilt-is-not-broken` · 2026-10-29 · active
 - Trigger: the first real review (SpaceDeckBuilder2, 13 findings) led with "Shuttle win unreachable" and "70 of 82 reward cards uncoded". Mark agreed with every finding and said these are things he has not built yet.
 - Hypothesis: a review of a game in development reads its to-do list as defects unless it settles the stage first and labels gaps in the build apart from flaws in the design.
-- Rule: settle `stage` in review step 2; mark findings on designed-but-uncoded content `built: no|partial`; report flaws in what exists before gaps in what is not built (rubric R-53, contract 1.1).
+- Rule: settle `stage` in review step 2; mark findings on designed-but-uncoded content `built: no|partial`; report flaws in what exists before gaps in what is not built, except a gap that blocks the advertised win or core loop, which goes first (rubric R-53, contract 1.1; owner ruling 2026-10-29).
 - Evidence: C-20261029-3; review-spacedeckbuilder2-2026-10-29 (gitignored)
 - Scope: skill
 - Status: active · helpful 1 · harmful 0 · last_confirmed 2026-10-29
