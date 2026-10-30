@@ -62,3 +62,6 @@ HANDOFF Next 3. `ldw.py curve --costs gold:1,wood:0.5` (or a "costs" object in t
 
 ## [2026-10-30] handoff | game-juice 1.2.0 from Swink's case studies
 HANDOFF Next 4. Read Swink ch. 12-16 (openings and summaries of all five; Mario 64's What's Important) with readwright (`rw.py read -s`, not `outline`). game-juice PR #3: P-23 classify feel, P-24 space and motion as a pair, P-25 rules are feel, P-26 direct or simulated per axis, P-27 bottom-up; lenses J13, J14; references/feel-cases.md (method only, no per-game numbers). PR #4 bumped the second manifest (.claude-plugin/plugin.json, which pack.py reads). Both merged, v1.2.0 released with the zips, plugin updated from its own marketplace (game-juice@game-juice, not mark-local). juice-scan untouched.
+
+## [2026-10-30] handoff | game-juice 1.3.0: juice-scan feel type and inferred properties
+HANDOFF Next 4 remainder. juice-scan Step 2 now classifies the feel (P-23: control, space, polish) before judging and writes down speed, jump height, gravity, HP and caps with file:line (P-24, P-25); report-template header gained both lines. PR #5 merged (no CI checks reported; local tests passed), v1.3.0 tagged and released, plugin updated. Evals not re-run: triggers unchanged.
