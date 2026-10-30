@@ -11,7 +11,7 @@ It is one agent skill plus a small standard-library Python tool. It works in Cla
 | Ask | You get |
 |---|---|
 | "Design a game about...", "jam ideas for this theme" | `design-<slug>.md`: hook, experience goal, core loop as a verb, mechanics, progression, scope, risks with the cheapest test for each, and two or three contrasting alternatives |
-| "Review my game's design", "what's wrong with my game" | `review-<game>-<date>.json` and `.md`: findings from a 52-item rubric, each with a location, evidence and the broken principle |
+| "Review my game's design", "what's wrong with my game" | `review-<game>-<date>.json` and `.md`: findings from a 53-item rubric, each with a location, evidence and the broken principle |
 | "How do I make my game better" | `improve-<game>-<date>.json` and `.md`: suggestions ranked by impact and effort |
 | "Is this card overpowered", "does my economy leak", "how many turns to afford X" | a counted answer from `ldw.py` (expected value, cost curve, sources and sinks, Monte Carlo) and the table it counted |
 | Levels, onboarding, playtest questionnaires, randomness, procedural generation, enemy AI | an answer from the matching kb file, with sources |

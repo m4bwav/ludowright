@@ -28,7 +28,7 @@ item reaches a point that needs Mark, record everything, and end with the contin
 
 ## 2. Check what waits on Mark first
 
-- Has Mark OK'd creating the public repo `m4bwav/ludowright`? Until he has, work locally and do not push.
+- The public repo exists (v0.1.0). Work on branches, open PRs, merge your own once checks pass, tag patch releases yourself.
 - Is evergreen-protocol PR #34 merged, or does it have review comments? Act on comments; never merge it yourself.
 - Has Mark reacted to a SpaceDeckBuilder2 review (section 4)? Route each reaction before anything else.
 
@@ -42,7 +42,7 @@ item reaches a point that needs Mark, record everything, and end with the contin
    `evergreen.py tested`. A failing case goes to `evergreen-tune` (three iterations, then report).
 3. **skill-tidy and worth.** `python D:/m4bwa/Claude/Projects/Ai/skill-tidy/skills/skill-tidy/scripts/tidy.py`
    on the skill, and `evergreen.py worth skills/ludowright --record` after an A/B.
-4. **Release (only once the repo exists).** Push, CI green, tag v0.1.0, GitHub Release with the CHANGELOG
+4. **Release.** v0.1.0 done 2026-10-29 (wiki, banner, zip). For a patch: PR, CI green, bump plugin.json, tag, GitHub Release with the CHANGELOG
    entry, install from the mark-local marketplace, Copilot export as editwright does. Merge your own PRs once
    checks pass (global CLAUDE.md), add the books rows to `books/plugin-learnings/INDEX.md` and a track to
    `PROGRESS.md`.

@@ -2,16 +2,14 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-29)
-- Name ludowright (gamewright clashes with the publisher Gamewright and Gamewright Studio). Local repo only: creating the public repo was refused by the permission check; waits on Mark's OK. Nothing pushed.
-- Built: one skill `skills/ludowright/` (SKILL.md router, references design/review/improve/balance, 12 kb topic files plus balance-tables and the 52-item review rubric, `scripts/ldw.py` with 13 tests), evergreen layer (tier moderate, next due 2026-11-28), repo set (README with findings contract 1.0, AGENTS, CLAUDE, Copilot pointer, LICENSE, SECURITY, CI, budget green), decision `ai-docs/decisions/2026-10-29-one-skill-and-budgets.md`.
-- Beat: everscout beat `game-design` finished 2026-10-29: beat-check 0 errors, probe 19 ok 0 bad, 19 sources (7 engage), 69 entities, 25 questions. Next action there: first scan. Subreddit rules pages unread: read before any engagement.
-- Evals: T-20261029-1 triggers 3/3 (baseline 0/3), decoys quiet. T-20261029-2: new harder fixture `salt-road` (reputation loop, dropped storm promise) with outcome-3 and outcome-4; outcome cases now seed fixtures via case.yaml + fixture.sh (`--scaffold`). Result 1/4 cases: Windows plugin eval refuses Bash, so ldw.py never ran and the skill arm lost on a last-message haiku judge (outcome-4 0/3 vs 3/3). Lesson L-20261029-1. Description trimmed to under 1024 chars (skill-tidy ST005, C-20261029-2).
-- SpaceDeckBuilder2 review done (read-only), 13 findings + 10 improvements in `ai-docs/reviews/` (gitignored), both validate OK. Shown to Mark; waiting on his reactions. The reviewer's skill gaps are in the log entry for the review (no rubric item for "data written, code never built"; settle the game's clock and units before counting; cost curve on free-text effects and multi-currency costs; economy tool cannot model players who adapt; sim stops at XP not levels; improve md re-sorts by severity; Unity GUID refs unresolvable).
-- Evergreen PR m4bwav/evergreen-protocol#34 (beat offer, plus the BEAT-line fix the live run found, L-044) waits on Mark. everscout 0.6.0 released.
-- Reading notes: 27 files in `books/plugin-learnings/round3-game-design/`; partial reads listed in `ai-docs/log.md`.
+## Current state (2026-10-29, session 3)
+- Public: https://github.com/m4bwav/ludowright (Mark OK'd 2026-10-29). v0.1.0 released with ludowright.zip (scripts/package.py); CI green on 6 jobs (Ubuntu 3.9 dropped: Ubuntu 26.04 runners have no 3.9); banner (.github/images, Z-Image seed 33) and social preview uploaded; Discussions and topics on; wiki live (Home, Getting started, Findings contract, Commands, Reviewing a game in development, FAQ; clone at Ai/ludowright.wiki); installed ludowright@mark-local and listed in Ai/.claude-plugin/marketplace.json; books INDEX and PROGRESS rows added.
+- SpaceDeckBuilder2 review: Mark objected to no finding; his note was that the unbuilt items are things not built yet. Routed as L-20261029-2 `unbuilt-is-not-broken` -> C-20261029-3: review step 2 settles `stage`, findings on designed-but-uncoded content carry `built: no|partial`, flaws reported before gaps, rubric R-53; findings contract 1.1 (optional `stage`, `built`; 1.0 still validates). Merged in PR #2.
+- Evals: T-20261029-1 triggers 3/3; T-20261029-2 outcome A/B lost on Windows (no shell in plugin eval, L-20261029-1). Not re-run after C-20261029-3.
+- Evergreen PR m4bwav/evergreen-protocol#34 still waits on Mark. Beat `game-design` built; first scan not run.
 
 ## Next
-1. Route Mark's reactions to the SpaceDeckBuilder2 review (evergreen-learn), together with the reviewer's skill gaps above.
-2. Tune for L-20261029-1: when LDW cannot run, lead with the findings and one caveat line; switch the outcome graders to the saved findings file (`source: file`) or re-run the A/B with evergreen-tester where a shell exists. Run action-2. Then `evergreen.py worth skills/ludowright --record`.
-3. Release once Mark OKs the public repo (still not created). Then the game-juice PR (Swink ch. 12-16).
+1. Tune for L-20261029-1 (lead with findings when LDW cannot run; grade outcome cases from the saved findings file), run action-2, add an eval case for R-53 (a fixture with designed-but-uncoded content in a prototype), then `evergreen.py worth skills/ludowright --record`. Patch release 0.1.1 after.
+2. The other reviewer gaps in the log (clock and units, multi-currency costs, adaptive players, improve md sort, Unity GUIDs).
+3. game-juice PR from kb/feel-handoff.md after reading Swink ch. 12-16.
+4. First everscout scan on game-design when a refresh needs leads.

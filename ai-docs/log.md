@@ -32,3 +32,6 @@ Review (13 findings, validate OK) and improve list (10) in ai-docs/reviews/ (git
 
 ## [2026-10-29] evals | salt-road fixture, outcome A/B, tidy
 Harder fixture salt-road plus outcome-3/-4; outcome cases seeded by case.yaml scaffolds. plugin eval on Windows: no shell grant possible, so the skill arm hand-counts and loses on last-message grading (T-20261029-2, L-20261029-1, about $17 of eval runs). skill-tidy: description cut under 1024 chars; ST021 nested kb links kept by design. Repo m4bwav/ludowright still absent; evergreen-protocol#34 open, no comments.
+
+## [2026-10-29] release | public repo, v0.1.0, wiki; review reaction routed
+Mark OK'd the public repo and objected to no review finding (unbuilt items are just not built yet). Created m4bwav/ludowright, PR #1 (banner, CI: no Python 3.9 on Ubuntu 26.04) and PR #2 (contract 1.1 `stage`/`built`, rubric R-53, L-20261029-2, package.py) merged, v0.1.0 released with the zip, wiki pushed after a browser click created it, social preview uploaded, installed from mark-local. Bash heredocs with apostrophes broke again; wiki pages written with Write.
