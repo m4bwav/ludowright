@@ -107,6 +107,21 @@ class Maths(unittest.TestCase):
         self.assertAlmostEqual(clean["weights"]["damage"], 0.5, places=4)
         self.assertAlmostEqual(clean["intercept"], 1.0, places=4)
 
+    def test_curve_folds_several_currencies(self):
+        self.assertEqual(ldw.parse_rates("gold:1,wood:0.5,ore"), {"gold": 1.0, "wood": 0.5, "ore": 1.0})
+        rows = [{"name": f"b{i}", "gold": g, "wood": w, "power": 1 + 0.5 * (g + 0.5 * w)} for i, (g, w) in
+                enumerate([(2, 0), (4, 2), (0, 4), (6, 2), (2, 6), (8, 0)])]
+        with tempfile.TemporaryDirectory() as td:
+            p = os.path.join(td, "t.json")
+            with open(p, "w", encoding="utf-8") as fh:
+                json.dump({"rows": rows, "attrs": ["power"]}, fh)
+            with contextlib.redirect_stdout(io.StringIO()) as out:
+                code = ldw.main(["curve", p, "--costs", "gold:1,wood:0.5", "--json"])
+        self.assertEqual(code, 0)
+        fit = json.loads(out.getvalue())
+        self.assertAlmostEqual(fit["weights"]["power"], 2.0, places=4)
+        self.assertEqual(fit["flagged"], 0)
+
     def test_economy_flags_leak_and_drain(self):
         t = {"rows": [{"resource": "gold", "kind": "source", "name": "mine", "amount": 5},
                       {"resource": "gold", "kind": "sink", "name": "upkeep", "amount": 2},

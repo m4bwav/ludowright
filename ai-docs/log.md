@@ -56,3 +56,6 @@ Traced outcome-6 (HANDOFF Next 2). Turn sinks: one file a turn, plus a Grep and 
 
 ## [2026-10-30] evals | outcome-8: counted evidence separates the arms
 New case on the ember-market prompt with four regex graders for shown arithmetic (cost table, Kiln odds, loop count from the starting deck, 25% win share). 5 runs each arm: with 0.85, without 0.65; bare missed the cost table 3/5 and the win-share sum 4/5. worth still CUT on the all-pass rate (40/20, noise 57, x2.69 cost); not recorded. T-20261030-6. About $7.3.
+
+## [2026-10-30] tune | 0.1.6: three reviewer gaps closed
+HANDOFF Next 3. `ldw.py curve --costs gold:1,wood:0.5` (or a "costs" object in the table) folds multi-resource costs into one at stated rates, with a test; review step 2 now checks the clock and the units (turns vs seconds, per turn vs per round); improve ids are given once in rank order and never renumbered. No eval re-run: the rubric and SKILL.md rules did not change, only references and the CLI. Installed skill folder is 297 KB against a 300 KB green line. Still open from that list: adaptive players, Unity GUIDs.
