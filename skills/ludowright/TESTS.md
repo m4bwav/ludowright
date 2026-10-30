@@ -8,6 +8,10 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-4 · 2026-10-30 · claude plugin eval (outcome-6, 3 runs each arm, --scaffold, --allow-tools Write) · owner-pc Windows · with 1.00, without 0.83
+- Cost experiment: the review walked a generated one-line rubric index (9 KB) instead of the full rubric (20 KB). Skill arm $1.05 and 16.0 turns a run, against $1.06 and 14.7 before; bare arm $0.42, 6.3 turns. No saving: the 3x cost is turns (kb reads, ldw runs, JSON then md), not file size. Index reverted (it only added install size). About $4.6.
+- led to: none; next cost lever is fewer turns (batch reads, one ldw call, md from validate), not smaller files.
+
 ### T-20261030-3 · 2026-10-30 · claude plugin eval (outcome-6, outcome-7 new on the ember-market fixture; 3 runs each arm, --scaffold, --allow-tools Write, regex graders on the saved review.md) · owner-pc Windows · outcome-6 with 1.00, without 0.94; outcome-7 1.00/1.00
 - First graders read the saved file, not the reply: five recall graders (Bellows over the curve, Ore Cart dominated, Spark-Kindling loop, Kiln gamble EV 11/6 under a stake of 2, Raid cards missing) and one precision grader (`not_contains`: the defended Foundry snowball filed major or critical). `llm` graders take no `target`, so precision is a line regex.
 - Before C-20261030-2 (0.1.3): with 0.83, without 0.89. The skill hit all five flaws 3/3 but filed the Foundry snowball major 3/3. Two of those runs were right: the fixture said "five of twelve four-player wins, close to the even share", which is 42% against 25%. Fixture fixed to three of twelve; the misread version became holdout outcome-7.

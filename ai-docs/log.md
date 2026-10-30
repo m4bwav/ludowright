@@ -47,3 +47,6 @@ SKILL.md stops quoting test state to users; outcome-2 grader reworded. A/B outco
 
 ## [2026-10-30] tune | 0.1.4: book sweeps and intent check; worth still CUT
 Mark: keep ludowright and make it useful with the book learnings. New ember-market fixture (five planted flaws, two quiet, plus a defended Foundry snowball) graded on the saved review.md, the first file-graded value cases (outcome-6, holdout outcome-7). review.md gained four sweeps (promises, trigger pairs, whole-table curves, EV on every gamble) and step 3b, an intent check with the defence's arithmetic. outcome-6: 0.83/0.89 before, 1.00/0.94 after (bare misses the cost-curve outlier 2 of 6); outcome-7 ties. worth stays CUT (+7 inside noise 22, x3.1 cost). Fixture bug caught by the skill: "five of twelve, close to even share" in 4p is 42%. Harness: llm graders take no target; regex `target: {source: file, path}` and `match: not_contains` work. About $17.
+
+## [2026-10-30] evals | rubric index tried for cost, reverted
+evergreen-protocol#34 is merged. HANDOFF Next 2 tested: a one-line-an-item rubric index in place of the 20 KB rubric. outcome-6 held (with 1.00, without 0.83) but the skill arm cost the same ($1.05 vs $1.06 a run, 16 turns). Cost is turn count, not context size; reverted. T-20261030-4. About $4.6.
