@@ -1,0 +1,4 @@
+seed: 33
+model: Z-Image Turbo, ComfyUI (Windows host), 1536x640, 9 steps cfg 1.0
+prompt:
+A game designer's worktable seen from above at a low angle in warm lamp light: a hand-drawn paper board game prototype with a hex map, wooden pawns and dice, index cards with hand-sketched arrows and loop diagrams, a notebook of balance curves and graph paper, a pencil and a red marker, cinematic photo, shallow depth of field, rich wood tones, no text, no logos

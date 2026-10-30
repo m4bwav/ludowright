@@ -1,5 +1,7 @@
 # ludowright
 
+![A game designer's table in warm lamp light: a hand-drawn hex-map prototype with wooden pawns and dice, index cards sketched with loop arrows, an open notebook and a red pen, and a hand pencilling notes onto the map](https://raw.githubusercontent.com/m4bwav/ludowright/main/.github/images/banner.jpg)
+
 Game design with the work shown. ludowright pitches new games as one-pagers, ranks improvements to an existing game, and reviews a game's design for flaws, and every finding points at the file, rule or number it rests on and names the design principle it breaks. Its knowledge is distilled from the design canon (Schell, Fullerton, Salen and Zimmerman, Sylvester, Koster, Sellers, Romero and Schreiber, Adams and Dormans, Costikyan, Hodent, Elias, Garfield and Gutschera, Totten, Lemarchand and the game AI literature), paraphrased with chapter citations.
 
 It is one agent skill plus a small standard-library Python tool. It works in Claude Code, Claude Desktop and GitHub Copilot, and in any agent that reads `SKILL.md`.
