@@ -38,15 +38,15 @@
     "learnings": 0,
     "changes": 0,
     "research": 0,
-    "tests": 0
+    "tests": 1
   },
   "consolidate_every": 25,
   "tests": {
-    "last_run": null,
+    "last_run": "2026-10-29T19:42",
     "harness": null,
-    "env": null,
-    "cases": 0,
-    "passed": 0,
+    "env": "windows",
+    "cases": 7,
+    "passed": 7,
     "failed": 0,
     "failing": [],
     "last_failure": null,
