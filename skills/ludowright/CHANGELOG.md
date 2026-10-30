@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261029-3 · 2026-10-29 · Stage and built: separate "not built yet" from "built wrong"; findings contract 1.1
+- because: L-20261029-2 (user reaction to the SpaceDeckBuilder2 review)
+- files: references/review.md (steps 2 and 7), kb/review-rubric.md (R-53), scripts/ldw.py (validator, md), README contract
+- Review step 2 settles the game's stage; findings on designed-but-uncoded content carry `built: no|partial` and are reported after the flaws in what exists. New rubric item R-53. Contract 1.1 adds the optional `stage` and `built`; 1.0 files still validate.
+
 ### C-20261029-2 · 2026-10-29 · Description trimmed under 1024 chars
 - skill-tidy ST005: the description was 1072 chars and some hosts drop longer ones. Cut 'sources and sinks', 'and questionnaires' and the 'how do I make my game better' trigger phrase (still covered by 'what's wrong with my game' and the improve route). Also added the salt-road fixture and outcome-3, outcome-4.
 - because: skill-tidy lint
