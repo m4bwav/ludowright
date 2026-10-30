@@ -1,0 +1,7 @@
+{
+  "hand_size": 5,
+  "starting_deck": {"Spark": 7, "Copper Chit": 3},
+  "market_row": 6,
+  "kiln_gamble": {"stake_coins": 2, "die": 6, "payouts": {"1": 0, "2": 0, "3": 0, "4": 3, "5": 3, "6": 5}},
+  "end": {"buildings": 6, "max_rounds": 12}
+}

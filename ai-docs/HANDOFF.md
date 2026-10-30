@@ -2,18 +2,18 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-30, session 6)
-- v0.1.3 released (C-20261030-1): the skill keeps eval state out of replies; the outcome-2 grader judges substance.
-- T-20261030-2: outcome-1 1.00/1.00, -2 0.67/1.00, -3 0.67/0.67, -4 1.00/0.67 (0.00/0.67 on the first run: 3 runs is noise). outcome-5 last 0.67/0.33.
-- `worth --record` says CUT: same detection as bare Claude at 3.2x cost. The outcome judges read only the reply, so they ignore the skill's edge (contract JSON, counted tables). The keep/cut call is Mark's.
-- Eval harness: target `skills/ludowright`, one `--case` glob per run, no `timeout` wrapper, Git Bash.
-- Evergreen PR m4bwav/evergreen-protocol#34 still open, no comments. Beat game-design built, first scan not run.
+## Current state (2026-10-30, session 7)
+- v0.1.4 (C-20261030-2): review step 3 runs four book sweeps (promises, trigger pairs, whole-table curves, EV on every gamble); step 3b checks the designer's intent, stopping mechanism and the defence's arithmetic before filing.
+- T-20261030-3: new ember-market fixture, first cases graded on the saved file. outcome-6 with 1.00, without 0.94 (bare misses the Bellows cost-curve outlier 2 of 6 runs); outcome-7 (misread playtest win share) ties 1.00/1.00.
+- Mark ruled KEEP (2026-10-30). worth still says CUT: +7 points inside a 22-point noise margin at 3.1x cost. On a frontier model the books add little to raw detection; the measured edge is quiet counted flaws and precision.
+- Evergreen PR m4bwav/evergreen-protocol#34 still open. Beat game-design built, first scan not run.
 
 ## Waits on Mark
-- Worth verdict CUT: keep ludowright (value is the findings contract for other plugins and real-game reviews), or trim it? Suggested: KEEP and add action cases that grade the saved findings file, so worth sees that value.
+- Nothing blocking. Open question: is the skill's value worth 3x tokens when detection is close to bare Claude? Options in "Next".
 
 ## Next
-1. After Mark rules on worth: add file-graded value cases (findings JSON validates, counts present) and re-run worth with 5 runs a case.
-2. The other reviewer gaps in the log (clock and units, multi-currency costs, adaptive players, improve md sort, Unity GUIDs).
-3. game-juice PR from kb/feel-handoff.md after reading Swink ch. 12-16.
-4. First everscout scan on game-design when a refresh needs leads.
+1. Measure what is not graded yet: a case that greps the findings JSON for counted evidence (an `ldw` table cited, policy and spread named), and a SpaceDeckBuilder2-sized fixture where breadth matters; 5 runs a case so worth can leave the noise.
+2. Cut cost: the skill arm uses about 3x the tokens. Try loading only review.md plus the rubric index for reviews (not kb files), then re-run outcome-6.
+3. The other reviewer gaps in the log (clock and units, multi-currency costs, adaptive players, improve md sort, Unity GUIDs).
+4. game-juice PR from kb/feel-handoff.md after reading Swink ch. 12-16.
+5. First everscout scan on game-design when a refresh needs leads.

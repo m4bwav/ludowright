@@ -8,6 +8,14 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-3 · 2026-10-30 · claude plugin eval (outcome-6, outcome-7 new on the ember-market fixture; 3 runs each arm, --scaffold, --allow-tools Write, regex graders on the saved review.md) · owner-pc Windows · outcome-6 with 1.00, without 0.94; outcome-7 1.00/1.00
+- First graders read the saved file, not the reply: five recall graders (Bellows over the curve, Ore Cart dominated, Spark-Kindling loop, Kiln gamble EV 11/6 under a stake of 2, Raid cards missing) and one precision grader (`not_contains`: the defended Foundry snowball filed major or critical). `llm` graders take no `target`, so precision is a line regex.
+- Before C-20261030-2 (0.1.3): with 0.83, without 0.89. The skill hit all five flaws 3/3 but filed the Foundry snowball major 3/3. Two of those runs were right: the fixture said "five of twelve four-player wins, close to the even share", which is 42% against 25%. Fixture fixed to three of twelve; the misread version became holdout outcome-7.
+- After C-20261030-2: outcome-6 with 6/6 graders on 3/3 runs; without missed the Bellows outlier (shows only on a cost curve) in 1/3 (2/6 across both A/Bs). outcome-7: both arms catch the misread win share 3/3.
+- worth (no --record): still CUT, A/B 93% with against 87% without over 15 runs, +7 points inside a noise margin of 22, cost x3.14. The books' edge on detection is small and shows on quiet, counted flaws and on precision; the skill's other value (contract JSON, counted tables, real-game depth) is not graded.
+- Diagnostic run (--ablation none --keep-temp) overlapped the review.md edit; not counted. About $17 of runs.
+- led to: C-20261030-2
+
 ### T-20261030-2 · 2026-10-30 · claude plugin eval (outcome-1..5, 3 runs each arm, --scaffold, --allow-tools Write, skills/ludowright as target, Git Bash) · owner-pc Windows · outcome-1 1.00/1.00, outcome-2 0.67/1.00 after the grader fix (0/0 before), outcome-3 0.67/0.67, outcome-4 1.00/0.67 on re-run (0.00/0.67 first)
 - outcome-4 swung from 0.00 to 1.00 between two identical runs: three runs a case are too few to separate the arms on these fixtures. Read single A/B results as noise unless a case loses twice.
 - outcome-2 · grader: the old wording wanted jargon; reworded (C-20261030-1). outcome-3 · flaky in both arms.

@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-2 · 2026-10-30 · Review sweeps and an intent check from the books (0.1.4)
+- because: T-20261030-3, user request ("improve it into usefulness with the learnings from the books")
+- files: references/review.md (step 3 sweeps, new step 3b), evals/fixtures/ember-market, evals/cases/outcome-6, outcome-7, evals/evals.json
+- Review step 3 now runs four sweeps a rubric walk misses: promises to the rows that deliver them (Wyman), trigger pairs for self-feeding chains (Adams and Dormans, Sylvester), a cost curve over every like-kind table with dominated pairs (Schreiber), and EV on every gamble (Elias et al., Costikyan). New step 3b checks the designer's stated intent, stopping mechanism and evidence before filing a loop or outlier: a defended, bounded dynamic is a note at most, unless its own numbers contradict it (win share against one in the player count, sample size).
+
 ### C-20261030-1 · 2026-10-30 · Keep test state out of replies; outcome-2 grader judges substance (0.1.3)
 - because: T-20261030-1 (the skill told the user its own eval was failing), T-20261030-2
 - files: SKILL.md (evergreen state line), evals/cases/outcome-2/graders/judge.md
