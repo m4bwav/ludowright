@@ -217,6 +217,23 @@
       },
       "reference": "Holdout on the same fixture; the scaffold restores 'won five of twelve four-player games, close to the even share'. Tests review step 3b's arithmetic check.",
       "runs": 3
+    },
+    {
+      "id": "outcome-8",
+      "kind": "outcome",
+      "prompt": "My deckbuilder's design is in the ember-market folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as ember-market/review.md.",
+      "expectations": [
+        "review.md shows the cost curve as a table with Bellows beside other cards",
+        "review.md shows the Kiln odds (three of six faces pay nothing, or the payout sum), not only the EV",
+        "review.md quantifies the Spark loop from the starting deck (7 Sparks of 10)",
+        "review.md computes the Foundry win share, three of twelve, as 25 percent"
+      ],
+      "evidence": {
+        "type": "file",
+        "path": "ember-market/review.md"
+      },
+      "reference": "Counted evidence, not detection: the same ember-market prompt as outcome-6, graded on whether the saved review shows its arithmetic. 5 runs an arm so worth can leave the noise.",
+      "runs": 5
     }
   ]
 }

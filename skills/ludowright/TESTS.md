@@ -8,6 +8,12 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-6 · 2026-10-30 · claude plugin eval (outcome-8 new: counted evidence on ember-market; 5 runs each arm, --scaffold, --allow-tools Write, -j 4) · owner-pc Windows · with 0.85, without 0.65
+- Four regex graders on the saved review.md: cost curve as a table with Bellows beside other cards, Kiln odds shown (not only the EV), Spark loop counted from the starting deck, Foundry win share computed as 25%.
+- With: 1, .75, .75, .75, 1 (cost table 5/5, Kiln odds 4/5, loop 5/5, win share 3/5), 13-23 turns, $0.92-1.22. Without: .75, .5, .5, .5, 1 (cost table 2/5, win share 1/5), 6 turns, about $0.40. Total $7.29.
+- First case where the arms separate on mean score (+20 points): the skill shows its counting; bare Claude finds the flaws but states them. worth (all-graders pass rate, 40% vs 20%) still says CUT with a 57-point noise margin at x2.69 cost; not recorded, Mark ruled KEEP.
+- led to: none yet. Next: a per-grader mean in worth, or more runs.
+
 ### T-20261030-5 · 2026-10-30 · claude plugin eval (outcome-6, 3 runs each arm, --scaffold, --allow-tools Write) · owner-pc Windows · with 1.00, without 0.83
 - Trace before the change (--ablation none --keep-temp, 3 runs): with 0.83, 0.83, 1.00 at 14-16 turns, $0.93-0.98. Turn sinks: evergreen.json, review.md, three fixture files and two kb files each read in its own turn; a Grep plus the whole README to find the contract.
 - After C-20261030-3: with 1.00 x3 at 13, 14 and 21 turns, $1.07-1.19; without 1.00, 0.83, 0.67 at 6 turns, $0.33-0.39. Instructions to batch reads did not cut turns or cost; quality held. Bare missed Bellows or the Kiln EV in 2 of 3. About $7.3.

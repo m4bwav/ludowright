@@ -53,3 +53,6 @@ evergreen-protocol#34 is merged. HANDOFF Next 2 tested: a one-line-an-item rubri
 
 ## [2026-10-30] tune | 0.1.5: contract reference, batched reads; CI unbroken
 Traced outcome-6 (HANDOFF Next 2). Turn sinks: one file a turn, plus a Grep and a full README read to find the contract. Added references/findings-contract.md and one-turn parallel-read instructions. A/B: with 1.00 (3/3), without 0.83; turns 13-21 and $1.07-1.19 a run, so no saving. Cost is the model's pacing, not the instructions; stop chasing it on this fixture (T-20261030-5). Main CI had been red since #8: eval report folders were committed under evals/results (gitignored); untracked them, budget green. ldw VERSION was stuck at 0.1.2; now 0.1.5. About $7.3.
+
+## [2026-10-30] evals | outcome-8: counted evidence separates the arms
+New case on the ember-market prompt with four regex graders for shown arithmetic (cost table, Kiln odds, loop count from the starting deck, 25% win share). 5 runs each arm: with 0.85, without 0.65; bare missed the cost table 3/5 and the win-share sum 4/5. worth still CUT on the all-pass rate (40/20, noise 57, x2.69 cost); not recorded. T-20261030-6. About $7.3.

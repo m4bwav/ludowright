@@ -38,20 +38,22 @@
     "learnings": 0,
     "changes": 0,
     "research": 0,
-    "tests": 6
+    "tests": 7
   },
   "consolidate_every": 25,
   "tests": {
-    "last_run": "2026-10-30T07:39",
+    "last_run": "2026-10-30T15:00",
     "harness": "claude plugin eval",
-    "env": "owner-pc Windows",
-    "cases": 2,
+    "env": "owner-pc",
+    "cases": 5,
     "passed": 2,
-    "failed": 0,
-    "failing": [],
+    "failed": 3,
+    "failing": [
+      "outcome-8"
+    ],
     "last_failure": {
-      "date": "2026-10-29",
-      "note": "T-20261030-2"
+      "date": "2026-10-30",
+      "note": "T-20261030-6 outcome-8 counted evidence: with 0.85, without 0.65"
     },
     "research_after_days": null
   },
