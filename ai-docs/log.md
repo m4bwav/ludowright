@@ -50,3 +50,6 @@ Mark: keep ludowright and make it useful with the book learnings. New ember-mark
 
 ## [2026-10-30] evals | rubric index tried for cost, reverted
 evergreen-protocol#34 is merged. HANDOFF Next 2 tested: a one-line-an-item rubric index in place of the 20 KB rubric. outcome-6 held (with 1.00, without 0.83) but the skill arm cost the same ($1.05 vs $1.06 a run, 16 turns). Cost is turn count, not context size; reverted. T-20261030-4. About $4.6.
+
+## [2026-10-30] tune | 0.1.5: contract reference, batched reads; CI unbroken
+Traced outcome-6 (HANDOFF Next 2). Turn sinks: one file a turn, plus a Grep and a full README read to find the contract. Added references/findings-contract.md and one-turn parallel-read instructions. A/B: with 1.00 (3/3), without 0.83; turns 13-21 and $1.07-1.19 a run, so no saving. Cost is the model's pacing, not the instructions; stop chasing it on this fixture (T-20261030-5). Main CI had been red since #8: eval report folders were committed under evals/results (gitignored); untracked them, budget green. ldw VERSION was stuck at 0.1.2; now 0.1.5. About $7.3.
