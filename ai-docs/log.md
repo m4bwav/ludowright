@@ -86,3 +86,6 @@ Continue prompt section 4 stop condition met. No misses named, so nothing routed
 
 ## [2026-10-30] handoff | session 19: idle check
 All continue-prompt items done or optional; PR #34 merged; no reactions owed. Nothing run.
+
+## [2026-10-30] kb | Spelunky (Yu) distilled, 0.1.7
+Reader notes yu-spelunky.md (225 lines, all four parts). Folded into procgen, levels-and-space, production-and-scope, uncertainty; rubric R-54 to R-57.

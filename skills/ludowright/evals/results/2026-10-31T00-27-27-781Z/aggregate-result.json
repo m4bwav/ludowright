@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.281",
+  "startedAt": "2026-10-31T00:27:27.781Z",
+  "durationSeconds": 578,
+  "costUsd": 7.786238000000001,
+  "partial": false,
+  "suite": {
+    "root": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright",
+    "ablation": "with-without",
+    "caseFilter": "outcome-8",
+    "threshold": 1,
+    "concurrency": 4,
+    "plugins": [
+      {
+        "name": "ludowright",
+        "path": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "outcome-8",
+      "dir": "evals\\cases\\outcome-8",
+      "source": "mixed",
+      "promptMarkdown": "My deckbuilder's design is in the ember-market folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as ember-market/review.md.",
+      "runsPerCase": 5,
+      "timeoutSeconds": 600,
+      "maxTurns": 30,
+      "graders": [
+        {
+          "name": "cost curve shown as a table with Bellows and other cards",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*Bellows[^\\n]*\\|)|(^\\|[^\\n]*Bellows[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|)",
+            "flags": "im",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Kiln EV shows the odds, not only the result",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Spark loop quantified from the starting deck",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Foundry win share computed as 25 percent",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "ember-market/review.md"
+            },
+            "pattern": "(3\\s*(of|/|in)\\s*12|three of twelve)[\\s\\S]{0,250}25\\s*%|25\\s*%[\\s\\S]{0,250}(3\\s*(of|/|in)\\s*12|three of twelve)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.75,
+            "passed": false,
+            "turns": 19,
+            "costUsd": 1.1297264,
+            "judgeCostUsd": 0,
+            "durationSeconds": 304,
+            "startedAt": "2026-10-31T00:27:27.860Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-jmI2f4\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*Bellows[^\\n]*\\|)|(^\\|[^\\n]*Bellows[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (3\\s*(of|/|in)\\s*12|three of twelve)[\\s\\S]{0,250}25\\s*%|25\\s*%[\\s\\S]{0,250}(3\\s*(of|/|in)\\s*12|three of twelve)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 23,
+            "costUsd": 1.2785774,
+            "judgeCostUsd": 0,
+            "durationSeconds": 311,
+            "startedAt": "2026-10-31T00:27:27.861Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-C2ZPNq\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 13,
+            "costUsd": 0.9914736,
+            "judgeCostUsd": 0,
+            "durationSeconds": 261,
+            "startedAt": "2026-10-31T00:27:27.861Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-mUyLK1\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*Bellows[^\\n]*\\|)|(^\\|[^\\n]*Bellows[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.75,
+            "passed": false,
+            "turns": 19,
+            "costUsd": 1.3588886,
+            "judgeCostUsd": 0,
+            "durationSeconds": 348,
+            "startedAt": "2026-10-31T00:27:27.861Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-3hfpaa\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*Bellows[^\\n]*\\|)|(^\\|[^\\n]*Bellows[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 14,
+            "costUsd": 1.1344276,
+            "judgeCostUsd": 0,
+            "durationSeconds": 313,
+            "startedAt": "2026-10-31T00:31:48.779Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-dlYTUJ\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (3\\s*(of|/|in)\\s*12|three of twelve)[\\s\\S]{0,250}25\\s*%|25\\s*%[\\s\\S]{0,250}(3\\s*(of|/|in)\\s*12|three of twelve)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 6,
+            "costUsd": 0.36386040000000003,
+            "judgeCostUsd": 0,
+            "durationSeconds": 122,
+            "startedAt": "2026-10-31T00:32:31.415Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-Q0DTZW\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*Bellows[^\\n]*\\|)|(^\\|[^\\n]*Bellows[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (3\\s*(of|/|in)\\s*12|three of twelve)[\\s\\S]{0,250}25\\s*%|25\\s*%[\\s\\S]{0,250}(3\\s*(of|/|in)\\s*12|three of twelve)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.3912804,
+            "judgeCostUsd": 0,
+            "durationSeconds": 130,
+            "startedAt": "2026-10-31T00:32:39.246Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-Ej4uhL\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (3\\s*(of|/|in)\\s*12|three of twelve)[\\s\\S]{0,250}25\\s*%|25\\s*%[\\s\\S]{0,250}(3\\s*(of|/|in)\\s*12|three of twelve)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.75,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.3645900000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 120,
+            "startedAt": "2026-10-31T00:33:15.411Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-ryG6DR\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (3\\s*(of|/|in)\\s*12|three of twelve)[\\s\\S]{0,250}25\\s*%|25\\s*%[\\s\\S]{0,250}(3\\s*(of|/|in)\\s*12|three of twelve)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.75,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.3541596,
+            "judgeCostUsd": 0,
+            "durationSeconds": 117,
+            "startedAt": "2026-10-31T00:34:33.904Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-Nq39io\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*Bellows[^\\n]*\\|)|(^\\|[^\\n]*Bellows[^\\n]*\\|[\\s\\S]{0,2000}^\\|[^\\n]*(Coal Cart|Trade Pass|Lantern|Smelter|Ore Cart|Guild Seal)[^\\n]*\\|)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 0.5,
+            "passed": false,
+            "turns": 6,
+            "costUsd": 0.419254,
+            "judgeCostUsd": 0,
+            "durationSeconds": 136,
+            "startedAt": "2026-10-31T00:34:49.639Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-VvuY6O\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "cost curve shown as a table with Bellows and other cards",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Kiln EV shows the odds, not only the result",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (0\\s*\\+\\s*0\\s*\\+\\s*0\\s*\\+\\s*3\\s*\\+\\s*3\\s*\\+\\s*5)|((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)[\\s\\S]{0,200}(nothing|zero|\\b0\\b|lose|blank)|(nothing|zero|lose)[\\s\\S]{0,120}((3|three)\\s*(of|in|/|out of)\\s*(6|six)|50\\s*%|half)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Spark loop quantified from the starting deck",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ((7|seven) Sparks?|3\\.5 Sparks?|70\\s*%|7\\s*(of|/|in)\\s*10)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Foundry win share computed as 25 percent",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern not found in file ember-market/review.md",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.6,
+        "passRate": 0,
+        "scoreWithout": 0.7,
+        "passRateWithout": 0.2,
+        "delta": -0.09999999999999998
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 1,
+    "casesPassed": 0,
+    "overallScore": 0.6,
+    "overallPassRate": 0,
+    "meanDelta": -0.09999999999999998
+  }
+}

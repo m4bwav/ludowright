@@ -432,3 +432,31 @@ Related: [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](b
 - Severity hint: in a game still being built, grade by what the gap blocks (a win condition or a core loop: major; flavour: note) and mark the finding `built: no` or `partial`; a gap that blocks the advertised win or core loop ranks above every flaw in what exists, other gaps rank after them; in a shipped or live game, `broken-promise`, major or critical
 - Tool: none (a grep and a count)
 - Sources: production.md; Lemarchand (vertical slice and scope); user correction 2026-10-29 (L-20261029-2)
+
+### R-54 Generator needs consumables
+- Look for: A level generator with no guaranteed start-to-exit path that needs no bombs, keys or tools, and no softlock test over many seeds.
+- Breaks: Luck-independent wins; consumables as a real choice
+- Severity hint: major when a run can be lost to layout alone; minor when only a resource is lost
+- Tool: `ldw.py sim` over fixed seeds with a reachability check, or by hand on the generator rules
+- Sources: procgen.md; Yu Part I
+
+### R-55 Friction counted as difficulty
+- Look for: Complaints that a game is too hard while common actions take many steps or buttons, controls lag, or ledge grace is missing. Count the steps per action before any enemy nerf.
+- Breaks: Challenge that comes from the design, not the interface
+- Severity hint: major when the friction sits on the core action
+- Tool: by hand
+- Sources: playtesting.md; Yu Parts I, III
+
+### R-56 Signposted or dominant secrets
+- Look for: Secrets marked by cracks, flashing or prompts; key items useful only at one lock; a hidden reward strong enough to become the standard route.
+- Breaks: Discovery; build and route variety
+- Severity hint: minor for signposting; major when the secret becomes the dominant strategy
+- Tool: by hand
+- Sources: levels-and-space.md; Yu Parts II, IV
+
+### R-57 Seeded run not fixed by its seed
+- Look for: Chest, crate or drop contents rolled when opened rather than at generation, in a game with daily, shared or replayed seeds.
+- Breaks: Comparable seeded runs
+- Severity hint: major for a daily or competitive seed mode; note otherwise
+- Tool: grep the code for random calls inside open or pickup handlers
+- Sources: procgen.md; Yu Part III

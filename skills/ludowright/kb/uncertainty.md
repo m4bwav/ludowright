@@ -71,6 +71,9 @@ Table shapes for `ev` and `sim` are in [balance-tables](balance-tables.md). Find
 - Arbitrary punishment: bad random events that erase long investment without warning. [Fullerton ch. 11]
 - Mismatch of audience and source. [Costikyan ch. 5]
 
+- Slot-machine variety: content shuffles over shallow systems. Randomness pays only when the systems under it are worth learning. [Yu Part III]
+- Unlimited looting with no time or space pressure, so collecting holds no dilemmas; a soft, telegraphed timer turns it into decisions. [Yu Part II]
+
 ## Where the books disagree
 
 - Is uncertainty of outcome the key feature: Costikyan disputes Salen's quantifiable-outcome view. For ludowright it is enough that uncertainty must live somewhere; we ask where, not which definition wins.
