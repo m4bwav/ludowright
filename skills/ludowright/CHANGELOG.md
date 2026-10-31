@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261031-1 · 2026-10-31 · Press Reset (Schreier) principles in production and procgen (0.1.10)
+- because: user request (approved the Changes table of the Press Reset learnings note, five kb rows)
+- files: kb/production-and-scope.md (Principles 19 to 21, Failure patterns), kb/procgen.md (Principles 20)
+- Small teams in one room over a headcount ramp, a named closer, planned life after launch with a deliberate final update, self-imposed crunch as a failure pattern, and random content as a budget lever.
+
 ### C-20261030-7 · 2026-10-30 · Spelunky principles as kb principles in ten files (0.1.9)
 - because: user request (approved the Changes table of the Spelunky learnings note, ten kb rows)
 - files: kb/procgen.md, kb/systems-and-loops.md, kb/uncertainty.md, kb/levels-and-space.md, kb/core-loops-and-goals.md, kb/playtesting.md, kb/production-and-scope.md, kb/game-ai-for-designers.md (Principles), kb/balance-tables.md (ev), scripts/ldw.py (VERSION, stale at 0.1.6)

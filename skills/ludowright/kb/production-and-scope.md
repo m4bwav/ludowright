@@ -22,6 +22,9 @@ Answers: is this plan buildable by the people and time available, and what shoul
 16. Content restrictions are a hidden cost of every new ability: each one constrains every level and encounter built afterwards. [Sylvester ch. 13]
 17. Unproven AI or generative features are scope risks. Keep a fallback that ships without them. [Togelius ch. 8]
 18. Finishing is a skill. Do not restart; park new ideas for the next game; cut and scale down; cut side modes until the main one ships. Expect the last tenth (menus, polish, platform work) to take as long as the rest. [Yu Part III]
+19. Small teams in one room iterate on feel fastest. Growing headcount to meet a funder's date buys bloat and lost ownership, not speed. [Schreier Press Reset ch. 1, 2, 7]
+20. Name a closer: one person whose job is to say no, lock the core early and cut scope. [Schreier Press Reset ch. 2]
+21. Plan the life after launch: free updates and ports bring sales back (a roguelike's best month can come two years in), and announce a final update on purpose rather than drifting on. [Schreier Press Reset ch. 3, 8]
 
 ## How to apply
 
@@ -38,6 +41,8 @@ Answers: is this plan buildable by the people and time available, and what shoul
 
 ## Failure patterns
 
+- Headcount ramp to a date. Symptom: team grows sharply to hit a funder's milestone while the core loop is still unproven. [Schreier Press Reset ch. 1, 7]
+- Self-imposed crunch. Symptom: owners or revenue-share partners work unbounded hours because the game is theirs; it still burns people and partnerships. [Schreier Press Reset ch. 5, 8]
 - Goal that vetoes nothing. Symptom: generic goal ("fun, engaging"), no cut ever attributed to it. [Lemarchand ch. 7]
 - All priority one. Symptom: every task marked must-have, so no pre-decided cuts. [Lemarchand ch. 19]
 - Unpriced promise. Symptom: roadmap or store page lists features with no estimate. [Schreier Pillars of Eternity ch. 1]
