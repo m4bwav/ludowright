@@ -71,3 +71,6 @@ HANDOFF Next 1. New fixture harbor-yard and outcome-9 (11 regex graders on revie
 
 ## [2026-10-30] evals | harbor-yard quieter, Kraken defence fixed: still a tie
 HANDOFF Next 1. Removed the three outright hints from playtests.md. --keep-temp reviews showed the Kraken defence contradicted its own numbers (both arms said so); fixed the fixture. Re-run with 0.97, without 1.00. T-20261030-8. Trap: never delete claude-eval-* temp folders while an eval runs; it voided one run. About $14.6.
+
+## [2026-10-31] evals | worth scores the mean grader score (evergreen#15)
+HANDOFF Next 1 remainder. evergreen `ab_report` adds score_with/without, score_delta and a Welch score_margin (floor 5 points); `verdict` gives KEEP or TRIM when all-pass ties but the score gain clears its margin. Test added, CI green on six jobs, merged. CI caught a foreign T- id in the evergreen CHANGELOG (check_links); cite other repos' runs without the id. ludowright outcome-8: 0.85 vs 0.65, margin 0.23, still CUT.
