@@ -95,3 +95,5 @@ Reader notes yu-spelunky.md (225 lines, all four parts). Folded into procgen, le
 
 ## [2026-10-30] kb | Spelunky learnings table applied, 0.1.9
 Ten approved rows from the vault learnings note (indie-ai-scout books/spelunky) added as numbered principles in eight kb files plus a spawn-table note in balance-tables. ldw.py VERSION had drifted to 0.1.6; now 0.1.9. Budget yellow is review-rubric.md, unchanged.
+
+## [2026-10-31] kb | Press Reset (Schreier) rows in production-and-scope and procgen, 0.1.10 released (PR #17)
