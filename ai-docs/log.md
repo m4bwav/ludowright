@@ -89,3 +89,6 @@ All continue-prompt items done or optional; PR #34 merged; no reactions owed. No
 
 ## [2026-10-30] kb | Spelunky (Yu) distilled, 0.1.7
 Reader notes yu-spelunky.md (225 lines, all four parts). Folded into procgen, levels-and-space, production-and-scope, uncertainty; rubric R-54 to R-57.
+
+## [2026-10-30] fix | 0.1.8 drops committed eval results
+0.1.7 was merged with the budget check red: `git add -A` picked up skills/ludowright/evals/results/. Removed and gitignored. Lesson: check `gh pr checks` for any non-pass before merging, and stage paths, not -A.

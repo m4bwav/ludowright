@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-6 · 2026-10-30 · Drop eval run output committed by mistake (0.1.8)
+- because: budget check red on 0.1.7 (installed skill folder 719 KB, limit 600)
+- files: skills/ludowright/evals/results/ (removed, now ignored), .gitignore
+- 0.1.7 shipped a local eval run's report by accident; this removes it. Same skill content as 0.1.7.
+
 ### C-20261030-5 · 2026-10-30 · Spelunky (Yu) distilled into the kb; rubric R-54 to R-57 (0.1.7)
 - because: user request (Mark added Derek Yu, Spelunky, to the reading pile)
 - files: kb/procgen.md (template-grid generator, failure patterns), kb/levels-and-space.md, kb/production-and-scope.md, kb/uncertainty.md (failure patterns), kb/review-rubric.md (R-54 to R-57), README.md (57-item rubric)
