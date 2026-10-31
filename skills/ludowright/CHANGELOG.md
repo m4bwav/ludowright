@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-5 · 2026-10-30 · Spelunky (Yu) distilled into the kb; rubric R-54 to R-57 (0.1.7)
+- because: user request (Mark added Derek Yu, Spelunky, to the reading pile)
+- files: kb/procgen.md (template-grid generator, failure patterns), kb/levels-and-space.md, kb/production-and-scope.md, kb/uncertainty.md (failure patterns), kb/review-rubric.md (R-54 to R-57), README.md (57-item rubric)
+- Notes in books/plugin-learnings/round3-game-design/yu-spelunky.md. New checks: a generator path that needs consumables, friction read as difficulty, signposted or dominant secrets, seeded runs whose loot is rolled on open.
+
 ### C-20261030-4 · 2026-10-30 · Reviewer gaps from the first real-game run (0.1.6)
 - because: user request (HANDOFF Next 3, gaps logged after the 2026-10-29 SpaceDeckBuilder2 review)
 - files: scripts/ldw.py (curve --costs), kb/balance-tables.md (curve), references/review.md (step 2), references/improve.md (step 4)

@@ -1,0 +1,831 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.281",
+  "startedAt": "2026-10-30T23:56:30.859Z",
+  "durationSeconds": 519,
+  "costUsd": 5.6802316,
+  "partial": false,
+  "suite": {
+    "root": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright",
+    "ablation": "with-without",
+    "caseFilter": "outcome-9",
+    "threshold": 1,
+    "concurrency": 4,
+    "plugins": [
+      {
+        "name": "ludowright",
+        "path": "D:\\m4bwa\\Claude\\Projects\\Ai\\ludowright\\skills\\ludowright"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "outcome-9",
+      "dir": "evals\\cases\\outcome-9",
+      "source": "mixed",
+      "promptMarkdown": "My deckbuilder's design and prototype are in the harbor-yard folder here. Review it for design flaws and save the full review, every finding and not only the top ones, as harbor-yard/review.md.",
+      "runsPerCase": 3,
+      "timeoutSeconds": 900,
+      "maxTurns": 40,
+      "graders": [
+        {
+          "name": "Beacon victory unreachable: no Lens source",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "rules.py ends at round 10 but the design says 14",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Salvage Crane above the cost curve",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Driftwood scrap loop gives unlimited coin",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "first player 4 of 10 is 40 percent, not even",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "(40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "precision: deliberate Kraken swing not filed major or critical",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "((major|critical)[^\\n]{0,160}Kraken)|(Kraken[^\\n]{0,160}(major|critical))",
+            "flags": "i",
+            "match": "not_contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Rope Ladder dominated by Gangplank",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Smugglers Run is a losing bet",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "(Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Tide bonus rewards holding back VP",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "Tidecallers edge far above the other factions",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        },
+        {
+          "name": "card text not coded in rules.py",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": {
+              "source": "file",
+              "path": "harbor-yard/review.md"
+            },
+            "pattern": "(EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+            "flags": "i",
+            "match": "contains",
+            "arm": "both"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 0.9090909090909091,
+            "passed": false,
+            "turns": 18,
+            "costUsd": 1.2075982,
+            "judgeCostUsd": 0,
+            "durationSeconds": 316,
+            "startedAt": "2026-10-30T23:56:30.946Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-e8q10j\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Beacon victory unreachable: no Lens source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "rules.py ends at round 10 but the design says 14",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Salvage Crane above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Driftwood scrap loop gives unlimited coin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "first player 4 of 10 is 40 percent, not even",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Kraken swing not filed major or critical",
+                "passed": false,
+                "weight": 1,
+                "explanation": "pattern found (expected absent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Rope Ladder dominated by Gangplank",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Smugglers Run is a losing bet",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tide bonus rewards holding back VP",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tidecallers edge far above the other factions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "card text not coded in rules.py",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 22,
+            "costUsd": 1.3885294000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 345,
+            "startedAt": "2026-10-30T23:56:30.947Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-cfdNjU\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Beacon victory unreachable: no Lens source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "rules.py ends at round 10 but the design says 14",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Salvage Crane above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Driftwood scrap loop gives unlimited coin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "first player 4 of 10 is 40 percent, not even",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Kraken swing not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Rope Ladder dominated by Gangplank",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Smugglers Run is a losing bet",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tide bonus rewards holding back VP",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tidecallers edge far above the other factions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "card text not coded in rules.py",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 18,
+            "costUsd": 1.4019724000000002,
+            "judgeCostUsd": 0,
+            "durationSeconds": 395,
+            "startedAt": "2026-10-30T23:56:30.947Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-euCteH\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Beacon victory unreachable: no Lens source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "rules.py ends at round 10 but the design says 14",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Salvage Crane above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Driftwood scrap loop gives unlimited coin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "first player 4 of 10 is 40 percent, not even",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Kraken swing not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Rope Ladder dominated by Gangplank",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Smugglers Run is a losing bet",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tide bonus rewards holding back VP",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tidecallers edge far above the other factions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "card text not coded in rules.py",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ],
+        "without": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 11,
+            "costUsd": 0.548157,
+            "judgeCostUsd": 0,
+            "durationSeconds": 169,
+            "startedAt": "2026-10-30T23:56:30.947Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-XCoRTt\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Beacon victory unreachable: no Lens source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "rules.py ends at round 10 but the design says 14",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Salvage Crane above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Driftwood scrap loop gives unlimited coin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "first player 4 of 10 is 40 percent, not even",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Kraken swing not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Rope Ladder dominated by Gangplank",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Smugglers Run is a losing bet",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tide bonus rewards holding back VP",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tidecallers edge far above the other factions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "card text not coded in rules.py",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 11,
+            "costUsd": 0.49987760000000003,
+            "judgeCostUsd": 0,
+            "durationSeconds": 157,
+            "startedAt": "2026-10-30T23:59:19.874Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-sGmy04\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Beacon victory unreachable: no Lens source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "rules.py ends at round 10 but the design says 14",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Salvage Crane above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Driftwood scrap loop gives unlimited coin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "first player 4 of 10 is 40 percent, not even",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Kraken swing not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Rope Ladder dominated by Gangplank",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Smugglers Run is a losing bet",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tide bonus rewards holding back VP",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tidecallers edge far above the other factions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "card text not coded in rules.py",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          },
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 11,
+            "costUsd": 0.634097,
+            "judgeCostUsd": 0,
+            "durationSeconds": 203,
+            "startedAt": "2026-10-31T00:01:47.120Z",
+            "error": null,
+            "tracePath": "C:\\Users\\m4bwa\\AppData\\Local\\Temp\\claude-eval-5y9CT2\\out\\trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "Beacon victory unreachable: no Lens source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Lens[\\s\\S]{0,300}(no (source|producer|way|card)|nothing (gives|produces|grants)|never|unreachable|impossible|missing|not (defined|obtainable))|(unreachable|impossible|no way)[\\s\\S]{0,200}(Beacon|Lens)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "rules.py ends at round 10 but the design says 14",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b[\\s\\S]{0,250}\\b14\\b|\\b14\\b[\\s\\S]{0,250}(MAX_ROUNDS|rules\\.py|prototype|code)[^.]{0,120}\\b10\\b",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Salvage Crane above the cost curve",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Salvage Crane[\\s\\S]{0,250}(outlier|over ?curve|above|under-?(costed|priced)|too (cheap|strong)|best|dominant|\\+2|surplus|6)|(outlier|above (the )?curve|under-?(costed|priced))[\\s\\S]{0,250}Salvage Crane",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Driftwood scrap loop gives unlimited coin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Driftwood[\\s\\S]{0,400}(loop|infinite|unlimited|unbounded|degenerate|endless|exploit|repeat)|(loop|infinite|unlimited|degenerate)[\\s\\S]{0,300}Driftwood",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "first player 4 of 10 is 40 percent, not even",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (40 ?%|40 percent|4 (of|in|/) ?10)[\\s\\S]{0,300}(25|not (close|even)|above|first.player advantage|higher)|(first.player)[\\s\\S]{0,300}(40 ?%|40 percent)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "precision: deliberate Kraken swing not filed major or critical",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Rope Ladder dominated by Gangplank",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Rope Ladder[\\s\\S]{0,250}(dominat|strictly|worse|weaker|never|trap|dead)|(dominat|strictly worse)[\\s\\S]{0,250}Rope Ladder",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Smugglers Run is a losing bet",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (Smuggler.?s Run|gamble|bet)[\\s\\S]{0,300}(negative|losing|loses?|EV of 2|returns? 2|2 coin|-1|below (the )?stake|less than (the )?stake|1/3)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tide bonus rewards holding back VP",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tide[\\s\\S]{0,400}(sandbag|stall|delay|hold(ing)? (off|back)|avoid (scoring|building)|perverse|incentive|punish|reward(s|ing)? (losing|staying))",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "Tidecallers edge far above the other factions",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched Tidecaller[\\s\\S]{0,300}(28|2[0-9] coin|over ?powered|strongest|far (more|ahead|stronger)|not (equal|even|balanced)|dominant|outclass|unequal|imbalance)",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "card text not coded in rules.py",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched (EFFECTS|not (yet )?(coded|implemented)|uncoded|unimplemented)[\\s\\S]{0,400}(Signal Flag|Lookout|Fog Lantern|Pearl Diver|Harpooner|Cartographer|Smuggler\\b|Warehouse|Drydock)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 0.9696969696969697,
+        "passRate": 0.6666666666666666,
+        "scoreWithout": 1,
+        "passRateWithout": 1,
+        "delta": -0.030303030303030276
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 1,
+    "casesPassed": 0,
+    "overallScore": 0.9696969696969697,
+    "overallPassRate": 0.6666666666666666,
+    "meanDelta": -0.030303030303030276
+  }
+}

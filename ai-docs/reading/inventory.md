@@ -56,3 +56,4 @@ U = `D:\RawStorage\BigDownloads\Unorganized`, G = `...\Books and Texts\Games`, C
 | Clark, Playing with Balance | U\Oscar Clark - Playing with Balance.pdf | balance, free-to-play economies |
 | Wyman, Making Great Games | U\Making Great Games - Michael Thornton Wyman...pdf | production |
 | Short and Adams, Procedural Storytelling in Game Design | G\Tanya X. Short_ Tarn Adams - Procedural Storytelling in Game Design.pdf | out of scope (story) |
+| Yu, Spelunky (Boss Fight Books, 2016) | U\Yu, Derek - Spelunky.epub | procgen, secrets, difficulty pacing, finishing (read 2026-10-30) |

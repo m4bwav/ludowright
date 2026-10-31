@@ -33,6 +33,8 @@ Answers: whether a game should generate content, how much authorial control to k
 7. Check for oatmeal: do two outputs differ in anything a player would notice? Cluster by metric and by a visual look; low variance across clusters is oatmeal.
 8. Check for over- and under-constraint (below).
 
+A cheap generator that hides its seams: a small grid of rooms, a guaranteed path drawn first, each room filled from a template typed by its openings, some random cells and small chunk pools inside the template, then a second pass that places entities from the tiles around them. Write the generator's rules (entrance, exit, path with no items needed, no softlocks) before the code. [Yu Part I]
+
 ## Failure patterns
 
 - No role statement or fallback in the spec. [Short ch. 1]
@@ -49,6 +51,9 @@ Answers: whether a game should generate content, how much authorial control to k
 - Wave rule chosen without checking snowball, stalling or fatigue. [Short ch. 14]
 - Procedural claims that outpace the core loop. [Short ch. 1]
 - LLM-made level accepted with no solver pass. [AI playtesting note]
+- Consumables spent on generator repair: the layout can need a bomb, key or tool just to reach the exit. Guarantee a critical path that needs no consumable; a softlock test proves it. [Yu Part I]
+- Random contents rolled on open (chests, crates) instead of at generation, so a fixed seed does not fix the run and daily or shared seeds break. [Yu Part III]
+- Spawn odds set flat across an area; relative rarity and tiers within an area matter more than absolute odds, tuned by ballpark then play. [Yu Parts I, III]
 
 ## Where the books disagree
 

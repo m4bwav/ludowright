@@ -64,6 +64,9 @@ Answers: is this plan buildable by the people and time available, and what shoul
 
 Schreier's chapters are journalism from interviews and selected for drama: treat each as a plausible risk, not a frequency, and cite by game and chapter only.
 
+- Restart loop: rewrites or fresh vertical slices with no new content. Finishing is a skill: park new ideas for the next game, cut variant modes while the main one is unfinished, scale down. [Yu Part III]
+- Estimates that leave out the last 10 percent: menus, stats, animation volume, localisation overflow, ratings and platform certification. [Yu Part III]
+
 ## Where the books disagree
 
 - Locked scope after preproduction (Lemarchand) versus fast live change (Wyman ch. 12, social games). Ludowright locks scope for shipped products and allows live change only for live-service designs, and asks which the game is.

@@ -51,6 +51,10 @@ Engine side (building, linting, playtest loops): the Level Up! references (one-p
 - Target-death design: a plan stating the player dies N times here. [Rogers LevelUp ch. 12-13]
 - Uncontested shortcut that skips content at no cost. [Totten]
 
+- Secrets marked by cracks, flashing or a sidekick prompt; a secret's key item useful only at its lock; a hidden reward strong enough to become the dominant route. Good secrets are hinted by the world, findable out of order and useful beyond their lock. [Yu Parts II, IV]
+- Bosses that suspend the core rules (invulnerable until a puzzle, repeated). Prefer an upgraded regular enemy under the same rules, or a boss beaten through the core system. [Yu Part IV]
+- Difficulty as one rising knob. Pace it: ebb and flow, a breather area, pain frontloaded, mood and suspicion later. [Yu Part IV]
+
 ## Where the books disagree
 
 - When to hand over all tools: Rogers says by about three quarters, Bauer says most in the first two thirds. Ludowright treats it as a range and flags only key unlocks in the last quarter.
