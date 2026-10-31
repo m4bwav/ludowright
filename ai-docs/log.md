@@ -74,3 +74,6 @@ HANDOFF Next 1. Removed the three outright hints from playtests.md. --keep-temp 
 
 ## [2026-10-31] evals | worth scores the mean grader score (evergreen#15)
 HANDOFF Next 1 remainder. evergreen `ab_report` adds score_with/without, score_delta and a Welch score_margin (floor 5 points); `verdict` gives KEEP or TRIM when all-pass ties but the score gain clears its margin. Test added, CI green on six jobs, merged. CI caught a foreign T- id in the evergreen CHANGELOG (check_links); cite other repos' runs without the id. ludowright outcome-8: 0.85 vs 0.65, margin 0.23, still CUT.
+
+## [2026-10-31] evals | outcome-8 top-up: the edge was noise
+HANDOFF Next 1. 5 more runs an arm: with 0.60, without 0.70. Pooled 10 an arm 0.725 vs 0.675, +5 inside noise. Detection and counted evidence both tie bare Claude on these fixtures. T-20261031-1. About $7.8.

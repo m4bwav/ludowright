@@ -2,7 +2,8 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-31, session 15)
+## Current state (2026-10-31, session 16)
+- T-20261031-1: outcome-8 topped up to 10 runs an arm. Second batch with 0.60, without 0.70; pooled 0.725 vs 0.675 (+5, noise). The counted-evidence edge was noise: no graded case separates the arms.
 - evergreen PR m4bwav/evergreen#15 merged: `worth` now reports the mean grader score per arm with its own noise margin and counts a score gain beyond it. outcome-8 re-scored: 0.85 vs 0.65, margin 0.23, so still CUT (+20 inside 23). Five more runs an arm could clear it.
 - T-20261030-8: harbor-yard quieter (playtest hints removed) and its Kraken defence fixed (it failed its own arithmetic). with 0.97, without 1.00. Breadth does not separate the arms; counted evidence (outcome-8) is the only measured edge.
 - T-20261030-7: big breadth fixture harbor-yard (outcome-9, ten flaws over seven files plus a defended Kraken). with 0.94, without 0.97: breadth does not separate the arms. One skill run failed Kraken precision, unverified (no review kept).
@@ -18,10 +19,10 @@ Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (st
 - T-20261030-4: a smaller rubric load saved nothing ($1.05 vs $1.06 a run); the cost is turns (about 16 against 6). Reverted.
 
 ## Waits on Mark
-- Nothing blocking. Open question: is the skill's value worth 3x tokens when detection is close to bare Claude? Options in "Next".
+- Nothing blocking. The real-game review (section 4) is the next step and stops for Mark's reactions. Open question: is the skill's value worth 3x tokens when detection is close to bare Claude? Options in "Next".
 
 ## Next
-1. (Done 2026-10-31: worth scores per-grader means, evergreen#15.) Left: top outcome-8 up to 10 runs an arm to see if +20 clears the score margin (about $7); optionally make the Kraken skip the Beacon so the precision grader is unambiguous.
+1. (Done 2026-10-31: outcome-8 at 10 runs an arm, +5, noise.) Stop A/B spending on detection fixtures. Next value test is the real-game round (continue prompt section 4, SpaceDeckBuilder2), which needs Mark's reactions.
 2. (Closed 2026-10-30, T-20261030-5: batching instructions did not cut turns.) Never commit evals/results; run `git status` before staging.
 3. Reviewer gaps left: adaptive players, Unity GUIDs (clock and units, multi-currency costs and improve ids done in 0.1.6).
 4. (Done: game-juice 1.2.0 and 1.3.0.) Swink list closed.
