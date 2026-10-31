@@ -21,6 +21,7 @@ Answers: is this plan buildable by the people and time available, and what shoul
 15. A save-it-for-the-sequel list is the cheapest cutting tool; use it as features are proposed, not only at crunch. [Hackett ch. 7]
 16. Content restrictions are a hidden cost of every new ability: each one constrains every level and encounter built afterwards. [Sylvester ch. 13]
 17. Unproven AI or generative features are scope risks. Keep a fallback that ships without them. [Togelius ch. 8]
+18. Finishing is a skill. Do not restart; park new ideas for the next game; cut and scale down; cut side modes until the main one ships. Expect the last tenth (menus, polish, platform work) to take as long as the rest. [Yu Part III]
 
 ## How to apply
 

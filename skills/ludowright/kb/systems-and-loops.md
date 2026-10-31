@@ -22,6 +22,7 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 16. Cognitive load caps how many interacting rules a player holds. Complexity creep (add a mechanic, remove none) raises the entry barrier. [Koster ch. 7-8]
 17. A verb the player cannot observe, or a state change with no signal, should be questioned. Hidden critical state is a failure of feedback. [Sellers ch. 8; Salen ch. 3]
 18. Dynamic difficulty is a feedback loop with a fairness cost: document its sensor, comparator and actuator, bound it, and keep it away from expert exploitation. [Salen ch. 18; Sylvester ch. 3; Schell ch. 13]
+19. Give the player, monsters and items one shared physical ruleset. When a rock, an arrow trap and a thrown monster all obey the same rules, simple systems meet and players tell the stories themselves. [Yu Parts I, III]
 
 ## How to apply
 

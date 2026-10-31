@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261030-7 · 2026-10-30 · Spelunky principles as kb principles in ten files (0.1.9)
+- because: user request (approved the Changes table of the Spelunky learnings note, ten kb rows)
+- files: kb/procgen.md, kb/systems-and-loops.md, kb/uncertainty.md, kb/levels-and-space.md, kb/core-loops-and-goals.md, kb/playtesting.md, kb/production-and-scope.md, kb/game-ai-for-designers.md (Principles), kb/balance-tables.md (ev), scripts/ldw.py (VERSION, stale at 0.1.6)
+- 0.1.7 added Yu as failure patterns; this adds the positive rules: critical-path-only guarantee, fixed secrets, one shared ruleset, timer and seeded daily runs, difficulty as pacing, layered goals, feedback as symptoms, finishing, cheap state machines, round-number spawn odds per tier.
+
 ### C-20261030-6 · 2026-10-30 · Drop eval run output committed by mistake (0.1.8)
 - because: budget check red on 0.1.7 (installed skill folder 719 KB, limit 600)
 - files: skills/ludowright/evals/results/ (removed, now ignored), .gitignore

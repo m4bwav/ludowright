@@ -18,6 +18,7 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 12. Balance skill at stated points: test at the low-water and high-water skill marks and tune to the median. Decide which skill level you balance for. [Fullerton ch. 10; Sylvester ch. 6]
 13. A daily whole-team play-and-fix-list is a cheap form of playtest, not a replacement for outsiders. [Wyman ch. 11]
 14. Log deaths and positions; a heat map is a cheap observation. [Rogers LevelUp ch. 19; Wyman]
+15. Read feedback like symptoms. Players are right about how a thing feels and often wrong about the cause: "too hard" can be many small control annoyances. Fix the friction before the difficulty. [Yu Part I]
 
 ## What a playtest cannot show
 

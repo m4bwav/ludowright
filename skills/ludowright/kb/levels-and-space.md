@@ -24,6 +24,7 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 18. Resource-limited health makes exploring a risk decision; free regeneration plus checkpoints everywhere flattens it. [Totten p. 210]
 19. Whiteblock before art, paper before whiteblock for flow. Keep a playground scene for metrics and an arena for spawning enemy mixes on demand. Build the tutorial last, or with fresh eyes. [Totten; Rogers LevelUp ch. 9; Bauer ch. 8; Gibson ch. 17]
 20. Designers misjudge difficulty after many plays; judge challenge with new players, and balance late (ingredients, then per level, then global multipliers). [Bauer ch. 17; Rogers LevelUp ch. 13; Hodent]
+21. Plan difficulty as pacing, not a ramp: put the hardest stretch early, then let it ebb and flow with breathers and mood. A steady climb tires players before the end. [Yu Part IV]
 
 ## How to apply
 

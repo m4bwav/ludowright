@@ -92,3 +92,6 @@ Reader notes yu-spelunky.md (225 lines, all four parts). Folded into procgen, le
 
 ## [2026-10-30] fix | 0.1.8 drops committed eval results
 0.1.7 was merged with the budget check red: `git add -A` picked up skills/ludowright/evals/results/. Removed and gitignored. Lesson: check `gh pr checks` for any non-pass before merging, and stage paths, not -A.
+
+## [2026-10-30] kb | Spelunky learnings table applied, 0.1.9
+Ten approved rows from the vault learnings note (indie-ai-scout books/spelunky) added as numbered principles in eight kb files plus a spawn-table note in balance-tables. ldw.py VERSION had drifted to 0.1.6; now 0.1.9. Budget yellow is review-rubric.md, unchanged.

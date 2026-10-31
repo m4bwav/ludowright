@@ -12,6 +12,8 @@ Rows: `outcome`, `value`, `weight` (weights are relative and need not sum to 1).
 
 `ldw.py ev table.json` prints the EV, the standard deviation, the range and each outcome's probability. Use it for a loot roll, a damage roll, a card's average output, or a gamble the player chooses. Compare two options' EV *and* SD: equal EV with different spread is a risk choice, not a balance problem.
 
+Spawn and loot tables: start each weight at a round number (1 in 10, 1 in 50), tune by play, and keep one table per level tier rather than one flat table for the game. Relative rarity is what players feel; the exact value matters less. [Yu Parts I, III]
+
 ## curve: cost curve over items
 
 Rows: `name`, `cost`, and one numeric column per benefit attribute (damage, block, draw, duration...). `--attrs damage,block` picks the columns; otherwise every numeric column except `cost` is used.
