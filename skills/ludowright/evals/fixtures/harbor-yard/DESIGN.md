@@ -23,7 +23,7 @@ A competitive deckbuilder for 2-4 players, about 60 minutes. Each player runs a 
 9. Beacon victory: a player who owns the Beacon and holds 3 Lens tokens at the end of a round wins at once.
 
 ## Design note: the Kraken is swingy on purpose
-The Kraken event sinks each player's most expensive building. We want one shock per game, aimed at the leader. It is 1 card in a 10-card event deck, so over 14 rounds it comes up 1.4 times on average. Only leaders tend to own the expensive buildings, so it trims a runaway without deciding the game. In twenty playtests six games saw a Kraken, and the player leading before it still won four of those six. Keep it.
+The Kraken event sinks the leader's most expensive building. We want one shock per game, aimed at the leader. It is 1 card in the 10-card event deck, which is not reshuffled until it runs out, so every game sees it once by round 10 and a second time in rounds 11-14 with 4 in 10 odds. Losing one building costs the leader at most 3 VP, so it trims a runaway without deciding the game. Across both test rounds (twenty games) the player leading before the Kraken still won 9 of 20, 45 percent against an even 25: still ahead, no longer certain. Keep it.
 
 ## Files
 - `cards.csv`: market and starter cards.

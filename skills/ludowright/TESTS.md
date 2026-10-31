@@ -8,6 +8,12 @@ Entry shape: `### T-YYYYMMDD-n · date · harness · env · passed/total`, then 
 
 ## Runs
 
+### T-20261030-8 · 2026-10-30 · claude plugin eval (outcome-9 on a quieter harbor-yard; 3 runs each arm, --scaffold, --allow-tools Write, -j 4) · owner-pc Windows · with 0.97, without 1.00
+- Change: playtests.md no longer names the Driftwood trick, the unbought Rope Ladder or the Tidecaller win rate. First run with --keep-temp: 0.94/0.94.
+- Kept reviews showed a fixture bug, found by both arms: the Kraken defence failed its own arithmetic (no-reshuffle deck means a Kraken every game, not 6 of 20; twenty games against ten in the notes; it hit every player, not the leader). Fixed DESIGN.md and events.csv so the defence holds. Re-run: 0.97/1.00; one skill run still filed the Kraken major, partly fairly (the Beacon is always the highest-timber building, so the Kraken always sinks it).
+- A run where a cleanup deleted live sandbox files (0.24/1.00) is void.
+- led to: none. Breadth and quieter notes do not separate the arms on a frontier model; the measured edge stays counted evidence (outcome-8). About $14.6.
+
 ### T-20261030-7 · 2026-10-30 · claude plugin eval (outcome-9 new: harbor-yard breadth fixture; 3 runs each arm, --scaffold, --allow-tools Write, -j 4) · owner-pc Windows · with 0.94, without 0.97
 - New fixture harbor-yard: 28 cards, 7 buildings, 3 factions, events, tuning, rules.py and playtest notes; ten planted flaws over seven files (faction edge, cost-curve outlier, dominated card, buy-and-scrap coin loop, negative-EV event bet, Beacon win with no Lens source, round 10 in code vs 14 in the rules, uncoded card text, Tide bonus rewarding stalling, first player 4 of 10 read as even) plus a defended Kraken. Eleven regex graders on the saved review.md.
 - With: 1.00, 0.82, 1.00 at 18-24 turns, $1.23-1.43. Run 2 missed the first-player 40% and failed the Kraken precision check (review text not kept, so unverified whether it filed Kraken major or only mentioned the words on one line). Without: 1.00, 0.91, 1.00 at 11-12 turns, $0.52-0.62; run 2 missed the uncoded-text list. Total about $5.6.

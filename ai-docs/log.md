@@ -68,3 +68,6 @@ HANDOFF Next 4 remainder. juice-scan Step 2 now classifies the feel (P-23: contr
 
 ## [2026-10-30] evals | harbor-yard breadth fixture: tie
 HANDOFF Next 1. New fixture harbor-yard and outcome-9 (11 regex graders on review.md). 3 runs an arm: with 0.94, without 0.97; bare Claude covers all ten flaws. One skill run failed the Kraken precision grader, text not kept. Clock grader tightened after it matched the fixture itself. T-20261030-7. About $5.6.
+
+## [2026-10-30] evals | harbor-yard quieter, Kraken defence fixed: still a tie
+HANDOFF Next 1. Removed the three outright hints from playtests.md. --keep-temp reviews showed the Kraken defence contradicted its own numbers (both arms said so); fixed the fixture. Re-run with 0.97, without 1.00. T-20261030-8. Trap: never delete claude-eval-* temp folders while an eval runs; it voided one run. About $14.6.
