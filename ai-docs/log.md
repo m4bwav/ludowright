@@ -80,3 +80,6 @@ HANDOFF Next 1. 5 more runs an arm: with 0.60, without 0.70. Pooled 10 an arm 0.
 
 ## [2026-10-30] handoff | session 17: nothing to do without Mark
 SpaceDeckBuilder2 has no game changes since the 2026-10-29 review (askpicks tool and snapshot docs only), so no re-review. Round 1 had no objections; the loop waits on Mark saying good or naming misses. Detection A/B spending stopped (session 16). Open, non-blocking: adaptive players, Unity GUIDs, first game-design scout scan.
+
+## [2026-10-30] review | Mark: SpaceDeckBuilder2 review was good
+Continue prompt section 4 stop condition met. No misses named, so nothing routed to the skill, kb or rubric and no patch release. Remaining open items are optional: adaptive players, Unity GUIDs, first game-design scout scan.
