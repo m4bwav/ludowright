@@ -21,6 +21,8 @@ Answers: whether a game should generate content, how much authorial control to k
 15. A heuristic that fixes one failure often creates another (an empty start area). Test generator tweaks with player data, not only the target metric. [Short]
 16. Reuse the generator's validity checker as a machine playtester for hand-made content. A well-validated generator moves early playtest effort from reachability to fun. [Shaker]
 17. AI-generated levels need a repair and reachability pass, because they are not playable until a solver checks them. In one set of snake levels playability was 87 percent when easy and 36 percent when hard. [AI playtesting note, finding 6]
+18. Random layouts need readable systems under them, or the variety is a slot machine. A few fixed secrets, the same in every seed, make a random world feel like a real place. [Yu Parts II, III, IV]
+19. Guarantee only the critical path: entrance to exit with no consumable spent. Side rooms may stay sealed when the player can dig, bomb or climb in. [Yu Part I]
 
 ## How to apply
 

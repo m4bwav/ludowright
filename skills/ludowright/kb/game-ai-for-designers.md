@@ -24,6 +24,7 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 18. Turn-based and card opponents face unlimited human thinking time. Design rules so the AI can search or evaluate them, and give the AI distinct choices to make. [Millington ch. 6; Rabin ch. 4]
 19. Make the AI legible when planning against it is the fun: visualise intent. AI-centred designs can use five patterns: visualised, role model, trainee, editable, guided. [Togelius ch. 8]
 20. Ask whether a genre convention is deliberate design or a workaround for old AI limits before copying it. [Togelius ch. 8]
+21. Cheap state machines go far: a shopkeeper with four states can feel alive. Several simple monsters attacking from different directions read as coordination with no shared planner. [Yu Parts I, III]
 
 ## How to apply
 

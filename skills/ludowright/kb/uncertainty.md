@@ -27,6 +27,8 @@ Answers: where does the game's uncertainty live, is there too little or too much
 21. Time gates and energy are schedule uncertainty and a retention tool. Flag absence-punishing mechanics and treat them with an ethics caution. [Costikyan ch. 5; Gibson ch. 8; Clark ch. 13]
 22. Lowering legibility is a difficulty lever. An accessibility review separates intended perceptual challenge from avoidable noise. [Costikyan ch. 5]
 23. Randomness from pseudorandom sources should be seeded and saved, so runs replay and save-scumming is a known choice. [Schreiber ch. 21]
+24. A timer turns collecting into a risk decision: every extra treasure costs time against a known threat. Keep runs short so a loss costs minutes. [Yu Part II]
+25. A seeded daily run (one attempt, same seed for everyone) turns randomness into a shared, comparable event and feeds streams and talk. Fix all loot at generation so the seed fixes the run. [Yu Part III]
 
 ## How to apply
 

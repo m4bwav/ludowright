@@ -21,6 +21,8 @@ Answers: what is this game's core loop, what experience and promises does it mak
 15. A pitch is specific when it names a verb, a constraint that bends that verb, and a hook that the nearest comparable game lacks. Abstract feature lists and "like X but better" fail that test. [Rogers one-sheet; AI-ideation research 2026-10-29]
 16. Put numbers in the vision: session length, number of areas or levels, run length, share of time per activity. Vague visions drift and cannot be rechecked. [Wyman ch. 14; Rogers ten-pager]
 17. Overscoping is the common killer. Scope to a vertical slice that proves the loop, and tackle the riskiest unknown first. [Gibson ch. 7; Schell risk list; Lemarchand]
+18. Layer goals instead of a difficulty menu: shortcuts for the impatient, a main ending for most, a hidden harder goal for experts. Each player picks their own challenge inside the game. [Yu Part II]
+19. Let the world be indifferent and teach through itself. Rewards handed out on a predictable schedule can weaken players' own reasons to play. [Yu Parts II, III]
 
 ## How to apply
 
