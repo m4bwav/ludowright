@@ -23,6 +23,7 @@ Answers: whether a game should generate content, how much authorial control to k
 17. AI-generated levels need a repair and reachability pass, because they are not playable until a solver checks them. In one set of snake levels playability was 87 percent when easy and 36 percent when hard. [AI playtesting note, finding 6]
 18. Random layouts need readable systems under them, or the variety is a slot machine. A few fixed secrets, the same in every seed, make a random world feel like a real place. [Yu Parts II, III, IV]
 19. Guarantee only the critical path: entrance to exit with no consumable spent. Side rooms may stay sealed when the player can dig, bomb or climb in. [Yu Part I]
+20. Random content is a budget lever: a roguelike's run variety buys many hours of play from a small asset set, which suits a small team. Spend the saving on the readable systems in 18. [Schreier Press Reset ch. 8]
 
 ## How to apply
 
