@@ -77,3 +77,6 @@ HANDOFF Next 1 remainder. evergreen `ab_report` adds score_with/without, score_d
 
 ## [2026-10-31] evals | outcome-8 top-up: the edge was noise
 HANDOFF Next 1. 5 more runs an arm: with 0.60, without 0.70. Pooled 10 an arm 0.725 vs 0.675, +5 inside noise. Detection and counted evidence both tie bare Claude on these fixtures. T-20261031-1. About $7.8.
+
+## [2026-10-30] handoff | session 17: nothing to do without Mark
+SpaceDeckBuilder2 has no game changes since the 2026-10-29 review (askpicks tool and snapshot docs only), so no re-review. Round 1 had no objections; the loop waits on Mark saying good or naming misses. Detection A/B spending stopped (session 16). Open, non-blocking: adaptive players, Unity GUIDs, first game-design scout scan.
