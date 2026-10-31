@@ -2,7 +2,8 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-30, session 18)
+## Current state (2026-10-30, session 19)
+- Session 19: state checked, nothing open. evergreen-protocol#34 merged, review accepted, all continue-prompt items done. Optional work only (Next 3, 5).
 - Session 18: Mark ruled the round-1 SpaceDeckBuilder2 review good (2026-10-30). The real-game loop (continue prompt section 4) is closed; no skill change owed. Re-review only if he asks or the game changes.
 - Session 17: SpaceDeckBuilder2 game unchanged since the 2026-10-29 review (only tools/docs commits), and Mark objected to no finding in round 1. No re-review run. The real-game loop waits on Mark saying "good" or naming what it missed.
 - T-20261031-1: outcome-8 topped up to 10 runs an arm. Second batch with 0.60, without 0.70; pooled 0.725 vs 0.675 (+5, noise). The counted-evidence edge was noise: no graded case separates the arms.
