@@ -1,6 +1,6 @@
 {
   "name": "ludowright",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Game design with the work shown: one-pagers for new games with contrasting alternatives, ranked improvements for an existing game, and flaw reviews (dominant strategies, degenerate loops, dead choices, economy leaks, difficulty spikes, onboarding gaps, pacing, scope risk, broken promises) where every finding cites the file or rule and the principle it breaks, in a versioned JSON findings contract other plugins can call. Balance and economy maths, levels, UX and onboarding, playtesting, randomness, procedural generation and AI opponent design, distilled from the design canon. Standard-library Python CLI for the findings validator, expected value, cost curves, sources and sinks, and Monte Carlo. Evergreen.",
   "author": {
     "name": "Mark Rogers"

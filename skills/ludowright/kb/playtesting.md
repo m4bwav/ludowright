@@ -19,6 +19,7 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 13. A daily whole-team play-and-fix-list is a cheap form of playtest, not a replacement for outsiders. [Wyman ch. 11]
 14. Log deaths and positions; a heat map is a cheap observation. [Rogers LevelUp ch. 19; Wyman]
 15. Read feedback like symptoms. Players are right about how a thing feels and often wrong about the cause: "too hard" can be many small control annoyances. Fix the friction before the difficulty. [Yu Part I]
+16. Unmoderated surveys may now hold LLM-written answers. Prefer moderated sessions, or check free text for generic phrasing before trusting it. [Hodent 2e ch. 18]
 
 ## What a playtest cannot show
 
@@ -30,8 +31,9 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 ## How to apply
 
 1. Write the plan on one page: hypothesis, who and how many, build and platform, tasks, metrics, and what result would make you change the design.
-2. Script a session: a welcome with consent and the rule that you cannot help, timed phases (first play, free play, task prompts), a pause for think-aloud only if the test is about understanding, then the questionnaire.
-3. Question templates (own wording; adapt per game):
+2. Pick the method: usability test (can they do the task), think-aloud (why they get confused), playthrough (engagement over a longer session), heuristic evaluation by two or more reviewers (cheap, before players), RITE (fix between sessions when the fix is obvious), survey (many players, shallow answers). [Hodent 2e ch. 14]
+3. Script a session: a welcome with consent and the rule that you cannot help, timed phases (first play, free play, task prompts), a pause for think-aloud only if the test is about understanding, then the questionnaire.
+4. Question templates (own wording; adapt per game):
    - What did you think the goal was, in your own words?
    - Where did you get stuck, confused, bored or annoyed? What did you do next?
    - What was the moment you enjoyed most? The one you enjoyed least?
@@ -40,10 +42,13 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
    - How long did that feel, compared with a clock?
    - Which of these two versions would you play again? (ranked, not scored)
    - Would you play again, and what would bring you back?
-4. Metrics: completion rate, time to first success, deaths and quits by location, number of players failing at the same place, rate of use of each mechanic, errors per task. Each metric is tied to a question.
-5. Machine passes first: `ldw.py sim` for seeded balance runs and `ldw.py ev` for expected values show which questions are worth a human's hour. Treat them as hypotheses.
-6. After the session, write notes with date, build, tester count, observed behaviour apart from interpretation. Act on problems seen by several testers.
-7. Pitch fixes through the design, not the tester's suggestion. Change one variable at a time and retest.
+   - Name your next goal, your goal for this session, and your long-term goal.
+   - What does the reward you just got let you do?
+   - Your top three likes and top three dislikes. Ask "why" after any rating.
+5. Metrics: completion rate, time to first success, deaths and quits by location, number of players failing at the same place, rate of use of each mechanic, errors per task. Each metric is tied to a question.
+6. Machine passes first: `ldw.py sim` for seeded balance runs and `ldw.py ev` for expected values show which questions are worth a human's hour. Treat them as hypotheses.
+7. After the session, write notes with date, build, tester count, observed behaviour apart from interpretation. Log each issue as headline, category, severity (critical, medium, low) and the principle it breaks, then review the list with the people who will fix it. Act on problems seen by several testers. [Hodent 2e ch. 14]
+8. Pitch fixes through the design, not the tester's suggestion. Change one variable at a time and retest.
 
 Engine-side playtest protocol and the Level Up! questionnaire live in the game-design references of unity-agent, roblox-agent and madnesswright; point to them.
 

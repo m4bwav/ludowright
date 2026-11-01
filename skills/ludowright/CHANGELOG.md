@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261031-2 · 2026-10-31 · The Gamer's Brain 2e (Hodent, 2026) in UX and playtesting (0.1.11)
+- because: user request (approved the Changes table of The Gamer's Brain learnings note, nine kb rows)
+- files: kb/ux-and-the-brain.md (Principles 18 to 20, Dark patterns to avoid, Failure patterns, citations note), kb/playtesting.md (Principle 16, How to apply steps 2, 4 and 7)
+- Dark-pattern sort and pressure test, lock before key, tutorial text only until done, reappraisal after loss, playtest method menu, goal and reward questions, issue log, LLM-written survey answers.
+
 ### C-20261031-1 · 2026-10-31 · Press Reset (Schreier) principles in production and procgen (0.1.10)
 - because: user request (approved the Changes table of the Press Reset learnings note, five kb rows)
 - files: kb/production-and-scope.md (Principles 19 to 21, Failure patterns), kb/procgen.md (Principles 20)
