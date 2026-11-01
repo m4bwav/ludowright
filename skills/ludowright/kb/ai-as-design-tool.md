@@ -26,6 +26,18 @@ Answers: where AI (procedural generation, player models, simulated playtests, au
 20. Player modelling for adaptation or monetisation raises consent and data-ownership issues. Flag them; do not design them without a privacy note. [Yannakakis ch. 15]
 21. A generative world model (a learned simulator or interactive video model, such as Google DeepMind's Genie line) can stand in as a quick prototype or playtest world. Agents and players will find exploits of the model's hallucinated dream that the real game does not have, so verify every finding in the real build. Access is perishable: as of 2026-01-30 Genie 3 was open only as Project Genie, a Google Labs prototype for US AI Ultra subscribers with 60-second sessions (Google DeepMind launch coverage, techbriefly.com, 2026-01-30). [Foster ch. 12]
 
+## When reinforcement learning is worth it
+
+Principle 10 still holds: try scripted bots and search first. If RL is chosen, these apply. Source: Lapan, Deep RL Hands-On 3rd ed.
+
+1. The reward is the design. Pay for per-step changes the agent causes (a kill, a death), not the HUD running score, and check how long the payoff is delayed. [Lapan ch. 1]
+2. Record a few player demonstrations before training. A handful of demos beats hours from scratch on tasks that are hard to discover. [Lapan ch. 14]
+3. Many fast headless copies of the environment matter more than a bigger model. [Lapan ch. 9, 12]
+4. Start with PPO and compare over several seeds. A single run misleads. [Lapan ch. 16]
+5. Sparse key-then-door goals need curiosity or count bonuses. [Lapan ch. 18]
+6. Judge self-play by round-robins between saved checkpoints, not by the loss. [Lapan ch. 20]
+7. When the wanted style cannot be written as a reward, learn one from pairwise clip preferences, in rounds. The agent exploits flaws in the reward model, so refresh it. [Lapan ch. 19]
+
 ## How to apply
 
 Guards ludowright adopts, run on its own output:

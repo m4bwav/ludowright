@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-8 · 2026-11-01 · Lapan, Deep RL Hands-On: when reinforcement learning is worth it (0.1.19)
+- because: user request (pre-approved book changes)
+- files: kb/ai-as-design-tool.md (new block "When reinforcement learning is worth it")
+- Reward per step not HUD score, demonstrations first, many headless env copies, PPO over several seeds, curiosity for sparse goals, checkpoint round-robins for self-play, learned preference rewards in rounds.
+
 ### C-20261101-7 · 2026-11-01 · Lambshead, One-hour Ancient and Medieval Skirmish Wargames: draw-count odds, random turn ends, absolute rout thresholds, unit budgets, zones of control (0.1.18)
 - because: user request (pre-approved book changes)
 - files: kb/uncertainty.md (Principles 26 to 28), kb/balance-and-economy.md (Principles 24 to 26), kb/production-and-scope.md (Principles 23 to 25), kb/levels-and-space.md (Principles 22, 23)
