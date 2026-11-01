@@ -24,6 +24,7 @@ Answers: whether a game should generate content, how much authorial control to k
 18. Random layouts need readable systems under them, or the variety is a slot machine. A few fixed secrets, the same in every seed, make a random world feel like a real place. [Yu Parts II, III, IV]
 19. Guarantee only the critical path: entrance to exit with no consumable spent. Side rooms may stay sealed when the player can dig, bomb or climb in. [Yu Part I]
 20. Random content is a budget lever: a roguelike's run variety buys many hours of play from a small asset set, which suits a small team. Spend the saving on the readable systems in 18. [Schreier Press Reset ch. 8]
+21. Give each subsystem its own random stream, seeded from one master seed. With one shared stream, the same seed gives a different level 2 after a different fight. Every generate-and-test loop needs a retry cap, a fallback, and a sweep over its parameter range that logs attempts per accepted seed. [Millington ch. 8]
 
 ## How to apply
 
@@ -56,6 +57,7 @@ A cheap generator that hides its seams: a small grid of rooms, a guaranteed path
 - LLM-made level accepted with no solver pass. [AI playtesting note]
 - Consumables spent on generator repair: the layout can need a bomb, key or tool just to reach the exit. Guarantee a critical path that needs no consumable; a softlock test proves it. [Yu Part I]
 - Random contents rolled on open (chests, crates) instead of at generation, so a fixed seed does not fix the run and daily or shared seeds break. [Yu Part III]
+- One random stream shared by every subsystem, or a reject loop with no retry cap or fallback: seeds stop replaying after play diverges, or generation hangs on rare parameters. [Millington ch. 8]
 - Spawn odds set flat across an area; relative rarity and tiers within an area matter more than absolute odds, tuned by ballpark then play. [Yu Parts I, III]
 
 ## Where the books disagree

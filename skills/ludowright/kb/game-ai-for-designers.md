@@ -25,6 +25,11 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 19. Make the AI legible when planning against it is the fun: visualise intent. AI-centred designs can use five patterns: visualised, role model, trainee, editable, guided. [Togelius ch. 8]
 20. Ask whether a genre convention is deliberate design or a workaround for old AI limits before copying it. [Togelius ch. 8]
 21. Cheap state machines go far: a shopkeeper with four states can feel alive. Several simple monsters attacking from different directions read as coordination with no shared planner. [Yu Parts I, III]
+22. Behaviour trees handle success and failure well but cope badly with outside interrupts and threshold switches (an alarm, low ammo). The usual fix, a state machine over trees, means two authoring formats; budget the tooling for both. [Millington ch. 5]
+23. Grow the enemy playable at every step: a minimal version first, then branches, shared sub-trees by name, rare-case sub-trees only when a playtest first needs them. [Millington ch. 5]
+24. Path cost is a design lever. Mix distance with danger and exposure, weight it per unit type (a scout avoids open ground, a tank does not), and smooth paths so units do not zigzag. [Millington ch. 4, 6]
+25. Favour data over code: techniques designers can tune in an editor win, and level knowledge comes from markup or an offline bake. Build AI inputs for flexibility first, because designers ask for new inputs late; optimise afterwards. [Millington ch. 12, 14]
+26. Budget AI per frame and run each layer at its own rate: movement every frame, sensing less often, tactics every few seconds. A character that freezes while it plans looks dumb, so it moves on a rough answer first. Detail follows what the player would notice, not distance alone. [Millington ch. 10]
 
 ## How to apply
 
@@ -35,6 +40,7 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 5. Check telegraphs: windup, active, recovery, reaction delay, consistent responses.
 6. Compute worst-case burst: all active enemies hitting at once. `ldw.py ev` gives expected damage per attack; `ldw.py sim` can run a fight model with fixed seeds. If worst case is a spike, propose tokens or a cap.
 7. Compute streaks: chance of five misses in a row at the stated hit rate. If it hurts, propose a pity counter or streak cap.
+   - Before reaching for the costly ones: a random or weighted pick before utility scoring; a fuzzy blend for gradual mood (bravery building up), with few inputs; smart objects that advertise what they offer before goal planning; scripted set pieces where a sequence must land, each with a fallback; blackboards rarely. Learning only after comparing its cost (data, validation, wrong lessons) with hand-authoring. Assistive AI that acts for the player can reuse enemy modules only when they work without a global strategy. [Millington ch. 2, 5, 7, 14]
 8. Pick the test axes for a bot or test agent: win versus experience, player role versus non-player role. List the human limits it models (reaction time, errors, pauses). See [ai-as-design-tool.md](ai-as-design-tool.md).
 9. Playtest questions: ask what players think the AI is trying to do and compare with the truth; ask whether anything felt like cheating. Do not ask players to state how the AI works.
 
@@ -59,6 +65,18 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 - Undifferentiated choices. Symptom: all AI options give about the same outcome, so sophistication is invisible. [Rabin ch. 4]
 - Opaque AI mechanic. Symptom: the design says outsmart the AI but gives no way to read it. [Togelius ch. 8]
 - Streaky randomness. Symptom: 50 percent chances with no streak protection. [Aversa ch. 3]
+- Missing alarm beat. Symptom: a designer-authored tree with no visible disposition change (alerted, panicked) between calm and attacking. [Millington ch. 5]
+- Scripted sequence with no fallback. Symptom: a set piece that stalls or breaks when the player blocks, kills or skips part of it. [Millington ch. 5]
+- Learners that fight each other. Symptom: several learning parts tested alone, each one task, never together. [Millington ch. 7]
+
+## Level-AI handoff checklist
+
+Level design and AI are one job; hand the level team this list. [Millington ch. 4, 6]
+
+- Passages wide enough for the AI that must move through them, in groups where it moves in groups.
+- Cover, sniper and other tactical points placed and tagged by hand, with a debug view that draws them.
+- Jump, drop and climb links marked where the navigation cannot find them.
+- Simple tags (cover, sniper, ambush) first; runtime tactical analysis only when tags fail a playtest.
 
 ## Where the books disagree
 

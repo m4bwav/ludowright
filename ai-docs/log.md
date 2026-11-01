@@ -97,3 +97,6 @@ Reader notes yu-spelunky.md (225 lines, all four parts). Folded into procgen, le
 Ten approved rows from the vault learnings note (indie-ai-scout books/spelunky) added as numbered principles in eight kb files plus a spawn-table note in balance-tables. ldw.py VERSION had drifted to 0.1.6; now 0.1.9. Budget yellow is review-rubric.md, unchanged.
 
 ## [2026-10-31] kb | Press Reset (Schreier) rows in production-and-scope and procgen, 0.1.10 released (PR #17)
+
+## [2026-11-01] book | AI for Games (Millington) applied, 0.1.15
+Five approved rows from the everscout game-design learnings note: game-ai-for-designers.md principles 22-26, how-to additions, three failure patterns, level-AI handoff checklist; procgen.md principle 21 and a failure pattern (seed streams, capped reject loops); review.md AI-depth sweep. Principles 2 and 3 were already present, so skipped. Budget yellow is the existing review-rubric.md.
