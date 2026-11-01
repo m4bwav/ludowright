@@ -30,6 +30,8 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 24. Path cost is a design lever. Mix distance with danger and exposure, weight it per unit type (a scout avoids open ground, a tank does not), and smooth paths so units do not zigzag. [Millington ch. 4, 6]
 25. Favour data over code: techniques designers can tune in an editor win, and level knowledge comes from markup or an offline bake. Build AI inputs for flexibility first, because designers ask for new inputs late; optimise afterwards. [Millington ch. 12, 14]
 26. Budget AI per frame and run each layer at its own rate: movement every frame, sensing less often, tactics every few seconds. A character that freezes while it plans looks dumb, so it moves on a rough answer first. Detail follows what the player would notice, not distance alone. [Millington ch. 10]
+28. To make several chasers look coordinated without a squad planner, have each one raise the path cost of nodes the others already plan to use. Routes split and read as flanking. The nearest chaser plans first. [Palacios ch. 5]
+29. An AI that reads the player's last two or three actions (an N-gram predictor) can punish repeated habits. Tell the player it adapts, cap how often it counters, and fall back to a shorter window while data is thin, or it feels like cheating. [Palacios ch. 8]
 27. Give the player verbs that write into the AI's senses or memory: a knock, a thrown object, a decoy that sets the guard's last-known position and sends it to investigate. A stealth enemy with that memory becomes a puzzle the player plays, not just a hazard. Each lure needs a readable reaction and a cap, so it cannot loop a guard forever. [Cossu ch. 5]
 
 ## How to apply
