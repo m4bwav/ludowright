@@ -460,3 +460,31 @@ Related: [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](b
 - Severity hint: major for a daily or competitive seed mode; note otherwise
 - Tool: grep the code for random calls inside open or pickup handlers
 - Sources: procgen.md; Yu Part III
+
+### R-58 Play tied to frame rate
+- Look for: Speeds, cooldowns or timers counted per frame; a jump that goes higher or lower as the frame rate changes; no cap on the frame delta after a hitch, load or tab switch, so the simulation leaps.
+- Breaks: The same game on every machine; fair timing
+- Severity hint: major when it changes jump arcs or competitive timing; minor otherwise
+- Tool: grep the update code for per-frame steps not scaled by delta time; by hand at two frame-rate caps
+- Sources: feel-handoff.md; Gregory, Game Engine Architecture 2e (2014), sec. 7.5.2, 7.5.5
+
+### R-59 Raw input reaches gameplay
+- Look for: No rebinding; bindings to physical keys rather than named actions; no stick dead zone, or one far wider than needed; one button with two clashing uses and no rule for which wins.
+- Breaks: Controls that answer what the player meant; access for other layouts and devices
+- Severity hint: major when the clash or drift sits on the core action; minor for missing rebinding alone
+- Tool: by hand on the input code and the binding list
+- Sources: ux-and-the-brain.md; Gregory, Game Engine Architecture 2e (2014), sec. 8.5.1 to 8.5.3
+
+### R-60 Physics players cannot plan around
+- Look for: Core-loop outcomes decided by a physics result that is neither readable nor repeatable; no way back from a flipped, stuck or wedged state; AI that cannot path around objects that move.
+- Breaks: Skill over chaos; recoverable failure
+- Severity hint: major when the core loop depends on it; note when physics is only for show
+- Tool: by hand, repeating the same action several times
+- Sources: feel-handoff.md; Gregory, Game Engine Architecture 2e (2014), sec. 12.1.2, 12.1.3
+
+### R-61 Objective welded to one level
+- Look for: Objectives written into one map's code, so reordering, moving or cutting content means a code change rather than a data edit.
+- Breaks: Cheap iteration on structure; scope cuts late in production
+- Severity hint: minor; major when a planned cut or reorder is blocked by it
+- Tool: grep the objective code for level names or scene ids
+- Sources: production-and-scope.md; Gregory, Game Engine Architecture 2e (2014), sec. 14.1.2, 14.1.3
