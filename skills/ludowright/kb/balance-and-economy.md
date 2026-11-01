@@ -24,6 +24,9 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 18. Skill balance: test at both skill extremes and tune to the median. Decide which skill level the balance targets. [Fullerton ch. 10; Sylvester ch. 3]
 19. Use data with a question, a hypothesis and enough sample, and watch confounders and the quiet majority. Data-informed, not data-driven. [Schreiber ch. 13; Sellers ch. 7]
 20. A balance claim names its player policy and its agent pool. A result tuned against one policy may not hold against another. [AI-playtesting research 2026-10-29, RuleSmith; Adams ch. 8]
+21. Scoring is the strongest signal of what a game is about: players do the scored action. Keep scores simple, visible to the player, tied to the skill wanted, varied enough to separate players, and in large values (100, not 1). [Boller and Kapp ch. 7]
+22. Check scoring in a spreadsheet: per level, total the maximum points and the penalties, and test that a non-perfect player can advance and that early points do not make the rest trivial. Expect several passes; cut rules testers cannot trace to their score. [Boller and Kapp ch. 7]
+23. Achievements: measurement (one to three stars against a standard) over completion badges, and a completion badge only if it depends on performance. Expected ones set goals, unexpected ones reward exploration; hold competitive ones back until players know the game. [Boller and Kapp ch. 7]
 
 ## How to apply
 

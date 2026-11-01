@@ -23,6 +23,7 @@ Answers: what is this game's core loop, what experience and promises does it mak
 17. Overscoping is the common killer. Scope to a vertical slice that proves the loop, and tackle the riskiest unknown first. [Gibson ch. 7; Schell risk list; Lemarchand]
 18. Layer goals instead of a difficulty menu: shortcuts for the impatient, a main ending for most, a hidden harder goal for experts. Each player picks their own challenge inside the game. [Yu Part II]
 19. Let the world be indifferent and teach through itself. Rewards handed out on a predictable schedule can weaken players' own reasons to play. [Yu Parts II, III]
+20. Keep the in-game goal apart from the outcome the game is for (what players can do after play). If the game is not fun, check that its goal is a challenge to overcome, not a task to finish. [Boller and Kapp ch. 5]
 
 ## How to apply
 
@@ -70,6 +71,8 @@ Review procedure for an existing game:
 - Front-loaded tutorial: every control shown at once, or a new rule introduced under danger. [Gibson ch. 12; Sellers]
 - Overscope: content volume out of proportion to team, no slice, riskiest tech last. [Gibson ch. 7; Wyman]
 - Audience mismatch: analytic-heavy design pitched at action or casual players, or the reverse. [Costikyan ch. 5]
+- Wrong skill tested: a mechanic rewards a skill the game is not about (a timer in a knowledge game rewards fast readers). [Boller and Kapp ch. 5]
+- Luck decides the winner: turn order or a lucky sequence settles results where the real task has no chance; players drop games they read as luck. [Boller and Kapp ch. 5]
 
 ## Where the books disagree
 

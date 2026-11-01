@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-1 · 2026-11-01 · Play to Learn (Boller and Kapp, 2017) in playtesting, balance and goals (0.1.12)
+- because: user request (approved the Changes table of the Play to Learn learnings note, eleven kb rows)
+- files: kb/playtesting.md (Principles 17 to 20, How to apply step 4, Where the books disagree), kb/balance-and-economy.md (Principles 21 to 23), kb/core-loops-and-goals.md (Principle 20, Failure patterns)
+- Pass mark set before testing, hours per tester, no tutorial before testing, before-and-after learning check, closing questions, paper versus digital prototypes; scoring rules, a scoring spreadsheet check and achievement design; game goal apart from the outcome, wrong-skill mechanics and luck-decided wins.
+
 ### C-20261031-2 · 2026-10-31 · The Gamer's Brain 2e (Hodent, 2026) in UX and playtesting (0.1.11)
 - because: user request (approved the Changes table of The Gamer's Brain learnings note, nine kb rows)
 - files: kb/ux-and-the-brain.md (Principles 18 to 20, Dark patterns to avoid, Failure patterns, citations note), kb/playtesting.md (Principle 16, How to apply steps 2, 4 and 7)
