@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-9 · 2026-11-01 · Graesser and Keng, Foundations of Deep RL: random-agent baseline, reward-hacking replays, reward signs (0.1.20)
+- because: user request (pre-approved book changes)
+- files: kb/ai-as-design-tool.md ("When reinforcement learning is worth it", items 8-10)
+- Beat a random agent before trusting a curve; log rewards and replay extreme episodes, patching exploits as design bugs; positive/zero/negative rewards with no extremes, side scores only as shaping under the end condition.
+
 ### C-20261101-8 · 2026-11-01 · Lapan, Deep RL Hands-On: when reinforcement learning is worth it (0.1.19)
 - because: user request (pre-approved book changes)
 - files: kb/ai-as-design-tool.md (new block "When reinforcement learning is worth it")
