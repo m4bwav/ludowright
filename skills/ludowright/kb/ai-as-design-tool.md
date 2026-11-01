@@ -24,6 +24,7 @@ Answers: where AI (procedural generation, player models, simulated playtests, au
 18. Playtest instruments: prefer ranked or pairwise judgments over absolute ratings, fix the time between play and report, expect peak-end bias, and triangulate with behaviour logs (where players stall, quit, which path they pick). [Yannakakis ch. 2, 10; Shaker ch. 12]
 19. LLMs help most at ideation and first drafts of text-like content. They are weak at spatial planning and guaranteed correctness: treat output as input to a checker. [Yannakakis ch. 5; research 2026-10-29 ideation note]
 20. Player modelling for adaptation or monetisation raises consent and data-ownership issues. Flag them; do not design them without a privacy note. [Yannakakis ch. 15]
+21. A generative world model (a learned simulator or interactive video model, such as Google DeepMind's Genie line) can stand in as a quick prototype or playtest world. Agents and players will find exploits of the model's hallucinated dream that the real game does not have, so verify every finding in the real build. Access is perishable: as of 2026-01-30 Genie 3 was open only as Project Genie, a Google Labs prototype for US AI Ultra subscribers with 60-second sessions (Google DeepMind launch coverage, techbriefly.com, 2026-01-30). [Foster ch. 12]
 
 ## How to apply
 

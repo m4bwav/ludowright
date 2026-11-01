@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-3 · 2026-11-01 · Generative Deep Learning 2e (Foster) world models as prototype worlds (0.1.14)
+- because: user request (approved the ludowright row of the Generative Deep Learning learnings note)
+- files: kb/ai-as-design-tool.md (Principle 21)
+- Generative world models as quick prototype or playtest worlds, with exploits of the dream verified in the real build and a dated availability note for Genie 3.
+
 ### C-20261101-2 · 2026-11-01 · Game Engine Architecture (Gregory, 2014) in the rubric, feel, production and playtesting (0.1.13)
 - because: user request (approved the Changes table of the Game Engine Architecture learnings note, seven ludowright rows)
 - files: kb/review-rubric.md (R-58 to R-61), kb/feel-handoff.md (Failure patterns), kb/production-and-scope.md (Principle 22), kb/playtesting.md (Principle 21), README.md (61-item rubric)
