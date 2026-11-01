@@ -3,7 +3,7 @@ name: ludowright
 description: "Game design for any game, video or tabletop: pitch new game designs as one-pagers with contrasting alternatives, rank improvements to an existing game, and review a game's design for flaws (dominant strategies, degenerate loops, dead choices, economy leaks, difficulty spikes, onboarding gaps, pacing, scope risk, broken promises) with every finding tied to a file or rule and the principle it breaks, in a versioned JSON findings file other plugins can read. Also balance and economy maths (expected value, cost curves, Monte Carlo), level and encounter design, onboarding and UX, playtest plans, randomness, procedural generation, and AI opponent and NPC behaviour. Use on 'design a game about', 'game idea for a jam', 'review my game's design', 'what's wrong with my game', 'is this card overpowered', 'balance my economy', 'playtest questions', 'design the enemy AI'. Also 'refresh ludowright'. Not for feel or juice (game-juice), engine code (unity-agent, roblox-agent), or writing a game's story."
 license: MIT
 metadata:
-  version: "0.1.11"
+  version: "0.1.12"
 ---
 
 # ludowright

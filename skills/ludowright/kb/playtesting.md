@@ -20,6 +20,10 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 14. Log deaths and positions; a heat map is a cheap observation. [Rogers LevelUp ch. 19; Wyman]
 15. Read feedback like symptoms. Players are right about how a thing feels and often wrong about the cause: "too hard" can be many small control annoyances. Fix the friction before the difficulty. [Yu Part I]
 16. Unmoderated surveys may now hold LLM-written answers. Prefer moderated sessions, or check free text for generic phrasing before trusting it. [Hodent 2e ch. 18]
+17. Set a pass mark before the test (for example engagement at least 4 of 5 on both mean and mode). Act on consensus, on a missed mark, or on one unintended event that defeats the game's purpose. [Boller and Kapp ch. 9]
+18. Budget hours per tester, not only testers: about 4 to 6 hours for a small game, 10 to 40 for a large one, with five or six target-like testers per round. Testing too little is the bigger risk. [Boller and Kapp ch. 9]
+19. Do not write the tutorial before testing. Tests show what it must teach and what the design can make obvious instead. [Boller and Kapp ch. 8]
+20. For a game meant to teach, check what players learned with a short test before and after play, not only by asking. A fun game that teaches nothing has failed. [Boller and Kapp ch. 3, 9]
 
 ## What a playtest cannot show
 
@@ -45,6 +49,7 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
    - Name your next goal, your goal for this session, and your long-term goal.
    - What does the reward you just got let you do?
    - Your top three likes and top three dislikes. Ask "why" after any rating.
+   - One word for the experience. Where did your interest rise or fall, and why? What do you wish you had known? What did you learn? [Boller and Kapp ch. 9]
 5. Metrics: completion rate, time to first success, deaths and quits by location, number of players failing at the same place, rate of use of each mechanic, errors per task. Each metric is tied to a question.
 6. Machine passes first: `ldw.py sim` for seeded balance runs and `ldw.py ev` for expected values show which questions are worth a human's hour. Treat them as hypotheses.
 7. After the session, write notes with date, build, tester count, observed behaviour apart from interpretation. Log each issue as headline, category, severity (critical, medium, low) and the principle it breaks, then review the list with the people who will fix it. Act on problems seen by several testers. [Hodent 2e ch. 14]
@@ -68,5 +73,6 @@ Engine-side playtest protocol and the Level Up! questionnaire live in the game-d
 - One tester repeated over time versus a fresh tester each time: Gibson resolves it by purpose. Ludowright uses fresh testers for onboarding and ending, and repeat testers to track whether a known fix worked.
 - Human-like versus strong agents: Yannakakis and Short want imperfect, human-limited agents for experience questions, and strong agents are fine for exploit hunting. Ludowright requires the claim to say which.
 - Level Up! uses open questionnaires; Yannakakis and Shaker favour rankings. Ludowright uses rankings for comparisons and open questions for causes.
+- Paper first: Boller and Kapp prototype on paper even for digital games (ch. 8); Gibson warns paper misleads on rhythm. Ludowright uses paper for rules and flow, digital for timing.
 
 Related: [levels-and-space](levels-and-space.md), [ux-and-the-brain](ux-and-the-brain.md), [procgen](procgen.md). Feel goes to game-juice (juice-scan, juice-principles). Engine playtest loops go to unity-agent, roblox-agent, madnesswright.
