@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-5 · 2026-11-01 · Beginning Game AI with Unity (Cossu) player verbs that feed AI senses (0.1.16)
+- because: user request (approved the ludowright row of the Cossu learnings note)
+- files: kb/game-ai-for-designers.md (Principle 27)
+- Lures that write into a guard's last-known position make stealth AI something the player plays; each needs a readable reaction and a cap.
+
 ### C-20261101-4 · 2026-11-01 · AI for Games 3e (Millington) in game AI, procgen and review (0.1.15)
 - because: user request (approved the five ludowright rows of the AI for Games learnings note)
 - files: kb/game-ai-for-designers.md (Principles 22 to 26, How to apply step 7, Failure patterns, Level-AI handoff checklist), kb/procgen.md (Principle 21, Failure patterns), references/review.md (step 3, AI depth sweep)
