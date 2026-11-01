@@ -28,7 +28,7 @@ Answers: where AI (procedural generation, player models, simulated playtests, au
 
 ## When reinforcement learning is worth it
 
-Principle 10 still holds: try scripted bots and search first. If RL is chosen, these apply. Source: Lapan, Deep RL Hands-On 3rd ed.
+Principle 10 still holds: try scripted bots and search first. If RL is chosen, these apply. Sources: Lapan, Deep RL Hands-On 3rd ed.; Graesser and Keng, Foundations of Deep Reinforcement Learning.
 
 1. The reward is the design. Pay for per-step changes the agent causes (a kill, a death), not the HUD running score, and check how long the payoff is delayed. [Lapan ch. 1]
 2. Record a few player demonstrations before training. A handful of demos beats hours from scratch on tasks that are hard to discover. [Lapan ch. 14]
@@ -37,6 +37,9 @@ Principle 10 still holds: try scripted bots and search first. If RL is chosen, t
 5. Sparse key-then-door goals need curiosity or count bonuses. [Lapan ch. 18]
 6. Judge self-play by round-robins between saved checkpoints, not by the loss. [Lapan ch. 20]
 7. When the wanted style cannot be written as a reward, learn one from pairwise clip preferences, in rounds. The agent exploits flaws in the reward model, so refresh it. [Lapan ch. 19]
+8. Before reading any learning curve, check the agent beats a random agent's average reward. If it does not, nothing is learning yet. [Graesser and Keng, Foundations of Deep RL, sec. 10.2.1]
+9. Log every reward during training, look for extreme values and replay the episodes behind them. An exploit the agent found is a design bug: patch the game, not the agent. [Graesser and Keng sec. 14.3]
+10. Reward signs: good earns a positive value, neutral zero, bad a negative one, and no huge magnitudes. Side scores (gold, kills) may shape learning, but reaching the end condition must still pay the most. [Graesser and Keng sec. 14.3]
 
 ## How to apply
 
