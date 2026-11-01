@@ -27,6 +27,9 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 21. Scoring is the strongest signal of what a game is about: players do the scored action. Keep scores simple, visible to the player, tied to the skill wanted, varied enough to separate players, and in large values (100, not 1). [Boller and Kapp ch. 7]
 22. Check scoring in a spreadsheet: per level, total the maximum points and the penalties, and test that a non-perfect player can advance and that early points do not make the rest trivial. Expect several passes; cut rules testers cannot trace to their score. [Boller and Kapp ch. 7]
 23. Achievements: measurement (one to three stars against a standard) over completion badges, and a completion badge only if it depends on performance. Expected ones set goals, unexpected ones reward exploration; hold competitive ones back until players know the game. [Boller and Kapp ch. 7]
+24. Set loss or rout thresholds on absolute losses, not percentages, so the rule balances itself across force sizes. A leader bonus on such a test is strong but brittle when the leader can be lost. [Lambshead 2024, Winning and losing; Warband morale test]
+25. Make each repeat action by the same unit in one turn cost more (1, then 3, then 5 points). Play spreads across the force instead of one hero piece. [Lambshead 2024, Player phase]
+26. Tie two stats on one inverse axis (armour against evasion). Classes stay distinct with one simple rule. [Lambshead 2024, Part II introduction]
 
 ## How to apply
 

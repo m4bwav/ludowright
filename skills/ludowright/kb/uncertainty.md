@@ -29,6 +29,9 @@ Answers: where does the game's uncertainty live, is there too little or too much
 23. Randomness from pseudorandom sources should be seeded and saved, so runs replay and save-scumming is a known choice. [Schreiber ch. 21]
 24. A timer turns collecting into a risk decision: every extra treasure costs time against a known threat. Keep runs short so a loss costs minutes. [Yu Part II]
 25. A seeded daily run (one attempt, same seed for everyone) turns randomness into a shared, comparable event and feeds streams and talk. Fix all loot at generation so the seed fixes the run. [Yu Part III]
+26. Change odds by how many cards or dice are drawn, keeping the best, rather than by modifiers. Odds stay readable without arithmetic. [Lambshead 2024, Introduction; Cards]
+27. A random turn end (a trigger card such as a Joker in either player's deck) makes turn length unknown. It adds local chaos and evens out over a game. [Lambshead 2024, Player phase]
+28. The reshuffle point trades fairness against counting. Playing out the deck equalises luck between players but rewards card counting; reshuffling each turn hides the count but brings trigger cards up more often, so turns get shorter. [Lambshead 2024, When to shuffle the pack]
 
 ## How to apply
 

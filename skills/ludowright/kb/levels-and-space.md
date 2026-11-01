@@ -25,6 +25,8 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 19. Whiteblock before art, paper before whiteblock for flow. Keep a playground scene for metrics and an arena for spawning enemy mixes on demand. Build the tutorial last, or with fresh eyes. [Totten; Rogers LevelUp ch. 9; Bauer ch. 8; Gibson ch. 17]
 20. Designers misjudge difficulty after many plays; judge challenge with new players, and balance late (ingredients, then per level, then global multipliers). [Bauer ch. 17; Rogers LevelUp ch. 13; Hodent]
 21. Plan difficulty as pacing, not a ramp: put the hardest stretch early, then let it ebb and flow with breathers and mood. A steady climb tires players before the end. [Yu Part IV]
+22. A zone of control (a short no-entry ring around each unit, lost when the unit is engaged or stunned) makes position a blocking tool for gaps, screens and rear protection. [Lambshead 2024, Zones of control]
+23. When free play collapses into one degenerate pattern (a central melee scrum), reward the alternative (rear attacks are devastating) and give scenarios competing objectives in different parts of the map. [Lambshead 2024, Introduction to scenarios]
 
 ## How to apply
 

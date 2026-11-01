@@ -26,6 +26,9 @@ Answers: is this plan buildable by the people and time available, and what shoul
 20. Name a closer: one person whose job is to say no, lock the core early and cut scope. [Schreier Press Reset ch. 2]
 21. Plan the life after launch: free updates and ports bring sales back (a roguelike's best month can come two years in), and announce a final update on purpose rather than drifting on. [Schreier Press Reset ch. 3, 8]
 22. Data-drive only what designers tune often, and give each such value a tool and a preview. Making everything data can leave a team slower than code. Set an acceptable wait for each kind of change and track it. [Gregory, Game Engine Architecture 2e (2014), sec. 14.3]
+23. Budget the number of units a player commands (about a dozen for a tabletop skirmish). Lower it as each unit gains unique rules; raise it when units are uniform. [Lambshead 2024, Introduction]
+24. Fast-play test: everything a player needs fits on one sheet, with no cross-referenced modifier tables and no mental arithmetic. [Lambshead 2024, Introduction]
+25. Ship a named list of rules that can be dropped to speed play without losing much strategy. [Lambshead 2024, Speeding up game play]
 
 ## How to apply
 
