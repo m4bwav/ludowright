@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-7 · 2026-11-01 · Lambshead, One-hour Ancient and Medieval Skirmish Wargames: draw-count odds, random turn ends, absolute rout thresholds, unit budgets, zones of control (0.1.18)
+- because: user request (pre-approved book changes)
+- files: kb/uncertainty.md (Principles 26 to 28), kb/balance-and-economy.md (Principles 24 to 26), kb/production-and-scope.md (Principles 23 to 25), kb/levels-and-space.md (Principles 22, 23)
+- Odds set by cards drawn, random turn ends and the reshuffle trade-off; absolute loss thresholds, escalating repeat-action costs and inverse stat axes; unit-count budgets, a one-sheet fast-play test and droppable rules; zones of control and scenarios that break a degenerate scrum.
+
 ### C-20261101-6 · 2026-11-01 · Unity 2018 AI Cookbook (Palacios) shared path costs and N-gram prediction (0.1.17)
 - because: user request (pre-approved book changes)
 - files: kb/game-ai-for-designers.md (Principles 28, 29)
