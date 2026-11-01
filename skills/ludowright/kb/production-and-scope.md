@@ -25,6 +25,7 @@ Answers: is this plan buildable by the people and time available, and what shoul
 19. Small teams in one room iterate on feel fastest. Growing headcount to meet a funder's date buys bloat and lost ownership, not speed. [Schreier Press Reset ch. 1, 2, 7]
 20. Name a closer: one person whose job is to say no, lock the core early and cut scope. [Schreier Press Reset ch. 2]
 21. Plan the life after launch: free updates and ports bring sales back (a roguelike's best month can come two years in), and announce a final update on purpose rather than drifting on. [Schreier Press Reset ch. 3, 8]
+22. Data-drive only what designers tune often, and give each such value a tool and a preview. Making everything data can leave a team slower than code. Set an acceptable wait for each kind of change and track it. [Gregory, Game Engine Architecture 2e (2014), sec. 14.3]
 
 ## How to apply
 

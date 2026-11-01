@@ -24,6 +24,7 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 18. Budget hours per tester, not only testers: about 4 to 6 hours for a small game, 10 to 40 for a large one, with five or six target-like testers per round. Testing too little is the bigger risk. [Boller and Kapp ch. 9]
 19. Do not write the tutorial before testing. Tests show what it must teach and what the design can make obvious instead. [Boller and Kapp ch. 8]
 20. For a game meant to teach, check what players learned with a short test before and after play, not only by asking. A fun game that teaches nothing has failed. [Boller and Kapp ch. 3, 9]
+21. Record the input events and the random seed of every playtest build, so a reported bug or balance oddity replays exactly instead of being described from memory. [Gregory, Game Engine Architecture 2e (2014), sec. 7.5]
 
 ## What a playtest cannot show
 

@@ -38,6 +38,7 @@ Never let a feel change alter rules: damage, scores, card effects and saves must
 - Wasted device. Symptom: sensitive input mapped to a binary response. [Swink ch. 7]
 - Canned failure. Symptom: one animation for all deaths or errors. [Swink ch. 17]
 - Mass mismatch. Symptom: visual weight disagrees with the rules. [Swink ch. 11]
+- Untabled transitions. Symptom: state changes hard-coded, or all one length. Each change of state needs a type, a duration (often about 0.1 to 0.3 s) and a window when it may cancel; review them as one table. [Gregory, Game Engine Architecture 2e (2014), sec. 11.6, 11.11.2]
 
 ## Where the books disagree
 

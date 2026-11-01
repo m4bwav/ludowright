@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-2 · 2026-11-01 · Game Engine Architecture (Gregory, 2014) in the rubric, feel, production and playtesting (0.1.13)
+- because: user request (approved the Changes table of the Game Engine Architecture learnings note, seven ludowright rows)
+- files: kb/review-rubric.md (R-58 to R-61), kb/feel-handoff.md (Failure patterns), kb/production-and-scope.md (Principle 22), kb/playtesting.md (Principle 21), README.md (61-item rubric)
+- Frame-rate-bound play, raw input, unplannable physics and objectives welded to a level as rubric items; transitions as a reviewed table; selective data-driving with a wait budget; input and seed recording for playtests.
+
 ### C-20261101-1 · 2026-11-01 · Play to Learn (Boller and Kapp, 2017) in playtesting, balance and goals (0.1.12)
 - because: user request (approved the Changes table of the Play to Learn learnings note, eleven kb rows)
 - files: kb/playtesting.md (Principles 17 to 20, How to apply step 4, Where the books disagree), kb/balance-and-economy.md (Principles 21 to 23), kb/core-loops-and-goals.md (Principle 20, Failure patterns)
