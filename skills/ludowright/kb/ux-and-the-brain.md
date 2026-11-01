@@ -21,6 +21,9 @@ Answers: will a player see, understand, remember and want to continue, and is an
 15. Ship defaults for the mainstream and settings for the rest: full control remap with reset, subtitles on by default, difficulty options, motion and flash limits. [Hodent ch. 11.2.7; Rogers LevelUp ch. 6]
 16. Memory of an experience is peak-end weighted and unpleasant moments are recalled worse, so what you measure after play is not what happened during it. [Yannakakis ch. 4-5]
 17. Praise real success with layered feedback and keep it for real achievements. [Rogers LevelUp ch. 13]
+18. Show the lock before the key: tease the obstacle before handing over the tool. When a reward is earned, the player should be able to name what it lets them do. [Hodent 2e]
+19. Tutorial text appears only while the player has not yet done the action, and a tooltip gallery lets returning players look things up. [Hodent 2e]
+20. After a loss, show what the player did well (best combo, distance) to help reappraisal. Never add effects that cover the screen when the player is already losing. [Hodent 2e]
 
 ## How to apply
 
@@ -34,11 +37,14 @@ Answers: will a player see, understand, remember and want to continue, and is an
 
 ## Dark patterns to avoid
 
+Sort each pressure mechanism four ways: dark pattern, nudge, bad UX or good UX. Name the pressure type (temporal, monetary, social capital), then test it: does the pressure serve play, and can the player see it? [Hodent 2e ch. 17]
+
 - Login punishment: streaks that reset hard or punish absence. [Hodent ch. 12.2.2, 17]
 - Currency obscuring cost: several virtual currencies so the real price is hard to compute. [Hodent ch. 17]
 - Arbitrary punishment: a random event that erases long investment without warning. [Fullerton ch. 11]
 - Exploitable reward: a behaviour that pays but harms other players or the game. [Hodent ch. 12.2.1]
 - Fake urgency or a hidden odds table in a purchase path. [Hodent ch. 12, 17]
+- Disguised currency, insidious pay-to-win, predatory ads. [Hodent 2e ch. 17]
 
 ## Failure patterns
 
@@ -48,10 +54,13 @@ Answers: will a player see, understand, remember and want to continue, and is an
 - Unguarded destructive action. [Hodent 11.2.6]
 - Same-error pile-up in logs at one spot. [Hodent 11.2.6]
 - Text-wall tutorial, or two hard lessons back to back. [Hodent ch. 13]
+- Static tutorial text for an action the player already did. [Hodent 2e]
 - Flat difficulty, spiral failure, unexplained loss. [Hodent ch. 12]
 - Test hygiene faults: team tests on itself, leading questions, intent inferred from behaviour. [Hodent ch. 14]
 - Control ambiguity: simultaneous inputs the player cannot tell apart. [Swink]
 - Data without a hypothesis: analytics events with no question. [Hodent ch. 15]
+
+Citations: "Hodent" with a chapter number is the 2017 first edition; "Hodent 2e" is the 2026 second edition, where chapters moved (ethics ch. 17, AI ch. 18). Recheck a first-edition chapter number before quoting it against 2e.
 
 ## Where the books disagree
 
