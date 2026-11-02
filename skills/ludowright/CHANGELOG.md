@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261101-10 · 2026-11-01 · Morales, Grokking Deep RL: one agent per task, bandits for one-step choices, gamma and reward density as dials (0.1.21)
+- because: user request (pre-approved book changes)
+- files: kb/ai-as-design-tool.md ("When reinforcement learning is worth it", sources line and items 11-13)
+- One trained agent per task since skills do not transfer; shop and difficulty picks are bandits (optimistic init or decaying epsilon-greedy, judged by regret); gamma and dense or sparse reward change play style, so playtest each.
+
 ### C-20261101-9 · 2026-11-01 · Graesser and Keng, Foundations of Deep RL: random-agent baseline, reward-hacking replays, reward signs (0.1.20)
 - because: user request (pre-approved book changes)
 - files: kb/ai-as-design-tool.md ("When reinforcement learning is worth it", items 8-10)
