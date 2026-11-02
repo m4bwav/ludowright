@@ -28,7 +28,7 @@ Answers: where AI (procedural generation, player models, simulated playtests, au
 
 ## When reinforcement learning is worth it
 
-Principle 10 still holds: try scripted bots and search first. If RL is chosen, these apply. Sources: Lapan, Deep RL Hands-On 3rd ed.; Graesser and Keng, Foundations of Deep Reinforcement Learning.
+Principle 10 still holds: try scripted bots and search first. If RL is chosen, these apply. Sources: Lapan, Deep RL Hands-On 3rd ed.; Graesser and Keng, Foundations of Deep Reinforcement Learning; Morales, Grokking Deep Reinforcement Learning.
 
 1. The reward is the design. Pay for per-step changes the agent causes (a kill, a death), not the HUD running score, and check how long the payoff is delayed. [Lapan ch. 1]
 2. Record a few player demonstrations before training. A handful of demos beats hours from scratch on tasks that are hard to discover. [Lapan ch. 14]
@@ -40,6 +40,9 @@ Principle 10 still holds: try scripted bots and search first. If RL is chosen, t
 8. Before reading any learning curve, check the agent beats a random agent's average reward. If it does not, nothing is learning yet. [Graesser and Keng, Foundations of Deep RL, sec. 10.2.1]
 9. Log every reward during training, look for extreme values and replay the episodes behind them. An exploit the agent found is a design bug: patch the game, not the agent. [Graesser and Keng sec. 14.3]
 10. Reward signs: good earns a positive value, neutral zero, bad a negative one, and no huge magnitudes. Side scores (gold, kills) may shape learning, but reaching the end condition must still pay the most. [Graesser and Keng sec. 14.3]
+11. Train one agent per well-defined task (the shopkeeper, the boss, the scout). A trained agent does not carry its skill to a new task or ruleset. [Morales ch. 1]
+12. A one-step choice with no later state, such as which shop offer or difficulty to show, is a bandit, not full RL. Start with optimistic initial values or epsilon-greedy with a decaying epsilon, and compare strategies by regret (reward lost against always picking the best option). [Morales ch. 4]
+13. The discount (gamma) and dense versus sparse rewards are design dials: low gamma plays greedy and short-sighted, high gamma plans ahead, and dense rewards push the agent toward whatever they pay for. Playtest each setting as a separate play style. [Morales ch. 2]
 
 ## How to apply
 
