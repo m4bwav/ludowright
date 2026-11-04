@@ -4,6 +4,12 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261104-1 · 2026-11-04 · Omagari, Arcade Game Typography: text size is physical (0.1.22)
+- because: user request (pre-approved book changes)
+- files: kb/ux-and-the-brain.md (principle 21, failure pattern)
+
+Text legibility had no rule in the UX file. Drawing pixel fonts goes to pixelwright.
+
 ### C-20261101-10 · 2026-11-01 · Morales, Grokking Deep RL: one agent per task, bandits for one-step choices, gamma and reward density as dials (0.1.21)
 - because: user request (pre-approved book changes)
 - files: kb/ai-as-design-tool.md ("When reinforcement learning is worth it", sources line and items 11-13)
