@@ -25,6 +25,8 @@ Answers: will a player see, understand, remember and want to continue, and is an
 19. Tutorial text appears only while the player has not yet done the action, and a tooltip gallery lets returning players look things up. [Hodent 2e]
 20. After a loss, show what the player did well (best combo, distance) to help reappraisal. Never add effects that cover the screen when the player is already losing. [Hodent 2e]
 
+21. Size text by its physical height on the smallest target screen, not by its pixels. Check a handheld or hybrid mode separately from the TV, and offer a text size option. Early HD console games and later Switch ports shipped unreadable text this way. [Omagari 2019, p. 264]
+
 ## How to apply
 
 1. Take the UI spec or the screens and build the state table (feature, state, sign, feedback, channels). Empty cells are findings.
@@ -54,6 +56,7 @@ Sort each pressure mechanism four ways: dark pattern, nudge, bad UX or good UX. 
 - Unguarded destructive action. [Hodent 11.2.6]
 - Same-error pile-up in logs at one spot. [Hodent 11.2.6]
 - Text-wall tutorial, or two hard lessons back to back. [Hodent ch. 13]
+- Interface text kept at its TV size in a handheld port. [Omagari 2019, p. 264]
 - Static tutorial text for an action the player already did. [Hodent 2e]
 - Flat difficulty, spiral failure, unexplained loss. [Hodent ch. 12]
 - Test hygiene faults: team tests on itself, leading questions, intent inferred from behaviour. [Hodent ch. 14]
