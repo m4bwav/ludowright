@@ -15,7 +15,7 @@ Answers: will a player see, understand, remember and want to continue, and is an
 9. Plan for return after a break: remind goals and controls. Guard destructive actions (delete, sell, spend, quit) with confirmation or undo. [Hodent ch. 4, 11.2.6]
 10. Errors are design signals. If many players make the same mistake, the design invites it. Players should blame themselves, not the game; when they blame the game, check presentation before lowering the challenge. [Hodent ch. 11; Bauer ch. 7]
 11. Boredom is the diagnostic. Classify it: too easy, arbitrary, too opaque, or learning exhausted. [Koster ch. 2-3]
-12. Read motivation as competence, autonomy and relatedness, and look for perceptible evidence of each in the game. Extrinsic rewards can help or hurt depending on type. [Hodent ch. 6; Schell]
+12. Read motivation as competence, autonomy and relatedness, and look for perceptible evidence of each in the game. Extrinsic rewards can help or hurt depending on type. [Hodent ch. 6; Schell] Which type: ask four things of each reward. Is the task something players already enjoy, or a chore? Is the reward announced before the act or a surprise after? Does it inform about skill or dictate what to do? What happens when it stops? Announced rewards on enjoyed or inventive play are the risky case: they can narrow play to the shortest paying route and may need to keep growing. On chores they do little harm, less still with a reason, honesty about the dullness and freedom of method. These come from work and school studies, not games, so test them in playtests by removing the reward. [Pink ch. 2, 2A]
 13. Difficulty follows a sawtooth with rest after peaks, not a straight line. Failure should be quick, explainable and cheap; an unexplained loss or a failure that worsens control or view spirals. [Hodent ch. 12; Swink on failure states; Rogers LevelUp ch. 13]
 14. Design out abuse early: whatever pays will be exploited. [Hodent ch. 12.2.1; Fullerton ch. 10]
 15. Ship defaults for the mainstream and settings for the rest: full control remap with reset, subtitles on by default, difficulty options, motion and flash limits. [Hodent ch. 11.2.7; Rogers LevelUp ch. 6]
@@ -69,7 +69,7 @@ Citations: "Hodent" with a chapter number is the 2017 first edition; "Hodent 2e"
 
 - Hodent aims at clarity and low friction; Costikyan says challenge needs uncertainty and opacity of outcome. Ludowright applies clarity to rules, interface and feedback, and leaves outcome uncertainty alone.
 - Neuroscience framing: Hodent warns about neuro-hype, yet cites memory and attention findings that come from general psychology. Ludowright treats them as heuristics to check, not proofs.
-- Extrinsic rewards: the literature is mixed. Ludowright asks which kind and what it does to the intrinsic motivation, and does not ban them.
+- Extrinsic rewards: the literature is mixed. Ludowright asks which kind and what it does to the intrinsic motivation, and does not ban them. Pink presents undermining as settled and reports a blood-donor effect that held only for women; Cerasoli et al. 2014 (183 studies) find both matter, with intrinsic motivation stronger for quality and incentives for quantity.
 - Retention benchmarks come from one mobile report. Ludowright does not apply them to premium games.
 
 Related: [levels-and-space](levels-and-space.md), [playtesting](playtesting.md), [procgen](procgen.md). Feel and feedback juice go to game-juice (juice-scan, juice-principles). Engine UI work goes to unity-agent, roblox-agent, madnesswright.
