@@ -4,6 +4,12 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261104-2 · 2026-11-04 · Pink, Drive: which rewards hurt (0.1.23)
+- because: user request (pre-approved book changes)
+- files: kb/ux-and-the-brain.md (principle 12, Where the books disagree)
+
+The file said rewards help or hurt by type without naming the types; it now asks four questions. Checked against Cerasoli et al. 2014 and the blood-donation paper, whose effect held only for women.
+
 ### C-20261104-1 · 2026-11-04 · Omagari, Arcade Game Typography: text size is physical (0.1.22)
 - because: user request (pre-approved book changes)
 - files: kb/ux-and-the-brain.md (principle 21, failure pattern)
