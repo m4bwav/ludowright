@@ -52,6 +52,10 @@ Lead with the top findings, each with its file and line, in at most ten lines, t
 
 game-juice owns feel (juice-scan, juice-principles, juice-apply). unity-agent, roblox-agent and madnesswright own engine work and keep the engine-side game-design references (one-pager template, beat chart, playtest protocol): point to them. Story and dialogue writing belong elsewhere.
 
+## Sfxwright, when installed
+
+When a design or review calls for a sound cue, hand the game events to sfxwright if it is present, and read its `sounds.json` to see which events have a sound and which are still `planned`. Without it, list the events in the findings; this skill's steps do not depend on it.
+
 ## While working: capture learnings
 
 If the user corrects a finding, says one is wrong, or names what was missed, write it to [LEARNINGS.md](LEARNINGS.md) now with Trigger and Hypothesis, and fix the kb file or rubric item it came from.

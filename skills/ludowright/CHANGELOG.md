@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261106-1 · 2026-11-06 · Sfxwright, when installed
+- because: user request
+- files: SKILL.md (sfxwright note)
+- Hand sound effects to sfxwright when present and read its sounds.json; this plugin's own steps stay as the fallback.
+
 ### C-20261104-2 · 2026-11-04 · Pink, Drive: which rewards hurt (0.1.23)
 - because: user request (pre-approved book changes)
 - files: kb/ux-and-the-brain.md (principle 12, Where the books disagree)
