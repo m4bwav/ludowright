@@ -99,6 +99,17 @@ Other plugins and agents can ask ludowright to evaluate a design or a game and r
 
 The reading notes (27 books, read in sections with [readwright](https://github.com/m4bwav/readwright), paraphrased with citations) were merged into twelve topic files and the review rubric. Two web research passes on how designers use AI shaped the rules: designs must be specific, critique must restate intent and cite rules text, and balance claims must name the player policy they assume. The plugin is an evergreen unit: it re-researches itself on a schedule, and an everscout beat watches the design community between refreshes.
 
+## Works with
+
+- **[everscout](https://github.com/m4bwav/everscout)**: its `game-design` beat watches design communities and books between refreshes, and its book reads turn into ludowright rule changes.
+- **[grindwright](https://github.com/m4bwav/grindwright)**: grindwright keeps a game moving lane by lane. When a lane hits a real design question, it hands that question to ludowright and gets back findings it can schedule.
+- **[sfxwright](https://github.com/m4bwav/sfxwright)**: sound findings (missing feedback, clipped hits, cues that sound alike) go to sfxwright, which makes the sounds and checks them.
+- **[pixelwright](https://github.com/m4bwav/pixelwright)**: once ludowright flags text legibility, pixelwright draws the readable pixel font or HUD glyph.
+- **[madnesswright](https://github.com/m4bwav/madnesswright)**: engine-side fixes and playtest templates for Project Nexus live in madnesswright, and ludowright points to them instead of copying them.
+- **[askwright](https://github.com/m4bwav/askwright)**: design calls only the developer can make (cut a mechanic, change a price curve) can go on an askwright decision page next to ludowright's findings.
+
+The wiki's [Works with](https://github.com/m4bwav/ludowright/wiki/Works-with) page describes each pairing in more detail.
+
 ## Privacy
 
 ludowright reads the files you point it at and writes its output beside them. It sends nothing anywhere.
