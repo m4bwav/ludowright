@@ -100,3 +100,6 @@ Ten approved rows from the vault learnings note (indie-ai-scout books/spelunky) 
 
 ## [2026-11-01] book | AI for Games (Millington) applied, 0.1.15
 Five approved rows from the everscout game-design learnings note: game-ai-for-designers.md principles 22-26, how-to additions, three failure patterns, level-AI handoff checklist; procgen.md principle 21 and a failure pattern (seed streams, capped reject loops); review.md AI-depth sweep. Principles 2 and 3 were already present, so skipped. Budget yellow is the existing review-rubric.md.
+
+## [2026-11-11] docs | Works with section
+README gained a Works with section (everscout, grindwright, sfxwright, pixelwright, madnesswright, askwright); the wiki gained a Works-with page linked from the sidebar and Home. Each entry describes a handoff found in the skill files on one side or the other.
