@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261110-1 · 2026-11-10 · harvest.json: technique-harvest targets for this unit
+- because: user request 2026-11-10: plugins store their own technique-harvest targets (evergreen 1.1.0 harvest.json)
+- files: harvest.json (new)
+- Data file only; no skill text or version changed.
+
 ### C-20261106-1 · 2026-11-06 · Sfxwright, when installed (0.1.24)
 - because: user request
 - files: SKILL.md (sfxwright note)
