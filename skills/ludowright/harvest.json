@@ -5,6 +5,11 @@
       "kind": "reddit",
       "sub": "aigamedev",
       "keep": "game design and balance techniques"
+    },
+    {
+      "kind": "reddit",
+      "sub": "ClaudeGameDev",
+      "keep": "game design and balance techniques used while building games with Claude; drop showcases and how-do-I-start questions"
     }
   ]
 }
