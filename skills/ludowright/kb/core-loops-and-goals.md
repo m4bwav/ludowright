@@ -56,6 +56,12 @@ Review procedure for an existing game:
 
 `ldw.py` does not help here; the numbers come in [balance-and-economy](balance-and-economy.md).
 
+## Loops versus arcs
+
+- A loop is a cycle the player runs many times and keeps learning from; an arc is a cycle meant to be run once (a puzzle, a mission, a scripted scene) that delivers a payload and then goes stale. [Cook, Lost Garden "Loops and arcs" 2012]
+- Strip-the-arcs test: mentally remove puzzles, missions and story beats. If the loops alone still hold attention, the core is sound; if nothing is left, the game is a content treadmill. Content that is dull on a second play was an arc. [Cook 2012]
+- Skill chains for ordering: break each skill into small units of action, rule, feedback and learning, and draw which unit needs which. Unlock and tutorial order follows the graph; a unit needed before it is taught is an onboarding gap, a unit nothing builds on is a cut candidate. [Cook, skill atoms; read from secondary accounts only, the original essay was unreachable]
+
 ## Failure patterns
 
 - Verb soup: the loop cannot be said as one verb; docs list five equal activities. Symptom: no cut rule, features pile up. [Rogers; Sellers]

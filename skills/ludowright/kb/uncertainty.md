@@ -33,6 +33,9 @@ Answers: where does the game's uncertainty live, is there too little or too much
 27. A random turn end (a trigger card such as a Joker in either player's deck) makes turn length unknown. It adds local chaos and evens out over a game. [Lambshead 2024, Player phase]
 28. The reshuffle point trades fairness against counting. Playing out the deck equalises luck between players but rewards card counting; reshuffling each turn hides the count but brings trigger cards up more often, so turns get shorter. [Lambshead 2024, When to shuffle the pack]
 
+29. Input randomness is revealed before the decision (a dealt hand, a rolled map) and asks players to adapt; output randomness decides after the decision (a hit roll) and feels looser and more comic. Label each random element one or the other. Randomness helps newcomers and keeps scores close but takes pride out of a win, and a random loss of earned progress always stings. [Lockhart and Lang ch. 6]
+30. Tools that reduce randomness without removing it: deal several and discard, a budget of rerolls, bidding for turn order or items, an intransitive swap, a known pre-stacked deck. Try one before cutting a luck-dominated loop. [Lockhart and Lang ch. 6]
+
 ## How to apply
 
 Uncertainty census:
