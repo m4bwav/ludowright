@@ -488,3 +488,38 @@ Related: [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](b
 - Severity hint: minor; major when a planned cut or reorder is blocked by it
 - Tool: grep the objective code for level names or scene ids
 - Sources: production-and-scope.md; Gregory, Game Engine Architecture 2e (2014), sec. 14.1.2, 14.1.3
+
+### R-62 Learning game that does not teach
+- Look for: In a learning game, no mechanic named as the one that teaches or the one that measures; modes not labelled teach or test; a goal with an empty cell in its alignment row (activity, assessment, scoring); no pre-brief or debrief.
+- Breaks: Alignment of play and learning goal
+- Severity hint: major when a goal is tested but never taught; minor for a missing debrief. Category: broken-promise
+- Tool: by hand, one alignment row per goal (learning-games.md)
+- Sources: learning-games.md; Kapp fieldbook ch. 2-4; Plass GDC 2012
+
+### R-63 Reward shell
+- Look for: Remove every point, badge and coin: would play continue? Pointsification, badge inflation (a badge earned in under a minute or many times a session), chocolate-covered broccoli. For child players, any variable-ratio reward, scarcity or countdown timer, or streak prompt.
+- Breaks: Intrinsic motivation; ethical design for children
+- Severity hint: major for a child-facing manipulative schedule; minor otherwise. Category: progression
+- Tool: by hand
+- Sources: learning-games.md; Chou ch. 2-3, 14; Kim et al. ch. 9
+
+### R-64 Experience phase with no pull
+- Look for: Walk discovery, onboarding, scaffolding and endgame; flag a phase with no stated reason to play, most often an endgame with nothing left once the main journey ends.
+- Breaks: A reason to play on day one and day 100
+- Severity hint: major for a live or long game; note for a short one-shot. Category: pacing
+- Tool: by hand
+- Sources: learning-games.md; Chou ch. 3
+
+### R-65 One viable opening
+- Look for: Of the early strategy families (for example rush, defend, build, mixed), fewer than several are viable, or one beats all others.
+- Breaks: Meaningful early choice
+- Severity hint: major when it settles the opening for all players. Category: dominant-strategy
+- Tool: sim, each family against the others (design-drills.md 5)
+- Sources: design-drills.md; Lockhart and Lang ch. 6
+
+### R-66 Avoidable access barrier
+- Look for: Information carried by colour or sound alone; text or key elements below WCAG 2.2 contrast (4.5:1 text, 3:1 large text and UI parts); flashing above three per second; required fast reflexes or drags with no option; things to remember that cannot be found again. Keep intended challenge apart from avoidable noise.
+- Breaks: Players excluded by accident, not by design
+- Severity hint: major when a group cannot finish; minor otherwise. State who the game excludes on purpose. Category: clarity
+- Tool: by hand; simulate colour blindness, sound off, one hand
+- Sources: ux-and-the-brain.md; WCAG 2.2 (1.4.3, 1.4.11, 2.3.1); Lockhart and Lang ch. 1

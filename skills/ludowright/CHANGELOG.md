@@ -4,7 +4,12 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
-### C-20261110-1 · 2026-11-10 · harvest.json: technique-harvest targets for this unit
+### C-20261113-1 · 2026-11-13 · Book harvest: learning games, drills, loops and arcs (0.1.25)
+- because: user request (adopted technique-harvest changes from Lockhart and Lang, Kapp, Kim et al., Chou, Werbach and Hunter, Lost Garden, GDC Vault)
+- files: kb/core-loops-and-goals.md (Loops versus arcs), kb/uncertainty.md (principles 29-30), kb/learning-games.md (new), kb/design-drills.md (new), kb/review-rubric.md (R-62 to R-66), kb/INDEX.md
+- Adds the strip-the-arcs test and skill chains (skill atoms from secondary accounts), input versus output randomness with reducing tools, a learning-game review block, the four-phase audit, an early-strategy balance check, a drill catalogue and a WCAG-cited accessibility check. The rubric file is now yellow on the size budget.
+
+ · 2026-11-10 · harvest.json: technique-harvest targets for this unit
 - because: user request 2026-11-10: plugins store their own technique-harvest targets (evergreen 1.1.0 harvest.json)
 - files: harvest.json (new)
 - Data file only; no skill text or version changed.
