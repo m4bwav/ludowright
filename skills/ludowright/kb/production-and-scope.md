@@ -42,6 +42,8 @@ Answers: is this plan buildable by the people and time available, and what shoul
 8. Check the phase shape: preproduction (unschedulable, exploratory) then production (schedulable, locked). Ask what the gate between them is and what would fail it.
 9. For content-heavy designs, ask for cost per unit of the first unit. For economy or difficulty tuning, plan a post-launch tuning budget and what telemetry would trigger it. `ldw.py economy` and `ldw.py curve` give the numbers a tuning budget depends on.
 10. For a game with a fast headless core, say so: it makes `ldw.py sim` and playtest bots cheap (see [ai-as-design-tool.md](ai-as-design-tool.md)).
+11. Prototype check: each prototype adds one new thing (a mechanic, feature, or piece of art or animation). Symptom: a build bundles several, so feedback cannot say which one moved it. Book rule, unverified. [Boeira ch. 4]
+12. Removal test for a milestone: if the game still works and still meets its goal without a feature, the feature is not in this milestone. Book rule, unverified. [Boeira ch. 4]
 
 ## Failure patterns
 

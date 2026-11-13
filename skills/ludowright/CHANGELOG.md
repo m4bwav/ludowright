@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261113-2 · 2026-11-13 · Lean Game Development: outcome plan, one new thing, removal test, triage (0.1.26)
+- because: user request (adopted technique-harvest changes from Boeira, Lean Game Development, Apress 2017; book rules, unverified)
+- files: kb/playtesting.md (How to apply 1 and 8), kb/production-and-scope.md (How to apply 11 and 12)
+- The one-page plan lists outcomes and their actions before a test; a bad result is triaged as works-not-fun or fun-not-playable before fixes; prototypes add one new thing; a removal test decides milestone membership.
+
 ### C-20261113-1 · 2026-11-13 · Book harvest: learning games, drills, loops and arcs (0.1.25)
 - because: user request (adopted technique-harvest changes from Lockhart and Lang, Kapp, Kim et al., Chou, Werbach and Hunter, Lost Garden, GDC Vault)
 - files: kb/core-loops-and-goals.md (Loops versus arcs), kb/uncertainty.md (principles 29-30), kb/learning-games.md (new), kb/design-drills.md (new), kb/review-rubric.md (R-62 to R-66), kb/INDEX.md
