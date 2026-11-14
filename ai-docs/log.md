@@ -103,3 +103,6 @@ Five approved rows from the everscout game-design learnings note: game-ai-for-de
 
 ## [2026-11-11] docs | Works with section
 README gained a Works with section (everscout, grindwright, sfxwright, pixelwright, madnesswright, askwright); the wiki gained a Works-with page linked from the sidebar and Home. Each entry describes a handoff found in the skill files on one side or the other.
+
+## [2026-11-14] books | AI and Gamification Technologies (0.1.30)
+learning-games.md gained a goal-has-an-event check, an observe-assess-respond checklist and rules before ML; R-62 flags a goal with no event; ai-as-design-tool.md gained an uncalibrated AI judge failure. Adult training book, child use unverified. Rubric stays yellow (6790 tokens), folder 299 KB.

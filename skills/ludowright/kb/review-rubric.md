@@ -490,11 +490,11 @@ Related: [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](b
 - Sources: production-and-scope.md; Gregory, Game Engine Architecture 2e (2014), sec. 14.1.2, 14.1.3
 
 ### R-62 Learning game that does not teach
-- Look for: In a learning game, no mechanic named as the one that teaches or the one that measures; modes not labelled teach or test; a goal with an empty cell in its alignment row (activity, assessment, scoring); no pre-brief or debrief.
+- Look for: In a learning game, no mechanic named as the one that teaches or the one that measures; modes not labelled teach or test; a goal with an empty cell in its alignment row (activity, assessment, scoring) or no event in play that exercises it; no pre-brief or debrief.
 - Breaks: Alignment of play and learning goal
 - Severity hint: major when a goal is tested but never taught; minor for a missing debrief. Category: broken-promise
 - Tool: by hand, one alignment row per goal (learning-games.md)
-- Sources: learning-games.md; Kapp fieldbook ch. 2-4; Plass GDC 2012
+- Sources: learning-games.md; Kapp fieldbook ch. 2-4; Plass GDC 2012; Mangos and Ferraro ch. 3
 
 ### R-63 Reward shell
 - Look for: Remove every point, badge and coin: would play continue? Pointsification, badge inflation (a badge earned in under a minute or many times a session), chocolate-covered broccoli. For child players, any variable-ratio reward, scarcity or countdown timer, or streak prompt.

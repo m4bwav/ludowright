@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261114-1 · 2026-11-14 · Learning games: objective events, observe-assess-respond, rules first, calibrated AI judge (0.1.30)
+- because: user request (adopted technique-harvest changes from Mangos and Ferraro, eds., AI and Gamification Technologies for Complex Work Simulation and Training; adult workplace and military training, child use unverified; book rules, unverified)
+- files: kb/learning-games.md (Review block 8-10), kb/review-rubric.md (R-62), kb/ai-as-design-tool.md (Failure patterns)
+- Adds a goal-has-an-event check, an observe-assess-respond checklist, rules-before-ML with between-session changes for children, and calibration of an AI judge against human labels.
+
 ### C-20261113-5 · 2026-11-13 · Gamify: no devaluation, spend path, bottom tier, loophole pass, campaign or endless (0.1.29)
 - because: user request (adopted technique-harvest changes from Burke, Gamify, 2014; book rules, unverified)
 - files: kb/balance-and-economy.md (Principle 34), kb/core-loops-and-goals.md (Principle 21)
