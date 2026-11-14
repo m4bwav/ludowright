@@ -45,6 +45,8 @@ Answers: is this plan buildable by the people and time available, and what shoul
 11. Prototype check: each prototype adds one new thing (a mechanic, feature, or piece of art or animation). Symptom: a build bundles several, so feedback cannot say which one moved it. Book rule, unverified. [Boeira ch. 4]
 12. Removal test for a milestone: if the game still works and still meets its goal without a feature, the feature is not in this milestone. Book rule, unverified. [Boeira ch. 4]
 
+13. Five-phase gate. Work moves through engine design (the rules that make the core work), engine development (test with a few plain components and rough numbers), component design (the full set of cards, units or levels), component development (tune each one) and polish (art, wording, presentation). Each phase defers questions: final numbers, content count and art wait until the engine is proven in play. Flag later-phase work, such as a content list, final art or fine tuning, done before the engine has passed a playtest. Book rule, unverified. [Gary ch. 11]
+
 ## Failure patterns
 
 - Headcount ramp to a date. Symptom: team grows sharply to hit a funder's milestone while the core loop is still unproven. [Schreier Press Reset ch. 1, 7]
