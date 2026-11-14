@@ -1,6 +1,6 @@
 # Review: find the design flaws in an existing game
 
-The rubric is [../kb/review-rubric.md](../kb/review-rubric.md). Topic files back each item; open one only when an item needs its detail.
+The rubric is [../kb/review-rubric.md](../kb/review-rubric.md), continued in [../kb/review-rubric-more.md](../kb/review-rubric-more.md). Topic files back each item; open one only when an item needs its detail.
 
 ## Steps
 

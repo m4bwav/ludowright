@@ -57,6 +57,9 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 7. After the session, write notes with date, build, tester count, observed behaviour apart from interpretation. Log each issue as headline, category, severity (critical, medium, low) and the principle it breaks, then review the list with the people who will fix it. Act on problems seen by several testers. [Hodent 2e ch. 14]
 8. Triage a bad result before proposing fixes: "works but not fun" (the mechanics run, the experience falls flat: a design question) or "fun but not playable" (the idea lands, but controls, levels or bugs get in the way: a fit or build question). They need different fixes. Book rule, unverified. [Boeira ch. 11]
 9. Pitch fixes through the design, not the tester's suggestion. Change one variable at a time and retest.
+10. Forgotten-rule test: a rule testers forget to apply, or apply wrong, more than once in a session is a cut or redesign candidate, even when they say they like it. Book rule, unverified. [Gary ch. 9]
+11. Instinct check: record the line casual testers take without coaching. When it loses to the designer's own line, change the game so the natural play wins most of the time, unless that breaks the central tension. Book rule, unverified. [Gary ch. 13]
+12. Sort each result as works, fails or mixed. Works: confirm with a second, less friendly group before building on it; testers asking to play again unprompted is the best sign. Fails: drop it and take the next idea. Mixed: retest once with one change, or park it with the rules, frame, core idea and idea list written down and a dated reminder to return. Never leave a mixed design idle with no note. Book rule, unverified. [Gary ch. 10]
 
 Engine-side playtest protocol and the Level Up! questionnaire live in the game-design references of unity-agent, roblox-agent and madnesswright; point to them.
 

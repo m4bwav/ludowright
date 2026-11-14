@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261114-4 · 2026-11-14 · Fundamental tension, five-phase gate, playtest result triage; rubric split for size (0.1.33)
+- because: user request (adopted technique-harvest changes from Gary, Think Like a Game Designer, ch. 9 to 13; book rules, unverified; random reward schedules not adopted); budget yellow on review-rubric.md
+- files: kb/core-loops-and-goals.md (Fundamental tension), kb/production-and-scope.md (How to apply 13), kb/playtesting.md (How to apply 10-12), kb/review-rubric.md (How to run 11, Related), kb/review-rubric-more.md (new: R-53 to R-66 moved unchanged), kb/INDEX.md, references/review.md
+- Adds a one-sentence tension with per-mechanic ratings, the five-phase gate that flags later-phase work before the engine is proven, and forgotten-rule, instinct and works/fails/mixed checks; the rubric now spans two files so the largest kb file is back under green.
+
 ### C-20261114-3 · 2026-11-14 · Procgen: constrain early, one exclusion system, backtrack, log fallbacks (0.1.32)
 - because: user request (adopted technique-harvest changes from Short and Adams, eds., Procedural Storytelling in Game Design, 2019, ch. 2 and 22; book rules, unverified)
 - files: kb/procgen.md (Principle 22, Failure patterns), ai-docs/changelog-archive.md (entries to 2026-11-13 moved out of the skill folder)

@@ -57,6 +57,10 @@ Review procedure for an existing game:
 
 `ldw.py` does not help here; the numbers come in [balance-and-economy](balance-and-economy.md).
 
+## Fundamental tension
+
+Name the game's central tension in one sentence: the pull between two things the player wants and cannot both have. Then rate every mechanic against it: reinforces, neutral or weakens. Cut or defer each one that weakens it, and question the neutral ones when scope is tight. A design with no tension sentence is not ready for content work. Book rule, unverified. [Gary ch. 12]
+
 ## Loops versus arcs
 
 - A loop is a cycle the player runs many times and keeps learning from; an arc is a cycle meant to be run once (a puzzle, a mission, a scripted scene) that delivers a payload and then goes stale. [Cook, Lost Garden "Loops and arcs" 2012]
