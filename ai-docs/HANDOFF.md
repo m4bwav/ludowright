@@ -4,8 +4,8 @@ Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (st
 
 ## Current state (2026-10-30, session 19)
 - Session 19: state checked, nothing open. evergreen-protocol#34 merged, review accepted, all continue-prompt items done. Optional work only (Next 3, 5).
-- Session 18: Mark ruled the round-1 SpaceDeckBuilder2 review good (2026-10-30). The real-game loop (continue prompt section 4) is closed; no skill change owed. Re-review only if he asks or the game changes.
-- Session 17: SpaceDeckBuilder2 game unchanged since the 2026-10-29 review (only tools/docs commits), and Mark objected to no finding in round 1. No re-review run. The real-game loop waits on Mark saying "good" or naming what it missed.
+- Session 18: Mark ruled the round-1 private deck-builder game review good (2026-10-30). The real-game loop (continue prompt section 4) is closed; no skill change owed. Re-review only if he asks or the game changes.
+- Session 17: private deck-builder game unchanged since the 2026-10-29 review (only tools/docs commits), and Mark objected to no finding in round 1. No re-review run. The real-game loop waits on Mark saying "good" or naming what it missed.
 - T-20261031-1: outcome-8 topped up to 10 runs an arm. Second batch with 0.60, without 0.70; pooled 0.725 vs 0.675 (+5, noise). The counted-evidence edge was noise: no graded case separates the arms.
 - evergreen PR m4bwav/evergreen#15 merged: `worth` now reports the mean grader score per arm with its own noise margin and counts a score gain beyond it. outcome-8 re-scored: 0.85 vs 0.65, margin 0.23, so still CUT (+20 inside 23). Five more runs an arm could clear it.
 - T-20261030-8: harbor-yard quieter (playtest hints removed) and its Kraken defence fixed (it failed its own arithmetic). with 0.97, without 1.00. Breadth does not separate the arms; counted evidence (outcome-8) is the only measured edge.
