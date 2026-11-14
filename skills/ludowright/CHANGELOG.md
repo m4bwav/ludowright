@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261113-3 · 2026-11-13 · Emotional Design and Gamification by Design: feel levels, rewards, leaderboards (0.1.27)
+- because: user request (adopted technique-harvest changes from Norman, Emotional Design, 2004, and Zichermann and Cunningham, Gamification by Design, 2011; book rules, unverified)
+- files: kb/ux-and-the-brain.md (Principles 14, 22, 23; Dark patterns), kb/balance-and-economy.md (Principles 27-30)
+- Adds a three-level and four-pleasure feel lens, fear with a safety signal and a keepsake, confusion on purpose as a dark pattern, rollback-first exploit policy, the status-access-power-stuff ladder, five point kinds with ordered tier names (the rubric had no level-order rule), leaderboard patterns and a one-player test for social features.
+
 ### C-20261113-2 · 2026-11-13 · Lean Game Development: outcome plan, one new thing, removal test, triage (0.1.26)
 - because: user request (adopted technique-harvest changes from Boeira, Lean Game Development, Apress 2017; book rules, unverified)
 - files: kb/playtesting.md (How to apply 1 and 8), kb/production-and-scope.md (How to apply 11 and 12)
