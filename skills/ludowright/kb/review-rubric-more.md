@@ -1,6 +1,6 @@
 # Review rubric, part 2
 
-Items R-53 to R-66 of [review-rubric.md](review-rubric.md), split out for size. Same use, same rules, same category slugs: walk every item after R-52. Item IDs are stable: never renumber, only append here.
+Items R-53 to R-68 of [review-rubric.md](review-rubric.md), split out for size. Same use, same rules, same category slugs: walk every item after R-52. Item IDs are stable: never renumber, only append here.
 
 ### R-53 Authored, not built
 - Look for: Cards, rewards, win paths or systems that the design doc or data tables define but no code applies (grep the code for each data id or effect key). Settle the stage first: in a prototype this is the to-do list, in a shipped game it is a broken promise.
@@ -99,3 +99,17 @@ Items R-53 to R-66 of [review-rubric.md](review-rubric.md), split out for size. 
 - Severity hint: major when a group cannot finish; minor otherwise. State who the game excludes on purpose. Category: clarity
 - Tool: by hand; simulate colour blindness, sound off, one hand
 - Sources: ux-and-the-brain.md; WCAG 2.2 (1.4.3, 1.4.11, 2.3.1); Lockhart and Lang ch. 1
+
+### R-67 No escape valve
+- Look for: In a multiplayer or shared-world design, one player's action can remove other players' options with no route elsewhere (a blockade, a destroyed shared resource, a locked map). Kingmaking is uncertainty.md 19; this item is about being trapped, not about who wins.
+- Breaks: Every player keeps a meaningful move
+- Severity hint: major when a trapped player must sit out; minor when the trap is brief. Category: dead-choice
+- Tool: by hand
+- Sources: worldbuilding-and-lore.md; Robbins, Microscope p. 63, 72 (book rule, unverified)
+
+### R-68 Optional authority favours the loud
+- Look for: In co-op, social or co-creation play, quiet players contribute only by opting in (a free-for-all suggestion phase, a vote anyone may skip), so dominant players set every outcome. Prefer a turn where each player must add something alone.
+- Breaks: Every player shapes the game
+- Severity hint: minor; major when the design's promise is shared authorship. Category: broken-promise
+- Tool: by hand; watch who speaks in a playtest
+- Sources: worldbuilding-and-lore.md; Robbins, Microscope p. 73 (book rule, unverified)

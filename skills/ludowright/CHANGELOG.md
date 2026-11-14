@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261114-5 · 2026-11-14 · Worldbuilding and lore kb file; rubric R-67 no escape valve, R-68 optional authority (0.1.34)
+- because: user request (adopted technique-harvest changes from Robbins, Microscope, 2011; book rules, unverified; R-67 checked against uncertainty.md 19, which covers kingmaking only)
+- files: kb/worldbuilding-and-lore.md (new), kb/review-rubric-more.md (R-67, R-68), kb/review-rubric.md (How to run 11, Related), kb/INDEX.md, SKILL.md (routing row)
+- Adds bookends, an exceptions list, zoom levels, outcome-first entries, three canon checks and an open-gap ledger for lore, and two multiplayer review items for trapped players and loud-player authority.
+
 ### C-20261114-4 · 2026-11-14 · Fundamental tension, five-phase gate, playtest result triage; rubric split for size (0.1.33)
 - because: user request (adopted technique-harvest changes from Gary, Think Like a Game Designer, ch. 9 to 13; book rules, unverified; random reward schedules not adopted); budget yellow on review-rubric.md
 - files: kb/core-loops-and-goals.md (Fundamental tension), kb/production-and-scope.md (How to apply 13), kb/playtesting.md (How to apply 10-12), kb/review-rubric.md (How to run 11, Related), kb/review-rubric-more.md (new: R-53 to R-66 moved unchanged), kb/INDEX.md, references/review.md
