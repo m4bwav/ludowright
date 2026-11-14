@@ -3,7 +3,7 @@ name: ludowright
 description: "Game design for any game, video or tabletop: pitch new game designs as one-pagers with contrasting alternatives, rank improvements to an existing game, and review a game's design for flaws (dominant strategies, degenerate loops, dead choices, economy leaks, difficulty spikes, onboarding gaps, pacing, scope risk, broken promises) with every finding tied to a file or rule and the principle it breaks, in a versioned JSON findings file other plugins can read. Also balance and economy maths (expected value, cost curves, Monte Carlo), level and encounter design, onboarding and UX, playtest plans, randomness, procedural generation, and AI opponent and NPC behaviour. Use on 'design a game about', 'game idea for a jam', 'review my game's design', 'what's wrong with my game', 'is this card overpowered', 'balance my economy', 'playtest questions', 'design the enemy AI'. Also 'refresh ludowright'. Not for feel or juice (game-juice), engine code (unity-agent, roblox-agent), or writing a game's story."
 license: MIT
 metadata:
-  version: "0.1.33"
+  version: "0.1.34"
 ---
 
 # ludowright
@@ -26,7 +26,7 @@ Find out, from the request or one round of at most three questions asked togethe
 | to find what is wrong with an existing game | [references/review.md](references/review.md) | findings JSON (`kind: review`) plus its markdown view |
 | ranked ways to make an existing game better | [references/improve.md](references/improve.md) | findings JSON (`kind: improve`) plus its markdown view |
 | numbers: is this overpowered, does the economy leak, how many turns to X | [references/balance.md](references/balance.md) | the `LDW` output and a short reading of it |
-| a level, encounter, onboarding, playtest, randomness, procgen or AI-behaviour question | the matching kb file from [kb/INDEX.md](kb/INDEX.md) | an answer with sources; a findings file when it judges an existing game |
+| a level, encounter, onboarding, playtest, randomness, procgen, AI-behaviour or lore-structure question (lore: [kb/worldbuilding-and-lore.md](kb/worldbuilding-and-lore.md)) | the matching kb file from [kb/INDEX.md](kb/INDEX.md) | an answer with sources; a findings file when it judges an existing game |
 
 A caller (another plugin or agent) asking to evaluate a design or a game gets the review procedure and the contract below, whatever words it used.
 

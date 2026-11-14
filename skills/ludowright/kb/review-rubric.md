@@ -14,7 +14,7 @@ Use: the review skill walks every item below against the game's docs, data and c
 8. Anything only a playtest can settle is marked needs-playtest with confidence low.
 9. Report outliers as questions, not errors; a deliberate break of a curve is allowed.
 10. Use only these category slugs, which are the contract's. Severity hints are starting points; adjust and say why.
-11. Then walk R-53 to R-66 in [review-rubric-more.md](review-rubric-more.md). They are part of this rubric, kept in a second file for size.
+11. Then walk R-53 to R-68 in [review-rubric-more.md](review-rubric-more.md). They are part of this rubric, kept in a second file for size.
 
 ## dominant-strategy
 
@@ -425,4 +425,4 @@ Hand off to juice-scan; list only what the docs and code show.
 
 ## Related
 
-Related: [review-rubric-more.md](review-rubric-more.md) (R-53 to R-66), [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](balance-tables.md), [systems-and-loops.md](systems-and-loops.md), [uncertainty.md](uncertainty.md), [core-loops-and-goals.md](core-loops-and-goals.md), [levels-and-space.md](levels-and-space.md), [procgen.md](procgen.md), [game-ai-for-designers.md](game-ai-for-designers.md), [ux-and-the-brain.md](ux-and-the-brain.md), [playtesting.md](playtesting.md), [production-and-scope.md](production-and-scope.md), [feel-handoff.md](feel-handoff.md), [ai-as-design-tool.md](ai-as-design-tool.md)
+Related: [review-rubric-more.md](review-rubric-more.md) (R-53 to R-68), [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](balance-tables.md), [systems-and-loops.md](systems-and-loops.md), [uncertainty.md](uncertainty.md), [core-loops-and-goals.md](core-loops-and-goals.md), [levels-and-space.md](levels-and-space.md), [procgen.md](procgen.md), [game-ai-for-designers.md](game-ai-for-designers.md), [ux-and-the-brain.md](ux-and-the-brain.md), [playtesting.md](playtesting.md), [production-and-scope.md](production-and-scope.md), [feel-handoff.md](feel-handoff.md), [ai-as-design-tool.md](ai-as-design-tool.md)
