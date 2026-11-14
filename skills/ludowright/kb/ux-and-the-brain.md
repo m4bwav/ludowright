@@ -17,7 +17,7 @@ Answers: will a player see, understand, remember and want to continue, and is an
 11. Boredom is the diagnostic. Classify it: too easy, arbitrary, too opaque, or learning exhausted. [Koster ch. 2-3]
 12. Read motivation as competence, autonomy and relatedness, and look for perceptible evidence of each in the game. Extrinsic rewards can help or hurt depending on type. [Hodent ch. 6; Schell] Which type: ask four things of each reward. Is the task something players already enjoy, or a chore? Is the reward announced before the act or a surprise after? Does it inform about skill or dictate what to do? What happens when it stops? Announced rewards on enjoyed or inventive play are the risky case: they can narrow play to the shortest paying route and may need to keep growing. On chores they do little harm, less still with a reason, honesty about the dullness and freedom of method. These come from work and school studies, not games, so test them in playtests by removing the reward. [Pink ch. 2, 2A]
 13. Difficulty follows a sawtooth with rest after peaks, not a straight line. Failure should be quick, explainable and cheap; an unexplained loss or a failure that worsens control or view spirals. [Hodent ch. 12; Swink on failure states; Rogers LevelUp ch. 13]
-14. Design out abuse early: whatever pays will be exploited. [Hodent ch. 12.2.1; Fullerton ch. 10]
+14. Design out abuse early: whatever pays will be exploited. When an exploit ships, first undo what it earned (roll back the gains), then build the defence from the logs of how it was used, not from guesses. [Hodent ch. 12.2.1; Fullerton ch. 10; Zichermann and Cunningham, Gamification by Design ch. 4, book rule, unverified]
 15. Ship defaults for the mainstream and settings for the rest: full control remap with reset, subtitles on by default, difficulty options, motion and flash limits. [Hodent ch. 11.2.7; Rogers LevelUp ch. 6]
 16. Memory of an experience is peak-end weighted and unpleasant moments are recalled worse, so what you measure after play is not what happened during it. [Yannakakis ch. 4-5]
 17. Praise real success with layered feedback and keep it for real achievements. [Rogers LevelUp ch. 13]
@@ -26,6 +26,8 @@ Answers: will a player see, understand, remember and want to continue, and is an
 20. After a loss, show what the player did well (best combo, distance) to help reappraisal. Never add effects that cover the screen when the player is already losing. [Hodent 2e]
 
 21. Size text by its physical height on the smallest target screen, not by its pixels. Check a handheld or hybrid mode separately from the TV, and offer a text size option. Early HD console games and later Switch ports shipped unreadable text this way. [Omagari 2019, p. 264]
+22. Review feel on three levels: first sight and sound (visceral), use in the hand (behavioural), and what the player tells themselves and others afterwards (reflective). Then check four kinds of pleasure: body, social, mind and identity. A game strong on one level but blank on another is a finding, not a style. [Norman, Emotional Design ch. 1-4; book rule, unverified]
+23. Fear and danger need a safety signal the player trusts, and the scariest peak needs something to keep or show afterwards (a replay, a title, a stat). Without the signal it is just distress; without the keepsake the peak fades. [Norman ch. 1, 3; book rule, unverified]
 
 ## How to apply
 
@@ -47,6 +49,7 @@ Sort each pressure mechanism four ways: dark pattern, nudge, bad UX or good UX. 
 - Exploitable reward: a behaviour that pays but harms other players or the game. [Hodent ch. 12.2.1]
 - Fake urgency or a hidden odds table in a purchase path. [Hodent ch. 12, 17]
 - Disguised currency, insidious pay-to-win, predatory ads. [Hodent 2e ch. 17]
+- Confusion on purpose: a layout or flow made disorienting so the player must ask for help or pay for a guide. [Norman ch. 3; book rule, unverified]
 
 ## Failure patterns
 

@@ -30,6 +30,10 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 24. Set loss or rout thresholds on absolute losses, not percentages, so the rule balances itself across force sizes. A leader bonus on such a test is strong but brittle when the leader can be lost. [Lambshead 2024, Winning and losing; Warband morale test]
 25. Make each repeat action by the same unit in one turn cost more (1, then 3, then 5 points). Play spreads across the force instead of one hero piece. [Lambshead 2024, Player phase]
 26. Tie two stats on one inverse axis (armour against evasion). Classes stay distinct with one simple rule. [Lambshead 2024, Part II introduction]
+27. Order rewards by what they cost the designer and what players value: status first, then access, then power, then stuff. Status and access are cheap and lasting; power and goods are costly and fade. [Zichermann and Cunningham ch. 3; book rule, unverified]
+28. Name what each point does: experience (never lost, ranks the player), redeemable (spent), skill (earned in one activity), karma (only given to others), reputation (others' judgement). One currency doing two jobs is a finding. Status tier names must read in order without a legend. [Zichermann and Cunningham ch. 3; book rule, unverified]
+29. Leaderboards: centre the view on the player with near neighbours, show literal ranks only for a small top group, slice by friends, region or period, reset weekly by default, and never rank a sensitive measure (weight, income) in the raw; show progress bands instead. [Zichermann and Cunningham ch. 3; book rule, unverified]
+30. One-player test for any social or multiplayer feature: play it as the only person online. If it is empty or dead (the empty bar), add bots, async play or a solo path before launch. [Zichermann and Cunningham ch. 4; book rule, unverified]
 
 ## How to apply
 
