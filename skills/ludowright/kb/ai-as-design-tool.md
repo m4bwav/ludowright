@@ -83,6 +83,7 @@ Procedure:
 - Absolute-score survey. Symptom: averaged 1 to 5 ratings with no baseline. [Yannakakis ch. 2]
 - Late-recall survey. Symptom: feedback long after play, dominated by the ending. [Yannakakis ch. 2]
 - Unvalidated director. Symptom: adaptive difficulty tracking a signal nobody checked against player reports. [Yannakakis ch. 10]
+- Uncalibrated AI judge. Symptom: an LLM grader or reviewer scores work with no check against human labels on the same anchor set; agree the standard first, then measure agreement before its scores count. [Mangos and Ferraro ch. 9]
 - Runaway weighted-sum fitness. Symptom: one objective dominates a generator's score. [Shaker ch. 2]
 
 ## Where the books disagree
