@@ -34,6 +34,9 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 28. Name what each point does: experience (never lost, ranks the player), redeemable (spent), skill (earned in one activity), karma (only given to others), reputation (others' judgement). One currency doing two jobs is a finding. Status tier names must read in order without a legend. [Zichermann and Cunningham ch. 3; book rule, unverified]
 29. Leaderboards: centre the view on the player with near neighbours, show literal ranks only for a small top group, slice by friends, region or period, reset weekly by default, and never rank a sensitive measure (weight, income) in the raw; show progress bands instead. [Zichermann and Cunningham ch. 3; book rule, unverified]
 30. One-player test for any social or multiplayer feature: play it as the only person online. If it is empty or dead (the empty bar), add bots, async play or a solo path before launch. [Zichermann and Cunningham ch. 4; book rule, unverified]
+31. Card games: tie rarity to complexity, not raw power; a rare that beats a pricier common on stats alone splits players by collection. Write deck rules first (size, copy cap, rarity and faction caps); a copy cap stops a deck of only the best card, and extra copies only raise draw odds, so check them with `ldw.py draw`. Pick the resource model early (pool that grows each turn, no cost with one card a turn, or resource cards in the deck); changing it later means rebalancing every card. [Bycer 2024, 6.4, 8.1, 8.2; book rule, unverified]
+32. Card cost line: a vanilla card's stats track its cost and keywords buy any deviation. A combo that needs many cards should be strong and hard to answer; one beaten by a single cheap card is dead. Unconditional card draw with no hand limit has no downside: flag it. Name the counter and its cost for every strong strategy. [Bycer 2024, 8.4; book rule, unverified]
+33. Draws from a shuffled deck are without replacement: count them as combinations (hypergeometric), never as repeated independent rolls. Streak and pity rules must not lean on the gambler's fallacy. [Calculating Chance, ch. 1-2]
 
 ## How to apply
 
@@ -45,6 +48,7 @@ Declare a table, run the matching `ldw.py` command, then judge. Shapes are in [b
 | Expected value and spread of a random table | `ldw.py ev TABLE` | rows of outcome, weight, value |
 | Sources, sinks, net flow, leaks | `ldw.py economy TABLE` | rows of resource, kind (source, sink, start), amount, per, uses, optional caps |
 | Turns to goal, loot spread, card exposure | `ldw.py sim TABLE --steps N` | model draw, walk (with target) or deck (cards with count, hand size, value) |
+| Odds of drawing at least k copies | `ldw.py draw --deck N --copies K --drawn n` | none |
 | Growth ratio, pack price monotonicity, dead damage step | `curve` or by hand | cost or threshold per level or tier |
 | Dominated option | `curve` residuals plus a manual column comparison | all columns of the like objects |
 | Payoff matrix for intransitive sets | by hand (no command yet) | matrix of outcomes; say it is unchecked by script |
