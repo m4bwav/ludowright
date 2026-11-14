@@ -23,7 +23,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.27"
+VERSION = "0.1.28"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -468,6 +468,26 @@ def cmd_sim(a):
     return 0
 
 
+def draw_odds(deck, copies, drawn):
+    """Hypergeometric: P(at least k of `copies` in `drawn` cards from `deck`), k = 0..min(copies, drawn)."""
+    if not (0 <= copies <= deck and 0 <= drawn <= deck):
+        fail("draw needs 0 <= copies <= deck and 0 <= drawn <= deck")
+    total = math.comb(deck, drawn)
+    exact = [math.comb(copies, k) * math.comb(deck - copies, drawn - k) / total for k in range(min(copies, drawn) + 1)]
+    return [sum(exact[k:]) for k in range(len(exact))]
+
+
+def cmd_draw(a):
+    r = draw_odds(a.deck, a.copies, a.drawn)
+    if a.json:
+        print(json.dumps({"deck": a.deck, "copies": a.copies, "drawn": a.drawn, "p_at_least": r}))
+        return 0
+    print(f"{a.copies} copies in {a.deck} cards, {a.drawn} drawn (no replacement)")
+    for k in range(1, len(r)):
+        print(f"  P(at least {k}) {r[k]:.4f}")
+    return 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -492,6 +512,8 @@ def main(argv=None):
     o = sp.add_parser("economy", help="sources, sinks, net flow and leaks"); o.add_argument("table"); o.add_argument("--periods", type=int); o.add_argument("--json", action="store_true"); o.set_defaults(fn=cmd_economy)
     m = sp.add_parser("sim", help="Monte Carlo over a declared table"); m.add_argument("table"); m.add_argument("--steps", type=int); m.add_argument("--runs", type=int, default=10000)
     m.add_argument("--seed", type=int, default=1); m.add_argument("--json", action="store_true"); m.set_defaults(fn=cmd_sim)
+    d = sp.add_parser("draw", help="hypergeometric draw odds for copies of a card"); d.add_argument("--deck", type=int, required=True)
+    d.add_argument("--copies", type=int, required=True); d.add_argument("--drawn", type=int, required=True); d.add_argument("--json", action="store_true"); d.set_defaults(fn=cmd_draw)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")

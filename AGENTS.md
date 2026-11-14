@@ -4,7 +4,7 @@ Rules for any AI agent (Claude Code, Copilot, Cursor, Codex, Gemini CLI) working
 
 ## What this is
 
-ludowright: a cross-agent plugin with one skill, `skills/ludowright/`, for game design. SKILL.md holds the rules, the routing and the findings contract; `references/` holds the four task procedures (design, review, improve, balance); `kb/` holds the design knowledge in small files read on demand (start at `kb/INDEX.md`; the review rubric is `kb/review-rubric.md`); `scripts/ldw.py` is the single standard-library CLI (findings validator and markdown view, expected value, cost curve, economy flows, Monte Carlo). Evergreen companions sit beside SKILL.md (RESEARCH, CHANGELOG, LEARNINGS, TESTS, MAINTENANCE, `evergreen.json`, `evals/evals.json` with the `tiny-colony` fixture). Unit tests are in `tests/`; research, reading notes, decisions, the log and the handoff under `ai-docs/` (start with `ai-docs/HANDOFF.md`).
+ludowright: a cross-agent plugin with one skill, `skills/ludowright/`, for game design. SKILL.md holds the rules, the routing and the findings contract; `references/` holds the four task procedures (design, review, improve, balance); `kb/` holds the design knowledge in small files read on demand (start at `kb/INDEX.md`; the review rubric is `kb/review-rubric.md`); `scripts/ldw.py` is the single standard-library CLI (findings validator and markdown view, expected value, cost curve, economy flows, Monte Carlo, draw odds). Evergreen companions sit beside SKILL.md (RESEARCH, CHANGELOG, LEARNINGS, TESTS, MAINTENANCE, `evergreen.json`, `evals/evals.json` with the `tiny-colony` fixture). Unit tests are in `tests/`; research, reading notes, decisions, the log and the handoff under `ai-docs/` (start with `ai-docs/HANDOFF.md`).
 
 ## Rules
 

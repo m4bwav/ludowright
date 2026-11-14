@@ -152,3 +152,19 @@ class Maths(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DrawOdds(unittest.TestCase):
+    def test_golden_ace_in_five(self):
+        r = ldw.draw_odds(52, 4, 5)
+        self.assertAlmostEqual(r[1], 1 - 1712304 / 2598960, places=12)
+        self.assertEqual(r[0], 1.0)
+        self.assertAlmostEqual(r[4], 48 / 2598960, places=15)
+
+    def test_whole_deck_and_zero_copies(self):
+        self.assertAlmostEqual(ldw.draw_odds(10, 3, 10)[3], 1.0)
+        self.assertEqual(ldw.draw_odds(10, 0, 4), [1.0])
+
+    def test_bad_input_fails(self):
+        with self.assertRaises(SystemExit):
+            ldw.draw_odds(10, 11, 2)
