@@ -30,7 +30,7 @@ item reaches a point that needs Mark, record everything, and end with the contin
 
 - The public repo exists. Work on branches and PRs; the global rules say when to merge and tag.
 - Is evergreen-protocol PR #34 merged, or does it have review comments? Act on comments; never merge it yourself.
-- Has Mark reacted to a SpaceDeckBuilder2 review (section 4)? Route each reaction before anything else.
+- Has Mark reacted to a private deck-builder game review (section 4)? Route each reaction before anything else.
 
 ## 3. Work in this order, skipping what HANDOFF.md marks done
 
@@ -49,8 +49,8 @@ item reaches a point that needs Mark, record everything, and end with the contin
 
 ## 4. The real-game round (read-only)
 
-Run ludowright's review and improve procedures on SpaceDeckBuilder2
-(`D:\Desktop\Create With Code Mark\SpaceDeckBuilder2`; start with `CODEMAP.md` and `Assets/Docs/designdoc.txt`).
+Run ludowright's review and improve procedures on private deck-builder game
+(its folder is in the vault sidecar; start with `CODEMAP.md` and `Assets/Docs/designdoc.txt`).
 Do not edit that repo, open the Unity Editor or touch saves; write the findings files into
 `ludowright/ai-docs/reviews/` (gitignored). Show Mark the top findings and **stop**: ask which are right, which
 are wrong, and what it missed. Route each reaction with `evergreen-learn` to the skill, a kb file or the rubric,

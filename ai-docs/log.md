@@ -27,7 +27,7 @@ Sellers ch. 4-10 and 12 in part (analytical balance and telemetry unread). Costi
 ## [2026-10-29] reading | level design and procgen books done; all nine groups in
 Totten, Bauer, Short and Adams, Shaker-Togelius-Nelson written, each compared with the Level Up! distillation. 27 notes files in books/plugin-learnings/round3-game-design/. Next: step 4 synthesis into kb/.
 
-## [2026-10-29] review | first real-game run: SpaceDeckBuilder2 (read-only)
+## [2026-10-29] review | first real-game run: private deck-builder game (read-only)
 Review (13 findings, validate OK) and improve list (10) in ai-docs/reviews/ (gitignored), with ldw-xp-sim, ldw-deck-growth, ldw-energy and ldw-buildings-curve tables. Top: Shuttle win unreachable (no Fuel Cell / Spacecraft Component producer), Launchpad-then-wait wins at turn 30, 70 of 82 reward cards uncoded. Skill gaps seen: no step for "doc and code disagree on the clock", rubric lacks an "implemented vs authored" check, curve needs multi-resource costs declared by hand, economy has no fractional/policy guidance, improve.md ids get renumbered by the md sort.
 
 ## [2026-10-29] evals | salt-road fixture, outcome A/B, tidy
@@ -79,9 +79,9 @@ HANDOFF Next 1 remainder. evergreen `ab_report` adds score_with/without, score_d
 HANDOFF Next 1. 5 more runs an arm: with 0.60, without 0.70. Pooled 10 an arm 0.725 vs 0.675, +5 inside noise. Detection and counted evidence both tie bare Claude on these fixtures. T-20261031-1. About $7.8.
 
 ## [2026-10-30] handoff | session 17: nothing to do without Mark
-SpaceDeckBuilder2 has no game changes since the 2026-10-29 review (askpicks tool and snapshot docs only), so no re-review. Round 1 had no objections; the loop waits on Mark saying good or naming misses. Detection A/B spending stopped (session 16). Open, non-blocking: adaptive players, Unity GUIDs, first game-design scout scan.
+private deck-builder game has no game changes since the 2026-10-29 review (askpicks tool and snapshot docs only), so no re-review. Round 1 had no objections; the loop waits on Mark saying good or naming misses. Detection A/B spending stopped (session 16). Open, non-blocking: adaptive players, Unity GUIDs, first game-design scout scan.
 
-## [2026-10-30] review | Mark: SpaceDeckBuilder2 review was good
+## [2026-10-30] review | Mark: private deck-builder game review was good
 Continue prompt section 4 stop condition met. No misses named, so nothing routed to the skill, kb or rubric and no patch release. Remaining open items are optional: adaptive players, Unity GUIDs, first game-design scout scan.
 
 ## [2026-10-30] handoff | session 19: idle check
@@ -94,7 +94,7 @@ Reader notes yu-spelunky.md (225 lines, all four parts). Folded into procgen, le
 0.1.7 was merged with the budget check red: `git add -A` picked up skills/ludowright/evals/results/. Removed and gitignored. Lesson: check `gh pr checks` for any non-pass before merging, and stage paths, not -A.
 
 ## [2026-10-30] kb | Spelunky learnings table applied, 0.1.9
-Ten approved rows from the vault learnings note (indie-ai-scout books/spelunky) added as numbered principles in eight kb files plus a spawn-table note in balance-tables. ldw.py VERSION had drifted to 0.1.6; now 0.1.9. Budget yellow is review-rubric.md, unchanged.
+Ten approved rows from the vault learnings note (a private scout books/spelunky) added as numbered principles in eight kb files plus a spawn-table note in balance-tables. ldw.py VERSION had drifted to 0.1.6; now 0.1.9. Budget yellow is review-rubric.md, unchanged.
 
 ## [2026-10-31] kb | Press Reset (Schreier) rows in production-and-scope and procgen, 0.1.10 released (PR #17)
 

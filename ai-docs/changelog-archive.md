@@ -100,7 +100,7 @@ Text legibility had no rule in the UX file. Drawing pixel fonts goes to pixelwri
 - Notes in books/plugin-learnings/round3-game-design/yu-spelunky.md. New checks: a generator path that needs consumables, friction read as difficulty, signposted or dominant secrets, seeded runs whose loot is rolled on open.
 
 ### C-20261030-4 · 2026-10-30 · Reviewer gaps from the first real-game run (0.1.6)
-- because: user request (HANDOFF Next 3, gaps logged after the 2026-10-29 SpaceDeckBuilder2 review)
+- because: user request (HANDOFF Next 3, gaps logged after the 2026-10-29 private deck-builder game review)
 - files: scripts/ldw.py (curve --costs), kb/balance-tables.md (curve), references/review.md (step 2), references/improve.md (step 4)
 - The real-game review had to declare multi-resource costs by hand, missed that its doc and code ran on different clocks, and saw improve ids renumbered. `curve --costs gold:1,wood:0.5` (or a "costs" object in the table) folds several currencies into one cost at stated rates; review step 2 converts every counted rate to one clock and unit; improve ids are given once in rank order and never renumbered.
 
@@ -130,7 +130,7 @@ Text legibility had no rule in the UX file. Drawing pixel fonts goes to pixelwri
 - When no shell is allowed the skill says so in one line, counts by hand only what a finding needs and still writes the file. The reply leads with the findings and puts caveats last. SKILL.md now names contract 1.1 with `stage` and `built`. New prototype fixture with an uncoded win-path relic and an uncoded flavour relic tests R-53 (outcome-5).
 
 ### C-20261029-3 · 2026-10-29 · Stage and built: separate "not built yet" from "built wrong"; findings contract 1.1
-- because: L-20261029-2 (user reaction to the SpaceDeckBuilder2 review)
+- because: L-20261029-2 (user reaction to the private deck-builder game review)
 - files: references/review.md (steps 2 and 7), kb/review-rubric.md (R-53), scripts/ldw.py (validator, md), README contract
 - Review step 2 settles the game's stage; findings on designed-but-uncoded content carry `built: no|partial` and are reported after the flaws in what exists. New rubric item R-53. Contract 1.1 adds the optional `stage` and `built`; 1.0 files still validate.
 
