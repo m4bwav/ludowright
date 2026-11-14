@@ -24,6 +24,7 @@ Answers: what is this game's core loop, what experience and promises does it mak
 18. Layer goals instead of a difficulty menu: shortcuts for the impatient, a main ending for most, a hidden harder goal for experts. Each player picks their own challenge inside the game. [Yu Part II]
 19. Let the world be indifferent and teach through itself. Rewards handed out on a predictable schedule can weaken players' own reasons to play. [Yu Parts II, III]
 20. Keep the in-game goal apart from the outcome the game is for (what players can do after play). If the game is not fun, check that its goal is a challenge to overcome, not a task to finish. [Boller and Kapp ch. 5]
+21. Choose campaign or endless on purpose: skill training and habit building want a campaign with an end the player can reach and leave; a known outcome wants a scripted path, an unknown one an emergent play space. [Burke, Gamify, ch. 7; book rule, unverified]
 
 ## How to apply
 

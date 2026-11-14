@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261113-5 · 2026-11-13 · Gamify: no devaluation, spend path, bottom tier, loophole pass, campaign or endless (0.1.29)
+- because: user request (adopted technique-harvest changes from Burke, Gamify, 2014; book rules, unverified)
+- files: kb/balance-and-economy.md (Principle 34), kb/core-loops-and-goals.md (Principle 21)
+- Adds a rule against devaluing earned rewards, a spend path for every currency, a bottom-tier check for competition, a pre-launch loophole pass, and campaign versus endless (scripted versus emergent) as a design choice.
+
 ### C-20261113-4 · 2026-11-13 · Card games: rarity, deck rules, cost line, draw odds (0.1.28)
 - because: user request (adopted technique-harvest changes from Bycer, Game Design Deep Dive: Trading and Collectible Card Games, 2024, and Calculating Chance: Card and Casino Games; card rules are book rules, unverified; the draw maths is checked by golden tests)
 - files: kb/balance-and-economy.md (Principles 31-33; How to apply table), scripts/ldw.py (`draw`), tests/test_ldw.py (DrawOdds)
