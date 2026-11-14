@@ -14,6 +14,7 @@ Answers: does a game meant to teach actually teach, does it measure what it clai
 8. Every learning goal has at least one event in play that exercises it; a goal no scenario triggers is untested. [Mangos and Ferraro ch. 3]
 9. Write each adaptive feature as observe, assess, respond: the signal (answer, step order, pause), what it is taken to mean (a named misconception, low confidence), the change it makes (targeted retry, hint, harder content). Each part may stay simple. [Mangos and Ferraro ch. 6]
 10. Rules before machine learning: rule-based adaptive difficulty already teaches well. Add a model only when rules cannot cover the errors and there is enough player data; aim at a success band, not a fixed level. For children, change difficulty between sessions, not mid-play. [Mangos and Ferraro ch. 6; adult training book, child use unverified]
+11. Test a habit or study game over days, roughly 5 to 30, not one session: a single sitting cannot show whether behaviour changed. Plan the check-in points before the test starts. [Ferro ch. 8; book rule, unverified]
 
 ## Named failures
 

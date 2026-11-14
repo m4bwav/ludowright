@@ -25,6 +25,7 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 19. Do not write the tutorial before testing. Tests show what it must teach and what the design can make obvious instead. [Boller and Kapp ch. 8]
 20. For a game meant to teach, check what players learned with a short test before and after play, not only by asking. A fun game that teaches nothing has failed. [Boller and Kapp ch. 3, 9]
 21. Record the input events and the random seed of every playtest build, so a reported bug or balance oddity replays exactly instead of being described from memory. [Gregory, Game Engine Architecture 2e (2014), sec. 7.5]
+22. Explain-back after play: ask each tester for a one-line summary of what the game is for. If it misses the intended purpose, the rules or goals are unclear; fix those before tuning anything else. [Ferro ch. 8; book rule, unverified]
 
 ## What a playtest cannot show
 
