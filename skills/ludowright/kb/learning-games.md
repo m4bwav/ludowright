@@ -15,6 +15,10 @@ Answers: does a game meant to teach actually teach, does it measure what it clai
 9. Write each adaptive feature as observe, assess, respond: the signal (answer, step order, pause), what it is taken to mean (a named misconception, low confidence), the change it makes (targeted retry, hint, harder content). Each part may stay simple. [Mangos and Ferraro ch. 6]
 10. Rules before machine learning: rule-based adaptive difficulty already teaches well. Add a model only when rules cannot cover the errors and there is enough player data; aim at a success band, not a fixed level. For children, change difficulty between sessions, not mid-play. [Mangos and Ferraro ch. 6; adult training book, child use unverified]
 11. Test a habit or study game over days, roughly 5 to 30, not one session: a single sitting cannot show whether behaviour changed. Plan the check-in points before the test starts. [Ferro ch. 8; book rule, unverified]
+12. Split each feature's effect: what it motivates, and what about it gets in the way of learning for some player. A feature that pleases one group and annoys another (walking around, realism, sound) becomes an option, not a default. Common blockers to look for: content already known or out of reach, repeats, facts that contradict the lesson, typos, lag, loud audio, a wrong age band, a game that feels like homework. [Augmented Reality Games II ch. 2; book rule, unverified]
+13. A mistake on the last step must not send the player back to the start or end on a game-over screen. Restart at the failed step and turn the error into a hint. [AR Games II ch. 2; book rule, unverified]
+14. Fit one session to the real setting (a lesson slot, a bus ride) and let a stopped session resume later. Show where the skill is used outside the game. Item 10 already covers the success band. [AR Games II ch. 2; book rule, unverified]
+15. A simulation that teaches must model the parts that define the real thing; a model that is wrong in those parts teaches the wrong lesson. List those parts and check each against a source. [AR Games II ch. 1; book rule, unverified]
 
 ## Named failures
 
@@ -23,9 +27,10 @@ Answers: does a game meant to teach actually teach, does it measure what it clai
 - Chocolate-covered broccoli: a quiz wrapped in unrelated play, where the game and the learning never touch. The fix is a mechanic that is the skill. [common term, after Bruckman 1999]
 - Rewards-only push: once extrinsic rewards stop, motivation can fall below where it began. Keep rewards secondary and tied to mastery. [Chou ch. 3]
 
-## Child players
+## Child and older players
 
 - No variable-ratio rewards (loot rolls, random chests), no scarcity or countdown timers, no streak or one-more prompts that serve playtime rather than the child's goal. [Chou ch. 14; Werbach and Hunter ch. 6; Kim et al. ch. 7 treats these as neutral, we do not]
 - Compare a lone child with their own past, not a public leaderboard; keep consequences light and retries immediate. [Kapp ch. 11]
+- Older players: few clear steps, uncluttered screens, goals that adapt, and a plain account of what data is kept. [AR Games II ch. 7; book rule, unverified]
 
 Related: [review-rubric](review-rubric.md) R-62 to R-64, [ux-and-the-brain](ux-and-the-brain.md) (motivation, dark patterns), [playtesting](playtesting.md).

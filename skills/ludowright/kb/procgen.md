@@ -26,6 +26,7 @@ Answers: whether a game should generate content, how much authorial control to k
 20. Random content is a budget lever: a roguelike's run variety buys many hours of play from a small asset set, which suits a small team. Spend the saving on the readable systems in 18. [Schreier Press Reset ch. 8]
 21. Give each subsystem its own random stream, seeded from one master seed. With one shared stream, the same seed gives a different level 2 after a different fight. Every generate-and-test loop needs a retry cap, a fallback, and a sweep over its parameter range that logs attempts per accepted seed. [Millington ch. 8]
 22. Generated entities (characters, items, quests): put tight constraints on the first picks, never the last. Give every feature one shared tag system with per-entity caps and mutual exclusions, so a contradiction found in playtest becomes one exclusion rule. On a dead end, backtrack to an earlier pick instead of falling back to random, and count fallbacks per stage; a fallback on necessary content is a bug. Before adding a generator constraint, ask whether a verb or rule change makes the output fine. [Short and Adams, Procedural Storytelling ch. 2, 22]
+23. For a generator learned from examples: split training and test data by whole level, never by tile, or near-copies leak across and hide overfitting; keep a set of target content out of training and compare output distributions with it; and test the sampling temperature at both ends (lowest gives bland repeats, highest gives noise) before picking a value. [Guzdial, Snodgrass and Summerville, PCG via Machine Learning ch. 4; book rule, unverified]
 
 ## How to apply
 
@@ -52,6 +53,7 @@ A cheap generator that hides its seams: a small grid of rooms, a guaranteed path
 - Counterfeit or overshadowing modules; direct set-piece coupling. [Short ch. 4]
 - No seed-level solvability check. [Short ch. 1, 11; Shaker]
 - Seed-only encoding fed to an optimiser; runaway objective in a weighted fitness sum. [Shaker ch. 2]
+- Degenerate quality function: one metric pushed to its cheapest maximum (more enemies, so an unbeatable level), or a level that only the test agent can beat. Ask how an optimiser would cheat each metric. [PCG via Machine Learning ch. 4; book rule, unverified]
 - Generator ships without any player-facing quality test, only designer eyeballing. [Shaker ch. 12]
 - Wave rule chosen without checking snowball, stalling or fatigue. [Short ch. 14]
 - Procedural claims that outpace the core loop. [Short ch. 1]
