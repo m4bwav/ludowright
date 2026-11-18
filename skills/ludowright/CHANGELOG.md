@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261118-1 · 2026-11-18 · Learning games: question-driven play (battles, talks, bosses, crafting) (0.1.36)
+- because: user request (lessons from building a study RPG's battles, bosses, dungeons, crafting and meals; practice from one game, unverified beyond it)
+- files: kb/learning-games.md (Question-driven play)
+- Adds one-question turns with a short cap, a talk skin on the same engine, bosses as delayed retests, and crafting that never skips a mastery gate.
+
 ### C-20261117-1 · 2026-11-17 · Learning games: motivator and blocker split, fair restarts, session fit, model fidelity; procgen: learned generators and degenerate quality (0.1.35)
 - because: user request (adopted technique-harvest changes from Augmented Reality Games II, 2019, ch. 1, 2, 7, and Guzdial, Snodgrass and Summerville, Procedural Content Generation via Machine Learning, 2nd ed., ch. 4; book rules, unverified; the success band was already item 10 and the runaway weighted-sum item covers a different failure, so neither was repeated)
 - files: kb/learning-games.md (Review block 12-15, Child and older players), kb/procgen.md (Principle 23, Failure patterns), ai-docs/changelog-archive.md (2026-11-14 entries 1 to 4 moved out)

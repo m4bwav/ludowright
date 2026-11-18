@@ -20,6 +20,16 @@ Answers: does a game meant to teach actually teach, does it measure what it clai
 14. Fit one session to the real setting (a lesson slot, a bus ride) and let a stopped session resume later. Show where the skill is used outside the game. Item 10 already covers the success band. [AR Games II ch. 2; book rule, unverified]
 15. A simulation that teaches must model the parts that define the real thing; a model that is wrong in those parts teaches the wrong lesson. List those parts and check each against a source. [AR Games II ch. 1; book rule, unverified]
 
+## Question-driven play
+
+Field rules from building a study RPG in 2026-11 (one child playtester; practice, not book rules, unverified beyond that game).
+
+- Battles: each turn is one question. A right answer lands the hero's action, a miss means the foe's move lands. Cap a battle at a few questions (about 3) so one fight never becomes a test.
+- A talk mode (convince the creature; lose resolve instead of hearts) can reuse the same turn engine with new words. Offer it mixed in or as an option, never as a way past the question.
+- Bosses and dungeons ask the run's first-try misses first, then the hardest tier: a delayed retest dressed as a climax. A missed boss question comes back later in new words.
+- Crafting and food stay downstream of answers: materials drop from battles won, recipes make cosmetics, helpers and small buffers (block the first 2 damage). No recipe may unlock content or skip a mastery gate, and nothing punishes the player for not eating.
+- Scale by the hero's level between sessions, not inside a fight (item 10).
+
 ## Named failures
 
 - Pointsification: points, badges and leaderboards made the core, with no link to what is learned. [Kim et al. ch. 9; Werbach and Hunter ch. 6]
