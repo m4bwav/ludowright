@@ -29,6 +29,8 @@ Answers: is this plan buildable by the people and time available, and what shoul
 23. Budget the number of units a player commands (about a dozen for a tabletop skirmish). Lower it as each unit gains unique rules; raise it when units are uniform. [Lambshead 2024, Introduction]
 24. Fast-play test: everything a player needs fits on one sheet, with no cross-referenced modifier tables and no mental arithmetic. [Lambshead 2024, Introduction]
 25. Ship a named list of rules that can be dropped to speed play without losing much strategy. [Lambshead 2024, Speeding up game play]
+26. Content lifespan table: one row per significant element (level, enemy, building, ability, cutscene) with its first use on one progression axis (player level, stage or story beat), priority and what it depends on. Read it for stretches with nothing new and clumps of many new things at once; it also orders production. [Kramarzewski 2018, Content lifespan]
+27. Live games on a content treadmill have four cheaper moves than new content: remix old content (mirrored tracks, an old boss as a late enemy), add a reason to replay (new game plus, prestige), resurface old content through challenges or rule variants, and deepen the rules. A plan that only adds new content is a treadmill risk. [Kramarzewski 2018, Managing content treadmill]
 
 ## How to apply
 
