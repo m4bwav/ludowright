@@ -60,6 +60,10 @@ When a design or review calls for a sound cue, hand the game events to sfxwright
 
 If the user corrects a finding, says one is wrong, or names what was missed, write it to [LEARNINGS.md](LEARNINGS.md) now with Trigger and Hypothesis, and fix the kb file or rubric item it came from.
 
+## YouTube videos
+
+GDC and design talks hold lessons written nowhere else; cite the talk and time. Use fetchwright's `yt.py read URL` (captions, chapters, `&t=` links; opt-in route) and `yt.py clip URL A-B "question"` (Gemini reads the screen for spans of 2 minutes or less). Cite the `&t=` link and check numbers against a written source: auto-captions drop decimals.
+
 ## Maintenance
 
 Evergreen unit: [RESEARCH.md](RESEARCH.md), [CHANGELOG.md](CHANGELOG.md), [LEARNINGS.md](LEARNINGS.md), [TESTS.md](TESTS.md), state in [evergreen.json](evergreen.json), protocol through MAINTENANCE.md.
