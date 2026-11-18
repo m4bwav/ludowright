@@ -28,6 +28,8 @@ Answers: will a player see, understand, remember and want to continue, and is an
 21. Size text by its physical height on the smallest target screen, not by its pixels. Check a handheld or hybrid mode separately from the TV, and offer a text size option. Early HD console games and later Switch ports shipped unreadable text this way. [Omagari 2019, p. 264]
 22. Review feel on three levels: first sight and sound (visceral), use in the hand (behavioural), and what the player tells themselves and others afterwards (reflective). Then check four kinds of pleasure: body, social, mind and identity. A game strong on one level but blank on another is a finding, not a style. [Norman, Emotional Design ch. 1-4; book rule, unverified]
 23. Fear and danger need a safety signal the player trusts, and the scariest peak needs something to keep or show afterwards (a replay, a title, a stat). Without the signal it is just distress; without the keepsake the peak fades. [Norman ch. 1, 3; book rule, unverified]
+24. Flow needs four things at once: a task the player can finish, a clear goal, feedback inside the action, and a challenge that matches the skill the player believes they have. A goal with no feedback until much later breaks it. [Csikszentmihalyi 1990, ch. 3]
+25. The flow channel climbs. As skill grows the same challenge turns boring, so challenge must rise with it; past the skill it turns to anxiety. Plot intended challenge against expected skill over the game: a flat line over rising skill predicts boredom. Easing difficulty once a harder tier has been seen helps less than helping the player get better. [Csikszentmihalyi 1990, ch. 4]
 
 ## How to apply
 
