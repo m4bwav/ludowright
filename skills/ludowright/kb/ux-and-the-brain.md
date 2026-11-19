@@ -77,4 +77,15 @@ Citations: "Hodent" with a chapter number is the 2017 first edition; "Hodent 2e"
 - Extrinsic rewards: the literature is mixed. Ludowright asks which kind and what it does to the intrinsic motivation, and does not ban them. Pink presents undermining as settled and reports a blood-donor effect that held only for women; Cerasoli et al. 2014 (183 studies) find both matter, with intrinsic motivation stronger for quality and incentives for quantity.
 - Retention benchmarks come from one mobile report. Ludowright does not apply them to premium games.
 
+
+## Staged stuck-hints
+
+An onboarding pattern seen in a commercial web platformer demo (observed 2026-11-19, one game, unverified beyond it). Each teaching beat carries its own hint plan instead of one global help button.
+
+- Per beat, store a stuck config: patience (how long without progress before help starts), a title, a hint text, and a separate text for touch input. Store a wait config too: whether this beat may show a pointing hand and whether it may outline the target.
+- Escalate one stage at a time, each after another patience interval: first just wait, then a pointing hand, then an outline on the thing to act on, and only last the text. The player gets the chance to find it alone, then a nudge, then the answer.
+- Reset the timer on real progress, not on any input, so flailing does not hide that the player is stuck.
+- Word the text for the input in use: "drag" or "tap" on touch, key names on keyboard. Detect the last input device, not the platform.
+- Review checks: a beat with no stuck plan; text shown first; hints that fire while the player is still making progress; keyboard wording shown on a phone.
+
 Related: [levels-and-space](levels-and-space.md), [playtesting](playtesting.md), [procgen](procgen.md). Feel and feedback juice go to game-juice (juice-scan, juice-principles). Engine UI work goes to unity-agent, roblox-agent, madnesswright.

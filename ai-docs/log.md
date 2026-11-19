@@ -109,3 +109,4 @@ learning-games.md gained a goal-has-an-event check, an observe-assess-respond ch
 
 ## [2026-11-18] size | installed folder 311 KB to 285 KB (0.1.39)
 Eval fixtures moved to repo-root evals/fixtures (outside the installed folder; fixture.sh climbs five levels), old TESTS runs to ai-docs/tests-archive.md, changelog entries before 2026-11-18 to ai-docs/changelog-archive.md. Next time the folder nears 300 KB, archive the same way first; kb text had no real duplication.
+- 2026-11-19: 0.1.41 kb adds shaping verb vs visible target and staged stuck-hints (web platformer demo harvest).

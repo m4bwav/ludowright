@@ -150,6 +150,19 @@ class Maths(unittest.TestCase):
         self.assertAlmostEqual(d["seen_share"]["strike"], 0.5)
 
 
+
+class KbSectionsTest(unittest.TestCase):
+    def test_shaping_verb_and_stuck_hints_present(self):
+        import pathlib
+        kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
+        core = (kb / "core-loops-and-goals.md").read_text(encoding="utf-8")
+        ux = (kb / "ux-and-the-brain.md").read_text(encoding="utf-8")
+        index = (kb / "INDEX.md").read_text(encoding="utf-8")
+        self.assertIn("## Shaping verb against a visible target", core)
+        self.assertIn("## Staged stuck-hints", ux)
+        self.assertIn("staged stuck-hints", index)
+        self.assertIn("shaping verbs", index)
+
 if __name__ == "__main__":
     unittest.main()
 
