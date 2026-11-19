@@ -73,6 +73,11 @@ Procedure for a random table: run `ev`, compare the mean to the intended payoff,
 
 Sim reporting: show p05, p50 and p95, the fixed seed, steps and runs, and the policy. A single mean from one policy is not a balance claim.
 
+## One tuning file, hot-reloaded
+
+Idea from GPU-Bandits by sloppysteaks69 (GitHub; no licence, idea only): put every balance number (costs, rates, health, timers) in one plain data file the running game re-reads when its modified time changes. A file that fails to parse is set aside (for example copied to `.bad`) and the last good values stay live, so a typo never crashes a test session. In networked play only the host's file counts. This turns balancing into edit, save, play with no rebuild, and the same file is the table `ldw.py` reads, so the maths and the game share one source. Review check: a balance number hard-coded outside the file is a finding, since tuning passes will miss it.
+
+
 ## Failure patterns
 
 - Cost curve outlier: an item far off the fitted line. Symptom: one card or unit in every build. [Schreiber ch. 8]

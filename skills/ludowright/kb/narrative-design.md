@@ -22,6 +22,17 @@ Answers: how a game's story is structured and tested as design, not how its pros
 7. Use fresh testers for story: people who know the plot stop seeing its holes. Do not explain the story before they play. [ch. 9]
 8. Do not patch missing animation with extra lines; the lines turn redundant once the animation lands. [ch. 9]
 
+## Story keyed to progress, and who knows what
+
+Two patterns from open-source games (ideas only, written fresh here; sources: voidstruck by vitaminclaude, and spookery by legend-of-alan, both on GitHub).
+
+1. Beats on the progress number. When a game has one number that only moves one way (distance left, depth, days survived), key the story to it instead of a quest graph: a list of beats, each with a threshold, the text, an optional quest it unlocks and an optional reveal flag for the twist. A beat fires once when the number crosses its threshold. It needs no state beyond the number and a fired set, cannot dead-end, and pacing is tuned by moving thresholds. [voidstruck]
+2. Pick a quest graph instead when the player chooses order or can fail a branch; beats on one number cannot express "either this or that". A mix works: beats gate which quests exist, the graph runs inside them.
+3. Review checks for beats: no two beats so close the second buries the first; the reveal sits after the knowledge checkpoint it depends on; a player who rushes the number still sees every required beat.
+4. Hidden facts with per-knower views. Store each fact once with the list of characters who know it, and give every viewer (a player, an AI game master, an NPC agent) only the facts their character knows. An AI GM or model player then cannot leak or act on what its character could not know; a secret is just a fact with one knower. [spookery, MIT agent and protocol crates]
+5. Review check: for each secret, name who knows it and how others can learn it. A secret with no route to discovery is dead weight; one every viewer sees is not a secret.
+
+
 ## Failure patterns
 
 - Fake choice. Symptom: a choice node with no visible consequence anywhere downstream. [ch. 5]

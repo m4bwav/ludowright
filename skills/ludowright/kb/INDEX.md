@@ -18,5 +18,5 @@ Open only what the task needs. Each file paraphrases the design canon with book 
 - [learning-games.md](learning-games.md): learning and study games: teach versus measure, alignment rows, pre-brief and debrief, the remove-all-rewards test, named reward failures, rules for child players
 - [design-drills.md](design-drills.md): text drills for stuck designs: rule remix, seeded random grid, constraint-first ideation, puzzle solvability, strategy-family balance, playtest feedback hygiene
 - [feel-handoff.md](feel-handoff.md): spotting feel problems in a review and handing them to game-juice's juice-scan
-- [narrative-design.md](narrative-design.md): quest and mission structure, branching and pinch points, fake-choice check, the skip-all-optional test, knowledge checkpoints, reading story feedback
+- [narrative-design.md](narrative-design.md): quest and mission structure, branching and pinch points, fake-choice check, the skip-all-optional test, knowledge checkpoints, reading story feedback, story beats keyed to one progress number, hidden facts per knower
 - [worldbuilding-and-lore.md](worldbuilding-and-lore.md): setting history and lore without contradictions: bookends, exceptions list, zoom levels, outcome-first, three canon checks, open-gap ledger, loaded-question briefs

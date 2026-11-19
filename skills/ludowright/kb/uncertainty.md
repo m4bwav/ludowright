@@ -60,6 +60,11 @@ Catch-up and end-state audit: find the positive loops in [systems-and-loops](sys
 
 Table shapes for `ev` and `sim` are in [balance-tables](balance-tables.md). Findings that depend on how randomness feels (screen reaction, near-miss timing) are marked `needs-playtest`.
 
+## Verifiable runs
+
+Idea from spookery by legend-of-alan (GitHub; idea only, no code): roll every die from a seeded generator and append each roll and player action to a replay journal where every entry carries a hash of the previous one. The same seed plus the journal replays the run exactly, and any edited entry breaks the chain. Use it when runs are shared, ranked or disputed (leaderboards, daily seeds, play-by-post), and for bug reports a tester can attach. Review check: does any randomness bypass the seeded generator (frame time, unordered iteration)? Then the replay drifts.
+
+
 ## Failure patterns
 
 - Solved or symmetric: perfect information, symmetric positions, no random element, obvious best play. Symptom: strategy guides list one line. [Costikyan ch. 6]
