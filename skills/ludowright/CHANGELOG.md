@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261118-4 · 2026-11-18 · Installed folder under the size line: dev-only material moved out (0.1.39)
+- because: user request (installed skill folder was 311 KB against the 300 KB green line in scripts/budget.py)
+- files: evals/fixtures (moved from skills/ludowright/evals/fixtures to the repository root; fixture.sh paths and the evals.json note updated), TESTS.md (runs T-20261029-1 to T-20261030-7 moved to ai-docs/tests-archive.md), ai-docs/changelog-archive.md (entries 2026-11-14 to 2026-11-17 moved out)
+- No kb, reference or script text changed; the folder is now 285 KB. A scan for repeated sentences across kb files found one shared hand-off line and nothing worth merging.
+
 ### C-20261118-3 · 2026-11-18 · Story beats on the progress number, per-knower facts, verifiable runs, hot-reloaded tuning file (0.1.38)
 - because: user request (technique-harvest repo round: voidstruck by vitaminclaude, PolyForm Strict, ideas only; spookery by legend-of-alan, agent and protocol crates MIT, engine ideas only; GPU-Bandits by sloppysteaks69, no licence, ideas only; all written fresh, no code copied)
 - files: kb/narrative-design.md (Story keyed to progress, and who knows what), kb/uncertainty.md (Verifiable runs), kb/balance-and-economy.md (One tuning file, hot-reloaded), kb/INDEX.md
@@ -23,8 +28,3 @@ Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (ID
 - because: user request (adopted technique-harvest changes from Augmented Reality Games II, 2019, ch. 1, 2, 7, and Guzdial, Snodgrass and Summerville, Procedural Content Generation via Machine Learning, 2nd ed., ch. 4; book rules, unverified; the success band was already item 10 and the runaway weighted-sum item covers a different failure, so neither was repeated)
 - files: kb/learning-games.md (Review block 12-15, Child and older players), kb/procgen.md (Principle 23, Failure patterns), ai-docs/changelog-archive.md (2026-11-14 entries 1 to 4 moved out)
 - Adds a per-feature motivates-or-blocks check, a no-restart-from-start rule, session length and real-world use, a fidelity check for teaching simulations, one line on older players, and whole-level splits, a held-out target set, a two-ended temperature test and the cheapest-maximum check for generator metrics.
-
-### C-20261114-5 · 2026-11-14 · Worldbuilding and lore kb file; rubric R-67 no escape valve, R-68 optional authority (0.1.34)
-- because: user request (adopted technique-harvest changes from Robbins, Microscope, 2011; book rules, unverified; R-67 checked against uncertainty.md 19, which covers kingmaking only)
-- files: kb/worldbuilding-and-lore.md (new), kb/review-rubric-more.md (R-67, R-68), kb/review-rubric.md (How to run 11, Related), kb/INDEX.md, SKILL.md (routing row)
-- Adds bookends, an exceptions list, zoom levels, outcome-first entries, three canon checks and an open-gap ledger for lore, and two multiplayer review items for trapped players and loud-player authority.

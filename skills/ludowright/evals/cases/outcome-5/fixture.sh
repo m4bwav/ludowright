@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Copy the fixture into the empty eval workspace.
 set -e
-cp -r "$(dirname "$0")/../../fixtures/lantern-keep" .
+cp -r "$(dirname "$0")/../../../../../evals/fixtures/lantern-keep" .
