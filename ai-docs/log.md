@@ -106,3 +106,6 @@ README gained a Works with section (everscout, grindwright, sfxwright, pixelwrig
 
 ## [2026-11-14] books | AI and Gamification Technologies (0.1.30)
 learning-games.md gained a goal-has-an-event check, an observe-assess-respond checklist and rules before ML; R-62 flags a goal with no event; ai-as-design-tool.md gained an uncalibrated AI judge failure. Adult training book, child use unverified. Rubric stays yellow (6790 tokens), folder 299 KB.
+
+## [2026-11-18] size | installed folder 311 KB to 285 KB (0.1.39)
+Eval fixtures moved to repo-root evals/fixtures (outside the installed folder; fixture.sh climbs five levels), old TESTS runs to ai-docs/tests-archive.md, changelog entries before 2026-11-18 to ai-docs/changelog-archive.md. Next time the folder nears 300 KB, archive the same way first; kb text had no real duplication.
