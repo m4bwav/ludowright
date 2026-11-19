@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261118-3 · 2026-11-18 · Story beats on the progress number, per-knower facts, verifiable runs, hot-reloaded tuning file (0.1.38)
+- because: user request (technique-harvest repo round: voidstruck by vitaminclaude, PolyForm Strict, ideas only; spookery by legend-of-alan, agent and protocol crates MIT, engine ideas only; GPU-Bandits by sloppysteaks69, no licence, ideas only; all written fresh, no code copied)
+- files: kb/narrative-design.md (Story keyed to progress, and who knows what), kb/uncertainty.md (Verifiable runs), kb/balance-and-economy.md (One tuning file, hot-reloaded), kb/INDEX.md
+- Adds beats keyed to one progress number versus a quest graph, facts stored with their knowers so an AI GM sees only its character's view, seeded dice with a hash-chained replay journal, and one hot-reloaded tuning file with review checks for each.
+
 ### C-20261118-2 · 2026-11-18 · Narrative design kb file; flow channel; content lifespan and treadmill moves; dead-hand fix (0.1.37)
 - because: user request (adopted technique-harvest book round 21: Heussner and others, The Game Narrative Toolbox, 2nd ed., ch. 5 and 9; Csikszentmihalyi, Flow, 1990, ch. 3 and 4; Kramarzewski, Practical Game Design, 2018, Content lifespan and Managing content treadmill; Brookes, Card Games, Oh hell and Beggar my neighbour; book rules, unverified)
 - files: kb/narrative-design.md (new), kb/INDEX.md, SKILL.md (routing row), kb/ux-and-the-brain.md (Principles 24-25), kb/production-and-scope.md (Principles 26-27), kb/uncertainty.md (Principle 31)
