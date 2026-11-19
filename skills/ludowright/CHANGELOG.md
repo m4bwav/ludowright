@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261118-5 · 2026-11-18 · Question-driven play: powers, review recharge, readable foes, pacing (0.1.40)
+- because: user request (studyquest list 3 field lessons, PRs #82-#91; one child playtester, unverified beyond that game)
+- files: kb/learning-games.md (Question-driven play)
+- Adds six bullets: spells and class moves still cost a question, abilities recharge by review not timers, foes with readable moves and damage shown as a sum, spread and hidden encounters, fixed hash-picked villager quests, message debounce and cap.
+
 ### C-20261118-4 · 2026-11-18 · Installed folder under the size line: dev-only material moved out (0.1.39)
 - because: user request (installed skill folder was 311 KB against the 300 KB green line in scripts/budget.py)
 - files: evals/fixtures (moved from skills/ludowright/evals/fixtures to the repository root; fixture.sh paths and the evals.json note updated), TESTS.md (runs T-20261029-1 to T-20261030-7 moved to ai-docs/tests-archive.md), ai-docs/changelog-archive.md (entries 2026-11-14 to 2026-11-17 moved out)

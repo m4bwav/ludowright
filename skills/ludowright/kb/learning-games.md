@@ -29,6 +29,12 @@ Field rules from building a study RPG in 2026-11 (one child playtester; practice
 - Bosses and dungeons ask the run's first-try misses first, then the hardest tier: a delayed retest dressed as a climax. A missed boss question comes back later in new words.
 - Crafting and food stay downstream of answers: materials drop from battles won, recipes make cosmetics, helpers and small buffers (block the first 2 damage). No recipe may unlock content or skip a mastery gate, and nothing punishes the player for not eating.
 - Scale by the hero's level between sessions, not inside a fight (item 10).
+- Every power still asks a question. Class moves and spells are skins on the same one-question turn; mana fills from right answers (not time) and a missed spell spends none, so magic rewards knowing without bypassing it.
+- Recharge with review, not a clock: a used ability (a waystone, a cooldown) comes back after one review question from mastered items, never a timer. Extra battle rounds and outposts in the wilds also draw from mastered questions, so spaced review lives in the world instead of a menu.
+- Foes differ by numbers the player can read: own HP, about 3 named moves each, the foe card shows each move's damage and the next one coming. Show every hit as its sum (move + gear, move + elite bonus) so the player can see why a number is what it is.
+- Spread encounters out and hide them until near (a rustle within about 3 tiles); a crowded map turns walking into back-to-back tests.
+- Villagers give small fixed quests (bring 3 of a material, win 1-2 named fights) picked from the tile's hash, not a roll: the same place always offers the same task, which keeps rewards predictable for a child.
+- Feedback hygiene on a busy screen: debounce bump messages (about 400 ms), cap the message strip at 3 and merge repeats, or messages bury the question.
 
 ## Named failures
 
