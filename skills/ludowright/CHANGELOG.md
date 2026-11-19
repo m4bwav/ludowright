@@ -2,7 +2,12 @@
 
 Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with the reason. Reasons cite findings in [RESEARCH.md](RESEARCH.md) (`R-`), lessons in [LEARNINGS.md](LEARNINGS.md) (`L-`), and test runs in [TESTS.md](TESTS.md) (`T-`). State in `evergreen.json`. Protocol: MAINTENANCE.md.
 
-Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
+Entry shape: `### C-20261119-1 · 2026-11-19 · Shaping verb against a visible target; staged stuck-hints (0.1.41)
+- because: user request (technique harvest from a commercial web platformer demo; ideas only, described fresh, no code, text or assets copied; one game, unverified beyond it)
+- files: kb/core-loops-and-goals.md (Shaping verb against a visible target), kb/ux-and-the-brain.md (Staged stuck-hints), kb/INDEX.md, tests/test_ldw.py (KbSectionsTest)
+- Adds terrain shaping as a core verb with a continuous error score between forgiving thresholds and several input routes, and a per-beat hint plan that escalates wait, hand, outline, then text, with touch and keyboard wording.
+
+### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
 ### C-20261118-5 · 2026-11-18 · Question-driven play: powers, review recharge, readable foes, pacing (0.1.40)
 - because: user request (studyquest list 3 field lessons, PRs #82-#91; one child playtester, unverified beyond that game)

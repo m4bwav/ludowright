@@ -91,4 +91,15 @@ Name the game's central tension in one sentence: the pull between two things the
 - Fiction versus system: Koster says fiction dressing wears off and the system carries long-run value; Schell treats story as one of four equal elements. We weigh the system first in a review, and use the tetrad to check the dressing does not contradict it.
 - Locked scope versus live change: Lemarchand wants scope fixed after preproduction, Wyman wants fast live changes in social games. Ludowright picks by game type: lock for premium single-player, allow change for live service.
 
+
+## Shaping verb against a visible target
+
+A pattern seen in a commercial web platformer demo (observed 2026-11-19, one game, unverified beyond it): the core verb reshapes the ground itself, and each beat asks the player to make the ground match a faint target outline.
+
+- The target is drawn in the world, so the goal needs no text. The player compares shape to shape.
+- Score the match as one continuous error, such as the mean height gap over the target span, not a pass or fail per point. Map it between two thresholds: below the good line counts as a full match, above the bad line as no match, and the band between gives partial credit or a "nearly" signal.
+- Keep the thresholds forgiving. Free-hand shaping is imprecise, and a strict line turns a creative verb into a pixel hunt. Tune them by playtest, starting loose.
+- Offer more than one input route to the same verb (drag with a pointer, hold a key to raise or lower, a body action like a stomp). Each route suits a device or a mood, and all feed the one error score, so levels never depend on the route.
+- Review checks: is the target readable against the terrain; does the score move smoothly as the shape improves; can every route reach a full match; is any route strictly better (a dominant route, see [systems-and-loops](systems-and-loops.md)).
+
 Related: [systems-and-loops](systems-and-loops.md), [balance-and-economy](balance-and-economy.md), [uncertainty](uncertainty.md), [production-and-scope](production-and-scope.md), [review-heuristics](review-rubric.md). Feel and juice go to game-juice's juice-scan and juice-principles. The one-pager, beat chart and playtest protocol templates live in the game-design references of unity-agent, roblox-agent and madnesswright; point to them rather than copying.
