@@ -113,3 +113,7 @@ Eval fixtures moved to repo-root evals/fixtures (outside the installed folder; f
 
 ## [2026-11-19] kb | 0.1.42: book round 6 (rubric R-69 to R-79)
 Five books (Kobold board game and GM guides, Arbiter of Worlds, ICRPG Core, Penguin card games). Installed skill folder now 297 KB of the 300 KB green line: the next kb addition must move something out first. ldw.py sim walk already reports reach rate and steps to target, so the proposed turn-cap and fight-length sim changes were not needed.
+
+## [2026-11-20] script | 0.1.43: ldw.py ramp (technique harvest, adopt-partly)
+New `ldw.py ramp TABLE [--steps N] [--json]`: formula ramps (base, factor or add, floor, cap) and step -> value tables, flags UNCAPPED, FLOOR@n, CAP@n, FLAT-EARLY. Tests in tests/test_ldw.py RampTest from two invented ramps (6% shrink to a floor at step 27; per-frame growth 9.1x in 60 s). CHANGELOG entries 0.1.35 to 0.1.40 moved to ai-docs/changelog-archive.md and research R-20261029-1 to -6 to ai-docs/research-archive.md to keep the installed folder green; the mangled Entry shape line (0.1.41 entry pasted inside it) was fixed.
+Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, research R-20261029-1..6 and test run T-20261030-8 to ai-docs archives.

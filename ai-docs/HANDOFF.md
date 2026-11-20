@@ -2,7 +2,10 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-10-30, session 19)
+## Current state (2026-11-20)
+- 0.1.43: `ldw.py ramp` (difficulty ramp check) from a technique harvest. Installed folder at 300 KB, the green line: archive again (changelog, research, tests to ai-docs) before any addition.
+
+## Earlier state (2026-10-30, session 19)
 - Session 19: state checked, nothing open. evergreen-protocol#34 merged, review accepted, all continue-prompt items done. Optional work only (Next 3, 5).
 - Session 18: Mark ruled the round-1 private deck-builder game review good (2026-10-30). The real-game loop (continue prompt section 4) is closed; no skill change owed. Re-review only if he asks or the game changes.
 - Session 17: private deck-builder game unchanged since the 2026-10-29 review (only tools/docs commits), and Mark objected to no finding in round 1. No re-review run. The real-game loop waits on Mark saying "good" or naming what it missed.

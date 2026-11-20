@@ -190,3 +190,74 @@ class DrawOdds(unittest.TestCase):
     def test_bad_input_fails(self):
         with self.assertRaises(SystemExit):
             ldw.draw_odds(10, 11, 2)
+
+
+class RampTest(unittest.TestCase):
+    # Two invented ramps of common shapes: a spawn interval that shrinks 6% per point to a floor, and a fall
+    # speed that adds a little every frame with no cap.
+    SHRINK = {"name": "spawn interval", "base": 3, "factor": 0.94, "floor": 0.6, "per": "point"}
+    GROW = {"name": "fall speed", "base": 4, "add": 0.009, "per": "frame", "steps": 3600, "step_seconds": 1 / 60}
+
+    def run_cli(self, ramps, *args):
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "ramps.json")
+            with open(p, "w", encoding="utf-8") as f:
+                json.dump({"ramps": ramps}, f)
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                ldw.main(["ramp", p, *args])
+            return buf.getvalue()
+
+    def test_shrinking_ramp_floors_at_27(self):
+        r = ldw.ramp(self.SHRINK)
+        self.assertEqual(r["floor_at"], 27)  # raw 3 x 0.94^26 is 0.6003, still above the floor
+        self.assertAlmostEqual(r["values"]["1"], 2.82)
+        self.assertAlmostEqual(r["values"]["26"], 3 * 0.94 ** 26)
+        self.assertEqual(r["values"]["100"], 0.6)
+        self.assertEqual(r["flags"], ["FLOOR@27"])
+        out = self.run_cli([self.SHRINK])
+        self.assertIn("FLOOR@27", out)
+        self.assertIn("step 1 2.82", out)
+
+    def test_growing_ramp_is_uncapped(self):
+        r = ldw.ramp(self.GROW)
+        self.assertIn("UNCAPPED", r["flags"])
+        self.assertGreater(r["ratio"], 8)
+        self.assertAlmostEqual(r["values"]["3600"], 4 + 0.009 * 3600)
+        out = self.run_cli([self.GROW])
+        self.assertIn("UNCAPPED", out)
+        self.assertIn("(60 s)", out)
+        capped = ldw.ramp(dict(self.GROW, cap=12))
+        self.assertNotIn("UNCAPPED", capped["flags"])
+        self.assertIn("CAP@889", capped["flags"])  # 4 + 0.009n reaches 12 at n = 888.9
+
+    def test_flat_early(self):
+        self.assertIn("FLAT-EARLY", ldw.ramp({"base": 1, "factor": 0.5, "floor": 0.4})["flags"])
+        tiers = ldw.ramp({"name": "tiers", "values": {"0": 10, "2": 10, "4": 10, "6": 14, "8": 18, "10": 20, "12": 20}})
+        self.assertEqual(tiers["flags"], ["CAP@10", "FLAT-EARLY"])
+        self.assertEqual(tiers["flat_reason"], "no change over the first steps")
+        self.assertNotIn("FLAT-EARLY", ldw.ramp(self.SHRINK)["flags"])
+
+    def test_steps_override_and_shrink_without_floor(self):
+        r = ldw.ramp(dict(self.SHRINK, floor=None), steps=50)
+        self.assertEqual(r["steps"], 50)
+        self.assertIn("UNCAPPED", r["flags"])
+
+    def test_json_matches_text(self):
+        data = json.loads(self.run_cli([self.SHRINK, self.GROW], "--json"))
+        self.assertEqual([d["flags"] for d in data], [["FLOOR@27"], ["UNCAPPED"]])
+        self.assertAlmostEqual(data[0]["values"]["1"], 2.82)
+
+    def test_csv_table(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "ramp.csv")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write("name,step,value\nwaves,0,2\nwaves,1,3\nwaves,2,5\nwaves,3,8\n")
+            rows = ldw.ramp_rows(p)
+        r = ldw.ramp(rows[0])
+        self.assertEqual(r["kind"], "table")
+        self.assertEqual(r["flags"], ["UNCAPPED"])
+
+    def test_bad_ramp_fails(self):
+        with self.assertRaises(SystemExit):
+            ldw.ramp({"base": 1, "factor": 0.5, "add": 1})
