@@ -16,6 +16,14 @@ Write an entry the moment a real signal happens: a user correction, the same err
 - Status: active · helpful 1 · harmful 0 · last_confirmed 2026-10-29
 -->
 
+### L-20261120-1 `ramp-floor-step-depends-on-rounding` · 2026-11-20 · active
+- Trigger: a harvested web game's spawn interval (3 s x 0.94 per point, floor 0.6 s) floors at point 26 in play, but the exact maths says 27 (raw 0.6003 at 26). The game rounds to whole milliseconds.
+- Hypothesis: a ramp's floor or cap step read from play and one computed from the formula can differ by a step when the game rounds; neither is wrong.
+- Rule: `ldw.py ramp` reports the exact step and prints the step before it; when a game rounds its values, say so next to FLOOR@n or CAP@n instead of treating the gap as a bug.
+- Evidence: C-20261120-1, tests/test_ldw.py RampTest
+- Scope: skill
+- Status: active · helpful 1 · harmful 0 · last_confirmed 2026-11-20
+
 ### L-20261029-2 `unbuilt-is-not-broken` · 2026-10-29 · active
 - Trigger: the first real review (private deck-builder game, 13 findings) led with "Shuttle win unreachable" and "70 of 82 reward cards uncoded". Mark agreed with every finding and said these are things he has not built yet.
 - Hypothesis: a review of a game in development reads its to-do list as defects unless it settles the stage first and labels gaps in the build apart from flaws in the design.

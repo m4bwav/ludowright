@@ -50,6 +50,7 @@ Declare a table, run the matching `ldw.py` command, then judge. Shapes are in [b
 | Sources, sinks, net flow, leaks | `ldw.py economy TABLE` | rows of resource, kind (source, sink, start), amount, per, uses, optional caps |
 | Turns to goal, loot spread, card exposure | `ldw.py sim TABLE --steps N` | model draw, walk (with target) or deck (cards with count, hand size, value) |
 | Odds of drawing at least k copies | `ldw.py draw --deck N --copies K --drawn n` | none |
+| Difficulty ramp: uncapped, where it floors or caps, flat early | `ldw.py ramp TABLE` | formula ramps (base, factor or add, floor, cap) or step -> value tables |
 | Growth ratio, pack price monotonicity, dead damage step | `curve` or by hand | cost or threshold per level or tier |
 | Dominated option | `curve` residuals plus a manual column comparison | all columns of the like objects |
 | Payoff matrix for intransitive sets | by hand (no command yet) | matrix of outcomes; say it is unchecked by script |

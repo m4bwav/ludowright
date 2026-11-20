@@ -8,6 +8,8 @@
   curve TABLE                   fit a cost curve over items and flag over- and under-costed ones
   economy TABLE                 source and sink totals per period, net flow, leak and drain flags
   sim TABLE --steps N           Monte Carlo over a declared table (draws, deltas or a deck)
+  draw --deck D --copies C --drawn N   hypergeometric odds of drawing copies of a card
+  ramp TABLE [--steps N]        difficulty ramp check: UNCAPPED, FLOOR@n / CAP@n, FLAT-EARLY
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
 """
@@ -23,7 +25,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.42"
+VERSION = "0.1.43"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -488,6 +490,152 @@ def cmd_draw(a):
     return 0
 
 
+# ---------------------------------------------------------------- difficulty ramps
+
+RAMP_CHECKS = (0, 1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000)
+RAMP_EARLY = 5  # a ramp that flattens in fewer steps than this is barely felt
+
+
+def ramp_spec(r):
+    """One ramp from a row: formula fields (base with factor or add, floor, cap) or a step -> value table."""
+    pts = r.get("values") if isinstance(r.get("values"), (list, dict)) else r.get("points")
+    if isinstance(pts, list):
+        pts = {i: v for i, v in enumerate(pts)}
+    if isinstance(pts, dict):
+        table = sorted((int(num(k)), float(num(v))) for k, v in pts.items())
+        if len(table) < 2:
+            fail(f"ramp {r.get('name', '?')}: a table needs at least two steps")
+        return {"table": table}
+    if r.get("base") is None or (r.get("factor") is None) == (r.get("add") is None):
+        fail(f"ramp {r.get('name', '?')}: give base plus one of factor or add, or a values table")
+    return {"base": float(r["base"]), "factor": r.get("factor"), "add": r.get("add")}
+
+
+def ramp_value(spec, n, floor=None, cap=None):
+    """Raw formula value at step n and the clamped value the game would use."""
+    try:
+        raw = spec["base"] * float(spec["factor"]) ** n if spec.get("factor") is not None else spec["base"] + float(spec["add"]) * n
+    except OverflowError:
+        raw = math.inf
+    v = raw
+    if floor is not None and v < floor:
+        v = floor
+    if cap is not None and v > cap:
+        v = cap
+    return raw, v
+
+
+def ramp(r, steps=None):
+    """Check one difficulty ramp: values at checkpoints, where it floors or caps, last/first ratio and flags.
+    UNCAPPED: grows past 3x with no cap (or shrinks below 1/3 with no floor) within the steps checked.
+    FLOOR@n / CAP@n: the first step that reaches the floor or cap (a table: the step it stops changing).
+    FLAT-EARLY: it flattens in under 5 steps, or does not change over its first 5 steps."""
+    r = {k: v for k, v in r.items() if v not in (None, "")}
+    spec = ramp_spec(r)
+    name = str(r.get("name", "ramp"))
+    floor = float(r["floor"]) if r.get("floor") is not None else None
+    cap = float(r["cap"]) if r.get("cap") is not None else None
+    sec = float(r["step_seconds"]) if r.get("step_seconds") else None
+    out = {"name": name, "per": r.get("per", "step"), "step_seconds": sec, "floor": floor, "cap": cap}
+    if "table" in spec:
+        table = [(s, v) for s, v in spec["table"] if steps is None or s <= steps]
+        if len(table) < 2:
+            fail(f"ramp {name}: fewer than two table steps within --steps")
+        vals = dict(table)
+        last_step = table[-1][0]
+        # where it flattens: the first step after which nothing changes again
+        flat_at = None
+        for i in range(len(table) - 1, 0, -1):
+            if table[i][1] != table[i - 1][1]:
+                flat_at = table[i][0] if i < len(table) - 1 else None
+                break
+        else:
+            flat_at = table[0][0]
+        changed = any(v != table[0][1] for _, v in table)
+        rising = table[-1][1] > table[0][1]
+        floor_at = flat_at if flat_at is not None and changed and not rising else None
+        cap_at = flat_at if flat_at is not None and changed and rising else None
+        early = [v for s, v in table if s < RAMP_EARLY]
+        flat_start = len(early) >= 2 and len(set(early)) == 1
+        bounded_up, bounded_down = cap_at is not None, floor_at is not None
+        out["kind"] = "table"
+    else:
+        last_step = int(steps if steps is not None else r.get("steps", 100))
+        checks = sorted({c for c in RAMP_CHECKS if c <= last_step} | {last_step})
+        floor_at = cap_at = None
+        for n in range(last_step + 1):
+            raw, _ = ramp_value(spec, n, floor, cap)
+            if floor_at is None and floor is not None and raw <= floor:
+                floor_at = n
+            if cap_at is None and cap is not None and raw >= cap:
+                cap_at = n
+            if (floor is None or floor_at is not None) and (cap is None or cap_at is not None):
+                break
+        checks = sorted(set(checks) | {s - d for s in (floor_at, cap_at) if s is not None for d in (0, 1) if s - d >= 0})
+        vals = {n: ramp_value(spec, n, floor, cap)[1] for n in checks}
+        early_vals = [ramp_value(spec, n, floor, cap)[1] for n in range(min(RAMP_EARLY, last_step + 1))]
+        flat_start = len(early_vals) >= 2 and len(set(early_vals)) == 1
+        bounded_up, bounded_down = cap is not None, floor is not None
+        out["kind"] = "formula"
+        out["formula"] = (f"{fmt(spec['base'])} x {fmt(float(spec['factor']))}^n" if spec.get("factor") is not None
+                          else f"{fmt(spec['base'])} + {fmt(float(spec['add']))}n")
+    first, last = vals[min(vals)], vals[last_step]
+    ratio = last / first if first else None
+    flags = []
+    if ratio is not None and ratio > 3 and not bounded_up:
+        flags.append("UNCAPPED")
+    if ratio is not None and 0 < ratio < 1 / 3 and not bounded_down:
+        flags.append("UNCAPPED")
+    if floor_at is not None:
+        flags.append(f"FLOOR@{floor_at}")
+    if cap_at is not None:
+        flags.append(f"CAP@{cap_at}")
+    flat_step = min(s for s in (floor_at, cap_at, 10 ** 9) if s is not None)
+    if flat_step < RAMP_EARLY or flat_start:
+        flags.append("FLAT-EARLY")
+    out.update({"steps": last_step, "values": {str(k): v for k, v in sorted(vals.items())}, "floor_at": floor_at,
+                "cap_at": cap_at, "ratio": ratio, "flags": flags,
+                "flat_reason": ("no change over the first steps" if flat_start else
+                                f"flattens at step {flat_step}") if "FLAT-EARLY" in flags else None})
+    return out
+
+
+def ramp_rows(path):
+    """Ramps from JSON ({ramps: [...]}, {rows: [...]}, a list or one ramp) or CSV (formula rows, or step,value[,name])."""
+    if path.lower().endswith(".csv"):
+        rows = load_table(path)["rows"]
+        if rows and "step" in rows[0] and "value" in rows[0]:
+            by = {}
+            for r in rows:
+                by.setdefault(str(r.get("name", "ramp")), {})[r["step"]] = r["value"]
+            return [{"name": k, "values": v} for k, v in by.items()]
+        return rows
+    doc = load_json(path)
+    if isinstance(doc, list):
+        return doc
+    if "ramps" in doc or "rows" in doc:
+        return doc.get("ramps") or doc.get("rows")
+    return [doc]
+
+
+def cmd_ramp(a):
+    res = [ramp(r, a.steps) for r in ramp_rows(a.table)]
+    if a.json:
+        print(json.dumps(res, indent=1))
+        return 0
+    for r in res:
+        sec = r["step_seconds"]
+        t = (lambda n: f" ({fmt(n * sec)} s)") if sec else (lambda n: "")
+        head = r.get("formula") or f"table of {len(r['values'])} steps"
+        bounds = "".join(f" · {k} {fmt(r[k])}" for k in ("floor", "cap") if r[k] is not None)
+        ratio = f"last/first {r['ratio']:.3g}" if r["ratio"] is not None else "last/first n/a"
+        print(f"{r['name']}: {head}{bounds} · per {r['per']} · {r['steps']} steps{t(r['steps'])} · {ratio}  {' '.join(r['flags'])}")
+        print("  " + " · ".join(f"step {k}{t(int(k))} {fmt(v)}" for k, v in r["values"].items()))
+        if r["flat_reason"]:
+            print(f"  FLAT-EARLY: {r['flat_reason']}")
+    return 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -514,6 +662,9 @@ def main(argv=None):
     m.add_argument("--seed", type=int, default=1); m.add_argument("--json", action="store_true"); m.set_defaults(fn=cmd_sim)
     d = sp.add_parser("draw", help="hypergeometric draw odds for copies of a card"); d.add_argument("--deck", type=int, required=True)
     d.add_argument("--copies", type=int, required=True); d.add_argument("--drawn", type=int, required=True); d.add_argument("--json", action="store_true"); d.set_defaults(fn=cmd_draw)
+    r = sp.add_parser("ramp", help="difficulty ramp check: uncapped growth, where it floors or caps, flat early")
+    r.add_argument("table"); r.add_argument("--steps", type=int, help="steps to check (formula ramps; default the ramp's steps or 100)")
+    r.add_argument("--json", action="store_true"); r.set_defaults(fn=cmd_ramp)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")

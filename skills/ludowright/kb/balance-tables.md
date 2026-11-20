@@ -44,4 +44,15 @@ Settings: `model` (`draw`, `walk` or `deck`), `steps`, optional `target` (walk),
 
 Report the spread (p05, p50, p95), not only the mean, and name the policy the table assumes. A sim with a fixed deck and no enemy model says nothing about interaction. Say so in the finding.
 
+## ramp: difficulty ramps
+
+One ramp per row, under `ramps` (or `rows`, or a bare list). A formula ramp has `base` and either `factor` (multiplied each step) or `add` (added each step), optional `floor` and `cap`, `per` (what a step is: a point, a wave, a frame) and `step_seconds` (to print time), and `steps` (default 100; `--steps` overrides). A table ramp has `values`: a list or a `{step: value}` map. A CSV is either formula rows or `name,step,value` rows.
+
+```json
+{"ramps": [{"name": "spawn interval", "base": 3, "factor": 0.94, "floor": 0.6, "per": "point"},
+           {"name": "fall speed", "base": 4, "add": 0.009, "per": "frame", "steps": 3600, "step_seconds": 0.0166667}]}
+```
+
+It prints the value at steps 0, 1, 5, 10, 25, 50, 100 and up (plus the step where it flattens and the one before), and last/first. Flags: `UNCAPPED` (past 3x with no cap, or under 1/3 with no floor, within the steps checked: the late game outruns the player), `FLOOR@n` and `CAP@n` (the first step at the bound; a table: where it stops changing), `FLAT-EARLY` (flattens in under 5 steps, or no change over the first 5: the ramp is barely felt, or the opening drags). The floor step is exact maths; a game that rounds its values may floor a step sooner. Say which way you read it.
+
 Related: builds on [balance-and-economy.md](balance-and-economy.md); see also [uncertainty.md](uncertainty.md), [systems-and-loops.md](systems-and-loops.md), [review-rubric.md](review-rubric.md)
