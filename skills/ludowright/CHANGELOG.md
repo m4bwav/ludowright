@@ -9,6 +9,11 @@ Entry shape: `### C-20261119-1 · 2026-11-19 · Shaping verb against a visible t
 
 ### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261119-2 · 2026-11-19 · Rubric R-69 to R-79 from five design and GM books; encounter, playtest, fudge, abduction and card-family notes (0.1.42)
+- because: user request (book round 6: Selinker (ed.), Kobold Guide to Board Game Design, 2011; Baur, Kobold Guide to Gamemastering; Macris, Arbiter of Worlds; Runehammer, ICRPG Core; Parlett, Penguin Book of Card Games; book rules, unverified; proposed IDs renumbered after R-68)
+- files: kb/review-rubric-more.md (R-69 to R-79), kb/review-rubric.md (How to run 11, Related), kb/INDEX.md, kb/levels-and-space.md, kb/playtesting.md, kb/uncertainty.md, kb/procgen.md (How to apply each), kb/design-drills.md (7), README.md, tests/test_ldw.py (KbSectionsTest)
+- Adds early knockout, endless endgame, kingchooser grades, forced reverse, featured content bypassed, free rest, failable must-know, health sponge, identical retry, arbitrary death and expendable-piece AI, plus Timer-Threat-Treat rooms, a distance gradient, first-plays and extreme-bot playtests, the fudge test, an abduction pass and a mechanism family menu.
+
 ### C-20261118-5 · 2026-11-18 · Question-driven play: powers, review recharge, readable foes, pacing (0.1.40)
 - because: user request (studyquest list 3 field lessons, PRs #82-#91; one child playtester, unverified beyond that game)
 - files: kb/learning-games.md (Question-driven play)

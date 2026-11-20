@@ -8,5 +8,6 @@ Answers: what to run when a design is stuck or an idea needs testing, as text ex
 4. Puzzle solvability check. A puzzle level needs at least one solution and at least one way to get stuck it can recover from or signal. Run a solver or a written search for the solution and for unintended shortcuts. [ch. 8]
 5. Strategy-family balance. List the four or so early strategies, play each against the others; every one must be viable and none dominate all. Try symmetry, then intransitivity, then asymmetric profiles. [ch. 6]
 6. Playtest feedback hygiene. Do not step in during a session. A tester who blames themselves is reporting a problem with the game. Record problems, not proposed solutions (theirs or yours), and pair any analytics with a live session, since data shows what but not why. [ch. 6; see [playtesting](playtesting.md)]
+7. Mechanism family menu. For a stuck card game, recast the core as trick-taking, fishing, adding-up, shedding race, last-in-loses, positive melds, negative melds, ordering and vying; keep the one that serves the experience goal. [Parlett, Penguin Book of Card Games, Introduction]
 
 Related: [balance-and-economy](balance-and-economy.md), [uncertainty](uncertainty.md), [review-rubric](review-rubric.md) R-65 and R-66.

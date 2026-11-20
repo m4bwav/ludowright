@@ -60,6 +60,8 @@ Catch-up and end-state audit: find the positive loops in [systems-and-loops](sys
 
 Table shapes for `ev` and `sim` are in [balance-tables](balance-tables.md). Findings that depend on how randomness feels (screen reaction, near-miss timing) are marked `needs-playtest`.
 
+Fudge test: if the result were narrated with no roll, would any player lose a meaningful choice or see a different world? If yes, do not change it; fix an arbitrary loss in the rules instead (R-78). Three acts: by the end of the opening each player names a route to win, the lead changes hands in the middle, and the push for victory is neither inevitable nor endless (R-69, R-70). [Macris ch. 2 sec. 14, ch. 16; Selinker ch. 1.3]
+
 ## Verifiable runs
 
 Idea from spookery by legend-of-alan (GitHub; idea only, no code): roll every die from a seeded generator and append each roll and player action to a replay journal where every entry carries a hash of the previous one. The same seed plus the journal replays the run exactly, and any edited entry breaks the chain. Use it when runs are shared, ranked or disputed (leaderboards, daily seeds, play-by-post), and for bug reports a tester can attach. Review check: does any randomness bypass the seeded generator (frame time, unordered iteration)? Then the replay drifts.
