@@ -5,7 +5,7 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
 ### C-20261120-1 · 2026-11-20 · ldw.py ramp: difficulty ramp check (0.1.43)
-- because: user request (technique harvest of an Apache-2.0 web arcade game: one spawn interval shrinks 6% per point to a floor, one fall speed grows every frame with no cap; method described fresh in our words, no code copied; source cited in the harvest notes)
+- because: user request (technique harvest of an Apache-2.0 web arcade game, source luizbizzio/scandeck on GitHub: one spawn interval shrinks 6% per point to a floor, one fall speed grows every frame with no cap; method described fresh in our words, no code copied; source cited in the harvest notes)
 - files: scripts/ldw.py (ramp, cmd_ramp, ramp_rows), kb/balance-tables.md (ramp), kb/balance-and-economy.md (command table), references/balance.md (step 1), SKILL.md (where the balance and pacing tools live), kb/INDEX.md, tests/test_ldw.py (RampTest), README.md
 - Adds `ldw.py ramp TABLE [--steps N] [--json]` for formula ramps (base with factor or add, floor, cap, per, step_seconds) and step -> value tables: values at checkpoints, last/first ratio, and the flags UNCAPPED, FLOOR@n, CAP@n and FLAT-EARLY. Changelog entries 0.1.35 to 0.1.40 moved to ai-docs/changelog-archive.md and research entries R-20261029-1 to -6 to ai-docs/research-archive.md to keep the installed folder under 300 KB.
 
