@@ -25,7 +25,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.43"
+VERSION = "0.1.44"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
