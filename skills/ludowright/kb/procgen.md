@@ -41,6 +41,8 @@ Answers: whether a game should generate content, how much authorial control to k
 
 A cheap generator that hides its seams: a small grid of rooms, a guaranteed path drawn first, each room filled from a template typed by its openings, some random cells and small chunk pools inside the template, then a second pass that places entities from the tiles around them. Write the generator's rules (entrance, exit, path with no items needed, no softlocks) before the code. [Yu Part I]
 
+Abduction pass: when a generated result is odd, ask what would make it ordinary and keep that as a world fact; never silently reroll. Put named characters on random tables and read each roll against the player's recent acts. [Macris ch. 9, ch. 17]
+
 ## Failure patterns
 
 - No role statement or fallback in the spec. [Short ch. 1]

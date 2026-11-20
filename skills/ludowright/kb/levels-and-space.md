@@ -39,6 +39,8 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 
 Engine side (building, linting, playtest loops): the Level Up! references (one-pager, beat chart, playtest protocol) live in the game-design references of unity-agent, roblox-agent and madnesswright. Point to them; do not copy.
 
+Per-encounter checks: a Timer (a visible countdown), a Threat and a Treat (a lever, item or weakness that rewards looking); Danger beyond damage, no lulls, one element of Wonder. Run the odd room with no timer. Gradient by distance: a safe hub, a frontier about a third out, danger rising with distance, a few hidden spikes near the start, no direct link from a starter area to end-game danger. [Runehammer, ICRPG Core, p. 84-86; Macris, Arbiter of Worlds, ch. 3 sec. 18, ch. 8 sec. 33]
+
 ## Failure patterns
 
 - Pacing clump: intense encounters adjacent in the plan with no rest between. [Totten; Bauer]

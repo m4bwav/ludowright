@@ -63,6 +63,8 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 
 Engine-side playtest protocol and the Level Up! questionnaire live in the game-design references of unity-agent, roblox-agent and madnesswright; point to them.
 
+Developer first plays: learn only from the rules, log every question, look-up and winning strategy. Name the main strategies and have one tester play the suspected strongest every game; run extreme bots (buy one thing, hoard, ignore the featured content; R-73); stage rare perfect storms by hand. Home groups hide strategies; use blind testers. [Selinker (ed.), Kobold Guide to Board Game Design, ch. 3.1 p. 86-89]
+
 ## Failure patterns
 
 - Test hygiene: the team tests itself, leading questions, intent inferred from watching. [Hodent ch. 14]

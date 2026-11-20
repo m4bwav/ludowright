@@ -163,6 +163,15 @@ class KbSectionsTest(unittest.TestCase):
         self.assertIn("staged stuck-hints", index)
         self.assertIn("shaping verbs", index)
 
+    def test_rubric_range_matches_last_item(self):
+        import pathlib, re
+        kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
+        more = (kb / "review-rubric-more.md").read_text(encoding="utf-8")
+        last = max(int(n) for n in re.findall(r"^### R-([0-9]+)", more, re.M))
+        self.assertEqual(last, 79)
+        for f in ("INDEX.md", "review-rubric.md"):
+            self.assertIn(f"R-53 to R-{last}" if f != "INDEX.md" else f"R-01 to R-{last}", (kb / f).read_text(encoding="utf-8"))
+
 if __name__ == "__main__":
     unittest.main()
 
