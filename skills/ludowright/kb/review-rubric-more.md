@@ -1,6 +1,6 @@
 # Review rubric, part 2
 
-Items R-53 to R-68 of [review-rubric.md](review-rubric.md), split out for size. Same use, same rules, same category slugs: walk every item after R-52. Item IDs are stable: never renumber, only append here.
+Items R-53 to R-80 of [review-rubric.md](review-rubric.md), split out for size. Same use, same rules, same category slugs: walk every item after R-52. Item IDs are stable: never renumber, only append here.
 
 ### R-53 Authored, not built
 - Look for: Cards, rewards, win paths or systems that the design doc or data tables define but no code applies (grep the code for each data id or effect key). Settle the stage first: in a prototype this is the to-do list, in a shipped game it is a broken promise.
@@ -190,3 +190,10 @@ Items R-53 to R-68 of [review-rubric.md](review-rubric.md), split out for size. 
 - Severity hint: minor; major when it makes every fight an attrition grind. Category: ai-behaviour
 - Tool: by hand
 - Sources: game-ai-for-designers.md; Macris ch. 5 sec. 25
+
+### R-80 No outcome preview before committing
+- Look for: A targeted action (attack, spell, a card dragged onto a foe) whose result the player must work out by hand: no forecast while aiming of the damage after modifiers and block, and the target's health before and after.
+- Breaks: Informed choice
+- Severity hint: minor; major when the action can be lethal either way. Show the forecast where the dragged item does not cover it. Category: clarity
+- Tool: by hand (aim at a target and look for the forecast)
+- Sources: ux-and-the-brain.md; Hodent 11.2; seen in a web card battler, 2026

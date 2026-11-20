@@ -14,7 +14,7 @@ Use: the review skill walks every item below against the game's docs, data and c
 8. Anything only a playtest can settle is marked needs-playtest with confidence low.
 9. Report outliers as questions, not errors; a deliberate break of a curve is allowed.
 10. Use only these category slugs, which are the contract's. Severity hints are starting points; adjust and say why.
-11. Then walk R-53 to R-79 in [review-rubric-more.md](review-rubric-more.md). They are part of this rubric, kept in a second file for size.
+11. Then walk R-53 to R-80 in [review-rubric-more.md](review-rubric-more.md). They are part of this rubric, kept in a second file for size.
 
 ## dominant-strategy
 
@@ -314,10 +314,10 @@ Players cannot read state, cause or cost.
 - Severity hint: major; critical for paid paths
 - Tool: economy
 - Sources: ux-and-the-brain.md; balance-and-economy.md; Hodent ch. 12, 17; Clark ch. 13
-### R-39 Unguarded destructive action
-- Look for: Delete, sell, discard or overwrite with no confirm or undo; two inputs the player cannot tell apart.
+### R-39 Unguarded destructive or irreversible action
+- Look for: Delete, sell, discard or overwrite with no confirm or undo; two inputs the player cannot tell apart; any choice that cannot be taken back (a route node, an event option, a reward pick) committed on a single click.
 - Breaks: Error prevention
-- Severity hint: major if it loses progress; minor otherwise
+- Severity hint: major if it loses progress; minor otherwise. Fix with select, then confirm or back out; it costs one click, so keep it for choices that cannot be undone
 - Tool: by hand (read the handler)
 - Sources: ux-and-the-brain.md; Hodent 11.2.6; Swink
 
@@ -425,4 +425,4 @@ Hand off to juice-scan; list only what the docs and code show.
 
 ## Related
 
-Related: [review-rubric-more.md](review-rubric-more.md) (R-53 to R-79), [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](balance-tables.md), [systems-and-loops.md](systems-and-loops.md), [uncertainty.md](uncertainty.md), [core-loops-and-goals.md](core-loops-and-goals.md), [levels-and-space.md](levels-and-space.md), [procgen.md](procgen.md), [game-ai-for-designers.md](game-ai-for-designers.md), [ux-and-the-brain.md](ux-and-the-brain.md), [playtesting.md](playtesting.md), [production-and-scope.md](production-and-scope.md), [feel-handoff.md](feel-handoff.md), [ai-as-design-tool.md](ai-as-design-tool.md)
+Related: [review-rubric-more.md](review-rubric-more.md) (R-53 to R-80), [balance-and-economy.md](balance-and-economy.md), [balance-tables.md](balance-tables.md), [systems-and-loops.md](systems-and-loops.md), [uncertainty.md](uncertainty.md), [core-loops-and-goals.md](core-loops-and-goals.md), [levels-and-space.md](levels-and-space.md), [procgen.md](procgen.md), [game-ai-for-designers.md](game-ai-for-designers.md), [ux-and-the-brain.md](ux-and-the-brain.md), [playtesting.md](playtesting.md), [production-and-scope.md](production-and-scope.md), [feel-handoff.md](feel-handoff.md), [ai-as-design-tool.md](ai-as-design-tool.md)
