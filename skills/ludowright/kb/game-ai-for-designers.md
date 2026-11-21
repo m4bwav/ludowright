@@ -34,6 +34,7 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 28. To make several chasers look coordinated without a squad planner, have each one raise the path cost of nodes the others already plan to use. Routes split and read as flanking. The nearest chaser plans first. [Palacios ch. 5]
 29. An AI that reads the player's last two or three actions (an N-gram predictor) can punish repeated habits. Tell the player it adapts, cap how often it counters, and fall back to a shorter window while data is thin, or it feels like cheating. [Palacios ch. 8]
 27. Give the player verbs that write into the AI's senses or memory: a knock, a thrown object, a decoy that sets the guard's last-known position and sends it to investigate. A stealth enemy with that memory becomes a puzzle the player plays, not just a hazard. Each lure needs a readable reaction and a cap, so it cannot loop a guard forever. [Cossu ch. 5]
+31. A pacing director that adapts is a clamped counter, not a mood reader: it grows during calm, drops a fixed amount after a loss (a death drops it more than an injury), stays inside a floor and a ceiling, and maps to a points multiplier through a curve. Multiply event size by separate curves (time played, the counter, difficulty) so each knob is tuned alone, and let small threats drop out as the budget grows. Without the ceiling the budget runs away; `ldw.py director` flags `RUNAWAY`. [harvest: a colony sim's shipped data files, 2026-11]
 
 ## How to apply
 

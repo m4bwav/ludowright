@@ -6,12 +6,12 @@ Open only what the task needs. Each file paraphrases the design canon with book 
 - [core-loops-and-goals.md](core-loops-and-goals.md): core loop as a verb, shaping verbs scored against a visible target, experience goals, player promises, what makes a pitch specific; read for design and for broken-promise findings
 - [systems-and-loops.md](systems-and-loops.md): feedback loops, emergence, meaningful decisions, economy patterns; read for degenerate loops and dead choices
 - [balance-and-economy.md](balance-and-economy.md): cost curves, transitivity, sources and sinks, progression curves, dominant strategies, which `ldw.py` command answers which question
-- [balance-tables.md](balance-tables.md): how to declare a table for `ldw.py ev`, `curve`, `economy`, `sim`, `ramp` (difficulty ramps) and `stop` (when to settle under attrition)
+- [balance-tables.md](balance-tables.md): how to declare a table for `ldw.py ev`, `curve`, `economy`, `sim`, `ramp` (difficulty ramps), `stop` (when to settle under attrition), `director` (event schedules), `mood` (stacked modifiers and a break line) and `grammar` (text and name grammars)
 - [uncertainty.md](uncertainty.md): the sources of uncertainty, luck and skill, hidden information, kingmaking and catch-up
 - [levels-and-space.md](levels-and-space.md): level and encounter design, pacing graphs, teaching through space
 - [ux-and-the-brain.md](ux-and-the-brain.md): perception, attention, memory, motivation, onboarding, staged stuck-hints, light-touch onboarding (note beside target, tolerant tour, daily find), usability checks, dark patterns
 - [playtesting.md](playtesting.md): playtest plans, session scripts, questionnaire templates, what a playtest can and cannot show
-- [procgen.md](procgen.md): when to generate content, authorial control, sameness, evaluating generators, repair passes
+- [procgen.md](procgen.md): when to generate content, authorial control, sameness, evaluating generators, repair passes, text and name grammars
 - [production-and-scope.md](production-and-scope.md): phases, vertical slice, solo scoping, cutting, production failure patterns
 - [game-ai-for-designers.md](game-ai-for-designers.md): AI opponents and NPCs from the design side: readability, fairness, difficulty levers, cheating AI
 - [ai-as-design-tool.md](ai-as-design-tool.md): procedural generation, player modelling, simulated playtesting, LLM ideation and critique, and the guards this plugin keeps

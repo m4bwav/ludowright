@@ -67,4 +67,39 @@ For a loop where options arrive one at a time, settling on one ends the run, and
 
 It scores 21 fixed thresholds (settle on the first option seen at or above it) over seeded runs and prints the best threshold, its EV and mean stop step, the EV of settling on the first option, and the hindsight best (an upper bound no policy reaches). Fixed thresholds are a lower bound on the best policy; a falling threshold can do a little better. Flags: `FIRST-IS-BEST` (settling at once is within 5% of the best: moving on is never worth it), `NEVER-STOP` (the best policy waits to 90% of the cap: attrition is too weak to force a call), `NO-COST` (no move costs anything: waiting is free), `FLAT` (every threshold within 5%: the choice does not matter), else `TENSE`. Run once with `noisy` off and once on: the gap is what clear information is worth, which prices a scan or probe item.
 
+## director: event schedules
+
+For a game that throws events at the player over time (raids, storms, visitors). `comps` are independent clocks; each has a `category` and a `kind`: `onoff` (`start_day`, `on_days`, `off_days`, `count` [lo, hi] per window, `min_spacing`), `mtb` (`mtb_days` mean gap, optional `choices` of weighted categories) or `once` (`day`). `threats` names the threat categories (default: names containing "threat"). Optional: `grace` (a threat before it is flagged), `breather` (shortest acceptable longest gap, default 3 days), `clump_window` (default 1 day), `points` and `budget` ([[day, factor], ...] piecewise linear), and `adapt` (`start`, `per_day`, `loss_chance` per threat, `loss`, `min`, `max`, `curve` [[counter, factor], ...]).
+
+```json
+{"threats": ["big_threat"], "grace": 10, "points": 100, "budget": [[0, 0.7], [40, 1]],
+ "comps": [{"category": "big_threat", "kind": "onoff", "start_day": 10, "on_days": 5, "off_days": 6, "count": [1, 2], "min_spacing": 2},
+           {"category": "visitor", "kind": "mtb", "mtb_days": 5, "start_day": 4}],
+ "adapt": {"start": 0, "per_day": 1, "loss_chance": 0.2, "loss": 30, "min": -60, "max": 100, "curve": [[-30, 0.4], [0, 0.8], [180, 2]]}}
+```
+
+It prints events per category per 30 days, first threat (min and p50), the closest pair of threats, the longest gap and longest run of threat days (p50), clumps per run, and the budget at days 30, 60 and the end (p10, p50, p90). Flags: `NO-BREATHER`, `CLUMP` (one or more pairs inside the window per run), `EARLY-THREAT`, `RUNAWAY` (end budget over 3x start with no adapt ceiling), else `PACED`.
+
+## mood: stacked modifiers and a break line
+
+`base`, `rise_per_hour`, `fall_per_hour`, `threshold`, optional `range` (default [0, 100]), `start`, `bands` (name to offset below the threshold) and `oscillate_per_day` (default 1). `events`: `name`, `effect`, `duration_h`, `rate_per_day`, `stack_limit` (omit for none), `stack_mult` (default 1).
+
+```json
+{"base": 50, "rise_per_hour": 6, "fall_per_hour": 4, "threshold": 35, "bands": {"minor": 0, "major": 10, "extreme": 20},
+ "events": [{"name": "cold meal", "effect": -3, "duration_h": 24, "rate_per_day": 8, "stack_limit": 3, "stack_mult": 0.5}]}
+```
+
+It prints mood p05, p50 and p95, the share of hours below the threshold and per band, crossings per day and the peak copies of each event. Flags: `SPIKE` (rise equals fall and is a quarter of the range or more: mood tracks events instantly), `UNCAPPED` (an event with no limit piled past 5 copies), `NEVER-BREAKS`, `ALWAYS-BREAKS` (below the line over half the time), `OSCILLATES`, else `STEADY`.
+
+## grammar: text and name grammars
+
+`rules`: `lhs`, `rhs` (text with `[symbol]` references), optional `p` (weight, default 1), `if` (comma-separated `key==v`, `key!=v`, `key>n`, `key<n`, `>=`, `<=`; a missing key fails all but `!=`) and `priority` (the highest applicable tier wins). `lists`: symbol to a word list. Pass facts with `--const KEY=VAL`.
+
+```json
+{"rules": [{"lhs": "r_name", "rhs": "[syl][syl]", "p": 12}, {"lhs": "r_name", "rhs": "[town] [union]", "p": 4}],
+ "lists": {"syl": ["ka", "ro", "mi"], "town": ["Ashgate"], "union": ["League", "Pact"]}}
+```
+
+It prints undefined, unreachable, dead (no rule applies under the facts) and recursive symbols, the combination count, the unique share of N seeded samples, expected against seen share per root alternative, and the most repeated outputs. Flags: `UNDEFINED`, `UNREACHABLE`, `DEAD-UNDER`, `RECURSIVE`, `LOW-VARIETY` (unique share under 0.8), else `CLEAN`. Exits 1 on `UNDEFINED` or `DEAD-UNDER`.
+
 Related: builds on [balance-and-economy.md](balance-and-economy.md); see also [uncertainty.md](uncertainty.md), [systems-and-loops.md](systems-and-loops.md), [review-rubric.md](review-rubric.md)

@@ -3,7 +3,7 @@ name: ludowright
 description: "Game design for any game, video or tabletop: pitch new game designs as one-pagers with contrasting alternatives, rank improvements to an existing game, and review a game's design for flaws (dominant strategies, degenerate loops, dead choices, economy leaks, difficulty spikes, onboarding gaps, pacing, scope risk, broken promises) with every finding tied to a file or rule and the principle it breaks, in a versioned JSON findings file other plugins can read. Also balance and economy maths (expected value, cost curves, Monte Carlo), level and encounter design, onboarding and UX, playtest plans, randomness, procedural generation, and AI opponent and NPC behaviour. Use on 'design a game about', 'game idea for a jam', 'review my game's design', 'what's wrong with my game', 'is this card overpowered', 'balance my economy', 'playtest questions', 'design the enemy AI'. Also 'refresh ludowright'. Not for feel or juice (game-juice), engine code (unity-agent, roblox-agent), or writing a game's story."
 license: MIT
 metadata:
-  version: "0.1.48"
+  version: "0.1.49"
 ---
 
 # ludowright
@@ -35,7 +35,7 @@ A caller (another plugin or agent) asking to evaluate a design or a game gets th
 1. **Read before judging.** Restate the game's intent and kind (shipped once or live service; real-time or turn-based; solo or multiplayer) in two lines before any finding, from the game's own docs. A design is judged against what it is trying to be.
 2. **Evidence or nothing.** Every finding cites its location (file plus section, rule, symbol or line) and quotes or names the rule text, number or code it rests on. Every principle cites a kb file and its book source. "No issue found" is an answer.
 3. **Rule, then dynamic, then experience.** Trace each finding from the rule through what players will do to what they will feel, and say who it hurts (new players, experts, a play style).
-4. **Count with the script.** Expected values, cost curves, flows, simulations, draw odds and difficulty ramps come from `LDW` (`ev`, `curve`, `economy`, `sim`, `draw`, `ramp`, `stop`; table shapes in [kb/balance-tables.md](kb/balance-tables.md)), with the table you declared saved next to the output. A balance claim names the player policy it assumes and reports a spread, not just a mean.
+4. **Count with the script.** Expected values, cost curves, flows, simulations, draw odds and difficulty ramps come from `LDW` (`ev`, `curve`, `economy`, `sim`, `draw`, `ramp`, `stop`, `director`, `mood`, `grammar`; table shapes in [kb/balance-tables.md](kb/balance-tables.md)), with the table you declared saved next to the output. A balance claim names the player policy it assumes and reports a spread, not just a mean.
 5. **Mark what only play can settle.** A finding that depends on feel, timing or how people actually behave gets `confidence: low` and says it needs a playtest; feel itself goes to game-juice (`category: feel`, `handoff: juice-scan`).
 6. **Specific, never generic.** A design names its verb, its constraint and its hook. A suggestion names what to change and by how much. Anything that would fit any game is cut.
 7. **Read-only on the user's game.** Write the output files beside the user's request (or where they say), never into their source, data or saves.

@@ -308,3 +308,106 @@ class StopTest(unittest.TestCase):
         self.assertLess(noisy["best"]["ev"], clear["best"]["ev"])
         self.assertLessEqual(clear["best"]["ev"], clear["ev_oracle"])
         self.assertGreater(clear["best"]["ev"], clear["ev_first"] * 1.05)
+
+
+FIXTURES = os.path.join(os.path.dirname(__file__), "..", "skills", "ludowright", "evals")
+
+
+class Director(unittest.TestCase):
+    WINDOWED = {"grace": 11, "comps": [{"category": "big_threat", "kind": "onoff", "start_day": 11, "on_days": 4.6,
+                                         "off_days": 6, "count": [1, 2], "min_spacing": 1.9}]}
+
+    def test_windowed_respects_grace_spacing_and_rate(self):
+        r = ldw.director(self.WINDOWED, days=1000, runs=500, seed=1)
+        self.assertGreaterEqual(r["first_threat_min"], 11)
+        self.assertGreaterEqual(r["min_spacing_seen"], 1.9 - 1e-9)
+        expected = 1.5 / 10.6 * 30
+        self.assertAlmostEqual(r["per_30_days"]["big_threat"], expected, delta=0.15 * expected)
+        self.assertEqual(r["flags"], ["PACED"])
+
+    def test_weighted_mtb_matches_weight_shares(self):
+        w = {"misc": 3.5, "big_threat": 1.4, "arrival": 2.4, "small_threat": 0.6}
+        t = {"comps": [{"kind": "mtb", "mtb_days": 1.35, "choices": [{"category": k, "weight": v} for k, v in w.items()]}]}
+        r = ldw.director(t, days=120, runs=2000, seed=1)
+        tot = sum(r["per_30_days"].values())
+        for k, v in w.items():
+            self.assertAlmostEqual(r["per_30_days"][k] / tot, v / sum(w.values()), delta=0.03)
+        self.assertAlmostEqual(tot, 30 / 1.35, delta=1.0)
+
+    def test_clumped_and_runaway_flags(self):
+        t = {"comps": [{"category": "threat", "kind": "mtb", "mtb_days": 0.5}], "budget": [[0, 1], [120, 5]]}
+        flags = ldw.director(t, days=120, runs=200, seed=1)["flags"]
+        for f in ("CLUMP", "NO-BREATHER", "RUNAWAY"):
+            self.assertIn(f, flags)
+        t["adapt"] = {"per_day": 0, "max": 10}
+        self.assertNotIn("RUNAWAY", ldw.director(t, days=120, runs=50, seed=1)["flags"])
+
+    def test_early_threat_before_grace(self):
+        t = dict(self.WINDOWED, grace=20)
+        self.assertIn("EARLY-THREAT", ldw.director(t, days=60, runs=50, seed=1)["flags"])
+
+
+class Mood(unittest.TestCase):
+    def table(self, **ev):
+        e = {"name": "nuisance", "effect": -3, "duration_h": 24, "rate_per_day": 8}
+        e.update(ev)
+        return {"base": 50, "rise_per_hour": 6, "fall_per_hour": 4, "threshold": 35,
+                "bands": {"minor": 0, "major": 10, "extreme": 20}, "events": [e]}
+
+    def test_uncapped_nuisance_flags(self):
+        r = ldw.mood(self.table(), hours=720, runs=50, seed=1)
+        self.assertIn("UNCAPPED", r["flags"])
+        self.assertIn("ALWAYS-BREAKS", r["flags"])
+        self.assertAlmostEqual(r["p50"], 50 - 3 * 8, delta=2)
+
+    def test_capped_half_multiplier_settles(self):
+        r = ldw.mood(self.table(stack_limit=3, stack_mult=0.5), hours=720, runs=50, seed=1)
+        self.assertNotIn("UNCAPPED", r["flags"])
+        self.assertAlmostEqual(r["p50"], 50 - 3 - 1.5 - 0.75, delta=0.5)
+        self.assertEqual(r["flags"], ["NEVER-BREAKS"])
+
+    def test_spike_when_rates_equal_and_high(self):
+        t = self.table(stack_limit=1)
+        t.update(rise_per_hour=40, fall_per_hour=40)
+        self.assertIn("SPIKE", ldw.mood(t, hours=48, runs=5, seed=1)["flags"])
+
+
+class Grammar(unittest.TestCase):
+    def setUp(self):
+        with open(os.path.join(FIXTURES, "grammar-fixture.json"), encoding="utf-8") as f:
+            self.g = json.load(f)
+
+    def test_flags_count_and_weights(self):
+        r = ldw.grammar(self.g, "r_name", samples=2000, seed=1, consts={"flesh": "Machine"})
+        self.assertEqual(r["undefined"], ["missing"])
+        self.assertEqual(r["dead_under"], ["r_blood"])
+        self.assertEqual(r["combinations"], 8 * 8 + 5 + 5 * 3)
+        top = r["alternatives"][0]
+        self.assertAlmostEqual(top["expected"], 12 / 23, places=6)
+        self.assertAlmostEqual(top["observed"], 0.52, delta=0.05)
+        self.assertIn("LOW-VARIETY", r["flags"])
+
+    def test_condition_and_priority_fallback(self):
+        r = ldw.grammar(self.g, "r_wound", samples=50, seed=1, consts={"flesh": "Machine"})
+        self.assertEqual([a["rhs"] for a in r["alternatives"]], ["a dented plate"])
+        r = ldw.grammar(self.g, "r_wound", samples=50, seed=1)
+        self.assertEqual(r["dead_under"], [])
+        self.assertEqual(r["combinations"], 2)
+
+    def test_recursion_and_cli_exit(self):
+        g = {"rules": [{"lhs": "r_name", "rhs": "[r_name]a"}, {"lhs": "r_name", "rhs": "b"}]}
+        self.assertEqual(ldw.grammar(g, samples=20)["recursive"], ["r_name"])
+        with contextlib.redirect_stdout(io.StringIO()):
+            code = ldw.main(["grammar", os.path.join(FIXTURES, "grammar-fixture.json"), "--samples", "100"])
+        self.assertEqual(code, 1)
+
+
+class RimHarvestKb(unittest.TestCase):
+    def test_sections_present(self):
+        import pathlib
+        kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
+        tables = (kb / "balance-tables.md").read_text(encoding="utf-8")
+        for h in ("## director:", "## mood:", "## grammar:"):
+            self.assertIn(h, tables)
+        self.assertIn("ldw.py grammar", (kb / "procgen.md").read_text(encoding="utf-8"))
+        self.assertIn("ldw.py mood", (kb / "balance-and-economy.md").read_text(encoding="utf-8"))

@@ -123,3 +123,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 ## [2026-11-20] update | 0.1.46: book round (Robbins, Microscope Explorer; Campos, Godot 4 patterns): worldbuilding 10-14 and an "Adapting a co-made world" block, rubric R-81 known ending as the stake and R-82 buff stack with no rules, game-ai 30 state explosion. Changelog 0.1.44-0.1.45 archived first; installed folder 310 KB (yellow, net +3 KB). Noted only: group dice coordination, time-travel overwrite order.
 
 ## [2026-11-21] update | 0.1.47: OSRS harvest general lessons (from the Arvum Electrum harvest): rubric R-83 round-trip money, R-84 rounding eats bonuses, R-85 shared resource with no claim, R-86 unspaced disasters; three economy failure patterns.
+- 2026-11-21: 0.1.49 adds ldw.py director, mood and grammar from a colony-sim data harvest (methods only); tests in tests/test_ldw.py (Director, Mood, Grammar).

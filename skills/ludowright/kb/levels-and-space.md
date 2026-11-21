@@ -27,6 +27,7 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 21. Plan difficulty as pacing, not a ramp: put the hardest stretch early, then let it ebb and flow with breathers and mood. A steady climb tires players before the end. [Yu Part IV]
 22. A zone of control (a short no-entry ring around each unit, lost when the unit is engaged or stunned) makes position a blocking tool for gaps, screens and rear protection. [Lambshead 2024, Zones of control]
 23. When free play collapses into one degenerate pattern (a central melee scrum), reward the alternative (rear attacks are devastating) and give scenarios competing objectives in different parts of the map. [Lambshead 2024, Introduction to scenarios]
+24. Schedule events with independent clocks, one per category: an on/off window (a few on-days, then off-days, a random count from a small range inside each window, a minimum spacing), a mean time between events, or one fixed day. Give threat clocks a start day (grace) and force the first threat to be a plain, readable one. Check the schedule with `ldw.py director`: it reports the longest gap, clumps and the first threat. [harvest: a colony sim's shipped data files, 2026-11]
 
 ## How to apply
 
