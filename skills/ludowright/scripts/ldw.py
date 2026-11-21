@@ -10,6 +10,7 @@
   sim TABLE --steps N           Monte Carlo over a declared table (draws, deltas or a deck)
   draw --deck D --copies C --drawn N   hypergeometric odds of drawing copies of a card
   ramp TABLE [--steps N]        difficulty ramp check: UNCAPPED, FLOOR@n / CAP@n, FLAT-EARLY
+  stop TABLE                    stop-or-continue check: best settle threshold, FIRST-IS-BEST / NEVER-STOP / FLAT
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
 """
@@ -25,7 +26,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.44"
+VERSION = "0.1.45"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -636,6 +637,74 @@ def cmd_ramp(a):
     return 0
 
 
+# ---------------------------------------------------------------- stop or continue
+
+def stop_check(t, runs=20000, seed=1):
+    """Stop-or-continue loop with attrition: options arrive one per step; settling ends the run and pays
+    value * condition / start. Moving on costs condition (an attrition draw). With 'noisy', each attribute is
+    seen with chance condition / start, else read as its mean. Scores fixed-threshold policies over many runs."""
+    rng = random.Random(seed)
+    steps, attrs = int(t.get("steps", 10)), int(t.get("attributes", 1))
+    start, noisy = float(t.get("condition", 100)), bool(t.get("noisy", False))
+    opt, att = t.get("option") or t["rows"], t.get("attrition") or [{"value": 0}]
+    ow, aw = [float(r.get("weight", 1)) for r in opt], [float(r.get("weight", 1)) for r in att]
+    ov, av = [float(r["value"]) for r in opt], [float(r["value"]) for r in att]
+    mean1 = sum(w * v for w, v in zip(ow, ov)) / sum(ow)
+    runs_data = []
+    for _ in range(runs):
+        cond, seq = start, []
+        for s in range(steps):
+            if s:
+                cond = max(0.0, cond + rng.choices(av, aw)[0])
+            vals = rng.choices(ov, ow, k=attrs)
+            seen = sum(v if not noisy or rng.random() < cond / start else mean1 for v in vals)
+            seq.append((seen, sum(vals) * cond / start, cond))
+            if cond <= 0:
+                break
+        runs_data.append(seq)
+    firsts = sorted(r[0][0] for r in runs_data)
+    cands = sorted({firsts[min(len(firsts) - 1, int(q / 20 * len(firsts)))] for q in range(21)})
+    def play(th):
+        pay, at = 0.0, 0
+        for seq in runs_data:
+            for i, (seen, real, cond) in enumerate(seq):
+                if seen >= th or i == len(seq) - 1 or cond <= 0:
+                    pay += real
+                    at += i + 1
+                    break
+        return pay / runs, at / runs
+    pols = [{"threshold": th, "ev": e, "mean_stop": m} for th in cands for e, m in [play(th)]]
+    best = max(pols, key=lambda p: p["ev"])
+    first = statistics.fmean(seq[0][1] for seq in runs_data)
+    oracle = statistics.fmean(max(x[1] for x in seq) for seq in runs_data)
+    flags = []
+    if first >= 0.95 * best["ev"]:
+        flags.append("FIRST-IS-BEST")
+    if best["mean_stop"] >= 0.9 * steps:
+        flags.append("NEVER-STOP")
+    if all(v >= 0 for v in av):
+        flags.append("NO-COST")
+    evs = [p["ev"] for p in pols]
+    if max(evs) - min(evs) <= 0.05 * abs(best["ev"] or 1):
+        flags.append("FLAT")
+    return {"runs": runs, "seed": seed, "steps": steps, "noisy": noisy, "ev_first": first, "ev_oracle": oracle,
+            "best": best, "policies": pols, "flags": flags or ["TENSE"]}
+
+
+def cmd_stop(a):
+    r = stop_check(load_table(a.table), a.runs, a.seed)
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    b = r["best"]
+    print(f"stop · {r['runs']} runs x {r['steps']} steps · seed {r['seed']} · noisy {r['noisy']}  {' '.join(r['flags'])}")
+    print(f"  best: settle when seen value >= {fmt(b['threshold'])} · EV {fmt(b['ev'])} · mean stop step {fmt(b['mean_stop'])}")
+    print(f"  settle on first: EV {fmt(r['ev_first'])} · hindsight best (upper bound): EV {fmt(r['ev_oracle'])}")
+    for p in r["policies"]:
+        print(f"  threshold {fmt(p['threshold']):>8}  EV {fmt(p['ev']):>8}  stop step {fmt(p['mean_stop'])}")
+    return 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -665,6 +734,9 @@ def main(argv=None):
     r = sp.add_parser("ramp", help="difficulty ramp check: uncapped growth, where it floors or caps, flat early")
     r.add_argument("table"); r.add_argument("--steps", type=int, help="steps to check (formula ramps; default the ramp's steps or 100)")
     r.add_argument("--json", action="store_true"); r.set_defaults(fn=cmd_ramp)
+    s = sp.add_parser("stop", help="stop-or-continue check: best settle threshold under attrition and noisy information")
+    s.add_argument("table"); s.add_argument("--runs", type=int, default=20000); s.add_argument("--seed", type=int, default=1)
+    s.add_argument("--json", action="store_true"); s.set_defaults(fn=cmd_stop)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")
