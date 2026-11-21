@@ -9,7 +9,7 @@ Open only what the task needs. Each file paraphrases the design canon with book 
 - [balance-tables.md](balance-tables.md): how to declare a table for `ldw.py ev`, `curve`, `economy`, `sim`, `ramp` (difficulty ramps) and `stop` (when to settle under attrition)
 - [uncertainty.md](uncertainty.md): the sources of uncertainty, luck and skill, hidden information, kingmaking and catch-up
 - [levels-and-space.md](levels-and-space.md): level and encounter design, pacing graphs, teaching through space
-- [ux-and-the-brain.md](ux-and-the-brain.md): perception, attention, memory, motivation, onboarding, staged stuck-hints, usability checks, dark patterns
+- [ux-and-the-brain.md](ux-and-the-brain.md): perception, attention, memory, motivation, onboarding, staged stuck-hints, light-touch onboarding (note beside target, tolerant tour, daily find), usability checks, dark patterns
 - [playtesting.md](playtesting.md): playtest plans, session scripts, questionnaire templates, what a playtest can and cannot show
 - [procgen.md](procgen.md): when to generate content, authorial control, sameness, evaluating generators, repair passes
 - [production-and-scope.md](production-and-scope.md): phases, vertical slice, solo scoping, cutting, production failure patterns

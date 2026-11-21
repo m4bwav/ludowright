@@ -160,6 +160,7 @@ class KbSectionsTest(unittest.TestCase):
         index = (kb / "INDEX.md").read_text(encoding="utf-8")
         self.assertIn("## Shaping verb against a visible target", core)
         self.assertIn("## Staged stuck-hints", ux)
+        self.assertIn("## Light-touch onboarding and a daily find", ux)
         self.assertIn("staged stuck-hints", index)
         self.assertIn("shaping verbs", index)
 
