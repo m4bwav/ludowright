@@ -261,3 +261,30 @@ class RampTest(unittest.TestCase):
     def test_bad_ramp_fails(self):
         with self.assertRaises(SystemExit):
             ldw.ramp({"base": 1, "factor": 0.5, "add": 1})
+
+
+class StopTest(unittest.TestCase):
+    COIN = [{"value": 0}, {"value": 100}]
+
+    def test_free_waiting_finds_the_top(self):
+        r = ldw.stop_check({"steps": 12, "option": self.COIN, "attrition": [{"value": 0}]}, runs=20000, seed=1)
+        self.assertEqual(r["best"]["threshold"], 100)
+        self.assertAlmostEqual(r["best"]["ev"], 100 * (1 - 0.5 ** 12), delta=0.2)
+        self.assertAlmostEqual(r["ev_first"], 50, delta=3 * 50 / math.sqrt(20000))
+        self.assertIn("NO-COST", r["flags"])
+
+    def test_lethal_attrition_means_settle_first(self):
+        r = ldw.stop_check({"steps": 12, "option": self.COIN, "attrition": [{"value": -100}]}, runs=5000, seed=1)
+        self.assertIn("FIRST-IS-BEST", r["flags"])
+        self.assertAlmostEqual(r["best"]["ev"], r["ev_first"], delta=3 * 50 / math.sqrt(5000))
+
+    def test_noise_costs_value_and_oracle_bounds(self):
+        t = {"steps": 12, "attributes": 5, "option": [{"weight": 2, "value": 100}, {"weight": 3, "value": 50},
+             {"weight": 5, "value": 0}], "attrition": [{"weight": 2, "value": 0}, {"weight": 6, "value": -8},
+             {"weight": 2, "value": -25}]}
+        clear = ldw.stop_check(dict(t), runs=20000, seed=1)
+        noisy = ldw.stop_check(dict(t, noisy=True), runs=20000, seed=1)
+        self.assertEqual(clear["flags"], ["TENSE"])
+        self.assertLess(noisy["best"]["ev"], clear["best"]["ev"])
+        self.assertLessEqual(clear["best"]["ev"], clear["ev_oracle"])
+        self.assertGreater(clear["best"]["ev"], clear["ev_first"] * 1.05)

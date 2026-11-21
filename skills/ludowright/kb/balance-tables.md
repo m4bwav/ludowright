@@ -55,4 +55,16 @@ One ramp per row, under `ramps` (or `rows`, or a bare list). A formula ramp has 
 
 It prints the value at steps 0, 1, 5, 10, 25, 50, 100 and up (plus the step where it flattens and the one before), and last/first. Flags: `UNCAPPED` (past 3x with no cap, or under 1/3 with no floor, within the steps checked: the late game outruns the player), `FLOOR@n` and `CAP@n` (the first step at the bound; a table: where it stops changing), `FLAT-EARLY` (flattens in under 5 steps, or no change over the first 5: the ramp is barely felt, or the opening drags). The floor step is exact maths; a game that rounds its values may floor a step sooner. Say which way you read it.
 
+## stop: stop or continue
+
+For a loop where options arrive one at a time, settling on one ends the run, and moving on costs something the payoff depends on (hull, crew, time, health). `option` is a weighted table of one attribute's quality; an option is the sum of `attributes` draws. `condition` is the starting value (default 100) and `attrition` a weighted table of what each move costs (negative values). The payoff is the option's value times condition over its start; condition 0 ends the run with nothing. `noisy: true` makes the player see each attribute only with chance condition over start, reading the rest as the average: damage blinds as well as weakens. `steps` caps the options seen.
+
+```json
+{"steps": 12, "attributes": 5, "noisy": true,
+ "option": [{"weight": 2, "value": 100}, {"weight": 3, "value": 50}, {"weight": 5, "value": 0}],
+ "attrition": [{"weight": 2, "value": 0}, {"weight": 6, "value": -8}, {"weight": 2, "value": -25}]}
+```
+
+It scores 21 fixed thresholds (settle on the first option seen at or above it) over seeded runs and prints the best threshold, its EV and mean stop step, the EV of settling on the first option, and the hindsight best (an upper bound no policy reaches). Fixed thresholds are a lower bound on the best policy; a falling threshold can do a little better. Flags: `FIRST-IS-BEST` (settling at once is within 5% of the best: moving on is never worth it), `NEVER-STOP` (the best policy waits to 90% of the cap: attrition is too weak to force a call), `NO-COST` (no move costs anything: waiting is free), `FLAT` (every threshold within 5%: the choice does not matter), else `TENSE`. Run once with `noisy` off and once on: the gap is what clear information is worth, which prices a scan or probe item.
+
 Related: builds on [balance-and-economy.md](balance-and-economy.md); see also [uncertainty.md](uncertainty.md), [systems-and-loops.md](systems-and-loops.md), [review-rubric.md](review-rubric.md)
