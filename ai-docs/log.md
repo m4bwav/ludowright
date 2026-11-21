@@ -119,4 +119,4 @@ New `ldw.py ramp TABLE [--steps N] [--json]`: formula ramps (base, factor or add
 Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, research R-20261029-1..6 and test run T-20261030-8 to ai-docs archives.
 
 ## [2026-11-20] update | 0.1.44: rubric R-80 no outcome preview before committing; R-39 widened to irreversible single-click choices (technique-harvest web-game round, written fresh); two changelog entries archived for the 300 KB line
-- 2026-11-20: 0.1.45 adds ldw.py stop (stop-or-continue under attrition, noisy readings) and uncertainty 32-34, from a technique harvest of a 2015 Twine game. Installed folder 303 KB, budget yellow.
+## [2026-11-20] update | 0.1.45: ldw.py stop (stop-or-continue under attrition, optional noisy readings) and uncertainty 32-34, from a technique-harvest round on a 2015 Twine game (written fresh); installed folder 303 KB, budget yellow
