@@ -88,4 +88,13 @@ An onboarding pattern seen in a commercial web platformer demo (observed 2026-11
 - Word the text for the input in use: "drag" or "tap" on touch, key names on keyboard. Detect the last input device, not the platform.
 - Review checks: a beat with no stuck plan; text shown first; hints that fire while the player is still making progress; keyboard wording shown on a phone.
 
+## Light-touch onboarding and a daily find
+
+Patterns read from one browser game's shipped scripts (2026-11-21, one game, unverified beyond it; no licence, so numbers and methods only).
+
+- First task as a character's note: one short status line from a named character, placed beside the very target it names, fading in over about 0.35 s, firing 0.7 to 0.9 s after the player enters, and closing itself after about 12 s or on a click. Mark the target as due. The player learns one action and where it is, not the system.
+- A tour that cannot break: each step names a target; wait up to about 0.9 s for targets, then run on whichever exist and skip the rest. Store seen-state per tour id (on the account when signed in) and give a replay link that ignores it. Light the current target the same way hover does.
+- Hidden daily find: a small glint at low opacity (about 16%) that rises to near full for a short window of its loop (about 0.55 s visible in 4.6 s). It pays once a day; a second find gets an in-fiction refusal, not an error. A light retention hook with no penalty for missing it.
+- Review checks: a tour that stalls when one target is missing; a first task given as a wall of text away from its target; a daily reward that punishes a missed day.
+
 Related: [levels-and-space](levels-and-space.md), [playtesting](playtesting.md), [procgen](procgen.md). Feel and feedback juice go to game-juice (juice-scan, juice-principles). Engine UI work goes to unity-agent, roblox-agent, madnesswright.
