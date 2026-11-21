@@ -4,12 +4,9 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
-### C-20261120-3 · 2026-11-20 · `ldw.py stop`: stop-or-continue check; uncertainty 32 to 34 (0.1.45)
-- because: user request (technique harvest of a 2015 Twine web game, Seedship; source read and played, no licence, so ideas only, described fresh, no code, text or assets copied)
-- files: scripts/ldw.py (stop), tests/test_ldw.py (StopTest), kb/balance-tables.md (stop), kb/uncertainty.md (32 to 34), kb/INDEX.md, references/balance.md, SKILL.md (routing row, step 4)
-- New `stop` command scores fixed settle thresholds for a loop where moving on costs condition the payoff depends on, with an optional noisy mode where damage hides readings. Flags FIRST-IS-BEST, NEVER-STOP, NO-COST, FLAT, else TENSE. Three kb principles: attrition spread over named subsystems, damage that blinds as well as weakens, event deck pacing and named endings. Installed folder now 303 KB (yellow). Triggers unchanged, so evals were not re-run.
+### C-20261120-4 · 2026-11-20 · Worldbuilding 10 to 14 and adapting block; rubric R-81, R-82; AI state explosion (0.1.46)
+- because: user request (book round: Robbins, Microscope Explorer; Campos, Game Development Patterns with Godot 4 (Godot 4.3); book rules, unverified)
+- files: kb/worldbuilding-and-lore.md (10 to 14, Adapting a co-made world), kb/review-rubric-more.md (R-81, R-82), kb/review-rubric.md (How to run 11, Related), kb/game-ai-for-designers.md (30), kb/INDEX.md, tests/test_ldw.py (KbSectionsTest)
+- Adds focus rounds with legacies, setup-only category vetoes, concept setup lists with a change axis, the picture-it test with reasoned tone labels, stuck prompts, and six logged moves for adapting a co-made world. R-81 flags a quest whose stakes are an outcome players already know (railroaded player covers lost choice, not this). R-82 flags buff stacks with order-dependent results, no single removal or one shared duration. Item 30 splits a combined state machine into parallel families. Changelog 0.1.44 and 0.1.45 archived first. Triggers unchanged, so evals were not re-run.
 
-### C-20261120-2 · 2026-11-20 · Rubric R-80 no outcome preview; R-39 covers irreversible single-click choices (0.1.44)
-- because: user request (technique harvest of a web card battler, source tianlinx/spire-echoes on GitHub, played and measured; ideas only, described fresh, no code, text or assets copied)
-- files: kb/review-rubric.md (R-39, How to run 11, Related), kb/review-rubric-more.md (R-80), kb/INDEX.md, tests/test_ldw.py (rubric range)
-- R-39 now also flags a choice that cannot be taken back (route node, event option, reward pick) committed on a single click, and names the select-then-confirm fix and its one-click cost. R-80 flags a targeted action with no forecast of damage and health before and after while aiming. Two older entries moved to ai-docs/changelog-archive.md to keep the installed folder at 300 KB. Triggers unchanged, so evals were not re-run (as for R-69 to R-79).
+Entries 0.1.45 and older are in [ai-docs/changelog-archive.md](../../ai-docs/changelog-archive.md), moved out to keep the installed folder small.

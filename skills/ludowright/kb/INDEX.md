@@ -2,7 +2,7 @@
 
 Open only what the task needs. Each file paraphrases the design canon with book and chapter sources (reading notes: `books/plugin-learnings/round3-game-design/` in the owner's workspace; nothing quoted).
 
-- [review-rubric.md](review-rubric.md) and [review-rubric-more.md](review-rubric-more.md): the flaw checks (R-01 to R-80) a review walks, by contract category; read for every review or improve job
+- [review-rubric.md](review-rubric.md) and [review-rubric-more.md](review-rubric-more.md): the flaw checks (R-01 to R-82) a review walks, by contract category; read for every review or improve job
 - [core-loops-and-goals.md](core-loops-and-goals.md): core loop as a verb, shaping verbs scored against a visible target, experience goals, player promises, what makes a pitch specific; read for design and for broken-promise findings
 - [systems-and-loops.md](systems-and-loops.md): feedback loops, emergence, meaningful decisions, economy patterns; read for degenerate loops and dead choices
 - [balance-and-economy.md](balance-and-economy.md): cost curves, transitivity, sources and sinks, progression curves, dominant strategies, which `ldw.py` command answers which question
@@ -19,4 +19,4 @@ Open only what the task needs. Each file paraphrases the design canon with book 
 - [design-drills.md](design-drills.md): text drills for stuck designs: rule remix, seeded random grid, constraint-first ideation, puzzle solvability, strategy-family balance, playtest feedback hygiene
 - [feel-handoff.md](feel-handoff.md): spotting feel problems in a review and handing them to game-juice's juice-scan
 - [narrative-design.md](narrative-design.md): quest and mission structure, branching and pinch points, fake-choice check, the skip-all-optional test, knowledge checkpoints, reading story feedback, story beats keyed to one progress number, hidden facts per knower
-- [worldbuilding-and-lore.md](worldbuilding-and-lore.md): setting history and lore without contradictions: bookends, exceptions list, zoom levels, outcome-first, three canon checks, open-gap ledger, loaded-question briefs
+- [worldbuilding-and-lore.md](worldbuilding-and-lore.md): setting history and lore without contradictions: bookends, exceptions list, zoom levels, outcome-first, three canon checks, open-gap ledger, loaded-question briefs, focus rounds, setup vetoes, adapting a co-made world
