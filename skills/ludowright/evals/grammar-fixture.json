@@ -1,0 +1,68 @@
+{
+ "rules": [
+  {
+   "lhs": "r_name",
+   "rhs": "[syl][syl]",
+   "p": 12
+  },
+  {
+   "lhs": "r_name",
+   "rhs": "[town]",
+   "p": 6
+  },
+  {
+   "lhs": "r_name",
+   "rhs": "[town] [union]",
+   "p": 4
+  },
+  {
+   "lhs": "r_name",
+   "rhs": "Near [town] [missing]",
+   "p": 1
+  },
+  {
+   "lhs": "r_wound",
+   "rhs": "a [cut] that [r_blood]",
+   "if": "flesh!=Machine"
+  },
+  {
+   "lhs": "r_wound",
+   "rhs": "a dented plate",
+   "if": "flesh==Machine",
+   "priority": -10
+  },
+  {
+   "lhs": "r_blood",
+   "rhs": "bleeds",
+   "if": "flesh!=Machine"
+  }
+ ],
+ "lists": {
+  "syl": [
+   "ka",
+   "ro",
+   "mi",
+   "ten",
+   "dal",
+   "vu",
+   "esh",
+   "or"
+  ],
+  "town": [
+   "Millbrook",
+   "Stonefold",
+   "Ashgate",
+   "Redwater",
+   "Highmoor"
+  ],
+  "union": [
+   "League",
+   "Pact",
+   "Compact"
+  ],
+  "cut": [
+   "gash",
+   "slice"
+  ]
+ }
+}

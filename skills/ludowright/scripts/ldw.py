@@ -11,6 +11,9 @@
   draw --deck D --copies C --drawn N   hypergeometric odds of drawing copies of a card
   ramp TABLE [--steps N]        difficulty ramp check: UNCAPPED, FLOOR@n / CAP@n, FLAT-EARLY
   stop TABLE                    stop-or-continue check: best settle threshold, FIRST-IS-BEST / NEVER-STOP / FLAT
+  director TABLE --days N       event schedule from comps: gaps, clumps, first threat, budget; NO-BREATHER / CLUMP / RUNAWAY
+  mood TABLE --hours N          stacked-modifier meter seeking a target: hours below threshold; UNCAPPED / SPIKE / OSCILLATES
+  grammar TABLE --root SYM      text grammar check: UNDEFINED, UNREACHABLE, DEAD-UNDER, RECURSIVE, LOW-VARIETY
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
 """
@@ -26,7 +29,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.48"
+VERSION = "0.1.49"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -705,6 +708,313 @@ def cmd_stop(a):
     return 0
 
 
+# ---------------------------------------------------------------- event director
+
+def plin(points, x):
+    """Piecewise-linear lookup over [[x, y], ...]; flat beyond the ends."""
+    pts = sorted((float(a), float(b)) for a, b in points)
+    if x <= pts[0][0]:
+        return pts[0][1]
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        if x <= x1:
+            return y0 + (y1 - y0) * (x - x0) / ((x1 - x0) or 1)
+    return pts[-1][1]
+
+
+def director_run(t, days, rng):
+    """One run: a sorted list of (day, category) events from independent comps."""
+    ev = []
+    for c in t["comps"]:
+        kind, start = c.get("kind", "mtb"), float(c.get("start_day", 0))
+        cat, sp = c.get("category", "event"), float(c.get("min_spacing", 0))
+        if kind == "once":
+            if float(c["day"]) <= days:
+                ev.append((float(c["day"]), cat))
+        elif kind == "onoff":
+            on, off = float(c["on_days"]), float(c["off_days"])
+            lo, hi = c.get("count") or [1, 1]
+            d = start
+            while d < days:
+                k = rng.randint(int(lo), int(hi))
+                while k > 1 and (k - 1) * sp > on:
+                    k -= 1
+                xs = sorted(rng.uniform(0, on - (k - 1) * sp) for _ in range(k))
+                ev += [(d + x + i * sp, cat) for i, x in enumerate(xs) if d + x + i * sp <= days]
+                d += on + off
+        else:
+            mtb, picks = float(c["mtb_days"]), c.get("choices")
+            d = start + rng.expovariate(1 / mtb)
+            while d <= days:
+                ch = rng.choices([p["category"] for p in picks], [float(p.get("weight", 1)) for p in picks])[0] if picks else cat
+                ev.append((d, ch))
+                d += max(sp, rng.expovariate(1 / mtb))
+    return sorted(ev)
+
+
+def pctl(xs, q):
+    xs = sorted(xs)
+    return xs[min(len(xs) - 1, int(q * len(xs)))] if xs else None
+
+
+def director(t, days=120, runs=2000, seed=1):
+    """Independent comps schedule events; reports gaps, clumps, first threat and the threat budget over days."""
+    rng = random.Random(seed)
+    comps = t["comps"]
+    cats = sorted({c.get("category", "event") for c in comps if "choices" not in c} |
+                  {p["category"] for c in comps for p in c.get("choices") or []})
+    threats = set(t.get("threats") or [k for k in cats if "threat" in k.lower()] or cats)
+    window, floor, grace = float(t.get("clump_window", 1)), float(t.get("breather", 3)), t.get("grace")
+    points, curve, ad = float(t.get("points", 100)), t.get("budget"), t.get("adapt")
+    marks = sorted({d for d in (30, 60, days) if d <= days})
+    counts, gaps, longest, clumps, firsts, early, spacing = {k: 0 for k in cats}, [], [], [], [], 0, []
+    bud = {d: [] for d in marks}
+    afac = (lambda v: plin(ad["curve"], v)) if ad and ad.get("curve") else (lambda v: 1.0)
+    for _ in range(runs):
+        ev = director_run(t, days, rng)
+        for _, k in ev:
+            counts[k] = counts.get(k, 0) + 1
+        th = [d for d, k in ev if k in threats]
+        firsts.append(th[0] if th else None)
+        if grace is not None and th and th[0] < float(grace):
+            early += 1
+        edges = th + [days]
+        gaps.append(max((b - a for a, b in zip(edges, edges[1:])), default=days))
+        spacing += [b - a for a, b in zip(th, th[1:])]
+        clumps.append(sum(1 for a, b in zip(th, th[1:]) if b - a < window))
+        dayset, best, cur = {int(d) for d in th}, 0, 0
+        for d in range(int(days) + 1):
+            cur = cur + 1 if d in dayset else 0
+            best = max(best, cur)
+        longest.append(best)
+        a_val, ti = float(ad.get("start", 0)) if ad else 0.0, 0
+        for d in range(int(days) + 1):
+            if ad:
+                a_val += float(ad.get("per_day", 1))
+                while ti < len(th) and th[ti] < d + 1:
+                    if rng.random() < float(ad.get("loss_chance", 0)):
+                        a_val -= float(ad.get("loss", 0))
+                    ti += 1
+                a_val = min(float(ad.get("max", math.inf)), max(float(ad.get("min", -math.inf)), a_val))
+            if d in bud:
+                bud[d].append(points * (plin(curve, d) if curve else 1.0) * afac(a_val))
+    got = [f for f in firsts if f is not None]
+    start_b = points * (plin(curve, 0) if curve else 1.0) * afac(float(ad.get("start", 0)) if ad else 0.0)
+    res = {"days": days, "runs": runs, "seed": seed, "threats": sorted(threats),
+           "per_30_days": {k: v / runs * 30 / days for k, v in counts.items()},
+           "longest_gap_p50": pctl(gaps, 0.5), "longest_threat_run_p50": pctl(longest, 0.5),
+           "clumps_per_run": statistics.fmean(clumps), "first_threat_min": min(got) if got else None,
+           "first_threat_p50": pctl(got, 0.5), "min_spacing_seen": min(spacing) if spacing else None,
+           "budget": {d: {"p10": pctl(v, .1), "p50": pctl(v, .5), "p90": pctl(v, .9)} for d, v in bud.items()}}
+    flags = []
+    if res["longest_gap_p50"] is not None and res["longest_gap_p50"] < floor:
+        flags.append("NO-BREATHER")
+    if res["clumps_per_run"] >= 1:
+        flags.append("CLUMP")
+    if early:
+        flags.append("EARLY-THREAT")
+    if res["budget"][marks[-1]]["p50"] > 3 * start_b and not (ad and "max" in ad):
+        flags.append("RUNAWAY")
+    res["flags"] = flags or ["PACED"]
+    return res
+
+
+def cmd_director(a):
+    r = director(load_json(a.table), a.days, a.runs, a.seed)
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    print(f"director · {r['runs']} runs x {r['days']} days · seed {r['seed']} · threats {', '.join(r['threats'])}  {' '.join(r['flags'])}")
+    print("  per 30 days: " + " · ".join(f"{k} {fmt(v)}" for k, v in r["per_30_days"].items()))
+    print(f"  first threat: min {fmt(r['first_threat_min'])} · p50 {fmt(r['first_threat_p50'])} · closest pair {fmt(r['min_spacing_seen'])} days")
+    print(f"  longest gap p50 {fmt(r['longest_gap_p50'])} days · longest threat-day run p50 {r['longest_threat_run_p50']} · clumps per run {fmt(r['clumps_per_run'])}")
+    print("  budget: " + " · ".join(f"day {d} p10 {fmt(b['p10'])} p50 {fmt(b['p50'])} p90 {fmt(b['p90'])}" for d, b in r["budget"].items()))
+    return 0
+
+
+# ---------------------------------------------------------------- mood meter
+
+def mood(t, hours=720, runs=200, seed=1):
+    """Mood seeks a target (base plus stacked event effects) at capped rise and fall rates per hour.
+    Copy k of an event counts effect * mult^(k-1), up to its stack limit."""
+    rng = random.Random(seed)
+    base, rise, fall, th = float(t["base"]), float(t["rise_per_hour"]), float(t["fall_per_hour"]), float(t["threshold"])
+    lo, hi = [float(x) for x in t.get("range", [0, 100])]
+    bands = sorted(((float(v), k) for k, v in (t.get("bands") or {"break": 0}).items()), reverse=True)
+    events = t["events"]
+    names = [e.get("name", str(i)) for i, e in enumerate(events)]
+    vals, below, crosses = [], 0, 0
+    band_h, peak = {k: 0 for _, k in bands}, {n: 0 for n in names}
+    for _ in range(runs):
+        m, active, was = float(t.get("start", base)), [[] for _ in events], None
+        for h in range(hours):
+            target = base
+            for i, e in enumerate(events):
+                active[i] = [x for x in active[i] if x > h]
+                p = float(e.get("rate_per_day", 0)) / 24
+                n = int(p) + (rng.random() < p - int(p))
+                active[i] += [h + float(e.get("duration_h", 24))] * n
+                lim, mult = e.get("stack_limit"), float(e.get("stack_mult", 1))
+                k = len(active[i]) if lim is None else min(len(active[i]), int(lim))
+                peak[names[i]] = max(peak[names[i]], len(active[i]))
+                target += float(e["effect"]) * (k if mult == 1 else (1 - mult ** k) / (1 - mult))
+            m = min(m + rise, target) if target > m else max(m - fall, target)
+            m = min(hi, max(lo, m))
+            vals.append(m)
+            now = m < th
+            if now:
+                below += 1
+                for off, k in bands:
+                    if m <= th - off:
+                        band_h[k] += 1
+                        break
+            if was is not None and now != was:
+                crosses += 1
+            was = now
+    tot = hours * runs
+    res = {"hours": hours, "runs": runs, "seed": seed, "p05": pctl(vals, .05), "p50": pctl(vals, .5), "p95": pctl(vals, .95),
+           "share_below": below / tot, "share_by_band": {k: v / tot for k, v in band_h.items()},
+           "crossings_per_day": crosses / runs / (hours / 24), "peak_copies": peak}
+    flags = []
+    if rise == fall and rise >= 0.25 * abs(hi - lo):
+        flags.append("SPIKE")
+    if any(e.get("stack_limit") is None and peak[names[i]] > 5 for i, e in enumerate(events)):
+        flags.append("UNCAPPED")
+    if below == 0:
+        flags.append("NEVER-BREAKS")
+    if res["share_below"] > 0.5:
+        flags.append("ALWAYS-BREAKS")
+    if res["crossings_per_day"] > float(t.get("oscillate_per_day", 1)):
+        flags.append("OSCILLATES")
+    res["flags"] = flags or ["STEADY"]
+    return res
+
+
+def cmd_mood(a):
+    r = mood(load_json(a.table), a.hours, a.runs, a.seed)
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    print(f"mood · {r['runs']} runs x {r['hours']} h · seed {r['seed']}  {' '.join(r['flags'])}")
+    print(f"  mood p05 {fmt(r['p05'])} · p50 {fmt(r['p50'])} · p95 {fmt(r['p95'])} · below threshold {r['share_below']:.1%} of hours · crossings per day {fmt(r['crossings_per_day'])}")
+    print("  bands: " + " · ".join(f"{k} {v:.1%}" for k, v in r["share_by_band"].items()))
+    print("  peak copies: " + " · ".join(f"{k} {v}" for k, v in r["peak_copies"].items()))
+    return 0
+
+
+# ---------------------------------------------------------------- text grammar
+
+SYM_RE = re.compile(r"\[([^\[\]]+)\]")
+COND_RE = re.compile(r"^\s*([\w.]+)\s*(==|!=|>=|<=|>|<)\s*(.+?)\s*$")
+
+
+def cond_ok(expr, consts):
+    """Comma-separated conditions, all must hold. A missing constant fails every test except !=."""
+    for part in [x for x in (expr or "").split(",") if x.strip()]:
+        m = COND_RE.match(part)
+        if not m:
+            fail(f"bad condition: {part}")
+        k, op, v = m.groups()
+        if k not in consts:
+            if op != "!=":
+                return False
+            continue
+        try:
+            x, y = float(consts[k]), float(v)
+        except ValueError:
+            x, y = str(consts[k]), v
+            if op not in ("==", "!="):
+                return False
+        if not {"==": x == y, "!=": x != y, ">": x > y, "<": x < y, ">=": x >= y, "<=": x <= y}[op]:
+            return False
+    return True
+
+
+def grammar(t, root="r_name", samples=500, seed=1, consts=None):
+    """Weighted rewrite grammar with conditions and priority tiers: structure checks, combination count, variety."""
+    consts, lists, rules = consts or {}, t.get("lists") or {}, {}
+    for r in t["rules"]:
+        rules.setdefault(r["lhs"], []).append(r)
+    def live(sym):
+        ok = [r for r in rules.get(sym, []) if cond_ok(r.get("if"), consts)]
+        top = max((float(r.get("priority", 0)) for r in ok), default=0)
+        return [r for r in ok if float(r.get("priority", 0)) == top]
+    refs = lambda r: SYM_RE.findall(r["rhs"])
+    used = {s for rs in rules.values() for r in rs for s in refs(r)}
+    undefined = sorted(s for s in used | {root} if s not in rules and s not in lists)
+    dead = sorted(s for s in rules if s not in lists and not live(s))
+    seen, stack = set(), [root]
+    while stack:
+        s = stack.pop()
+        if s not in seen:
+            seen.add(s)
+            stack += [x for r in rules.get(s, []) for x in refs(r)]
+    unreachable = sorted(s for s in set(rules) | set(lists) if s not in seen)
+    def reaches(a, b):
+        vis, st = set(), [x for r in live(a) for x in refs(r)]
+        while st:
+            s = st.pop()
+            if s == b:
+                return True
+            if s not in vis:
+                vis.add(s)
+                st += [x for r in live(s) for x in refs(r)]
+        return False
+    recursive = sorted(s for s in rules if reaches(s, s))
+    memo = {}
+    def count(s):
+        if s in lists:
+            return len(lists[s])
+        if s in recursive:
+            return math.inf
+        if s not in memo:
+            memo[s] = 0
+            memo[s] = sum(math.prod(count(x) for x in refs(r)) for r in live(s))
+        return memo[s]
+    combos = count(root)
+    rng = random.Random(seed)
+    def expand(s, depth=0):
+        if s in lists and lists[s]:
+            return rng.choice(lists[s]), None
+        opts = live(s)
+        if not opts or depth > 50:
+            return f"[{s}]", None
+        r = rng.choices(opts, [float(x.get("p", 1)) for x in opts])[0]
+        return SYM_RE.sub(lambda m: expand(m.group(1), depth + 1)[0], r["rhs"]), r["rhs"]
+    freq, branch = {}, {}
+    for _ in range(samples):
+        o, b = expand(root)
+        freq[o] = freq.get(o, 0) + 1
+        branch[b] = branch.get(b, 0) + 1
+    tops = live(root)
+    tw = sum(float(r.get("p", 1)) for r in tops) or 1
+    alts = [{"rhs": r["rhs"], "expected": float(r.get("p", 1)) / tw, "observed": branch.get(r["rhs"], 0) / samples} for r in tops]
+    uniq = len(freq) / samples
+    flags = [f for f, hit in (("UNDEFINED", undefined), ("UNREACHABLE", unreachable), ("DEAD-UNDER", dead),
+                              ("RECURSIVE", recursive), ("LOW-VARIETY", uniq < 0.8)) if hit]
+    return {"root": root, "samples": samples, "seed": seed, "consts": consts, "undefined": undefined,
+            "unreachable": unreachable, "dead_under": dead, "recursive": recursive,
+            "combinations": "infinite" if combos == math.inf else ("over 1e6" if combos > 1e6 else int(combos)),
+            "unique_share": uniq, "top_repeats": sorted(freq.items(), key=lambda kv: -kv[1])[:5],
+            "alternatives": alts, "flags": flags or ["CLEAN"]}
+
+
+def cmd_grammar(a):
+    consts = dict(kv.split("=", 1) for kv in a.const or [])
+    r = grammar(load_json(a.table), a.root, a.samples, a.seed, consts)
+    if a.json:
+        print(json.dumps(r, indent=1))
+    else:
+        print(f"grammar · root {r['root']} · {r['samples']} samples · seed {r['seed']}  {' '.join(r['flags'])}")
+        for k in ("undefined", "unreachable", "dead_under", "recursive"):
+            if r[k]:
+                print(f"  {k.replace('_', ' ')}: {', '.join(r[k])}")
+        print(f"  combinations {r['combinations']} · unique share {r['unique_share']:.1%}")
+        for alt in r["alternatives"]:
+            print(f"  {alt['expected']:.1%} expected, {alt['observed']:.1%} seen: {alt['rhs']}")
+        print("  most repeated: " + " · ".join(f"{o} x{n}" for o, n in r["top_repeats"]))
+    return 1 if r["undefined"] or r["dead_under"] else 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -737,6 +1047,16 @@ def main(argv=None):
     s = sp.add_parser("stop", help="stop-or-continue check: best settle threshold under attrition and noisy information")
     s.add_argument("table"); s.add_argument("--runs", type=int, default=20000); s.add_argument("--seed", type=int, default=1)
     s.add_argument("--json", action="store_true"); s.set_defaults(fn=cmd_stop)
+    g = sp.add_parser("director", help="event director: on/off windows, MTB, spacing, grace, adapt counter")
+    g.add_argument("table"); g.add_argument("--days", type=int, default=120); g.add_argument("--runs", type=int, default=2000)
+    g.add_argument("--seed", type=int, default=1); g.add_argument("--json", action="store_true"); g.set_defaults(fn=cmd_director)
+    md = sp.add_parser("mood", help="mood meter: stacked effects with caps, seek rates, threshold and bands")
+    md.add_argument("table"); md.add_argument("--hours", type=int, default=720); md.add_argument("--runs", type=int, default=200)
+    md.add_argument("--seed", type=int, default=1); md.add_argument("--json", action="store_true"); md.set_defaults(fn=cmd_mood)
+    gr = sp.add_parser("grammar", help="text grammar check: weights, conditions, priority, variety")
+    gr.add_argument("table"); gr.add_argument("--root", default="r_name"); gr.add_argument("--samples", type=int, default=500)
+    gr.add_argument("--seed", type=int, default=1); gr.add_argument("--const", action="append", help="KEY=VAL, repeatable")
+    gr.add_argument("--json", action="store_true"); gr.set_defaults(fn=cmd_grammar)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")

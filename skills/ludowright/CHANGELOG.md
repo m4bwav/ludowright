@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261121-3 · 2026-11-21 · Event director, mood meter and grammar checks (0.1.49)
+- because: harvest: RimWorld local harvest 2026-11-21 (technique observed in RimWorld's shipped defs, 2026-11-21; methods and a few paraphrased numbers only, code written fresh)
+- files: scripts/ldw.py (director, mood, grammar), kb/balance-tables.md (three shapes), kb/levels-and-space.md (24), kb/game-ai-for-designers.md (31), kb/balance-and-economy.md (35), kb/procgen.md (24), kb/INDEX.md, SKILL.md (Count with the script), evals/grammar-fixture.json, tests/test_ldw.py (Director, Mood, Grammar)
+- `director` simulates independent event clocks (on/off windows, mean gap, once) with grace, spacing, budget curves and a clamped adapt counter; `mood` runs a seek-to-target meter with capped stacks and severity bands; `grammar` checks a weighted, conditional rewrite grammar. Before this, no command scheduled events, stacked modifiers or measured a grammar. Triggers unchanged, so evals were not re-run.
+
 ### C-20261121-2 · 2026-11-21 · Light-touch onboarding and a daily find (0.1.48)
 - because: user request (technique harvest of a browser game's shipped scripts; no licence, so methods and numbers only)
 - files: kb/ux-and-the-brain.md (Light-touch onboarding and a daily find), tests/test_ldw.py (KbSectionsTest)
