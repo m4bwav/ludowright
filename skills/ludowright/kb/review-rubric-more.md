@@ -1,6 +1,6 @@
 # Review rubric, part 2
 
-Items R-53 to R-82 of [review-rubric.md](review-rubric.md), split out for size. Same use, same rules, same category slugs: walk every item after R-52. Item IDs are stable: never renumber, only append here.
+Items R-53 to R-86 of [review-rubric.md](review-rubric.md), split out for size. Same use, same rules, same category slugs: walk every item after R-52. Item IDs are stable: never renumber, only append here.
 
 ### R-53 Authored, not built
 - Look for: Cards, rewards, win paths or systems that the design doc or data tables define but no code applies (grep the code for each data id or effect key). Settle the stage first: in a prototype this is the to-do list, in a shipped game it is a broken promise.
@@ -211,3 +211,32 @@ Items R-53 to R-82 of [review-rubric.md](review-rubric.md), split out for size. 
 - Severity hint: minor; major when an enemy or trap is meant to strip one buff. Fix: a flat modifier list recomputed on change, per-buff durations. Category: balance
 - Tool: by hand
 - Sources: balance-and-economy.md; Campos, Game Development Patterns with Godot 4, ch. 11
+
+### R-83 Round trip that prints money
+- Look for: a market that prices a whole lot at the current unit price, so buying a stack and selling it straight back (or selling in one lot what was bought one at a time) ends with more money than it started.
+- Breaks: Economy has a sink on every loop
+- Severity hint: critical when the loop repeats with no limit. Fix: price each unit along the stock change (integrate the curve), add a spread, drift stock back to its opening level over days. Test: simulate buy-all then sell-all and assert the result is a loss. Category: economy
+- Tool: `ldw.py sim` or a short script over the price rule
+- Sources: balance-and-economy.md; OSRS Wiki, Grand Exchange buy limits and shop stock pricing (paraphrased, harvest 2026-11-20; a colony sim measured +3,462 per loop before the fix)
+
+### R-84 Rounding eats small bonuses
+- Look for: per-tick or per-cycle output rounded down (integer cast) before small multipliers like +5% skill or +10% education add a whole unit.
+- Breaks: Every upgrade is felt
+- Severity hint: major when the game advertises percentage bonuses. Fix: carry the fractional remainder per producer to the next cycle. Test: run N cycles at a bonus and assert total output within one unit of the exact product. Category: balance
+- Tool: by hand, or a loop over the output formula
+- Sources: balance-and-economy.md; harvest 2026-11-20 (a colony sim lost 25 of the lines a +18% bonus should add)
+
+### R-85 Shared resource with no claim
+- Look for: two or more workers or buildings that can harvest the same tile, node or stock in the same cycle with no claim or reservation, or a node that refills all at once on a timer.
+- Breaks: Placement choices matter
+- Severity hint: major in builders and colony sims (one measured 17 to 42% lost cycles). Fix: a claim taken at assignment and released on finish or death; regrowth a little per tick instead of all at once (OSRS-style depletion timers). Category: systems
+- Tool: by hand
+- Sources: systems-and-loops.md; OSRS Wiki, resource depletion and respawn (paraphrased, harvest 2026-11-20)
+
+### R-86 Disasters with no spacing
+- Look for: random events or disasters drawn independently each day, so two can land back to back, or the first can land before a new player has a working base.
+- Breaks: Pacing leaves room to recover
+- Severity hint: major for new players; minor later. Fix: a cooldown after any disaster ends, a grace ramp for a new game, and a script that samples many runs and reports the shortest gap and first-hit day. Category: pacing
+- Tool: `ldw.py sim`
+- Sources: uncertainty.md; OSRS Wiki, random events (paraphrased, harvest 2026-11-20)
+

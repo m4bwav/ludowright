@@ -99,6 +99,9 @@ Idea from GPU-Bandits by sloppysteaks69 (GitHub; no licence, idea only): put eve
 - Reactive balancing: patch log shows each fix breaking something unreviewed. [Sylvester ch. 6]
 - Unnamed policy: a balance verdict with no stated player policy or agent pool. [AI-playtesting research]
 - Time-gated and dark-pattern economy: pay-to-win exposure, urgency without justification, obscured prices. Report the pattern and let the user decide. [Clark ch. 13; Gibson ch. 8; Hodent]
+- Round trip that prints money: lot priced at the unit price, so buy-then-sell profits. Price along the stock curve and test the round trip as a loss (R-83). [OSRS harvest 2026-11-20]
+- Rounding eats bonuses: integer output per cycle swallows +5% bonuses; carry the remainder (R-84). [OSRS harvest 2026-11-20]
+- Morale as a multiplier needs a floor: an output factor from about 0.8 at low morale to 1.0 from a stated threshold keeps unhappiness felt without a death spiral. [OSRS harvest 2026-11-20]
 
 ## Where the books disagree
 
