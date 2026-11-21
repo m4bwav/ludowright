@@ -163,6 +163,14 @@ class KbSectionsTest(unittest.TestCase):
         self.assertIn("staged stuck-hints", index)
         self.assertIn("shaping verbs", index)
 
+    def test_osrs_harvest_checks_present(self):
+        import pathlib
+        kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
+        more = (kb / "review-rubric-more.md").read_text(encoding="utf-8")
+        for rid in ("R-83 Round trip", "R-84 Rounding", "R-85 Shared resource", "R-86 Disasters"):
+            self.assertIn("### " + rid, more)
+        self.assertIn("R-01 to R-86", (kb / "INDEX.md").read_text(encoding="utf-8"))
+
     def test_explorer_and_campos_lines_present(self):
         import pathlib
         kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
@@ -179,7 +187,7 @@ class KbSectionsTest(unittest.TestCase):
         kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
         more = (kb / "review-rubric-more.md").read_text(encoding="utf-8")
         last = max(int(n) for n in re.findall(r"^### R-([0-9]+)", more, re.M))
-        self.assertEqual(last, 82)
+        self.assertEqual(last, 86)
         for f in ("INDEX.md", "review-rubric.md"):
             self.assertIn(f"R-53 to R-{last}" if f != "INDEX.md" else f"R-01 to R-{last}", (kb / f).read_text(encoding="utf-8"))
 
