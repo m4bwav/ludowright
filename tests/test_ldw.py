@@ -163,12 +163,23 @@ class KbSectionsTest(unittest.TestCase):
         self.assertIn("staged stuck-hints", index)
         self.assertIn("shaping verbs", index)
 
+    def test_explorer_and_campos_lines_present(self):
+        import pathlib
+        kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
+        lore = (kb / "worldbuilding-and-lore.md").read_text(encoding="utf-8")
+        ai = (kb / "game-ai-for-designers.md").read_text(encoding="utf-8")
+        self.assertIn("## Adapting a co-made world", lore)
+        lines = lore.splitlines()
+        for n in range(10, 15):
+            self.assertTrue(any(l.startswith(f"{n}. ") for l in lines), n)
+        self.assertIn("State explosion", ai)
+
     def test_rubric_range_matches_last_item(self):
         import pathlib, re
         kb = pathlib.Path(__file__).resolve().parent.parent / "skills" / "ludowright" / "kb"
         more = (kb / "review-rubric-more.md").read_text(encoding="utf-8")
         last = max(int(n) for n in re.findall(r"^### R-([0-9]+)", more, re.M))
-        self.assertEqual(last, 80)
+        self.assertEqual(last, 82)
         for f in ("INDEX.md", "review-rubric.md"):
             self.assertIn(f"R-53 to R-{last}" if f != "INDEX.md" else f"R-01 to R-{last}", (kb / f).read_text(encoding="utf-8"))
 
