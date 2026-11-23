@@ -28,6 +28,7 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 22. A zone of control (a short no-entry ring around each unit, lost when the unit is engaged or stunned) makes position a blocking tool for gaps, screens and rear protection. [Lambshead 2024, Zones of control]
 23. When free play collapses into one degenerate pattern (a central melee scrum), reward the alternative (rear attacks are devastating) and give scenarios competing objectives in different parts of the map. [Lambshead 2024, Introduction to scenarios]
 24. Schedule events with independent clocks, one per category: an on/off window (a few on-days, then off-days, a random count from a small range inside each window, a minimum spacing), a mean time between events, or one fixed day. Give threat clocks a start day (grace) and force the first threat to be a plain, readable one. Check the schedule with `ldw.py director`: it reports the longest gap, clumps and the first threat. [harvest: a colony sim's shipped data files, 2026-11]
+25. Judge an open world by its density, not its size: count points of interest (a landmark, encounter, resource, secret or story beat) per minute of travel at the player's normal speed, along the routes players take. A bigger map with the same content is emptier, and every added square kilometre must earn its points or be cut. In 3D or underwater spaces count per volume the player can reach, not per map area. Rule of thumb, unverified by a book. [harvest: a solo developer's underwater sandbox postmortem, 2026-11]
 
 ## How to apply
 
