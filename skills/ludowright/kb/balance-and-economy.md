@@ -42,6 +42,7 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 36. When progress raises what a unit expects, make the expectations concrete, visible needs, and let bonuses offset drains. A rule that only recovers when every drain is zero, or an abstract expectation number, sinks content advanced units. [harvest: a colony sim, 2026-11-22]
 37. A renewable source that pulses or goes dormant stays fair when its long-run average is shown, because the player can plan storage for the gaps. A finite source that runs dry early leaves its worker idle for the rest of the game. [harvest: a colony sim, 2026-11-22]
 38. Let expectation climb with progression (rule 36), and give work two priority layers: a player-set order per worker and per task, plus a survival tier (air, food, rescue) that no setting can delay. Mirror the bad break with a good one: a unit kept well above its expectation for a while gets a rare positive burst, so the meter rewards care as well as punishing neglect. [harvest: Oxygen Not Included, 2026-11-23]
+39. Keep tuning data as parent and child rows: an abstract parent holds shared fields, each child lists only the fields it changes, so a variant (silver, gold) reads as its difference and one edit to the parent reaches all of them. Store tunables that vary with another number as a curve, a list of points interpolated between, not as code or a formula. Lint for a missing parent, a cycle, an abstract row used in play and an override equal to the parent value. [harvest: RimWorld, 2026-11-23]
 
 ## How to apply
 
