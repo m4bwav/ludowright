@@ -125,3 +125,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 ## [2026-11-21] update | 0.1.47: OSRS harvest general lessons (from the Arvum Electrum harvest): rubric R-83 round-trip money, R-84 rounding eats bonuses, R-85 shared resource with no claim, R-86 unspaced disasters; three economy failure patterns.
 - 2026-11-21: 0.1.49 adds ldw.py director, mood and grammar from a colony-sim data harvest (methods only); tests in tests/test_ldw.py (Director, Mood, Grammar).
 - 2026-11-22: 0.1.50 kb levels-and-space 25 (points of interest per travel minute or reachable volume) and production-and-scope 28 (port script to native only when hot and stable), from the 1y2w5yy harvest.
+- 2026-11-22: 0.1.51 thirteen kb rules from the Oxygen Not Included local harvest (systems 20-22, economy 36-37, ux 26-29, procgen 25, game-ai 32-33).
