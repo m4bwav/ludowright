@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261122-2 · 2026-11-22 · Colony-sim lessons: wild vs invested, meter extremes, sets, needs, pulses, time-left, gross flows, lenses, music rest, start rings, staffing ranks, frame budget (0.1.51)
+- because: harvest: Oxygen Not Included local harvest 2026-11-22 (tier A only: play, wiki, shipped plain-text data; methods and paraphrase, numbers from our own simulations)
+- files: kb/systems-and-loops.md (20-22), kb/balance-and-economy.md (36-37), kb/ux-and-the-brain.md (26-29), kb/procgen.md (25), kb/game-ai-for-designers.md (32-33)
+- Thirteen design rules, each with the number our simulation measured. Before this the kb had no rule on wild against invested yield, meter floors, set bonuses, pulsing sources, time-left readouts, gross flows, map lenses, music rest, ring guarantees, staffing ranks or decision budgets. Triggers unchanged, so evals were not re-run.
+
 ### C-20261122-1 · 2026-11-22 · Point-of-interest density and port-when-proven (0.1.50)
 - because: harvest: Reddit post 1y2w5yy (an underwater sandbox postmortem), items 9 and 10
 - files: kb/levels-and-space.md (25), kb/production-and-scope.md (28)

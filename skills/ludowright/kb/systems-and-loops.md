@@ -23,6 +23,9 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 17. A verb the player cannot observe, or a state change with no signal, should be questioned. Hidden critical state is a failure of feedback. [Sellers ch. 8; Salen ch. 3]
 18. Dynamic difficulty is a feedback loop with a fairness cost: document its sensor, comparator and actuator, bound it, and keep it away from expert exploitation. [Salen ch. 18; Sylvester ch. 3; Schell ch. 13]
 19. Give the player, monsters and items one shared physical ruleset. When a rock, an arrow trap and a thrown monster all obey the same rules, simple systems meet and players tell the stories themselves. [Yu Parts I, III]
+20. A free wild source must yield clearly less per hour of work than the invested source it competes with, or the investment has no reason to exist. Measure both on the same worker: in one test a forager on wild bushes out-earned a watered field fivefold until regrowth was slowed about fourfold. [harvest: a colony sim, 2026-11-22]
+21. Turn a meter's extreme into a visible one-off event owned by one character, then reset the meter part way (to about 40-60%). A silent floor hides the crisis: in one test a third of a town sat at zero for over a hundred person-days with nothing on screen. [harvest: a colony sim, 2026-11-22]
+22. A named bonus for completing a small set of pieces in one area turns placement into a goal. Show what is missing from the set. Only cancel the bonus for an area that qualifies twice when specialising is the point. [harvest: a colony sim, 2026-11-22]
 
 ## How to apply
 
