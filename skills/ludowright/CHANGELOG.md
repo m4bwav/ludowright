@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261123-1 · 2026-11-23 · Local game harvest: slot upgrades, situation cards, deduction sets, survival tier, threat-gated income (0.1.52)
+- because: harvest: local game harvest 2026-11-23 (Monster Train 2, Sultan's Game, Oxygen Not Included, Chants of Sennaar, Thronefall; play only, methods paraphrased, nothing copied)
+- files: kb/systems-and-loops.md (23-25), kb/balance-and-economy.md (38), kb/core-loops-and-goals.md (22)
+- Five design rules: slot-limited modular upgrades with capacity zones, situation cards with typed slots and two clocks, all-or-nothing deduction checks, two-layer work priority with a survival tier and a mirrored good break, income paid only for what survived. Triggers unchanged, so evals were not re-run.
+
 ### C-20261122-2 · 2026-11-22 · Colony-sim lessons: wild vs invested, meter extremes, sets, needs, pulses, time-left, gross flows, lenses, music rest, start rings, staffing ranks, frame budget (0.1.51)
 - because: harvest: Oxygen Not Included local harvest 2026-11-22 (tier A only: play, wiki, shipped plain-text data; methods and paraphrase, numbers from our own simulations)
 - files: kb/systems-and-loops.md (20-22), kb/balance-and-economy.md (36-37), kb/ux-and-the-brain.md (26-29), kb/procgen.md (25), kb/game-ai-for-designers.md (32-33)
