@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261122-1 · 2026-11-22 · Point-of-interest density and port-when-proven (0.1.50)
+- because: harvest: Reddit post 1y2w5yy (an underwater sandbox postmortem), items 9 and 10
+- files: kb/levels-and-space.md (25), kb/production-and-scope.md (28)
+- Levels had landmarks but no density measure for open worlds; production had prototype rules but nothing on when to port script code to native. Both marked unverified by a book. Triggers unchanged, so evals were not re-run.
+
 ### C-20261121-3 · 2026-11-21 · Event director, mood meter and grammar checks (0.1.49)
 - because: harvest: RimWorld local harvest 2026-11-21 (technique observed in RimWorld's shipped defs, 2026-11-21; methods and a few paraphrased numbers only, code written fresh)
 - files: scripts/ldw.py (director, mood, grammar), kb/balance-tables.md (three shapes), kb/levels-and-space.md (24), kb/game-ai-for-designers.md (31), kb/balance-and-economy.md (35), kb/procgen.md (24), kb/INDEX.md, SKILL.md (Count with the script), evals/grammar-fixture.json, tests/test_ldw.py (Director, Mood, Grammar)
