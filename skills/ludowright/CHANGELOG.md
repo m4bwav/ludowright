@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261123-2 · 2026-11-23 · Runner-up harvest: spatial triggers, neighbour effects and themed loot, parent rows and curves, gate verbs (0.1.53)
+- because: harvest: local game harvest runners-up 2026-11-23 (Backpack Hero, 9 Kings, RimWorld, Animal Well; play and evaluator notes only, nothing copied)
+- files: kb/systems-and-loops.md (26-27), kb/balance-and-economy.md (39), kb/levels-and-space.md (26)
+- Four design rules: a trigger-by-effect vocabulary with empty cells as neighbours, grid neighbour effects with beaten threats offering themed cards, parent and child data rows with override-only fields and point-list curves, gate items as multi-use verbs with free order. Triggers unchanged, so evals were not re-run.
+
 ### C-20261123-1 · 2026-11-23 · Local game harvest: slot upgrades, situation cards, deduction sets, survival tier, threat-gated income (0.1.52)
 - because: harvest: local game harvest 2026-11-23 (Monster Train 2, Sultan's Game, Oxygen Not Included, Chants of Sennaar, Thronefall; play only, methods paraphrased, nothing copied)
 - files: kb/systems-and-loops.md (23-25), kb/balance-and-economy.md (38), kb/core-loops-and-goals.md (22)
