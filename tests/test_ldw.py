@@ -89,6 +89,20 @@ class Findings(unittest.TestCase):
 
 
 class Maths(unittest.TestCase):
+    def test_deck_shape_flags_and_counts(self):
+        rows = [{"cost": c, "keywords": k, "pool": p, "upgrades": u} for c, k, p, u in
+                [(0, "exhaust", "a", 2), (1, "exhaust;retain", "a", 2), (1, "", "a", 1), (2, "exhaust", "b", 2), (3, "", "b", 2)]]
+        r = ldw.deck_shape(rows)
+        self.assertEqual(r["cost_hist"], {0: 1, 1: 2, 2: 1, 3: 1})
+        self.assertAlmostEqual(r["mean_cost"], 1.4)
+        self.assertAlmostEqual(r["keywords"]["exhaust"], 0.6)
+        self.assertAlmostEqual(r["branching_share"], 0.8)
+        self.assertEqual(r["flags"], [])
+        r = ldw.deck_shape(rows + [{"cost": 0, "keywords": "exhaust", "pool": "a"}] * 3)
+        self.assertTrue(any(f.startswith("ZERO_COST") for f in r["flags"]))
+        self.assertTrue(any(f.startswith("KEYWORD_EVERYWHERE exhaust") for f in r["flags"]))
+        self.assertTrue(any(f.startswith("POOL_UNEVEN") for f in r["flags"]))
+
     def test_ev_golden(self):
         s = ldw.ev_stats([{"outcome": "miss", "value": 0, "weight": 1}, {"outcome": "hit", "value": 6, "weight": 2},
                           {"outcome": "crit", "value": 12, "weight": 1}])

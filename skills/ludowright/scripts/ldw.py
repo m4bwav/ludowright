@@ -494,6 +494,63 @@ def cmd_draw(a):
     return 0
 
 
+# ---------------------------------------------------------------- card pool shape
+
+DECK_BANDS = {"mean_cost": (0.8, 2.2), "zero_cost_max": 0.30, "keyword_max": 0.60, "pool_ratio_max": 1.5}
+
+
+def deck_shape(rows, bands=None):
+    """Cost histogram, keyword shares, cards per pool and branching-upgrade share of a card table.
+    Columns: cost; optional keywords (';' or ',' list), pool, upgrades (number of upgrade branches)."""
+    b = dict(DECK_BANDS, **(bands or {}))
+    n = len(rows)
+    if not n:
+        fail("deck needs at least one row")
+    costs = [r.get("cost") for r in rows if isinstance(r.get("cost"), (int, float))]
+    hist, kw, pools = {}, {}, {}
+    for c in costs:
+        hist[c] = hist.get(c, 0) + 1
+    for r in rows:
+        for k in str(r.get("keywords") or "").replace(",", ";").split(";"):
+            k = k.strip().lower()
+            if k:
+                kw[k] = kw.get(k, 0) + 1
+        if r.get("pool") not in (None, ""):
+            pools[r["pool"]] = pools.get(r["pool"], 0) + 1
+    branching = sum(1 for r in rows if isinstance(r.get("upgrades"), (int, float)) and r["upgrades"] >= 2)
+    mean = sum(costs) / len(costs) if costs else None
+    flags = []
+    if mean is not None and not b["mean_cost"][0] <= mean <= b["mean_cost"][1]:
+        flags.append(f"MEAN_COST {mean:.2f} outside {b['mean_cost'][0]}-{b['mean_cost'][1]}")
+    if costs and hist.get(0, 0) / len(costs) > b["zero_cost_max"]:
+        flags.append(f"ZERO_COST {hist[0] / len(costs):.0%} of cards cost 0")
+    for k, v in kw.items():
+        if v / n > b["keyword_max"]:
+            flags.append(f"KEYWORD_EVERYWHERE {k} on {v / n:.0%} of cards: it no longer distinguishes")
+    if len(pools) > 1 and max(pools.values()) / min(pools.values()) > b["pool_ratio_max"]:
+        flags.append(f"POOL_UNEVEN largest pool {max(pools.values())} vs smallest {min(pools.values())}")
+    return {"cards": n, "mean_cost": mean, "cost_hist": dict(sorted(hist.items())),
+            "keywords": {k: v / n for k, v in sorted(kw.items(), key=lambda x: -x[1])},
+            "pools": pools, "branching_share": branching / n, "flags": flags}
+
+
+def cmd_deck(a):
+    r = deck_shape(load_table(a.table)["rows"])
+    if a.json:
+        print(json.dumps(r))
+        return 0
+    print(f"{r['cards']} cards, mean cost {fmt(r['mean_cost']) if r['mean_cost'] is not None else '-'}")
+    print("cost " + "  ".join(f"{c}:{v}" for c, v in r["cost_hist"].items()))
+    for k, v in r["keywords"].items():
+        print(f"  {k:<14}{v:.0%}")
+    if r["pools"]:
+        print("pools " + "  ".join(f"{p}:{v}" for p, v in r["pools"].items()))
+    print(f"branching upgrades {r['branching_share']:.0%}")
+    for f in r["flags"] or ["OK inside the reference bands"]:
+        print(f)
+    return 1 if r["flags"] else 0
+
+
 # ---------------------------------------------------------------- difficulty ramps
 
 RAMP_CHECKS = (0, 1, 5, 10, 25, 50, 100, 250, 500, 1000, 2500, 5000, 10000)
@@ -1041,6 +1098,8 @@ def main(argv=None):
     m.add_argument("--seed", type=int, default=1); m.add_argument("--json", action="store_true"); m.set_defaults(fn=cmd_sim)
     d = sp.add_parser("draw", help="hypergeometric draw odds for copies of a card"); d.add_argument("--deck", type=int, required=True)
     d.add_argument("--copies", type=int, required=True); d.add_argument("--drawn", type=int, required=True); d.add_argument("--json", action="store_true"); d.set_defaults(fn=cmd_draw)
+    dk = sp.add_parser("deck", help="card pool shape: cost histogram, keyword shares, pools, branching upgrades")
+    dk.add_argument("table"); dk.add_argument("--json", action="store_true"); dk.set_defaults(fn=cmd_deck)
     r = sp.add_parser("ramp", help="difficulty ramp check: uncapped growth, where it floors or caps, flat early")
     r.add_argument("table"); r.add_argument("--steps", type=int, help="steps to check (formula ramps; default the ramp's steps or 100)")
     r.add_argument("--json", action="store_true"); r.set_defaults(fn=cmd_ramp)

@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261123-3 · 2026-11-23 · Cobalt Core harvest: card pool shape rule and `ldw.py deck` (0.1.54)
+- because: harvest: local game harvest 2026-11-23 (Cobalt Core; aggregate counts from shipped readable data, nothing copied)
+- files: kb/balance-and-economy.md (40), scripts/ldw.py (deck), tests/test_ldw.py
+- New `deck` command prints a card table's cost histogram, keyword shares, pool sizes and branching-upgrade share, and flags MEAN_COST, ZERO_COST, KEYWORD_EVERYWHERE and POOL_UNEVEN. Rule 40 gives the reference bands. Triggers are unchanged, so the evals were not re-run.
+
 ### C-20261123-2 · 2026-11-23 · Runner-up harvest: spatial triggers, neighbour effects and themed loot, parent rows and curves, gate verbs (0.1.53)
 - because: harvest: local game harvest runners-up 2026-11-23 (Backpack Hero, 9 Kings, RimWorld, Animal Well; play and evaluator notes only, nothing copied)
 - files: kb/systems-and-loops.md (26-27), kb/balance-and-economy.md (39), kb/levels-and-space.md (26)
