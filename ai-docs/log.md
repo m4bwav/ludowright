@@ -126,3 +126,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 - 2026-11-21: 0.1.49 adds ldw.py director, mood and grammar from a colony-sim data harvest (methods only); tests in tests/test_ldw.py (Director, Mood, Grammar).
 - 2026-11-22: 0.1.50 kb levels-and-space 25 (points of interest per travel minute or reachable volume) and production-and-scope 28 (port script to native only when hot and stable), from the 1y2w5yy harvest.
 - 2026-11-22: 0.1.51 thirteen kb rules from the Oxygen Not Included local harvest (systems 20-22, economy 36-37, ux 26-29, procgen 25, game-ai 32-33).
+- 2026-11-25: 0.1.55 ldw.py growth (deck size vs band, thinning, resource ratio) and quota (payments with countdowns vs income ramp), kb balance-and-economy 41-44 and game-ai 34, from the Steam harvest wave 2 (Pirates Outlaws, Slay the Spire 2, Wildfrost, Luck be a Landlord).

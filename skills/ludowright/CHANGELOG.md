@@ -2,7 +2,12 @@
 
 Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with the reason. Reasons cite findings in [RESEARCH.md](RESEARCH.md) (`R-`), lessons in [LEARNINGS.md](LEARNINGS.md) (`L-`), and test runs in [TESTS.md](TESTS.md) (`T-`). State in `evergreen.json`. Protocol: MAINTENANCE.md.
 
-Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
+Entry shape: `### C-20261125-1 · 2026-11-25 · Steam harvest wave 2: `ldw.py growth`, `ldw.py quota`, intents, cost tier, countdowns (0.1.55)
+- because: harvest: local game harvest 2026-11-25 (idea sources: Pirates Outlaws, Slay the Spire 2, Wildfrost, Luck be a Landlord; rules text and public play knowledge only, methods paraphrased, nothing copied)
+- files: scripts/ldw.py (growth, quota), kb/balance-and-economy.md (41-44), kb/game-ai-for-designers.md (34), kb/balance-tables.md (growth, quota), tests/test_ldw.py
+- New `growth` command projects deck size per stage against a target band and a capped resource's maker/spender ratio (BLOAT, OFF-BAND, NO-THIN, STARVED, FLOODED). New `quota` command checks rising payments with countdowns against an income ramp (TIGHT, LOOSE, CLIFF). Kb rules: thinning routes, a reward tier with a built-in cost, quota with countdown, visible adjustable countdowns with capped attachment slots, turn-based exact intents. Also brings SKILL.md and ldw.py back in line with the manifest version. Triggers unchanged, so evals were not re-run.
+
+### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
 ### C-20261123-3 · 2026-11-23 · Cobalt Core harvest: card pool shape rule and `ldw.py deck` (0.1.54)
 - because: harvest: local game harvest 2026-11-23 (Cobalt Core; aggregate counts from shipped readable data, nothing copied)
