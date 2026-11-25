@@ -425,3 +425,66 @@ class RimHarvestKb(unittest.TestCase):
             self.assertIn(h, tables)
         self.assertIn("ldw.py grammar", (kb / "procgen.md").read_text(encoding="utf-8"))
         self.assertIn("ldw.py mood", (kb / "balance-and-economy.md").read_text(encoding="utf-8"))
+
+
+class GrowthTest(unittest.TestCase):
+    # Invented bands: 10 cards at start, +5 per stage, end in 25-30, ceiling 40; level-ups add cards each stage.
+    BAND = {"per_stage": 5, "end_low": 25, "end_high": 30, "ceiling": 40}
+
+    def table(self, removal=0):
+        st = [{"name": i, "adds": {"level-up": 5, "reward": 1}, "removals": {"paid": removal} if removal else {}} for i in range(1, 4)]
+        return {"start": 10, "band": self.BAND, "stages": st}
+
+    def test_no_removal_is_no_thin(self):
+        r = ldw.growth(self.table())
+        self.assertEqual(r["end"], 28)
+        self.assertEqual(r["flags"], ["NO-THIN"])
+        self.assertEqual(r["stages"][0]["target"], 15)
+
+    def test_one_removal_per_stage_clears(self):
+        r = ldw.growth(self.table(removal=1))
+        self.assertEqual(r["end"], 25)
+        self.assertEqual(r["flags"], ["ON-BAND"])
+
+    def test_bloat_and_off_band(self):
+        t = {"start": 10, "band": self.BAND, "stages": [{"adds": {"a": 12}, "removals": {"b": 1}}] * 3}
+        self.assertEqual(ldw.growth(t)["flags"], ["BLOAT", "OFF-BAND"])
+
+    def test_starved_and_flooded(self):
+        cards = [{"copies": 1, "produce": 2}, {"copies": 6, "consume": 1}]
+        r = ldw.growth(dict(self.table(1), resource={"name": "ammo", "hand": 5, "deck": 20, "cards": cards}))
+        self.assertAlmostEqual(r["resource"]["ratio"], 2 / 6)
+        self.assertIn("STARVED", r["flags"])
+        cards = [{"copies": 6, "produce": 1}, {"copies": 1, "consume": 1}]
+        self.assertIn("FLOODED", ldw.growth(dict(self.table(1), resource={"cards": cards}))["flags"])
+
+
+class QuotaTest(unittest.TestCase):
+    def test_tripling_quota_outruns_growing_income(self):
+        # Income 10 x 1.15^n per period (about 2x per window); payments triple every time, 5 periods each.
+        t = {"income": {"base": 10, "factor": 1.15}, "payments": [{"amount": 30 * 3 ** i, "periods": 5} for i in range(5)]}
+        r = ldw.quota(t)
+        exp0 = sum(10 * 1.15 ** k for k in range(5))
+        self.assertAlmostEqual(r["payments"][0]["expected"], exp0)
+        self.assertAlmostEqual(r["payments"][0]["slack"], exp0 / 30)
+        tight = [p["payment"] for p in r["payments"] if "TIGHT" in p["flags"]]
+        self.assertEqual(tight[0], 4)  # slack 2.25, 1.51, 1.01, then 0.68
+        self.assertIn("CLIFF", r["flags"])
+
+    def test_flat_income_is_tight_early(self):
+        t = {"income": {"base": 10, "add": 0}, "payments": [{"amount": a, "periods": 5} for a in (40, 60, 90)]}
+        r = ldw.quota(t)
+        self.assertEqual(r["payments"][1]["flags"], ["TIGHT"])
+        self.assertEqual(r["payments"][0]["flags"], [])
+
+    def test_loose_after_three(self):
+        t = {"income": {"base": 10, "add": 0}, "payments": [{"amount": 10, "periods": 5}] * 3}
+        self.assertEqual(ldw.quota(t)["payments"][2]["flags"], ["LOOSE"])
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "q.json")
+            with open(p, "w", encoding="utf-8") as f:
+                json.dump(t, f)
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                ldw.main(["quota", p])
+            self.assertIn("LOOSE", buf.getvalue())

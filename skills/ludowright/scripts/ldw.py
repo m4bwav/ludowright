@@ -14,6 +14,8 @@
   director TABLE --days N       event schedule from comps: gaps, clumps, first threat, budget; NO-BREATHER / CLUMP / RUNAWAY
   mood TABLE --hours N          stacked-modifier meter seeking a target: hours below threshold; UNCAPPED / SPIKE / OSCILLATES
   grammar TABLE --root SYM      text grammar check: UNDEFINED, UNREACHABLE, DEAD-UNDER, RECURSIVE, LOW-VARIETY
+  growth TABLE                  deck size per stage against a target band: BLOAT, OFF-BAND, NO-THIN; resource STARVED / FLOODED
+  quota TABLE                   rising payments against an income ramp: slack per payment; TIGHT, LOOSE, CLIFF
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
 """
@@ -29,7 +31,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.53"
+VERSION = "0.1.55"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -1072,6 +1074,131 @@ def cmd_grammar(a):
     return 1 if r["undefined"] or r["dead_under"] else 0
 
 
+# ---------------------------------------------------------------- deck growth across a run
+
+def growth(t):
+    """Project deck size per stage from adds and removals by source against a target band.
+    BLOAT: past the ceiling. OFF-BAND: final size outside the end band. NO-THIN: cards are added but no source removes any.
+    With a 'resource' (cards that produce or consume it per play): ratio of produced to consumed per average hand;
+    STARVED under 0.8, FLOODED over 1.5 or nothing consumes it."""
+    band = t.get("band", {})
+    start = float(t.get("start", band.get("start", 10)))
+    per, ceiling = band.get("per_stage"), band.get("ceiling")
+    lo, hi = band.get("end_low"), band.get("end_high")
+    stages = t.get("stages") or t.get("rows") or []
+    if not stages:
+        fail("growth: give 'stages', each with adds and removals by source")
+    size, out, flags, added, removed = start, [], [], 0.0, 0.0
+    for i, st in enumerate(stages, 1):
+        a = sum(float(v) for v in (st.get("adds") or {}).values())
+        r = sum(float(v) for v in (st.get("removals") or {}).values())
+        added, removed = added + a, removed + r
+        size = max(0.0, size + a - r)
+        row = {"stage": st.get("name", i), "adds": a, "removals": r, "size": size,
+               "target": start + float(per) * i if per is not None else None}
+        if ceiling is not None and size > float(ceiling):
+            row["flag"] = "BLOAT"
+            if "BLOAT" not in flags:
+                flags.append("BLOAT")
+        out.append(row)
+    if (lo is not None and size < float(lo)) or (hi is not None and size > float(hi)):
+        flags.append("OFF-BAND")
+    if added > 0 and removed == 0:
+        flags.append("NO-THIN")
+    res = {"start": start, "end": size, "band": band, "stages": out, "flags": flags}
+    rc = t.get("resource")
+    if rc:
+        cards = rc.get("cards", [])
+        deck = float(rc.get("deck", size)) or 1.0
+        hand = float(rc.get("hand", 5))
+        prod = sum(float(c.get("copies", 1)) * float(c.get("produce", 0)) for c in cards) * hand / deck
+        cons = sum(float(c.get("copies", 1)) * float(c.get("consume", 0)) for c in cards) * hand / deck
+        ratio = prod / cons if cons else None
+        res["resource"] = {"name": rc.get("name", "resource"), "produced_per_hand": prod, "consumed_per_hand": cons, "ratio": ratio}
+        if ratio is not None and ratio < 0.8:
+            flags.append("STARVED")
+        elif ratio is None or ratio > 1.5:
+            flags.append("FLOODED")
+    if not flags:
+        flags.append("ON-BAND")
+    return res
+
+
+def cmd_growth(a):
+    r = growth(load_json(a.table))
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    print(f"deck {fmt(r['start'])} -> {fmt(r['end'])}  {' '.join(r['flags'])}")
+    for s in r["stages"]:
+        tg = f" (target {fmt(s['target'])})" if s["target"] is not None else ""
+        print(f"  stage {s['stage']}: +{fmt(s['adds'])} -{fmt(s['removals'])} = {fmt(s['size'])}{tg} {s.get('flag', '')}".rstrip())
+    rc = r.get("resource")
+    if rc:
+        ratio = f"{rc['ratio']:.3g}" if rc["ratio"] is not None else "n/a"
+        print(f"  {rc['name']}: made {rc['produced_per_hand']:.3g} / spent {rc['consumed_per_hand']:.3g} per hand, ratio {ratio}")
+    return 0
+
+
+# ---------------------------------------------------------------- quota with a countdown
+
+def quota(t):
+    """Rising payments, each due after a number of periods, against an income ramp (a ramp row: base with factor
+    or add, or a values table). Per payment: required income per period, expected income over its window, slack.
+    TIGHT: slack under 1.0. LOOSE: slack over 2.0 for three or more payments in a row. CLIFF: required rate more than doubles."""
+    pays = t.get("payments") or t.get("rows") or []
+    if not pays:
+        fail("quota: give 'payments' with amount and periods")
+    if not t.get("income"):
+        fail("quota: give an 'income' ramp")
+    inc = t["income"]
+    spec = ramp_spec(inc)
+    floor = float(inc["floor"]) if inc.get("floor") is not None else None
+    cap = float(inc["cap"]) if inc.get("cap") is not None else None
+
+    def income(n):
+        if "table" in spec:
+            v = spec["table"][0][1]
+            for k, x in spec["table"]:
+                if k <= n:
+                    v = x
+            return v
+        return ramp_value(spec, n, floor, cap)[1]
+
+    t0, out, flags, run, prev = 0, [], [], 0, None
+    for i, p in enumerate(pays, 1):
+        amt, n = float(p["amount"]), int(p["periods"])
+        exp = sum(income(t0 + k) for k in range(n))
+        t0 += n
+        req = amt / n
+        slack = exp / amt if amt else math.inf
+        f = []
+        if slack < 1.0:
+            f.append("TIGHT")
+        if prev is not None and req > 2 * prev:
+            f.append("CLIFF")
+        run = run + 1 if slack > 2.0 else 0
+        if run >= 3:
+            f.append("LOOSE")
+        prev = req
+        flags += [x for x in f if x not in flags]
+        out.append({"payment": p.get("name", i), "amount": amt, "periods": n, "due_at": t0,
+                    "required_per_period": req, "expected": exp, "slack": slack, "flags": f})
+    return {"payments": out, "flags": flags or ["PACED"]}
+
+
+def cmd_quota(a):
+    r = quota(load_json(a.table))
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    print(f"{len(r['payments'])} payments  {' '.join(r['flags'])}")
+    for p in r["payments"]:
+        print(f"  {p['payment']}: {fmt(p['amount'])} in {p['periods']} (due {p['due_at']}) · need {p['required_per_period']:.4g}/period"
+              f" · expect {p['expected']:.4g} · slack {p['slack']:.3g} {' '.join(p['flags'])}".rstrip())
+    return 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -1116,6 +1243,10 @@ def main(argv=None):
     gr.add_argument("table"); gr.add_argument("--root", default="r_name"); gr.add_argument("--samples", type=int, default=500)
     gr.add_argument("--seed", type=int, default=1); gr.add_argument("--const", action="append", help="KEY=VAL, repeatable")
     gr.add_argument("--json", action="store_true"); gr.set_defaults(fn=cmd_grammar)
+    gw = sp.add_parser("growth", help="deck size per stage against a target band, thinning and resource ratio")
+    gw.add_argument("table"); gw.add_argument("--json", action="store_true"); gw.set_defaults(fn=cmd_growth)
+    q = sp.add_parser("quota", help="rising payments with countdowns against an income ramp: slack, TIGHT, LOOSE, CLIFF")
+    q.add_argument("table"); q.add_argument("--json", action="store_true"); q.set_defaults(fn=cmd_quota)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")
