@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-11 · 2026-11-26 · RPG book harvest 13: damage-over-time check, enemy variants, tier mix, return trips, influence games, half-blank decks (0.1.67)
+- because: harvest: RPG book collection (New Twists on Familiar Monsters; Poisons; Manual of the Planes; Tome of Templates; Adventure Shorts; Trail of Tyranny; Draconomicon: Chromatic Dragons; Open Grave; paraphrased, book rules unverified)
+- files: scripts/ldw.py (new `dot` command), tests/test_ldw.py, kb/balance-tables.md (dot), kb/game-ai-for-designers.md (Principles 36-37), kb/levels-and-space.md (43-47), kb/systems-and-loops.md (50-52), kb/uncertainty.md (41)
+- Eleven principles in fresh wording and `ldw.py dot`, which gives expected ticks, damage and time for a damage-over-time effect and flags `NO-EXIT` and `TRAPPED`. Base-plus-modifier variants extend balance-and-economy 39 (parent and child rows) rather than repeat it. Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-10 · 2026-11-26 · RPG book harvest 12: crafting economy check, command budgets, morale cascades, travel clocks (0.1.66)
 - because: harvest: RPG book collection (Assassin Games, Wilderness Encounters; Autarch, Domains at War Battles; Autarch, Domains at War Campaigns; Dalagrath, Herbalism & Alchemy; paraphrased, book rules unverified)
 - files: scripts/ldw.py (new `craft` command), tests/test_ldw.py, kb/balance-tables.md (craft), kb/balance-and-economy.md (Principles 56-62, How to apply table), kb/systems-and-loops.md (42-49), kb/uncertainty.md (40)

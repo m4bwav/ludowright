@@ -17,6 +17,7 @@
   growth TABLE                  deck size per stage against a target band: BLOAT, OFF-BAND, NO-THIN; resource STARVED / FLOODED / WASTED
   quota TABLE                   rising payments against an income ramp: slack per payment; TIGHT, LOOSE, CLIFF
   craft TABLE                   crafting economy: uncapped stacking multipliers, gathering with no per-session cap, stock with no sink
+  dot TABLE                     damage over time: expected ticks and damage, escape chance within a window, no-exit spirals
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
 """
@@ -32,7 +33,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.66"
+VERSION = "0.1.67"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -1266,6 +1267,57 @@ def cmd_craft(a):
     return 0
 
 
+# ---------------------------------------------------------------- damage over time
+
+def dot(t, horizon=10000):
+    """Damage-over-time check. t: resist (chance to shake it off per tick), penalty (resist chance lost after
+    each failed tick, default 0), damage (per failed tick), optional interval (time per tick, default 1),
+    max_ticks (natural end), min_resist (resist floor), window (ticks for the escape check, default 3), floor (least escape chance
+    within the window, default 0.5). Each tick rolls resist first: success ends it, failure deals damage."""
+    p0, pen, lo = float(t["resist"]), float(t.get("penalty", 0)), float(t.get("min_resist", 0))
+    dmg, interval = float(t["damage"]), float(t.get("interval", 1))
+    cap = t.get("max_ticks")
+    window, floor = int(t.get("window", 3)), float(t.get("floor", 0.5))
+    limit = int(cap) if cap is not None else horizon
+    alive, ticks, escape_w, flags = 1.0, 0.0, None, []
+    for k in range(limit):
+        if k == window:
+            escape_w = 1 - alive
+        pk = min(1.0, max(lo, p0 - pen * k))
+        if pk == 0 and cap is None:
+            ticks = None
+            break
+        alive *= 1 - pk
+        ticks += alive
+        if alive < 1e-12:
+            break
+    if escape_w is None:
+        escape_w = 1 - alive
+    r = {"expected_ticks": ticks, "expected_damage": None if ticks is None else ticks * dmg,
+         "expected_time": None if ticks is None else ticks * interval,
+         "escape_in_window": escape_w, "window": window, "flags": flags}
+    if ticks is None:
+        flags.append("NO-EXIT: resist chance falls to 0 with no max_ticks")
+    if escape_w < floor:
+        flags.append(f"TRAPPED: escape within {window} ticks {escape_w:.3g} < floor {floor:.3g}")
+    return r
+
+
+def cmd_dot(a):
+    r = dot(load_json(a.table))
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    if r["expected_ticks"] is None:
+        print(f"expected ticks unbounded · escape within {r['window']} {r['escape_in_window']:.3g}")
+    else:
+        print(f"expected ticks {r['expected_ticks']:.4g} · damage {r['expected_damage']:.4g} · time {r['expected_time']:.4g}"
+              f" · escape within {r['window']} {r['escape_in_window']:.3g}")
+    for f in r["flags"]:
+        print(f"  {f}")
+    return 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -1316,6 +1368,8 @@ def main(argv=None):
     q.add_argument("table"); q.add_argument("--json", action="store_true"); q.set_defaults(fn=cmd_quota)
     cr = sp.add_parser("craft", help="crafting economy: uncapped stacking multipliers, no gather cap, stock with no sink")
     cr.add_argument("table"); cr.add_argument("--json", action="store_true"); cr.set_defaults(fn=cmd_craft)
+    dt = sp.add_parser("dot", help="damage over time: expected ticks and damage, escape chance, no-exit spirals")
+    dt.add_argument("table"); dt.add_argument("--json", action="store_true"); dt.set_defaults(fn=cmd_dot)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")

@@ -168,6 +168,31 @@ class Maths(unittest.TestCase):
         self.assertEqual(r["max_power"], 8)
         self.assertEqual(r["flags"], [])
 
+    def test_dot_golden_constant_resist(self):
+        r = ldw.dot({"resist": 0.5, "damage": 4, "interval": 6})
+        self.assertAlmostEqual(r["expected_ticks"], 1.0, places=9)
+        self.assertAlmostEqual(r["expected_damage"], 4.0, places=9)
+        self.assertAlmostEqual(r["expected_time"], 6.0, places=9)
+        self.assertAlmostEqual(r["escape_in_window"], 0.875, places=9)
+        self.assertEqual(r["flags"], [])
+
+    def test_dot_penalty_no_exit_and_trapped(self):
+        r = ldw.dot({"resist": 0.3, "penalty": 0.1, "damage": 2})
+        self.assertIsNone(r["expected_ticks"])
+        self.assertTrue(any(f.startswith("NO-EXIT") for f in r["flags"]))
+        r = ldw.dot({"resist": 0.3, "penalty": 0.1, "damage": 2, "max_ticks": 3})
+        self.assertAlmostEqual(r["expected_ticks"], 0.7 + 0.56 + 0.504, places=9)
+        self.assertAlmostEqual(r["escape_in_window"], 0.496, places=9)
+        self.assertTrue(any(f.startswith("TRAPPED") for f in r["flags"]))
+        self.assertFalse(any(f.startswith("SPIRAL") for f in r["flags"]))
+
+    def test_dot_resist_floor_bounds_the_spiral(self):
+        r = ldw.dot({"resist": 0.9, "penalty": 0.05, "damage": 1})
+        self.assertTrue(any(f.startswith("NO-EXIT") for f in r["flags"]))
+        r = ldw.dot({"resist": 0.5, "penalty": 0.5, "min_resist": 0.5, "damage": 1})
+        self.assertAlmostEqual(r["expected_ticks"], 1.0, places=9)
+        self.assertEqual(r["flags"], [])
+
     def test_sim_draw_mean_within_band_of_exact_ev(self):
         rows = [{"outcome": "a", "value": 0, "weight": 1}, {"outcome": "b", "value": 10, "weight": 1}]
         r = ldw.run_sim({"rows": rows, "model": "draw"}, steps=10, runs=4000, seed=7)
