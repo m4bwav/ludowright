@@ -41,6 +41,7 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 35. An enemy that learns one lesson per encounter (it guards the door it lost through, avoids the trick that beat it) feels clever without feeling unfair; an enemy that focuses one target leaves room for the player to outwit it. Low confidence until playtested. [Posner, A Goblin's Tale DMG p. 67]
 36. A variant of a known enemy changes one axis only (its role, how it moves, where its attack comes from, its magic or its loyalty) and keeps the family's look and the counter players already learned. When the change alters damage or adds an immunity, give it a cue players can see before it hurts them, and cap any effect it can repeat (uses per fight or a recharge). [New Twists on Familiar Monsters p. 2-8]
 37. Build variants as a base unit plus an ordered list of modifiers, each with a difficulty delta and a tier gate (a modifier that needs a unit of some size or rank). Recompute the delta by hand when a modifier strips the unit's key attack, since the sum can then overstate it. Extends balance-and-economy 39, which stores the rows. [Tome of Templates p. 3, 6]
+38. An opponent that profiles the players before striking: give it a short written rule list (take no risks, split the group, wait if time allows, attack from behind), let it probe with expendable units and watch the response, and give each member one weakness to watch for (the healer, terrain use, friction in the group). Later attacks use what it saw. Extends 10 and 35. [Deep Carbon Observatory p. 15]
 
 ## How to apply
 
