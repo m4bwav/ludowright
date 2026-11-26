@@ -29,6 +29,7 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 23. After each fight, sort what happened into three tiers: what worked, what was unremarkable, what failed. The middle tier is where cuts and tuning hide. [Fast Combats]
 24. A tabletop-style player feedback form works as a playtest survey: one short sheet per session, with balanced and fun asked as separate items so a fair but dull part shows up. [Campaign Planner collection p. 106]
 25. Idle-player check: when players or units split, log how long each person had nothing to decide. Long idle stretches for one player mean the split or the turn order needs work. [Panshin p. 156-161]
+26. Test the most dangerous cards or options first: rank them by rules complexity and by how far one play can swing the game, and put the top of that list in front of testers before the rest. [Selinker, Kobold Guide to Board Game Design p. 94]
 
 ## What a playtest cannot show
 

@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-9 · 2026-11-26 · RPG book harvest 11b: risk-gated XP, capped quest rewards, loot on the enemy, tension rhythm, test dangerous cards first (0.1.65)
+- because: harvest: RPG book collection (AD&D 2e Dungeon Master's Guide; 4e Dungeon Master for Dummies; ICRPG 2e Core; Kobold Guide to Board Game Design; paraphrased, book rules unverified)
+- files: kb/balance-and-economy.md (Principles 52-55), kb/levels-and-space.md (42), kb/systems-and-loops.md (41), kb/playtesting.md (Principles 26)
+- Seven short principles in fresh wording. Skipped as duplicates: progress hanging on one secret (narrative-design 7, bottleneck), readable enemy target order (game-ai-for-designers 11 and 19), HP is not a difficulty dial (systems-and-loops 33), greedy baseline bot (review-rubric-more R-73), rarity is not a power budget (balance-and-economy 31). Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-8 · 2026-11-26 · RPG book harvest 11: player-set risk, reward tiers, second resources, settlement logic (0.1.64)
 - because: harvest: RPG book collection (ICRPG Magic; ICRPG Worlds; ICRPG Vigilante City; ICRPG Altered State; Kobold Campaign Builder: Cities and Towns; paraphrased, book rules unverified)
 - files: kb/uncertainty.md (Principles 37-39), kb/systems-and-loops.md (35-40), kb/balance-and-economy.md (49-51), kb/levels-and-space.md (40-41), kb/worldbuilding-and-lore.md (Principles 16-17)
