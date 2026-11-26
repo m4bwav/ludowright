@@ -18,6 +18,7 @@ Answers: how to grow a setting's history and lore without contradictions or a pi
 12. The setup list may fix concepts as well as things: a tone, a realism default with listed exceptions, or a change axis (technology, faith, borders) that every new era must say how it moved or held. [Explorer p. 16]
 13. Test each entry: can every reader picture it with no blank parts, and is its outcome stated? Every light or dark label carries a one-line reason. [Explorer p. 18-19]
 14. Stuck: pick an important person or thing and add its missing arc point (birth, victory, failure, end), or introduce something new by its downfall and work back. [Explorer p. 20-21]
+15. When lore is prep for players rather than the play activity, each entry names the present conflict it feeds or is marked background; give each nation one internal and one external conflict, and fewer peoples over a kitchen sink. `tt.py world` in tablewright checks nation, society and city cards. [Kobold Guide to Worldbuilding, p. 10-11, 50-52, 107-108; designers' opinion, unverified]
 
 ## Adapting a co-made world
 
