@@ -10,6 +10,8 @@ Answers: how a game's story is structured and tested as design, not how its pros
 4. Write a linear core story first. Branch only when the branch clearly improves the story: every permanent branch multiplies work for art, audio, levels and tests. [ch. 5]
 5. Branches rejoin at pinch points. The critical path is the chain of required quests; side quests hang off it and may never be found. [ch. 5]
 6. A choice is real only when the player sees its consequence in the game, in the story, the rules or both. A choice with no visible result is a fake choice. [ch. 5]
+7. Four structure flaws to check in a quest or adventure plan: a bottleneck (progress hangs on one action or clue, so give two ways forward and make a found clue an edge, not a key), a railroad (events land whatever the player chose; a dungeon with no branches counts), cluelessness (many open options and no hint, as bad as none), and sidelining (a companion or NPC who could do the hero's job). [Wizards, 4e Dungeon Master's Guide p. 101]
+8. A quest is a story goal with more than one way to solve it. "Kill ten of these" only pays the core loop twice; fold it into the loop or give it a goal. [Wizards, 4e Dungeon Master's Guide p. 103]
 
 ## How to apply
 

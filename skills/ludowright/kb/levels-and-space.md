@@ -36,6 +36,8 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 30. Give an encounter a tactic, not just stats: box the player in, split the group rarely, deceive, drain one kind of resource, pair two effects that cover each other, or let the enemy escape to return later. [Book of Challenges p. 4]
 31. A crowd fight should end on its own: let the number of minor foes drop sharply each round (about half), so the brawl peaks and fades without a hit-point grind. [Inns supplement p. 49]
 32. Rest pressure is a pacing tool: when resting costs time or invites a threat, the player spends resources with care, and the space between fights becomes a choice. [Fast Combats]
+33. Script a fight before running it: play it through in your head from both sides, note each spot where the foes struggle, answer each with one terrain feature, and repeat. Then test every patch of terrain: it has a purpose, offers a route choice, gives a reason to move, and is memorable. Two sides trading blows in place means the terrain is not working. [Wizards, 4e Dungeon Master's Guide p. 62-64]
+34. Grade the climax. The party reaches it worn down by earlier fights, so a single pass-or-fail outcome turns attrition into a coin flip. Plan at least three outcome tiers (escape, drive off, full win) with the lowest reachable by a depleted party. [Advanced Gamemaster's Guide ch. 3 p. 56-57]
 
 ## How to apply
 

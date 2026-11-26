@@ -40,6 +40,7 @@ Answers: where does the game's uncertainty live, is there too little or too much
 33. Let damage blind as well as weaken: a damaged sensor reports its reading only some of the time, in proportion to its condition, and shows an unknown otherwise. A limited item that reveals the truth then has a price the designer can measure (`ldw.py stop`, noisy on versus off). Upgrades that narrow which options appear, instead of raising stats, keep the stop decision central. [Ayliff, Seedship (2015 web game)]
 34. Event deck pacing for a run: a fixed opening pool, a few quiet beats each used once, rare events drawn without replacement so each appears at most once per run, no immediate repeat, and a breakdown share that rises with distance as a soft clock. End with a named outcome built from two short tables (a level name plus a society name) and an itemised score, so runs are memorable and comparable. [Ayliff, Seedship (2015 web game)]
 35. A failed check should change the situation, not stop it: give a failed roll outside combat a setback or complication (noise, cost, a new threat) that moves play on, rather than a dead end the player can only retry. [Lankhmar Gamemaster's Guide p. 30]
+36. Narrowing the spread (2d10 for 1d20, or a hand of cards the player times) widens the gap at the extremes and favours the stronger side. A target that was hard becomes near unbeatable, so check the hit odds at the top and bottom of the range after any change of dice. [Advanced Gamemaster's Guide ch. 2 p. 35]
 
 ## How to apply
 
