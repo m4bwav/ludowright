@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-5 · 2026-11-26 · RPG book harvest 8: encounter scripts, quest-structure flaws, graded climax, dice spread, content removal, task pools (0.1.61)
+- because: harvest: RPG book collection (4e Dungeon Master's Guide; Advanced Gamemaster's Guide; Dungeon Master's Guide II; Fallout 2d20 GM Toolkit; paraphrased, book rules unverified)
+- files: kb/levels-and-space.md (Principles 33-34), kb/narrative-design.md (Principles 7-8), kb/uncertainty.md (36), kb/systems-and-loops.md (31-32), kb/balance-and-economy.md (48)
+- Eight short principles in fresh wording: encounter script with the four-point terrain test, graded climax after an attrition run, bottleneck, railroad, cluelessness and sidelining as plan flaws, no kill-count quests, narrower dice widening gaps at the extremes, removal breaking balance with rule changes failing toward the player, progress-pool tasks and reputation ladders. The railroad flaw is a plan check; the existing Railroaded player failure pattern stays the playtest symptom. Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-4 · 2026-11-26 · RPG book harvest 7: loot fairness, reward ceilings, premise layers, fail forward, generator discipline (0.1.60)
 - because: harvest: RPG book collection (Adventurers League DMG v2.0; Game Ideas collection with S. John Ross, The Big List of RPG Plots; Lankhmar Gamemaster's Guide; Gygax, AD&D Dungeon Masters Guide 1e; paraphrased, book rules unverified)
 - files: kb/balance-and-economy.md (46-47), kb/narrative-design.md (7), kb/uncertainty.md (35), kb/procgen.md (27)

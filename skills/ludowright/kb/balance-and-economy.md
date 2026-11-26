@@ -51,6 +51,7 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 45. Renewable stock: a harvested pool (game, fish, timber) needs a regrowth rate, a floor below which it collapses, and a visible safe harvest rate under regrowth. Overharvest should be a choice with a cost, not a hidden trap. [Bill Webb, Book of Dirty Tricks p. 75]
 46. Co-op loot fairness: a shared drop goes to the unanimous pick, else to the player holding the fewest lasting items, else at random; consumables do not count. Cap rewards per session or mission at a fixed ceiling, so adding enemies or stretching play earns nothing and nobody farms. [Adventurers League DMG v2.0 p. 4-5]
 47. Income against upkeep: list every recurring sink (tax, tolls, upkeep, training) next to the expected income per session, and flag a plan where wealth only grows. `ldw.py economy` runs the flow. [Gygax, AD&D Dungeon Masters Guide 1e p. 87-99]
+48. Removing content breaks the balance it assumed: cut a class, a counter or a healing source and the threats tuned against it spike. Add options rather than remove them, or retune what leaned on the cut. Treat a rule change as a playtest that fails in the player's favour: if it kills or ruins a character, revert it and keep the character; if it overpays, keep what was earned and swap the rule. [Dungeon Master's Guide II p. 79-80]
 
 ## How to apply
 
