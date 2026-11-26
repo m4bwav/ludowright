@@ -43,6 +43,8 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 37. Vary how long a setup waits for its payoff: many short pairs (a sign, then the thing it warns of a room later), a few long ones. Cap how many setups are open at once; too many unresolved threads make players anxious instead of curious. [Kobold Guide to Dungeons p. 14]
 38. Show how a situation works (its physical, magical and social parts) so players can pick their own tools against it. Hide only the surprises you intend. A creative solution needs a readable system to work with. [Kobold Guide to Dungeons p. 14-15]
 39. Of mood, story and player choice, a space can serve two well. Pick the two, write down which one is weaker, and accept it rather than half-serving all three. [Kobold Guide to Dungeons p. 80-83]
+40. Alternate easy hordes with one overwhelming foe. Mowing down crowds shows the player's power, and the single foe makes that power felt by contrast. [ICRPG Vigilante City p. 32]
+41. Lay the earliest paths first and let later buildings and roads follow them; a map grown that way reads as lived-in rather than planned on a grid. [Kobold Campaign Builder: Cities and Towns p. 35]
 
 ## How to apply
 

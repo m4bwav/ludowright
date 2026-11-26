@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-8 · 2026-11-26 · RPG book harvest 11: player-set risk, reward tiers, second resources, settlement logic (0.1.64)
+- because: harvest: RPG book collection (ICRPG Magic; ICRPG Worlds; ICRPG Vigilante City; ICRPG Altered State; Kobold Campaign Builder: Cities and Towns; paraphrased, book rules unverified)
+- files: kb/uncertainty.md (Principles 37-39), kb/systems-and-loops.md (35-40), kb/balance-and-economy.md (49-51), kb/levels-and-space.md (40-41), kb/worldbuilding-and-lore.md (Principles 16-17)
+- Sixteen short principles in fresh wording. Skipped as a duplicate: show the rules before punishing (levels-and-space 9, teach before test). Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-7 · 2026-11-26 · RPG book harvest 10: rewarding interaction, setup spacing, readable systems, branching shapes, rationed signals (0.1.63)
 - because: harvest: RPG book collection (Kobold Guide to Dungeons; Kobold Guide to Roleplaying; Weis, Kobold Guide to Plots & Campaigns; Kobold Guide to Gamemastering read but added nothing new; paraphrased, book rules unverified)
 - files: kb/levels-and-space.md (Principles 36-39), kb/narrative-design.md (Principles 10-13), kb/systems-and-loops.md (34), SKILL.md and ldw.py version brought back in line with the manifest
