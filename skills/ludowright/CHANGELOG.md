@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-6 · 2026-11-26 · RPG book harvest 9: non-kill objectives, two-axis difficulty, paced character turns; cleanups (0.1.62)
+- because: harvest: RPG book collection (5e Dungeon Master's Guide 2014; ICRPG Master Edition; 3.5 Dungeon Master's Guide); cleanup items from the session 8 handoff
+- files: kb/levels-and-space.md (Principles 35), kb/systems-and-loops.md (33), kb/narrative-design.md (Principles 9, How to apply renumbered), CHANGELOG.md (stray template heading removed)
+- Three short principles in fresh wording, plus removal of a template heading a past harvest left in the log and a duplicate item number.
+
 ### C-20261126-5 · 2026-11-26 · RPG book harvest 8: encounter scripts, quest-structure flaws, graded climax, dice spread, content removal, task pools (0.1.61)
 - because: harvest: RPG book collection (4e Dungeon Master's Guide; Advanced Gamemaster's Guide; Dungeon Master's Guide II; Fallout 2d20 GM Toolkit; paraphrased, book rules unverified)
 - files: kb/levels-and-space.md (Principles 33-34), kb/narrative-design.md (Principles 7-8), kb/uncertainty.md (36), kb/systems-and-loops.md (31-32), kb/balance-and-economy.md (48)
@@ -38,8 +43,6 @@ Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (ID
 - because: harvest: local game harvest 2026-11-25 (idea sources: Pirates Outlaws, Slay the Spire 2, Wildfrost, Luck be a Landlord; rules text and public play knowledge only, methods paraphrased, nothing copied)
 - files: scripts/ldw.py (growth, quota), kb/balance-and-economy.md (41-44), kb/game-ai-for-designers.md (34), kb/balance-tables.md (growth, quota), tests/test_ldw.py
 - New `growth` command projects deck size per stage against a target band and a capped resource's maker/spender ratio (BLOAT, OFF-BAND, NO-THIN, STARVED, FLOODED). New `quota` command checks rising payments with countdowns against an income ramp (TIGHT, LOOSE, CLIFF). Kb rules: thinning routes, a reward tier with a built-in cost, quota with countdown, visible adjustable countdowns with capped attachment slots, turn-based exact intents. Also brings SKILL.md and ldw.py back in line with the manifest version. Triggers unchanged, so evals were not re-run.
-
-### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
 ### C-20261123-3 · 2026-11-23 · Cobalt Core harvest: card pool shape rule and `ldw.py deck` (0.1.54)
 - because: harvest: local game harvest 2026-11-23 (Cobalt Core; aggregate counts from shipped readable data, nothing copied)

@@ -12,6 +12,7 @@ Answers: how a game's story is structured and tested as design, not how its pros
 6. A choice is real only when the player sees its consequence in the game, in the story, the rules or both. A choice with no visible result is a fake choice. [ch. 5]
 7. Four structure flaws to check in a quest or adventure plan: a bottleneck (progress hangs on one action or clue, so give two ways forward and make a found clue an edge, not a key), a railroad (events land whatever the player chose; a dungeon with no branches counts), cluelessness (many open options and no hint, as bad as none), and sidelining (a companion or NPC who could do the hero's job). [Wizards, 4e Dungeon Master's Guide p. 101]
 8. A quest is a story goal with more than one way to solve it. "Kill ten of these" only pays the core loop twice; fold it into the loop or give it a goal. [Wizards, 4e Dungeon Master's Guide p. 103]
+9. Pace a character's turn (a change of loyalty, faith or side) one step at a time, with some story time between steps, and make each step follow something the character did, not something they announced. A turn in one scene reads as a retcon. [Wizards, 3.5 Dungeon Master's Guide]
 
 ## How to apply
 
@@ -22,8 +23,8 @@ Answers: how a game's story is structured and tested as design, not how its pros
 5. Run variant setups the design allows (party makeup, early or late order of quests) and check that no required beat depends on a skipped one.
 6. Read story feedback in two columns: feedback (how the player felt) is always valid; suggestions (what they would change) are leads only. For a negative reaction, check in order: did they understand what to do, did they feel free to choose, did a depiction put them off, were they reacting to unfinished art. [ch. 9]
 7. Record each quest as a premise plus a twist, and give a two-layer quest a hook premise the player sees first and a different real premise underneath. If the same premise comes up twice in a campaign, reverse it the second time (the rescuer needs rescuing, the thief was the owner) so it reads as new; pair a physical goal with a personal stake when two plots run at once. [S. John Ross, The Big List of RPG Plots, in a Game Ideas collection p. 8-9, 11]
-7. Use fresh testers for story: people who know the plot stop seeing its holes. Do not explain the story before they play. [ch. 9]
-8. Do not patch missing animation with extra lines; the lines turn redundant once the animation lands. [ch. 9]
+8. Use fresh testers for story: people who know the plot stop seeing its holes. Do not explain the story before they play. [ch. 9]
+9. Do not patch missing animation with extra lines; the lines turn redundant once the animation lands. [ch. 9]
 
 ## Story keyed to progress, and who knows what
 
