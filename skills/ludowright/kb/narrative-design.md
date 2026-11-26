@@ -12,6 +12,7 @@ Answers: how a game's story is structured and tested as design, not how its pros
 6. A choice is real only when the player sees its consequence in the game, in the story, the rules or both. A choice with no visible result is a fake choice. [ch. 5]
 7. Four structure flaws to check in a quest or adventure plan: a bottleneck (progress hangs on one action or clue, so give two ways forward and make a found clue an edge, not a key), a railroad (events land whatever the player chose; a dungeon with no branches counts), cluelessness (many open options and no hint, as bad as none), and sidelining (a companion or NPC who could do the hero's job). [Wizards, 4e Dungeon Master's Guide p. 101]
 8. A quest is a story goal with more than one way to solve it. "Kill ten of these" only pays the core loop twice; fold it into the loop or give it a goal. [Wizards, 4e Dungeon Master's Guide p. 103]
+9. Pace a character's turn (a change of loyalty, faith or side) one step at a time, with some story time between steps, and make each step follow something the character did, not something they announced. A turn in one scene reads as a retcon. [Wizards, 3.5 Dungeon Master's Guide]
 
 ## How to apply
 

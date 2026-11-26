@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-6 · 2026-11-26 · RPG book harvest 9: non-kill objectives, two-axis difficulty, paced character turns; cleanups (0.1.62)
+- because: harvest: RPG book collection (5e Dungeon Master's Guide 2014; ICRPG Master Edition; 3.5 Dungeon Master's Guide); cleanup items from the session 8 handoff
+- files: kb/levels-and-space.md (Principles 35), kb/systems-and-loops.md (33), kb/narrative-design.md (Principles 9, How to apply renumbered), CHANGELOG.md (stray template heading removed)
+- Three short principles in fresh wording, plus removal of a template heading a past harvest left in the log and a duplicate item number.
+
 ### C-20261126-5 · 2026-11-26 · RPG book harvest 8: encounter scripts, quest-structure flaws, graded climax, dice spread, content removal, task pools (0.1.61)
 - because: harvest: RPG book collection (4e Dungeon Master's Guide; Advanced Gamemaster's Guide; Dungeon Master's Guide II; Fallout 2d20 GM Toolkit; paraphrased, book rules unverified)
 - files: kb/levels-and-space.md (Principles 33-34), kb/narrative-design.md (Principles 7-8), kb/uncertainty.md (36), kb/systems-and-loops.md (31-32), kb/balance-and-economy.md (48)

@@ -36,6 +36,7 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 30. Button-press check: if one option of a choice is always right once the player knows the rules, it is a button, not a choice. Give each option a cost or a context where it wins. [Panshin p. 154-155]
 31. Model a long task as a monster: a progress pool, a fixed count of milestones, and a big single result that also scores a milestone. Set a timer to milestones times the time per attempt, then tune. Cap milestone perks at one, or late tasks turn trivial. [Fallout 2d20 GM Toolkit p. 4-6]
 32. Reputation as a named ladder (hostile to allied, about six rungs), each rung saying what trade, help and shelter the faction gives. Score a quest's effect from short yes or no lists of what the faction liked and disliked, and only for factions that were involved or watching. [Fallout 2d20 GM Toolkit p. 7-8]
+33. Make a harder encounter harder on at least two of three axes: damage (what one hit costs), disruption (terrain or hazards that change what actions are good) and duration (a clock that ends the fight on the enemy's terms). Raising only hit points makes the fight longer, not harder. [Runehammer, ICRPG Master Edition p. 94-95]
 
 ## How to apply
 

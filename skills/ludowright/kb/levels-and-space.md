@@ -38,6 +38,7 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 32. Rest pressure is a pacing tool: when resting costs time or invites a threat, the player spends resources with care, and the space between fights becomes a choice. [Fast Combats]
 33. Script a fight before running it: play it through in your head from both sides, note each spot where the foes struggle, answer each with one terrain feature, and repeat. Then test every patch of terrain: it has a purpose, offers a route choice, gives a reason to move, and is memorable. Two sides trading blows in place means the terrain is not working. [Wizards, 4e Dungeon Master's Guide p. 62-64]
 34. Grade the climax. The party reaches it worn down by earlier fights, so a single pass-or-fail outcome turns attrition into a coin flip. Plan at least three outcome tiers (escape, drive off, full win) with the lowest reachable by a depleted party. [Advanced Gamemaster's Guide ch. 3 p. 56-57]
+35. Give an encounter an objective other than "defeat everything" often enough that the party plans: make peace, guard someone, grab and carry something out, cross a gauntlet, slip in unseen, stop a ritual on a timer, remove one target from a crowd. A level with every room a kill-all room reads as one encounter repeated. [Wizards, 5e Dungeon Master's Guide (2014), Creating Encounters]
 
 ## How to apply
 
