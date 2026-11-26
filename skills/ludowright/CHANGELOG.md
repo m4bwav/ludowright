@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-4 · 2026-11-26 · RPG book harvest 7: loot fairness, reward ceilings, premise layers, fail forward, generator discipline (0.1.60)
+- because: harvest: RPG book collection (Adventurers League DMG v2.0; Game Ideas collection with S. John Ross, The Big List of RPG Plots; Lankhmar Gamemaster's Guide; Gygax, AD&D Dungeon Masters Guide 1e; paraphrased, book rules unverified)
+- files: kb/balance-and-economy.md (46-47), kb/narrative-design.md (7), kb/uncertainty.md (35), kb/procgen.md (27)
+- Five short principles in fresh wording: co-op loot split with fixed reward ceilings, income against upkeep, premise plus twist with distinct hook and real layers, failed check as complication, and bounded table-driven generation with a separate placement record. Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-3 · 2026-11-26 · RPG book harvest 6: traps, encounter tactics, base loops, enemy lessons, playtest forms (0.1.59)
 - because: harvest: RPG book collection (Book of Challenges; Posner, A Goblin's Tale DMG; Campaign Planner collection; Campaign Creation Guide; Bill Webb, Book of Dirty Tricks; Fast Combats; an Inns supplement; GM Gems; 650 City; Panshin; paraphrased, book rules unverified)
 - files: kb/levels-and-space.md (Principles 29-32), kb/systems-and-loops.md (28-30), kb/game-ai-for-designers.md (35), kb/playtesting.md (23-25), kb/procgen.md (26), kb/balance-and-economy.md (45), kb/production-and-scope.md (29)
