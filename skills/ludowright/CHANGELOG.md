@@ -2,7 +2,12 @@
 
 Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with the reason. Reasons cite findings in [RESEARCH.md](RESEARCH.md) (`R-`), lessons in [LEARNINGS.md](LEARNINGS.md) (`L-`), and test runs in [TESTS.md](TESTS.md) (`T-`). State in `evergreen.json`. Protocol: MAINTENANCE.md.
 
-Entry shape: `### C-20261125-2 · 2026-11-25 · Live-play corrections: quota rows, capped resource waste, countdown pauses (0.1.56)
+Entry shape: `### C-20261126-1 · 2026-11-26 · RPG book harvest 1: five-role arc, session prep, three failure patterns (0.1.57)
+- because: harvest: RPG book collection (Johnn Four, 5 Room Dungeons; Shea, The Lazy Dungeon Master; paraphrased, book rules unverified)
+- files: kb/levels-and-space.md (Principles 27-28, Failure patterns)
+- Adds the five-role site arc laid over the critical path, prep-what-they-touch guidance, and the free setback, one-key puzzle and prep sunk cost failures. Triggers unchanged, so evals were not re-run.
+
+### C-20261125-2 · 2026-11-25 · Live-play corrections: quota rows, capped resource waste, countdown pauses (0.1.56)
 - because: harvest: live play of Luck be a Landlord, Pirates Outlaws and Wildfrost on 2026-11-25 corrected 0.1.55
 - files: scripts/ldw.py (growth), kb/balance-tables.md (growth, quota), kb/balance-and-economy.md (44), tests/test_ldw.py (QuotaTest, GrowthTest)
 - The quota test and docs tripled each payment; measured rent roughly doubles then grows by half while the window stretches, so the fixture is now an invented ladder of that shape (20/5, 45/5, 90/6, 140/6, 210/7). `growth` takes an optional resource `cap` with `refill`, `start` and `turns` and flags WASTED when refills spill past the cap (a reload at full ammo). Rule 44 now covers pausing a countdown for N ticks as well as adding turns. Triggers unchanged, so evals were not re-run.
