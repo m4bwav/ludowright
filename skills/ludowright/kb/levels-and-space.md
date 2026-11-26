@@ -30,6 +30,8 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 24. Schedule events with independent clocks, one per category: an on/off window (a few on-days, then off-days, a random count from a small range inside each window, a minimum spacing), a mean time between events, or one fixed day. Give threat clocks a start day (grace) and force the first threat to be a plain, readable one. Check the schedule with `ldw.py director`: it reports the longest gap, clumps and the first threat. [harvest: a colony sim's shipped data files, 2026-11]
 25. Judge an open world by its density, not its size: count points of interest (a landmark, encounter, resource, secret or story beat) per minute of travel at the player's normal speed, along the routes players take. A bigger map with the same content is emptier, and every added square kilometre must earn its points or be cut. In 3D or underwater spaces count per volume the player can reach, not per map area. Rule of thumb, unverified by a book. [harvest: a solo developer's underwater sandbox postmortem, 2026-11]
 26. Make a gate item a verb, not a key: it opens its gate and has at least one more use elsewhere (lights dark rooms, reveals hidden things, reaches a ledge), so old areas change when it arrives. Leave the order of gates to the player where the map allows, and show progress as the map fills in. A key useful only at its lock is a dead pickup. Live play owed to count uses per item and backtrack distance. [harvest: Animal Well, 2026-11-23]
+27. For a one-session site, lay a five-role arc over the critical path: an entrance with a guardian, a puzzle or roleplay step, a setback that costs a resource (best the one the climax punishes), a climax with terrain that matters and a lever besides damage, and a reward with a twist or next hook. Steps 1 and 2 use different modes and spotlight different players. A role is a step, not a room: one role can span a maze, so keep loops around the path. `tt.py fiveroom` in tablewright checks a plan. [Johnn Four, 5 Room Dungeons, method section; one GM's advice, unverified]
+28. Prep what the players will touch: an opening, about three leads (enough for a real choice, few enough to prep), people who each want something now, and a way for every fight to end early besides death or flight. Keep reusable parts (maps, foe groups, hazards) separate from places so they combine late. [Shea, The Lazy Dungeon Master, ch. V, XVII, XXI]
 
 ## How to apply
 
@@ -58,6 +60,9 @@ Per-encounter checks: a Timer (a visible countdown), a Threat and a Treat (a lev
 - Repetition: same system twice in a row, same lighting and music in adjacent levels. [Rogers LevelUp]
 - Target-death design: a plan stating the player dies N times here. [Rogers LevelUp ch. 12-13]
 - Uncontested shortcut that skips content at no cost. [Totten]
+- Free setback: a trap or reversal that costs the player nothing lasting. [Johnn Four, 5 Room Dungeons]
+- One-key puzzle: a puzzle with a single solution and no clue planted earlier. [Johnn Four, 5 Room Dungeons]
+- Prep sunk cost: steering players into content because of the effort spent making it. [Shea, The Lazy Dungeon Master, ch. V]
 
 - Secrets marked by cracks, flashing or a sidekick prompt; a secret's key item useful only at its lock; a hidden reward strong enough to become the dominant route. Good secrets are hinted by the world, findable out of order and useful beyond their lock. [Yu Parts II, IV]
 - Bosses that suspend the core rules (invulnerable until a puzzle, repeated). Prefer an upgraded regular enemy under the same rules, or a boss beaten through the core system. [Yu Part IV]
