@@ -45,6 +45,14 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 39. Let every hit drain a small second resource that refills fast, beside the slow main pool. Attrition then bites even tough characters within one fight without making it longer. [ICRPG Vigilante City p. 12]
 40. Split a vehicle's or boss's damage across parts, each tied to one function, so it loses abilities one at a time and the fight changes shape as it goes. [ICRPG Altered State p. 35]
 41. Keep improvised actions (anything a player tries outside the listed moves) weaker than a character's authored abilities. Otherwise the improvised option becomes the best one and the abilities lose their reason to exist. [Slavicsek and Baker, 4e Dungeon Master for Dummies p. 139]
+42. Make command a budget: leaders spend points to act, and friction (distance, disorder, broken lines) raises the price, so not every unit moves every turn. [Autarch, Domains at War Battles p. 18]
+43. Trigger morale on thresholds and resolve the checks one at a time in an order the side chooses, so one rout can tip the next and armies break in cascades. [Autarch, Domains at War Battles p. 23, 26]
+44. Treat fatigue as a debt to repay with rest, not a speed cap: forced effort now buys a cost later. [Autarch, Domains at War Campaigns p. 55]
+45. Fortifications turn a numbers fight into a frontage fight: only so many attackers fit, and damage to the walls widens the gap. [Autarch, Domains at War Campaigns p. 77]
+46. Give every detailed subsystem an off-screen shortcut (one roll or a table) for when it is not the focus. [Autarch, Domains at War Campaigns p. 86]
+47. Make travel a clock: roll on a fixed cadence (per day, per watch) rather than on whim, and let player choices move the odds, such as a cold camp lowering the night chance. [Assassin Games, Wilderness Encounters p. 2-3]
+48. Keep random travel events mostly non-combat, and end the fights that do happen on morale so they stay short. Check the table's combat share. [Assassin Games, Wilderness Encounters p. 2, 4]
+49. Chain encounters: let an event arm a later one (a clue leads to a site and a reward, or a scuffle brings a raid next watch). [Assassin Games, Wilderness Encounters p. 4, 15]
 
 ## How to apply
 

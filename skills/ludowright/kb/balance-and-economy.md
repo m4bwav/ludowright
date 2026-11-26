@@ -59,6 +59,13 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 53. Cap any single quest or story reward at a fraction of a level, so a level takes several quests. One generous quest then cannot skip a tier of content. [TSR, AD&D 2e Dungeon Master's Guide p. 103]
 54. Pay role or class experience only when the ability was needed to get past something, never for repeating it. Rewarding repetition invites grinding the same action. [TSR, AD&D 2e Dungeon Master's Guide p. 105]
 55. Put an enemy's loot on the enemy (a weapon it uses, gear it wears) so the drop is shown in the fight and won by beating it, rather than appearing from nowhere afterwards. [TSR, AD&D 2e Dungeon Master's Guide p. 182]
+56. Put common finds in the middle of a bell-curve table and the exciting ones on the tails, with a shared common pool in the middle so each region's table stays short. [Dalagrath, Herbalism & Alchemy p. 11-12]
+57. Every slot added to a recipe should raise its difficulty, so power and risk climb together; lock the simplest utility recipes so they cannot be optimised. [Dalagrath, Herbalism & Alchemy p. 4, 6-7]
+58. Key a crafted item's strength to the crafter's skill rather than the recipe, so the same recipe grows with the character. Keep the top tier uncraftable until a quest unlocks it. [Dalagrath, Herbalism & Alchemy p. 4]
+59. A gathered resource needs a faucet limit (a few gathers a session or per rest) and drains (spoilage, an overuse cap). Cap stacking multipliers too; check with `ldw.py craft`. [Dalagrath, Herbalism & Alchemy p. 2, 5, 6]
+60. Make selling its own small loop: finding a buyer takes effort, then the player picks between an honest low offer and a riskier higher one. [Dalagrath, Herbalism & Alchemy p. 3, 5]
+61. Pay for all logistics in one currency (supply, upkeep, transport) so every campaign choice trades against the same pool. [Autarch, Domains at War Campaigns p. 56]
+62. When units stand for crowds, make one hit one point of loss and scale the number of attacks rather than the damage. Keep the attack counts, or armoured units become immune to weak troops. [Autarch, Domains at War Battles p. 12]
 
 ## How to apply
 
@@ -74,6 +81,7 @@ Declare a table, run the matching `ldw.py` command, then judge. Shapes are in [b
 | Difficulty ramp: uncapped, where it floors or caps, flat early | `ldw.py ramp TABLE` | formula ramps (base, factor or add, floor, cap) or step -> value tables |
 | Growth ratio, pack price monotonicity, dead damage step | `curve` or by hand | cost or threshold per level or tier |
 | Dominated option | `curve` residuals plus a manual column comparison | all columns of the like objects |
+| Crafting economy: uncapped stacking, gather cadence, stock with no sink | `ldw.py craft TABLE` | multipliers (factor, max_stacks), gather (per_session), stock (sinks) |
 | Payoff matrix for intransitive sets | by hand (no command yet) | matrix of outcomes; say it is unchecked by script |
 
 Procedure for an economy review:

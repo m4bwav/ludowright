@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-10 · 2026-11-26 · RPG book harvest 12: crafting economy check, command budgets, morale cascades, travel clocks (0.1.66)
+- because: harvest: RPG book collection (Assassin Games, Wilderness Encounters; Autarch, Domains at War Battles; Autarch, Domains at War Campaigns; Dalagrath, Herbalism & Alchemy; paraphrased, book rules unverified)
+- files: scripts/ldw.py (new `craft` command), tests/test_ldw.py, kb/balance-tables.md (craft), kb/balance-and-economy.md (Principles 56-62, How to apply table), kb/systems-and-loops.md (42-49), kb/uncertainty.md (40)
+- Sixteen principles in fresh wording and `ldw.py craft`, which flags uncapped stacking multipliers, gathering with no per-session cap, high gather cadence, stock with no sink, and capped stacks past a power limit. Morale cascade kept apart from balance-and-economy 24 (absolute rout thresholds), which it extends. Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-9 · 2026-11-26 · RPG book harvest 11b: risk-gated XP, capped quest rewards, loot on the enemy, tension rhythm, test dangerous cards first (0.1.65)
 - because: harvest: RPG book collection (AD&D 2e Dungeon Master's Guide; 4e Dungeon Master for Dummies; ICRPG 2e Core; Kobold Guide to Board Game Design; paraphrased, book rules unverified)
 - files: kb/balance-and-economy.md (Principles 52-55), kb/levels-and-space.md (42), kb/systems-and-loops.md (41), kb/playtesting.md (Principles 26)
