@@ -26,6 +26,9 @@ Answers: how to plan, run and read playtests, and what a playtest, a simulation 
 20. For a game meant to teach, check what players learned with a short test before and after play, not only by asking. A fun game that teaches nothing has failed. [Boller and Kapp ch. 3, 9]
 21. Record the input events and the random seed of every playtest build, so a reported bug or balance oddity replays exactly instead of being described from memory. [Gregory, Game Engine Architecture 2e (2014), sec. 7.5]
 22. Explain-back after play: ask each tester for a one-line summary of what the game is for. If it misses the intended purpose, the rules or goals are unclear; fix those before tuning anything else. [Ferro ch. 8; book rule, unverified]
+23. After each fight, sort what happened into three tiers: what worked, what was unremarkable, what failed. The middle tier is where cuts and tuning hide. [Fast Combats]
+24. A tabletop-style player feedback form works as a playtest survey: one short sheet per session, with balanced and fun asked as separate items so a fair but dull part shows up. [Campaign Planner collection p. 106]
+25. Idle-player check: when players or units split, log how long each person had nothing to decide. Long idle stretches for one player mean the split or the turn order needs work. [Panshin p. 156-161]
 
 ## What a playtest cannot show
 
