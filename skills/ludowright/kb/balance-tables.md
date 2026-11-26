@@ -34,6 +34,19 @@ Rows: `resource`, `kind` (`source`, `sink` or `start`), `name`, `amount` per per
 
 Flags: `LEAK` (net positive with no cap: the resource stops mattering), `CAP` (when the cap is reached), `DRAIN` (the period it runs out), `NO-SINK`, `NO-SOURCE`. A period is whatever the game's clock is: a turn, a day, a run. Declare the amounts the *typical* player gets under a named policy (`"policy": "builds one mine a turn"`); a different policy is a second table.
 
+## craft: crafting economy
+
+Keys: `multipliers` (`name`, `factor`, `max_stacks`; leave `max_stacks` out when nothing caps it), `gather` (`name`, `per_session`; leave it out when nothing limits it), `stock` (`name`, `sinks`, a list such as spoilage, overuse, consumed on use). Optional `max_power` (largest combined multiplier allowed) and `max_gather` (default 3 a session).
+
+```json
+{"max_power": 4,
+ "multipliers": [{"name": "double dice", "factor": 2, "max_stacks": 1}],
+ "gather": [{"name": "forage", "per_session": 3}],
+ "stock": [{"name": "herbs", "sinks": ["spoilage"]}]}
+```
+
+Flags: `UNCAPPED-STACK` (a multiplier above 1 that stacks without limit), `POWER-SPIKE` (capped stacks multiply past `max_power`), `NO-GATHER-CAP`, `HIGH-CADENCE` (more gathers a session than `max_gather`), `NO-SINK` (stock that only piles up). [Dalagrath, Herbalism & Alchemy p. 2, 5, 6]
+
 ## sim: Monte Carlo
 
 Settings: `model` (`draw`, `walk` or `deck`), `steps`, optional `target` (walk), `hand` (deck, default 5), `threshold`. `--runs` (default 10,000) and `--seed` (default 1) make runs repeatable.

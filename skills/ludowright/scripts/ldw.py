@@ -16,6 +16,7 @@
   grammar TABLE --root SYM      text grammar check: UNDEFINED, UNREACHABLE, DEAD-UNDER, RECURSIVE, LOW-VARIETY
   growth TABLE                  deck size per stage against a target band: BLOAT, OFF-BAND, NO-THIN; resource STARVED / FLOODED / WASTED
   quota TABLE                   rising payments against an income ramp: slack per payment; TIGHT, LOOSE, CLIFF
+  craft TABLE                   crafting economy: uncapped stacking multipliers, gathering with no per-session cap, stock with no sink
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
 """
@@ -31,7 +32,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.65"
+VERSION = "0.1.66"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -1220,6 +1221,51 @@ def cmd_quota(a):
     return 0
 
 
+# ---------------------------------------------------------------- crafting economy
+
+def craft(t, max_gather=3):
+    """Crafting-economy check. t: multipliers [{name, factor, max_stacks}], gather [{name, per_session}],
+    stock [{name, sinks: [..]}], optional max_power (largest allowed combined multiplier) and max_gather."""
+    max_gather = float(t.get("max_gather", max_gather))
+    out = {"multipliers": [], "gather": [], "stock": [], "flags": []}
+    power, uncapped = 1.0, False
+    for m in t.get("multipliers", []):
+        f, n = float(m.get("factor", 1)), m.get("max_stacks")
+        flags = []
+        if f > 1 and n is None:
+            flags.append("UNCAPPED-STACK")
+            uncapped = True
+        else:
+            power *= f ** int(n if n is not None else 1)
+        out["multipliers"].append({"name": m.get("name"), "factor": f, "max_stacks": n, "flags": flags})
+    out["max_power"] = None if uncapped else power
+    if not uncapped and "max_power" in t and power > float(t["max_power"]):
+        out["flags"].append(f"POWER-SPIKE: stacked multipliers reach x{power:.4g} > x{float(t['max_power']):.4g}")
+    for g in t.get("gather", []):
+        c = g.get("per_session")
+        flags = ["NO-GATHER-CAP"] if c is None else (["HIGH-CADENCE"] if float(c) > max_gather else [])
+        out["gather"].append({"name": g.get("name"), "per_session": c, "flags": flags})
+    for i in t.get("stock", []):
+        sinks = i.get("sinks") or []
+        out["stock"].append({"name": i.get("name"), "sinks": sinks, "flags": [] if sinks else ["NO-SINK"]})
+    for sec in ("multipliers", "gather", "stock"):
+        for r in out[sec]:
+            out["flags"] += [f"{x}: {r['name']}" for x in r["flags"]]
+    return out
+
+
+def cmd_craft(a):
+    r = craft(load_json(a.table))
+    if a.json:
+        print(json.dumps(r, indent=1))
+        return 0
+    mp = "uncapped" if r["max_power"] is None else f"x{r['max_power']:.4g}"
+    print(f"combined multiplier {mp} · {len(r['flags'])} flags")
+    for f in r["flags"]:
+        print(f"  {f}")
+    return 0
+
+
 def main(argv=None):
     for s in (sys.stdout, sys.stderr):
         try:
@@ -1268,6 +1314,8 @@ def main(argv=None):
     gw.add_argument("table"); gw.add_argument("--json", action="store_true"); gw.set_defaults(fn=cmd_growth)
     q = sp.add_parser("quota", help="rising payments with countdowns against an income ramp: slack, TIGHT, LOOSE, CLIFF")
     q.add_argument("table"); q.add_argument("--json", action="store_true"); q.set_defaults(fn=cmd_quota)
+    cr = sp.add_parser("craft", help="crafting economy: uncapped stacking multipliers, no gather cap, stock with no sink")
+    cr.add_argument("table"); cr.add_argument("--json", action="store_true"); cr.set_defaults(fn=cmd_craft)
     a = p.parse_args(argv)
     if a.cmd == "findings" and a.action != "new" and not a.file:
         fail("findings validate and md need a FILE")

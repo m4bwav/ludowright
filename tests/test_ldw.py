@@ -147,6 +147,27 @@ class Maths(unittest.TestCase):
         self.assertTrue(any(f.startswith("LEAK") for f in e["gold"]["flags"]))
         self.assertTrue(any(f.startswith("DRAIN: runs out by period 6") for f in e["food"]["flags"]))
 
+    def test_craft_flags_uncapped_stack_gather_and_sinks(self):
+        t = {"max_power": 4,
+             "multipliers": [{"name": "double dice", "factor": 2}, {"name": "bigger die", "factor": 1.5, "max_stacks": 1}],
+             "gather": [{"name": "forage"}, {"name": "camp forage", "per_session": 5}, {"name": "market", "per_session": 2}],
+             "stock": [{"name": "herbs"}, {"name": "potions", "sinks": ["spoilage"]}]}
+        r = ldw.craft(t)
+        self.assertIsNone(r["max_power"])
+        self.assertIn("UNCAPPED-STACK: double dice", r["flags"])
+        self.assertIn("NO-GATHER-CAP: forage", r["flags"])
+        self.assertIn("HIGH-CADENCE: camp forage", r["flags"])
+        self.assertIn("NO-SINK: herbs", r["flags"])
+        self.assertNotIn("NO-SINK: potions", r["flags"])
+
+    def test_craft_capped_power_spike_and_clean(self):
+        t = {"max_power": 4, "multipliers": [{"name": "a", "factor": 2, "max_stacks": 3}]}
+        self.assertTrue(any(f.startswith("POWER-SPIKE") for f in ldw.craft(t)["flags"]))
+        t["max_power"] = 8
+        r = ldw.craft(t)
+        self.assertEqual(r["max_power"], 8)
+        self.assertEqual(r["flags"], [])
+
     def test_sim_draw_mean_within_band_of_exact_ev(self):
         rows = [{"outcome": "a", "value": 0, "weight": 1}, {"outcome": "b", "value": 10, "weight": 1}]
         r = ldw.run_sim({"rows": rows, "model": "draw"}, steps=10, runs=4000, seed=7)
