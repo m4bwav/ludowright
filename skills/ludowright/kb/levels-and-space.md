@@ -51,6 +51,8 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 45. Let travel cost depend on direction (going out is quick, coming back is slow) and let a dead portal or fast-travel node stay on the map as terrain to fight around. Both make the world feel strange without new rules. [Manual of the Planes p. 18, 35, 87]
 46. A boss's lair hazards should spare the boss and set up its main attack (a fire boss in burning terrain, a hazard that herds players into the breath line). Give a solo boss a phase change when it runs low so the fight does not end flat. [Draconomicon: Chromatic Dragons p. 47, 50]
 47. Horror pacing: put at least two dread beats (a sound, a sign, a near miss) before each scare, and keep false alarms fewer than real ones, or players stop flinching. Low confidence until playtested. [Open Grave p. 30]
+48. More horror pacing: summarise empty rooms in a line instead of searching each, give one fight early so built-up tension gets a release, let a long rest be broken by an event, and foreshadow the next threat through a sense (a smell, cold, a sound) before it appears. [A Guide to Curse of Strahd p. 48]
+49. Put the antagonist on a clock the world can see (a bell, a public notice, a known hour for the next strike). Players feel the deadline without a timer on screen, and every NPC can reason about it. [CORE 1-1 A Scream in the Night p. 11, 16]
 
 ## How to apply
 
