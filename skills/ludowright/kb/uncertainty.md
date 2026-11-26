@@ -41,6 +41,9 @@ Answers: where does the game's uncertainty live, is there too little or too much
 34. Event deck pacing for a run: a fixed opening pool, a few quiet beats each used once, rare events drawn without replacement so each appears at most once per run, no immediate repeat, and a breakdown share that rises with distance as a soft clock. End with a named outcome built from two short tables (a level name plus a society name) and an itemised score, so runs are memorable and comparable. [Ayliff, Seedship (2015 web game)]
 35. A failed check should change the situation, not stop it: give a failed roll outside combat a setback or complication (noise, cost, a new threat) that moves play on, rather than a dead end the player can only retry. [Lankhmar Gamemaster's Guide p. 30]
 36. Narrowing the spread (2d10 for 1d20, or a hand of cards the player times) widens the gap at the extremes and favours the stronger side. A target that was hard becomes near unbeatable, so check the hit odds at the top and bottom of the range after any change of dice. [Advanced Gamemaster's Guide ch. 2 p. 35]
+37. Let the player set the risk of each use: they choose the power, the cost scales with it, and the cost is paid only when the attempt succeeds. A miss is then cheap, and big plays are a choice rather than a default. [Runehammer, ICRPG Magic p. 19]
+38. Scale failure with ambition: a small attempt fails safely, a large one can go badly wrong. Players then size their reach to the stakes instead of always swinging at full power. [Runehammer, ICRPG Magic p. 22]
+39. A bankable charge that grows each turn it is held but backfires on a fumble makes patience the risk: waiting raises both the payoff and the cost of a bad roll. [ICRPG Altered State p. 7]
 
 ## How to apply
 

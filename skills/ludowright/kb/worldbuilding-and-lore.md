@@ -19,6 +19,8 @@ Answers: how to grow a setting's history and lore without contradictions or a pi
 13. Test each entry: can every reader picture it with no blank parts, and is its outcome stated? Every light or dark label carries a one-line reason. [Explorer p. 18-19]
 14. Stuck: pick an important person or thing and add its missing arc point (birth, victory, failure, end), or introduce something new by its downfall and work back. [Explorer p. 20-21]
 15. When lore is prep for players rather than the play activity, each entry names the present conflict it feeds or is marked background; give each nation one internal and one external conflict, and fewer peoples over a kitchen sink. `tt.py world` in tablewright checks nation, society and city cards. [Kobold Guide to Worldbuilding, p. 10-11, 50-52, 107-108; designers' opinion, unverified]
+16. Give every settlement a founding reason the player can see: a resource, a day's travel from the last stop, or a defensible spot. [Kobold Campaign Builder: Cities and Towns p. 8]
+17. Every worldbuilding answer should leave a visible trace in the level (a wall, a shrine, a trade good, a scar); lore with no trace stays in the document. [Kobold Campaign Builder: Cities and Towns p. 18-20]
 
 ## Adapting a co-made world
 

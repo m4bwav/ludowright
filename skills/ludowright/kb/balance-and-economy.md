@@ -52,6 +52,9 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 46. Co-op loot fairness: a shared drop goes to the unanimous pick, else to the player holding the fewest lasting items, else at random; consumables do not count. Cap rewards per session or mission at a fixed ceiling, so adding enemies or stretching play earns nothing and nobody farms. [Adventurers League DMG v2.0 p. 4-5]
 47. Income against upkeep: list every recurring sink (tax, tolls, upkeep, training) next to the expected income per session, and flag a plan where wealth only grows. `ldw.py economy` runs the flow. [Gygax, AD&D Dungeon Masters Guide 1e p. 87-99]
 48. Removing content breaks the balance it assumed: cut a class, a counter or a healing source and the threats tuned against it spike. Add options rather than remove them, or retune what leaned on the cut. Treat a rule change as a playtest that fails in the player's favour: if it kills or ruins a character, revert it and keep the character; if it overpays, keep what was earned and swap the rule. [Dungeon Master's Guide II p. 79-80]
+49. Reward memorable moments with permanent progress, not only spendable currency; a currency is spent and forgotten, a permanent mark records the moment. [Runehammer, ICRPG Magic p. 21]
+50. Make each reward tier rarer in time and harder to trigger than the one below, and gate it by rewards earned from that lower tier. [Runehammer, ICRPG Worlds p. 8, 17]
+51. Put rare goods behind sellers that are hard to reach, so finding the seller is content in itself rather than a menu click. [Runehammer, ICRPG Worlds p. 16]
 
 ## How to apply
 

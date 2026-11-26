@@ -38,6 +38,12 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 32. Reputation as a named ladder (hostile to allied, about six rungs), each rung saying what trade, help and shelter the faction gives. Score a quest's effect from short yes or no lists of what the faction liked and disliked, and only for factions that were involved or watching. [Fallout 2d20 GM Toolkit p. 7-8]
 33. Make a harder encounter harder on at least two of three axes: damage (what one hit costs), disruption (terrain or hazards that change what actions are good) and duration (a clock that ends the fight on the enemy's terms). Raising only hit points makes the fight longer, not harder. [Runehammer, ICRPG Master Edition p. 94-95]
 34. When the player tries something the rules do not cover, rule for the fantasy the game promises, not for the nearest specific rule: allow the attempt, set the odds from the situation, and resolve it. A system that answers "no rule, so no" teaches players to stop trying. [Kobold Guide to Roleplaying p. 110]
+35. Offer a trade of certainty now for lockout later: a guaranteed effect that is then disabled until the next rest. The player spends a future option to remove this turn's luck. [Runehammer, ICRPG Magic p. 19]
+36. Gate the next tier of a power by how many of the tier below the player already owns, so progress reads straight off the collection shown on screen. [Runehammer, ICRPG Magic p. 19]
+37. If every build can do everything, no character needs another and cooperation has no reason to exist. Give each role something only it covers. [Runehammer, ICRPG Worlds p. 14]
+38. Unlimited mobility needs a scarce fuel and a limit the player does not control (weather, a timer, a hostile zone), or the map stops mattering. [Runehammer, ICRPG Worlds p. 66]
+39. Let every hit drain a small second resource that refills fast, beside the slow main pool. Attrition then bites even tough characters within one fight without making it longer. [ICRPG Vigilante City p. 12]
+40. Split a vehicle's or boss's damage across parts, each tied to one function, so it loses abilities one at a time and the fight changes shape as it goes. [ICRPG Altered State p. 35]
 
 ## How to apply
 
