@@ -55,6 +55,10 @@ Answers: are the costs, rewards, sources, sinks and progression curves sound, an
 49. Reward memorable moments with permanent progress, not only spendable currency; a currency is spent and forgotten, a permanent mark records the moment. [Runehammer, ICRPG Magic p. 21]
 50. Make each reward tier rarer in time and harder to trigger than the one below, and gate it by rewards earned from that lower tier. [Runehammer, ICRPG Worlds p. 8, 17]
 51. Put rare goods behind sellers that are hard to reach, so finding the seller is content in itself rather than a menu click. [Runehammer, ICRPG Worlds p. 16]
+52. Award experience only for encounters where the player was at risk, or believed they were. A fight won without danger, or a threat the player never felt, teaches nothing and should pay little or nothing. [TSR, AD&D 2e Dungeon Master's Guide p. 101]
+53. Cap any single quest or story reward at a fraction of a level, so a level takes several quests. One generous quest then cannot skip a tier of content. [TSR, AD&D 2e Dungeon Master's Guide p. 103]
+54. Pay role or class experience only when the ability was needed to get past something, never for repeating it. Rewarding repetition invites grinding the same action. [TSR, AD&D 2e Dungeon Master's Guide p. 105]
+55. Put an enemy's loot on the enemy (a weapon it uses, gear it wears) so the drop is shown in the fight and won by beating it, rather than appearing from nowhere afterwards. [TSR, AD&D 2e Dungeon Master's Guide p. 182]
 
 ## How to apply
 

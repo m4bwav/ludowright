@@ -45,6 +45,7 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 39. Of mood, story and player choice, a space can serve two well. Pick the two, write down which one is weaker, and accept it rather than half-serving all three. [Kobold Guide to Dungeons p. 80-83]
 40. Alternate easy hordes with one overwhelming foe. Mowing down crowds shows the player's power, and the single foe makes that power felt by contrast. [ICRPG Vigilante City p. 32]
 41. Lay the earliest paths first and let later buildings and roads follow them; a map grown that way reads as lived-in rather than planned on a grid. [Kobold Campaign Builder: Cities and Towns p. 35]
+42. Tension rhythm for a session or chapter: open small, build, cut any scene that neither threatens nor advances, and end on a cliffhanger so the next one starts with a pull. [Slavicsek and Baker, 4e Dungeon Master for Dummies p. 135]
 
 ## How to apply
 

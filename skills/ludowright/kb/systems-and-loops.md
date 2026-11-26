@@ -44,6 +44,7 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 38. Unlimited mobility needs a scarce fuel and a limit the player does not control (weather, a timer, a hostile zone), or the map stops mattering. [Runehammer, ICRPG Worlds p. 66]
 39. Let every hit drain a small second resource that refills fast, beside the slow main pool. Attrition then bites even tough characters within one fight without making it longer. [ICRPG Vigilante City p. 12]
 40. Split a vehicle's or boss's damage across parts, each tied to one function, so it loses abilities one at a time and the fight changes shape as it goes. [ICRPG Altered State p. 35]
+41. Keep improvised actions (anything a player tries outside the listed moves) weaker than a character's authored abilities. Otherwise the improvised option becomes the best one and the abilities lose their reason to exist. [Slavicsek and Baker, 4e Dungeon Master for Dummies p. 139]
 
 ## How to apply
 
