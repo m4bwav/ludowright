@@ -55,6 +55,7 @@ Machinations patterns to reuse when modelling: source into pool into drain; a co
 
 ## Failure patterns
 
+- Single-counter roster: every foe in a group falls to the same answer (one damage type, one tactic); pair foes so one covers another's weakness. [Webb, Book of Dirty Tricks, p. 56-57; tabletop advice, unverified for video games]
 - Runaway leader: gains scale with current lead (income, XP, snowball cards, win-more effects) with no cap or catch-up. Symptom: winner obvious halfway through. [Sellers ch. 7; Salen ch. 18]
 - Snowball loss with no comeback: destructive positive feedback, no lever for the trailer. [Adams ch. 6; Costikyan ch. 5]
 - Surprise swing: slow, strong indirect negative feedback that flips outcomes late. [Adams ch. 6]

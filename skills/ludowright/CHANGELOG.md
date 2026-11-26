@@ -2,7 +2,14 @@
 
 Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with the reason. Reasons cite findings in [RESEARCH.md](RESEARCH.md) (`R-`), lessons in [LEARNINGS.md](LEARNINGS.md) (`L-`), and test runs in [TESTS.md](TESTS.md) (`T-`). State in `evergreen.json`. Protocol: MAINTENANCE.md.
 
-Entry shape: `### C-20261126-1 · 2026-11-26 · RPG book harvest 1: five-role arc, session prep, three failure patterns (0.1.57)
+Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
+
+### C-20261126-2 · 2026-11-26 · RPG book harvest 3: lore tied to present conflict, single-counter roster (0.1.58)
+- because: harvest: RPG book collection (Kobold Guide to Worldbuilding; Bill Webb, Book of Dirty Tricks; paraphrased, book rules unverified)
+- files: kb/worldbuilding-and-lore.md (15), kb/systems-and-loops.md (Failure patterns)
+- Two short lines; the skill is near its size line. Triggers unchanged, so evals were not re-run.
+
+### C-20261126-1 · 2026-11-26 · RPG book harvest 1: five-role arc, session prep, three failure patterns (0.1.57)
 - because: harvest: RPG book collection (Johnn Four, 5 Room Dungeons; Shea, The Lazy Dungeon Master; paraphrased, book rules unverified)
 - files: kb/levels-and-space.md (Principles 27-28, Failure patterns)
 - Adds the five-role site arc laid over the critical path, prep-what-they-touch guidance, and the free setback, one-key puzzle and prep sunk cost failures. Triggers unchanged, so evals were not re-run.
