@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-3 · 2026-11-26 · RPG book harvest 6: traps, encounter tactics, base loops, enemy lessons, playtest forms (0.1.59)
+- because: harvest: RPG book collection (Book of Challenges; Posner, A Goblin's Tale DMG; Campaign Planner collection; Campaign Creation Guide; Bill Webb, Book of Dirty Tricks; Fast Combats; an Inns supplement; GM Gems; 650 City; Panshin; paraphrased, book rules unverified)
+- files: kb/levels-and-space.md (Principles 29-32), kb/systems-and-loops.md (28-30), kb/game-ai-for-designers.md (35), kb/playtesting.md (23-25), kb/procgen.md (26), kb/balance-and-economy.md (45), kb/production-and-scope.md (29)
+- Fourteen short principles in fresh wording: trap anatomy, encounter tactics, crowd decay, rest pressure, base-management loop, failed craft as event, button-press check, one-lesson enemy, three-tier fight review, feedback form, idle-player check, generator filter, renewable stock, campaign walls and the one-fifth rut change. No ldw.py command for renewable stock yet. Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-2 · 2026-11-26 · RPG book harvest 3: lore tied to present conflict, single-counter roster (0.1.58)
 - because: harvest: RPG book collection (Kobold Guide to Worldbuilding; Bill Webb, Book of Dirty Tricks; paraphrased, book rules unverified)
 - files: kb/worldbuilding-and-lore.md (15), kb/systems-and-loops.md (Failure patterns)

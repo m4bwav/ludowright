@@ -38,6 +38,7 @@ Answers: how should an opponent or NPC behave, how hard should it be, and which 
 32. When labour is scarce, let the player rank workplaces with a few coarse levels (low, normal, high), assign by rank, then pay, then distance, and never re-deal people already employed. In one test the lowest-paid farms filled 16% of slots under pay-only assignment and 94% with ranks. [harvest: a colony sim, 2026-11-22]
 33. Agents may decide late but the frame may not stall: queue path and decision requests under a per-frame time budget (about 2 ms) and spread moments when everyone acts at once over several frames. In one test the worst frame fell from 164 ms to 9 ms at 300 agents, with walkers waiting at most 79 frames. [harvest: a colony sim, 2026-11-22]
 34. Turn-based exact intents: show what each enemy will do next turn, with the final number after modifiers, before the player acts. Hidden information moves from the enemy turn into the draw, so each turn is a known threat answered with an unknown hand. Keep the intent types few and distinct so a glance reads the turn. [harvest: Slay the Spire 2, public rules, 2026-11-25]
+35. An enemy that learns one lesson per encounter (it guards the door it lost through, avoids the trick that beat it) feels clever without feeling unfair; an enemy that focuses one target leaves room for the player to outwit it. Low confidence until playtested. [Posner, A Goblin's Tale DMG p. 67]
 
 ## How to apply
 

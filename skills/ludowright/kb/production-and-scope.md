@@ -32,6 +32,7 @@ Answers: is this plan buildable by the people and time available, and what shoul
 26. Content lifespan table: one row per significant element (level, enemy, building, ability, cutscene) with its first use on one progression axis (player level, stage or story beat), priority and what it depends on. Read it for stretches with nothing new and clumps of many new things at once; it also orders production. [Kramarzewski 2018, Content lifespan]
 27. Live games on a content treadmill have four cheaper moves than new content: remix old content (mirrored tracks, an old boss as a late enemy), add a reason to replay (new game plus, prestige), resurface old content through challenges or rule variants, and deepen the rules. A plan that only adds new content is a treadmill risk. [Kramarzewski 2018, Managing content treadmill]
 28. Write new systems in the fastest language to change (an engine's script language) and port to native code only the parts a profiler shows are hot, and only once their design has stopped changing. Porting early freezes a design that is still moving. Unverified by a book. [harvest: a solo developer's underwater sandbox postmortem, 2026-11]
+29. Long campaigns stall against known walls (lost thread, power drift, a dead favourite, repetition). Keep the list and check it at each milestone. When play falls into a rut, change about a fifth of the active elements at once (a place, a rival, a goal) rather than one or all. [Campaign Creation Guide p. 9-11, 50-59]
 
 ## How to apply
 
