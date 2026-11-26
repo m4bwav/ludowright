@@ -104,10 +104,10 @@ It prints undefined, unreachable, dead (no rule applies under the facts) and rec
 
 ## growth: deck size across a run
 
-`start`, `band` (`per_stage`, `end_low`, `end_high`, `ceiling`), `stages` (each with `adds` and `removals` as source-to-count maps), optional `resource` (`name`, `hand`, `deck`, `cards` with `copies`, `produce`, `consume`). It prints size per stage against the target. Flags: `BLOAT` (past the ceiling), `OFF-BAND` (end outside the band), `NO-THIN` (adds but no removal source), `STARVED` (made under 0.8 of spent per hand), `FLOODED` (over 1.5, or nothing spends it), else `ON-BAND`.
+`start`, `band` (`per_stage`, `end_low`, `end_high`, `ceiling`), `stages` (each with `adds` and `removals` as source-to-count maps), optional `resource` (`name`, `hand`, `deck`, `cards` with `copies`, `produce`, `consume`; optional `cap`, `refill` per turn, `start`, `turns`). It prints size per stage against the target. Flags: `BLOAT` (past the ceiling), `OFF-BAND` (end outside the band), `NO-THIN` (adds but no removal source), `STARVED` (made under 0.8 of spent per hand), `FLOODED` (over 1.5, or nothing spends it), `WASTED` (with a `cap`: over a tenth of what was gained spilled past the cap in a turn-by-turn run, as when a reload at full ammo is lost), else `ON-BAND`.
 
 ## quota: payments with countdowns
 
-`payments` (`amount`, `periods`, optional `name`) and `income`, a ramp row as in `ramp` (base with factor or add, or `values`). Per payment it prints the required income per period, the expected income over its window and slack (expected over amount). Flags: `TIGHT` (slack under 1), `LOOSE` (over 2 for three payments in a row), `CLIFF` (required rate more than doubles), else `PACED`.
+`payments` (`amount`, `periods`, optional `name`; a realistic ladder roughly doubles then grows by half while the window stretches a period or so, e.g. 20/5, 45/5, 90/6, 140/6, 210/7, not tripling each time) and `income`, a ramp row as in `ramp` (base with factor or add, or `values`). Per payment it prints the required income per period, the expected income over its window and slack (expected over amount). Flags: `TIGHT` (slack under 1), `LOOSE` (over 2 for three payments in a row), `CLIFF` (required rate more than doubles), else `PACED`.
 
 Related: builds on [balance-and-economy.md](balance-and-economy.md); see also [uncertainty.md](uncertainty.md), [systems-and-loops.md](systems-and-loops.md), [review-rubric.md](review-rubric.md)

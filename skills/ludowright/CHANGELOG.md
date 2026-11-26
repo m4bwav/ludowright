@@ -2,7 +2,12 @@
 
 Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with the reason. Reasons cite findings in [RESEARCH.md](RESEARCH.md) (`R-`), lessons in [LEARNINGS.md](LEARNINGS.md) (`L-`), and test runs in [TESTS.md](TESTS.md) (`T-`). State in `evergreen.json`. Protocol: MAINTENANCE.md.
 
-Entry shape: `### C-20261125-1 · 2026-11-25 · Steam harvest wave 2: `ldw.py growth`, `ldw.py quota`, intents, cost tier, countdowns (0.1.55)
+Entry shape: `### C-20261125-2 · 2026-11-25 · Live-play corrections: quota rows, capped resource waste, countdown pauses (0.1.56)
+- because: harvest: live play of Luck be a Landlord, Pirates Outlaws and Wildfrost on 2026-11-25 corrected 0.1.55
+- files: scripts/ldw.py (growth), kb/balance-tables.md (growth, quota), kb/balance-and-economy.md (44), tests/test_ldw.py (QuotaTest, GrowthTest)
+- The quota test and docs tripled each payment; measured rent roughly doubles then grows by half while the window stretches, so the fixture is now an invented ladder of that shape (20/5, 45/5, 90/6, 140/6, 210/7). `growth` takes an optional resource `cap` with `refill`, `start` and `turns` and flags WASTED when refills spill past the cap (a reload at full ammo). Rule 44 now covers pausing a countdown for N ticks as well as adding turns. Triggers unchanged, so evals were not re-run.
+
+### C-20261125-1 · 2026-11-25 · Steam harvest wave 2: `ldw.py growth`, `ldw.py quota`, intents, cost tier, countdowns (0.1.55)
 - because: harvest: local game harvest 2026-11-25 (idea sources: Pirates Outlaws, Slay the Spire 2, Wildfrost, Luck be a Landlord; rules text and public play knowledge only, methods paraphrased, nothing copied)
 - files: scripts/ldw.py (growth, quota), kb/balance-and-economy.md (41-44), kb/game-ai-for-designers.md (34), kb/balance-tables.md (growth, quota), tests/test_ldw.py
 - New `growth` command projects deck size per stage against a target band and a capped resource's maker/spender ratio (BLOAT, OFF-BAND, NO-THIN, STARVED, FLOODED). New `quota` command checks rising payments with countdowns against an income ramp (TIGHT, LOOSE, CLIFF). Kb rules: thinning routes, a reward tier with a built-in cost, quota with countdown, visible adjustable countdowns with capped attachment slots, turn-based exact intents. Also brings SKILL.md and ldw.py back in line with the manifest version. Triggers unchanged, so evals were not re-run.
