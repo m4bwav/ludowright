@@ -53,6 +53,9 @@ Answers: how do the game's feedback loops, emergence and decisions behave, and d
 47. Make travel a clock: roll on a fixed cadence (per day, per watch) rather than on whim, and let player choices move the odds, such as a cold camp lowering the night chance. [Assassin Games, Wilderness Encounters p. 2-3]
 48. Keep random travel events mostly non-combat, and end the fights that do happen on morale so they stay short. Check the table's combat share. [Assassin Games, Wilderness Encounters p. 2, 4]
 49. Chain encounters: let an event arm a later one (a clue leads to a site and a reward, or a scuffle brings a raid next watch). [Assassin Games, Wilderness Encounters p. 4, 15]
+50. An influence game across factions: give the player a few actions to spend among factions whose scores stay hidden, show only a coarse public signal per faction (leaning, wavering, opposed), and resolve the outcome in public. Check that the signal tells the player enough to choose where to spend. [Trail of Tyranny p. 33-35]
+51. Stage a damage-over-time effect: an onset effect, then a repeat effect on an interval. The interval decides use (per round reads as combat, per hour or day as intrigue), and the delivery route (touch, food, air, wound) is where counterplay lives. Run `ldw.py dot` to see expected ticks, total damage and the escape chance in the first few ticks; a resist that only falls with no end point is a death spiral. [Poisons p. 2-4]
+52. Mark each escalation of a threat by breaking a rule players have learned about it (it now crosses running water, it now hunts by day), and make each break visible when it happens. [Open Grave p. 35]
 
 ## How to apply
 

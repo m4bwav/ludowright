@@ -47,6 +47,16 @@ Keys: `multipliers` (`name`, `factor`, `max_stacks`; leave `max_stacks` out when
 
 Flags: `UNCAPPED-STACK` (a multiplier above 1 that stacks without limit), `POWER-SPIKE` (capped stacks multiply past `max_power`), `NO-GATHER-CAP`, `HIGH-CADENCE` (more gathers a session than `max_gather`), `NO-SINK` (stock that only piles up). [Dalagrath, Herbalism & Alchemy p. 2, 5, 6]
 
+## dot: damage over time
+
+Keys: `resist` (chance to shake the effect off on a tick), `damage` (per failed tick), optional `penalty` (resist chance lost after each failed tick), `min_resist` (resist floor), `interval` (time per tick), `max_ticks` (natural end), `window` (ticks for the escape check, default 3) and `floor` (least escape chance within the window, default 0.5). Each tick rolls resist first: success ends it, failure deals damage.
+
+```json
+{"resist": 0.3, "penalty": 0.1, "damage": 2, "max_ticks": 3}
+```
+
+Reports expected ticks, expected damage and time, and the escape chance within the window. Flags: `NO-EXIT` (resist falls to zero with no `max_ticks`), `TRAPPED` (escape within the window under `floor`). [Poisons p. 2]
+
 ## sim: Monte Carlo
 
 Settings: `model` (`draw`, `walk` or `deck`), `steps`, optional `target` (walk), `hand` (deck, default 5), `threshold`. `--runs` (default 10,000) and `--seed` (default 1) make runs repeatable.

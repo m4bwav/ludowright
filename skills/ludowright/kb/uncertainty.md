@@ -45,6 +45,7 @@ Answers: where does the game's uncertainty live, is there too little or too much
 38. Scale failure with ambition: a small attempt fails safely, a large one can go badly wrong. Players then size their reach to the stakes instead of always swinging at full power. [Runehammer, ICRPG Magic p. 22]
 39. A bankable charge that grows each turn it is held but backfires on a fumble makes patience the risk: waiting raises both the payoff and the cost of a bad roll. [ICRPG Altered State p. 7]
 40. Let information come from a contested roll that can return lies, so scouting has a cost and reports are judged rather than trusted. [Autarch, Domains at War Campaigns p. 62]
+41. In a chase or event deck, make about half the cards blank or quiet. Pace stays quick, and the bad cards are felt because they are not every draw. Give each complication card a cost. [Trail of Tyranny p. 18-19]
 
 ## How to apply
 

@@ -46,6 +46,11 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 40. Alternate easy hordes with one overwhelming foe. Mowing down crowds shows the player's power, and the single foe makes that power felt by contrast. [ICRPG Vigilante City p. 32]
 41. Lay the earliest paths first and let later buildings and roads follow them; a map grown that way reads as lived-in rather than planned on a grid. [Kobold Campaign Builder: Cities and Towns p. 35]
 42. Tension rhythm for a session or chapter: open small, build, cut any scene that neither threatens nor advances, and end on a cliffhanger so the next one starts with a pull. [Slavicsek and Baker, 4e Dungeon Master for Dummies p. 135]
+43. Scale a site across tiers by changing which foes appear and in what mix, not only their numbers, and scale its traps with them. [Adventure Shorts p. 3, 6]
+44. Check every obstacle both ways: the climb, door or chasm the party passed going in may be harder, or gone, on the way out with loot and wounds. Make the return trip a planned beat or remove the snag. [Adventure Shorts p. 9, 16]
+45. Let travel cost depend on direction (going out is quick, coming back is slow) and let a dead portal or fast-travel node stay on the map as terrain to fight around. Both make the world feel strange without new rules. [Manual of the Planes p. 18, 35, 87]
+46. A boss's lair hazards should spare the boss and set up its main attack (a fire boss in burning terrain, a hazard that herds players into the breath line). Give a solo boss a phase change when it runs low so the fight does not end flat. [Draconomicon: Chromatic Dragons p. 47, 50]
+47. Horror pacing: put at least two dread beats (a sound, a sign, a near miss) before each scare, and keep false alarms fewer than real ones, or players stop flinching. Low confidence until playtested. [Open Grave p. 30]
 
 ## How to apply
 
