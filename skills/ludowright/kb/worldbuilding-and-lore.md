@@ -21,6 +21,7 @@ Answers: how to grow a setting's history and lore without contradictions or a pi
 15. When lore is prep for players rather than the play activity, each entry names the present conflict it feeds or is marked background; give each nation one internal and one external conflict, and fewer peoples over a kitchen sink. `tt.py world` in tablewright checks nation, society and city cards. [Kobold Guide to Worldbuilding, p. 10-11, 50-52, 107-108; designers' opinion, unverified]
 16. Give every settlement a founding reason the player can see: a resource, a day's travel from the last stop, or a defensible spot. [Kobold Campaign Builder: Cities and Towns p. 8]
 17. Every worldbuilding answer should leave a visible trace in the level (a wall, a shrine, a trade good, a scar); lore with no trace stays in the document. [Kobold Campaign Builder: Cities and Towns p. 18-20]
+18. Give a generator three or four written principles of how the setting works and what its people are like, and check every generated place or person against them. Give each one exactly one built-in contradiction (a "but"); that is what makes it memorable. [Unframed p. 17-20]
 
 ## Adapting a co-made world
 

@@ -133,3 +133,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 - 2026-11-26: 0.1.65 RPG harvest 11b (AD&D 2e DMG, 4e DM for Dummies, ICRPG 2e Core, Kobold Board Game Design): kb balance-and-economy 52-55, levels-and-space 42, systems-and-loops 41, playtesting 26; five skipped as duplicates (bottleneck, readable AI, HP dial, greedy bot, rarity).
 - 2026-11-26: 0.1.66 RPG harvest 12 (Wilderness Encounters; Domains at War Battles and Campaigns; Herbalism & Alchemy): new `ldw.py craft` check with tests; kb balance-and-economy 56-62, systems-and-loops 42-49, uncertainty 40.
 - 2026-11-26: RPG harvest 13 (0.1.67): ldw.py dot and eleven principles from eight RPG books.
+- 2026-11-26: RPG harvest 14 (0.1.68): twelve principles and a 10-20% slack range from Never Unprepared, Focal Point, Deep Carbon Observatory and Unframed.

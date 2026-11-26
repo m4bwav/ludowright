@@ -20,6 +20,8 @@ Answers: how a game's story is structured and tested as design, not how its pros
 14. Write an if-the-player-does-nothing timeline: day by day from day zero, what the other forces do and which places or rewards change or vanish on which day. Inaction then has a visible cost, and the timeline answers what is there whenever the player arrives. [Deep Carbon Observatory p. 83-84]
 15. A triage opening throws several events at once and gives each a one-line fate if ignored, so the player chooses what to save and knows what was lost. People left behind persist and can be found later; each event happens once. [Deep Carbon Observatory p. 1-3]
 16. In a long play session, plan a break and use it to check progress against the session goal; if behind, move the goal to an earlier good stopping point. Players who start repeating their first impulse are tired, and a break helps more than a hint. [Focal Point p. 134, 160]
+17. Build a talk scene as a petition: one asker, one granter who can say yes or no, what the asker wants, and two or more tactics for each side (plea, bribe, threat, appeal to a bond). The scene ends one of two ways: the granter agrees, or one side runs out of tactics. A request the granter has no reason to resist resolves in one line, not a scene. [Unframed p. 6-11]
+18. Prep plot pieces as movable islands: encounters, clues and leads held in loose start, middle and end bands, none tied to one place, each with several ways in, so a piece can move to wherever the player goes. This is the general fix for principle 7's bottleneck. [Unframed p. 21-24]
 
 ## How to apply
 
