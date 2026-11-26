@@ -53,6 +53,11 @@ Answers: is this level, map or encounter plan well shaped, paced and teaching wh
 47. Horror pacing: put at least two dread beats (a sound, a sign, a near miss) before each scare, and keep false alarms fewer than real ones, or players stop flinching. Low confidence until playtested. [Open Grave p. 30]
 48. More horror pacing: summarise empty rooms in a line instead of searching each, give one fight early so built-up tension gets a release, let a long rest be broken by an event, and foreshadow the next threat through a sense (a smell, cold, a sound) before it appears. [A Guide to Curse of Strahd p. 48]
 49. Put the antagonist on a clock the world can see (a bell, a public notice, a known hour for the next strike). Players feel the deadline without a timer on screen, and every NPC can reason about it. [CORE 1-1 A Scream in the Night p. 11, 16]
+50. Stealth-to-chase pacing: a quiet infiltration ends in an alarm that always comes sooner or later, then a chase back to the exit split into legs. Time lost on each leg adds enemies to the fight at the exit, so stealth and speed both pay off in one place. [CORE 1-2 Cog in the Wheel p. 24-29]
+51. Two fronts, one team: give the players two threats they cannot fully handle at once, a clock both can see, and a real cost (time, travel) for switching between them. Show what happens on the front they left through a messenger and through signs in the world, not a menu. [CORE 1-3 A Hole in the World p. 7, 26]
+52. A wave too big to win beside a safe zone the players can see turns a fight into a retreat and then a rest beat. The fight's job is to move them, not to kill them. [Adventure Awaits, Crow's Rest p. 13-14]
+53. A finder that only works at short range (a compass that spins until close, a glow that wakes nearby) keeps a search going as exploration instead of solving it from the start. [Adventure Awaits, Crow's Rest p. 15]
+54. Start the player locked inside and make the level an escape outward, and let the place itself keep time with signs that escalate (rising water, spreading cracks, louder rumbling). Both give a direction and a deadline without a timer on screen. [Dungeons on Demand, Dungeon Delves p. 6, 8]
 
 ## How to apply
 

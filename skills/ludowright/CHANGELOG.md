@@ -2,12 +2,17 @@
 
 Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with the reason. Reasons cite findings in [RESEARCH.md](RESEARCH.md) (`R-`), lessons in [LEARNINGS.md](LEARNINGS.md) (`L-`), and test runs in [TESTS.md](TESTS.md) (`T-`). State in `evergreen.json`. Protocol: MAINTENANCE.md.
 
-Entry shape: `### C-20261126-13 · 2026-11-26 · RPG book harvest 15: horror pacing, a visible antagonist clock, faction deterrents (0.1.69)
+Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
+
+### C-20261126-14 · 2026-11-26 · RPG book harvest 16: stealth-to-chase pacing, two fronts, retreat to a safe zone, short-range finders, escape-first levels (0.1.70)
+- because: harvest: RPG book collection (CORE 1-2 Cog in the Wheel; CORE 1-3 A Hole in the World; Adventure Awaits, Crow's Rest; Dungeons on Demand, Dungeon Delves; paraphrased, book rules unverified)
+- files: kb/levels-and-space.md (Principles 50-54)
+- Five principles in fresh wording. The environmental clock joins the escape-first line rather than repeat 49's antagonist clock. Also moved entry 13 out of the entry-shape line. Triggers unchanged, so evals were not re-run.
+
+### C-20261126-13 · 2026-11-26 · RPG book harvest 15: horror pacing, a visible antagonist clock, faction deterrents (0.1.69)
 - because: harvest: RPG book collection (A Guide to Curse of Strahd; CORE 1-1 A Scream in the Night; Dungeons on Demand, Of Crown and Kingdom; paraphrased, book rules unverified)
 - files: kb/levels-and-space.md (Principles 48-49), kb/worldbuilding-and-lore.md (19)
 - Three principles in fresh wording. Horror pacing extends levels-and-space 47 rather than repeat its dread beats. Triggers unchanged, so evals were not re-run.
-
-### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
 ### C-20261126-12 · 2026-11-26 · RPG book harvest 14: diverge then converge, three review roles, if-nothing timelines, profiling opponents, petition talks (0.1.68)
 - because: harvest: RPG book collection (Never Unprepared; Focal Point; Deep Carbon Observatory; Unframed; paraphrased, book rules unverified)

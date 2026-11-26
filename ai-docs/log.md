@@ -135,3 +135,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 - 2026-11-26: RPG harvest 13 (0.1.67): ldw.py dot and eleven principles from eight RPG books.
 - 2026-11-26: RPG harvest 14 (0.1.68): twelve principles and a 10-20% slack range from Never Unprepared, Focal Point, Deep Carbon Observatory and Unframed.
 - 2026-11-26: RPG harvest 15 (0.1.69): three principles from A Guide to Curse of Strahd, A Scream in the Night and Of Crown and Kingdom.
+- 2026-11-26: RPG harvest 16 (0.1.70): five level-pacing principles from Cog in the Wheel, A Hole in the World, Crow's Rest and Dungeon Delves.
