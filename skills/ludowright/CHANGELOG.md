@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-7 · 2026-11-26 · RPG book harvest 10: rewarding interaction, setup spacing, readable systems, branching shapes, rationed signals (0.1.63)
+- because: harvest: RPG book collection (Kobold Guide to Dungeons; Kobold Guide to Roleplaying; Weis, Kobold Guide to Plots & Campaigns; Kobold Guide to Gamemastering read but added nothing new; paraphrased, book rules unverified)
+- files: kb/levels-and-space.md (Principles 36-39), kb/narrative-design.md (Principles 10-13), kb/systems-and-loops.md (34), SKILL.md and ldw.py version brought back in line with the manifest
+- Nine short principles in fresh wording. Skipped as duplicates: rest that costs nothing (levels-and-space 32) and failure that changes state (uncertainty 35). Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-6 · 2026-11-26 · RPG book harvest 9: non-kill objectives, two-axis difficulty, paced character turns; cleanups (0.1.62)
 - because: harvest: RPG book collection (5e Dungeon Master's Guide 2014; ICRPG Master Edition; 3.5 Dungeon Master's Guide); cleanup items from the session 8 handoff
 - files: kb/levels-and-space.md (Principles 35), kb/systems-and-loops.md (33), kb/narrative-design.md (Principles 9, How to apply renumbered), CHANGELOG.md (stray template heading removed)

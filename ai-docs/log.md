@@ -128,3 +128,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 - 2026-11-22: 0.1.51 thirteen kb rules from the Oxygen Not Included local harvest (systems 20-22, economy 36-37, ux 26-29, procgen 25, game-ai 32-33).
 - 2026-11-25: 0.1.55 ldw.py growth (deck size vs band, thinning, resource ratio) and quota (payments with countdowns vs income ramp), kb balance-and-economy 41-44 and game-ai 34, from the Steam harvest wave 2 (Pirates Outlaws, Slay the Spire 2, Wildfrost, Luck be a Landlord).
 - 2026-11-25: 0.1.56 live-play corrections: quota fixture shaped like real rent (no tripling), growth resource cap with WASTED, kb balance-and-economy 44 covers pausing a countdown.
+- 2026-11-26: 0.1.63 RPG harvest 10 (Kobold Guides): kb levels-and-space 36-39, narrative-design 10-13, systems-and-loops 34; rest cost and fail forward skipped as duplicates.
