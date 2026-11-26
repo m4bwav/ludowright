@@ -14,7 +14,7 @@
   director TABLE --days N       event schedule from comps: gaps, clumps, first threat, budget; NO-BREATHER / CLUMP / RUNAWAY
   mood TABLE --hours N          stacked-modifier meter seeking a target: hours below threshold; UNCAPPED / SPIKE / OSCILLATES
   grammar TABLE --root SYM      text grammar check: UNDEFINED, UNREACHABLE, DEAD-UNDER, RECURSIVE, LOW-VARIETY
-  growth TABLE                  deck size per stage against a target band: BLOAT, OFF-BAND, NO-THIN; resource STARVED / FLOODED
+  growth TABLE                  deck size per stage against a target band: BLOAT, OFF-BAND, NO-THIN; resource STARVED / FLOODED / WASTED
   quota TABLE                   rising payments against an income ramp: slack per payment; TIGHT, LOOSE, CLIFF
 
 Tables are JSON or CSV. Shapes are in kb/balance-tables.md. Standard library only; Python 3.9+.
@@ -31,7 +31,7 @@ import re
 import statistics
 import sys
 
-VERSION = "0.1.55"
+VERSION = "0.1.56"
 FORMAT = "ludowright-findings"
 FORMAT_VERSION = "1.1"
 SEVERITIES = ("critical", "major", "minor", "note")
@@ -1080,7 +1080,9 @@ def growth(t):
     """Project deck size per stage from adds and removals by source against a target band.
     BLOAT: past the ceiling. OFF-BAND: final size outside the end band. NO-THIN: cards are added but no source removes any.
     With a 'resource' (cards that produce or consume it per play): ratio of produced to consumed per average hand;
-    STARVED under 0.8, FLOODED over 1.5 or nothing consumes it."""
+    STARVED under 0.8, FLOODED over 1.5 or nothing consumes it. With a resource 'cap' (most it can hold) and optional
+    'refill' (free gain per turn), 'start' and 'turns': a turn-by-turn run (gain, clip at the cap, then spend);
+    WASTED when more than a tenth of what was gained spilled over the cap."""
     band = t.get("band", {})
     start = float(t.get("start", band.get("start", 10)))
     per, ceiling = band.get("per_stage"), band.get("ceiling")
@@ -1119,6 +1121,23 @@ def growth(t):
             flags.append("STARVED")
         elif ratio is None or ratio > 1.5:
             flags.append("FLOODED")
+        if rc.get("cap") is not None:
+            cap = float(rc["cap"])
+            refill = float(rc.get("refill", 0))
+            level = min(cap, float(rc.get("start", cap)))
+            gained = wasted = 0.0
+            for _ in range(int(rc.get("turns", 10))):
+                gain = refill + prod
+                gained += gain
+                level += gain
+                if level > cap:
+                    wasted += level - cap
+                    level = cap
+                level = max(0.0, level - cons)
+            share = wasted / gained if gained else 0.0
+            res["resource"].update({"cap": cap, "refill": refill, "gained": gained, "wasted": wasted, "wasted_share": share})
+            if share > 0.1:
+                flags.append("WASTED")
     if not flags:
         flags.append("ON-BAND")
     return res
@@ -1137,6 +1156,8 @@ def cmd_growth(a):
     if rc:
         ratio = f"{rc['ratio']:.3g}" if rc["ratio"] is not None else "n/a"
         print(f"  {rc['name']}: made {rc['produced_per_hand']:.3g} / spent {rc['consumed_per_hand']:.3g} per hand, ratio {ratio}")
+        if "cap" in rc:
+            print(f"  cap {fmt(rc['cap'])}, refill {fmt(rc['refill'])}/turn: gained {rc['gained']:.3g}, wasted {rc['wasted']:.3g} ({rc['wasted_share']:.0%})")
     return 0
 
 

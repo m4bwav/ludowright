@@ -458,18 +458,33 @@ class GrowthTest(unittest.TestCase):
         cards = [{"copies": 6, "produce": 1}, {"copies": 1, "consume": 1}]
         self.assertIn("FLOODED", ldw.growth(dict(self.table(1), resource={"cards": cards}))["flags"])
 
+    def test_capped_refill_is_wasted(self):
+        # Ammo cap 3, +1 per turn, starts full: with nothing spending it, every refill spills.
+        res = {"name": "ammo", "cap": 3, "refill": 1, "turns": 6, "cards": [{"copies": 1, "consume": 0}]}
+        r = ldw.growth(dict(self.table(1), resource=res))
+        self.assertEqual(r["resource"]["wasted"], 6)
+        self.assertIn("WASTED", r["flags"])
+        # A spender of about one per turn keeps it under the cap: nothing spills.
+        res = dict(res, start=0, hand=1, deck=1, cards=[{"copies": 1, "consume": 1}])
+        r = ldw.growth(dict(self.table(1), resource=res))
+        self.assertEqual(r["resource"]["wasted"], 0)
+        self.assertNotIn("WASTED", r["flags"])
+
 
 class QuotaTest(unittest.TestCase):
-    def test_tripling_quota_outruns_growing_income(self):
-        # Income 10 x 1.15^n per period (about 2x per window); payments triple every time, 5 periods each.
-        t = {"income": {"base": 10, "factor": 1.15}, "payments": [{"amount": 30 * 3 ** i, "periods": 5} for i in range(5)]}
+    def test_rent_shaped_quota(self):
+        # Invented rent ladder shaped like a slot-roguelite: amounts roughly double then grow by half, windows 5-7 spins.
+        # Income 4 x 1.12^n per spin. Payment 2 doubles the required rate (CLIFF) and lands just under (TIGHT).
+        pays = [(20, 5), (45, 5), (90, 6), (140, 6), (210, 7)]
+        t = {"income": {"base": 4, "factor": 1.12}, "payments": [{"amount": a, "periods": n} for a, n in pays]}
         r = ldw.quota(t)
-        exp0 = sum(10 * 1.15 ** k for k in range(5))
+        exp0 = sum(4 * 1.12 ** k for k in range(5))
         self.assertAlmostEqual(r["payments"][0]["expected"], exp0)
-        self.assertAlmostEqual(r["payments"][0]["slack"], exp0 / 30)
-        tight = [p["payment"] for p in r["payments"] if "TIGHT" in p["flags"]]
-        self.assertEqual(tight[0], 4)  # slack 2.25, 1.51, 1.01, then 0.68
-        self.assertIn("CLIFF", r["flags"])
+        self.assertAlmostEqual(r["payments"][0]["slack"], exp0 / 20)
+        self.assertEqual(r["payments"][0]["flags"], [])
+        self.assertEqual(r["payments"][1]["flags"], ["TIGHT", "CLIFF"])  # need 9/spin after 4, slack 0.995
+        self.assertEqual([p["flags"] for p in r["payments"][2:]], [[], [], []])
+        self.assertEqual(r["payments"][4]["due_at"], 29)
 
     def test_flat_income_is_tight_early(self):
         t = {"income": {"base": 10, "add": 0}, "payments": [{"amount": a, "periods": 5} for a in (40, 60, 90)]}
