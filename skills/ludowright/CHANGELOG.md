@@ -4,6 +4,11 @@ Every change to [SKILL.md](SKILL.md) and its companions, newest first, each with
 
 Entry shape: `### C-YYYYMMDD-n · date · one-line summary`, then `because:` (IDs or "user request"), `files:` (file and section), and a sentence on what changed. Cite section headings, not line numbers.
 
+### C-20261126-12 · 2026-11-26 · RPG book harvest 14: diverge then converge, three review roles, if-nothing timelines, profiling opponents, petition talks (0.1.68)
+- because: harvest: RPG book collection (Never Unprepared; Focal Point; Deep Carbon Observatory; Unframed; paraphrased, book rules unverified)
+- files: kb/production-and-scope.md (Principles 30-31, How to apply step 3 slack range, Where the books disagree), kb/narrative-design.md (Principle 12 extended, 14-18), kb/game-ai-for-designers.md (38-39), kb/worldbuilding-and-lore.md (18), kb/levels-and-space.md (12 extended)
+- Twelve principles in fresh wording; slack is now a 10 to 20 percent range. Decaying rewards and the tension loop extend existing principles rather than repeat them. Triggers unchanged, so evals were not re-run.
+
 ### C-20261126-11 · 2026-11-26 · RPG book harvest 13: damage-over-time check, enemy variants, tier mix, return trips, influence games, half-blank decks (0.1.67)
 - because: harvest: RPG book collection (New Twists on Familiar Monsters; Poisons; Manual of the Planes; Tome of Templates; Adventure Shorts; Trail of Tyranny; Draconomicon: Chromatic Dragons; Open Grave; paraphrased, book rules unverified)
 - files: scripts/ldw.py (new `dot` command), tests/test_ldw.py, kb/balance-tables.md (dot), kb/game-ai-for-designers.md (Principles 36-37), kb/levels-and-space.md (43-47), kb/systems-and-loops.md (50-52), kb/uncertainty.md (41)

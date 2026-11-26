@@ -33,12 +33,14 @@ Answers: is this plan buildable by the people and time available, and what shoul
 27. Live games on a content treadmill have four cheaper moves than new content: remix old content (mirrored tracks, an old boss as a late enemy), add a reason to replay (new game plus, prestige), resurface old content through challenges or rule variants, and deepen the rules. A plan that only adds new content is a treadmill risk. [Kramarzewski 2018, Managing content treadmill]
 28. Write new systems in the fastest language to change (an engine's script language) and port to native code only the parts a profiler shows are hot, and only once their design has stopped changing. Porting early freezes a design that is still moving. Unverified by a book. [harvest: a solo developer's underwater sandbox postmortem, 2026-11]
 29. Long campaigns stall against known walls (lost thread, power drift, a dead favourite, repetition). Keep the list and check it at each milestone. When play falls into a rut, change about a fifth of the active elements at once (a place, a rival, a goal) rather than one or all. [Campaign Creation Guide p. 9-11, 50-59]
+30. Diverge, then converge. Generate ideas first with no judging, then choose in a separate pass against criteria ranked in advance, two of them named deal breakers (players would not play it; the maker does not want to build or run it). File the rejects rather than deleting them; they feed later work. [Never Unprepared p. 26, 32-37]
+31. Review a design in three separate passes before a playtest: a proofreader (missing numbers, stats, rewards), a director (flow, continuity, motives) and an adversarial player (which ability, item or plan skips or breaks a section). Short of time, drop the proofreader first and the director last. [Never Unprepared p. 58-60, 109]
 
 ## How to apply
 
 1. Locate the experience goal in the one-pager. Ask what has been cut because of it. Write "none yet" if nothing; that is a finding.
 2. Ask for a task list with hours, owner, priority tier. If absent, build a rough one with the user using 1/2/4/8 estimates.
-3. Compute W (total hours of Must and Should tasks) against T (people times weekly hours times weeks). Keep roughly ten percent slack as a heuristic, not a law. Report the cut list needed to bring W under T, lowest tier first.
+3. Compute W (total hours of Must and Should tasks) against T (people times weekly hours times weeks). Keep slack of roughly 10 to 20 percent (the usual ten percent; Never Unprepared p. 82 adds 20 percent to each phase) as a heuristic, not a law. Report the cut list needed to bring W under T, lowest tier first.
 4. Run the shipped-tomorrow drill: if the build had to ship tomorrow, what is Must? Everything else is Could.
 5. Check the slice: is there one section at final quality that proves the loop? If polish is deferred to the end, flag it.
 6. Check the iteration loop: time from edit to playing the change. Over a couple of minutes, rank "shorten the loop" high among suggestions.
@@ -90,6 +92,6 @@ Schreier's chapters are journalism from interviews and selected for drama: treat
 - Locked scope after preproduction (Lemarchand) versus fast live change (Wyman ch. 12, social games). Ludowright locks scope for shipped products and allows live change only for live-service designs, and asks which the game is.
 - Polish-as-you-go concentric development assumes a team that can afford full-quality slices. For solo or AI-assisted work, ludowright accepts one polished corner plus a thin slice, which Lemarchand ch. 10 itself concedes.
 - "Make it only for you" (Hackett ch. 5) against market-aware positioning. Ludowright applies Hackett to hobby and small projects and asks about audience for anything commercial.
-- Figures such as "seven testers", "80 percent of mistakes come from preproduction" and the ten percent margin are practitioner rules of thumb. Ludowright quotes them as rules of thumb.
+- Figures such as "seven testers", "80 percent of mistakes come from preproduction" and the 10 to 20 percent margin are practitioner rules of thumb. Ludowright quotes them as rules of thumb.
 
 Related: [game-ai-for-designers.md](game-ai-for-designers.md), [ai-as-design-tool.md](ai-as-design-tool.md), [feel-handoff.md](feel-handoff.md). Playtest protocol, one-pager and beat-chart templates live in the game-design references of roblox-agent and unity-agent; point to them. Feel and juice time-boxing go to game-juice (juice-apply). Engine tooling and fast-iteration settings go to unity-agent, roblox-agent, madnesswright.
