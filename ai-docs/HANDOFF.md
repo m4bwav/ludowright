@@ -2,7 +2,8 @@
 
 Resume with `Execute ai-docs/plans/2026-10-29-ludowright-continue-prompt.md` (start the session in this folder).
 
-## Current state (2026-11-20)
+## Current state (2026-11-26)
+- 0.1.71: installed folder 377 KB (yellow) after moving eval cases to repo-root evals/cases and archiving changelog 0.1.67 and older; Actions pinned to SHAs. Archiving is exhausted: reaching 300 KB needs a decision to trim or split kb text (about 280 KB, no duplicate lines).
 - 0.1.46: book round (Microscope Explorer, Campos Godot 4 patterns): worldbuilding 10-14, adapting block, R-81, R-82, game-ai 30. Changelog is down to one entry; installed folder 310 KB (yellow). Next addition must cut kb text or move LEARNINGS or MAINTENANCE detail out, since the changelog and research logs are already archived.
 - 0.1.43: `ldw.py ramp` (difficulty ramp check) from a technique harvest. Installed folder at 300 KB, the green line: archive again (changelog, research, tests to ai-docs) before any addition.
 

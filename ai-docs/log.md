@@ -136,3 +136,4 @@ Installed skill folder sits at 300 KB after moving changelog 0.1.35-0.1.40, rese
 - 2026-11-26: RPG harvest 14 (0.1.68): twelve principles and a 10-20% slack range from Never Unprepared, Focal Point, Deep Carbon Observatory and Unframed.
 - 2026-11-26: RPG harvest 15 (0.1.69): three principles from A Guide to Curse of Strahd, A Scream in the Night and Of Crown and Kingdom.
 - 2026-11-26: RPG harvest 16 (0.1.70): five level-pacing principles from Cog in the Wheel, A Hole in the World, Crow's Rest and Dungeon Delves.
+## [2026-11-26] size | 0.1.71: installed folder 412 KB to 377 KB. Eval cases moved to repo-root evals/cases (plugin eval refuses skills/ eval dirs anyway), changelog 0.1.67 and older archived, workflow actions pinned to SHAs (checkout v7.0.1, setup-python v7.1.0). Remaining bulk is kb (~280 KB, no duplicate lines) and ldw.py (68 KB); 300 KB needs a kb trim decision, not more archiving.
